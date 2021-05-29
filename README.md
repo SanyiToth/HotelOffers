@@ -1,2 +1,0 @@
-# HotelOffers1
-
