@@ -21,7 +21,7 @@ build:
     stage: build
     script:
         - echo "Building $CI_ENVIRONMENT_NAME"
-        - npm run build
+        - ng build --progress --configuration production
     artifacts:
         paths:
             - dist/
