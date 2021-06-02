@@ -9,13 +9,13 @@ footer {
 }
 h1 {
   margin: 0;
+  font-size: 20px;
+  font-weight: 500;
 }
 .logo-box  {
   display: flex;
   align-items: center;
   padding-right: 20px;
-  white-space: nowrap;
-  letter-spacing: normal;
   margin: 0;
 }
 .logo-section {
@@ -34,7 +34,6 @@ h1 {
   flex-wrap: wrap;
   padding-top: 40px;
 }
-
 .menu {
   display: flex;
   flex-direction: column;
@@ -48,12 +47,12 @@ h1 {
   cursor: pointer;
   transition: background-color 0.3s;
 }
-
 .menu-item:hover {
   background-color: royalblue;
 }
-
-.registration {
-  text-decoration: underline;
+.registration  {
+  display: flex;
+  justify-content: center;
 }
+
 
