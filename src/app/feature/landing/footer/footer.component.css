@@ -42,16 +42,17 @@ h1 {
 .info {
   padding-right: 100px;
 }
-
 .menu-item {
   padding: 20px;
   font-weight: lighter;
   cursor: pointer;
-  transition: 0.3s;
+  transition: background-color 0.3s;
 }
+
 .menu-item:hover {
   background-color: royalblue;
 }
+
 .registration {
   text-decoration: underline;
 }
