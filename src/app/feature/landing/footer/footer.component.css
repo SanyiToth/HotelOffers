@@ -1,8 +1,8 @@
 
 footer {
   display: flex;
-  justify-content: space-between;
   align-items: flex-start;
+  justify-content: space-between;
   background-color: #3f51b5;
   color: #ffff;
   padding: 0 16px;
@@ -29,20 +29,18 @@ h1 {
 }
 .navigation{
   display: flex;
+  justify-content: space-between;
   flex-direction: row;
   flex-wrap: wrap;
   padding-top: 40px;
-  justify-content: space-between;
-  position: relative;
-  right: 50px;
 }
-.provider {
+
+.menu {
   display: flex;
   flex-direction: column;
 }
 .info {
-  display: flex;
-  flex-direction: column;
+  padding-right: 100px;
 }
 
 .menu-item {
@@ -56,5 +54,5 @@ h1 {
 }
 .registration {
   text-decoration: underline;
-  font-size: smaller;
 }
+
