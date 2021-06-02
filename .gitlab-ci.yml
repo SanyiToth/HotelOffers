@@ -13,7 +13,7 @@ build:
         - node --version
         - npm install --silent
         - echo "Building $CI_ENVIRONMENT_NAME"
-        - ng build --progress --configuration production
+        - npm run build-ci
     artifacts:
         paths:
             - dist/
