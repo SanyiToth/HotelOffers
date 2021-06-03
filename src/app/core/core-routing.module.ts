@@ -5,7 +5,8 @@ import {NotFoundComponent} from "./not-found/not-found.component";
 import {LandingContainerComponent} from "../feature/landing/landing-container/landing-container.component";
 
 const routes: Routes = [
-  { path: '', component: LandingContainerComponent },
+  {path: '', component: LandingContainerComponent},
+  {path: 'results', loadChildren: () => import('../feature/results/results.module').then(m => m.ResultsModule)},
   {path: '404', component: NotFoundComponent},
   {path: '**', redirectTo: '404'}
 ];
