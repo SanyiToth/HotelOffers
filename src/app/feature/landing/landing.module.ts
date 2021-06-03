@@ -1,5 +1,7 @@
-import {NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { OurNumbersComponent } from './our-numbers/our-numbers.component';
+import {MatCardModule} from "@angular/material/card";
 import {TopOffersComponent} from './top-offers/top-offers.component';
 import {CarouselModule} from "primeng/carousel";
 import {LandingContainerComponent} from "./landing-container/landing-container.component";
@@ -8,15 +10,16 @@ import {LandingContainerComponent} from "./landing-container/landing-container.c
 @NgModule({
   declarations: [
     LandingContainerComponent,
-    TopOffersComponent
+    TopOffersComponent,
+    OurNumbersComponent
   ],
   imports: [
     CommonModule,
-    CarouselModule
+    CarouselModule,
+    MatCardModule
   ],
   exports: [
     TopOffersComponent
   ]
 })
-export class LandingModule {
-}
+export class LandingModule { }
