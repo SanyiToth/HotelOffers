@@ -1,0 +1,22 @@
+<p-carousel [value]="offers" styleClass="custom-carousel" [numVisible]="4" [numScroll]="1" [circular]="true"
+            [autoplayInterval]="2000" [responsiveOptions]="responsiveOptions">
+  <ng-template pTemplate="header">
+    <div class="offer-header">
+      <h4>Legfelkapottabb ajánlataink</h4>
+      <div class="offer-header--link-all-offers">
+        <p>Összes top ajánlat</p>
+        <i class="pi pi-arrow-right"></i>
+      </div>
+    </div>
+  </ng-template>
+  <ng-template let-offer pTemplate="item">
+    <div class="offer-item-content" [ngStyle]="{'background-image': 'url(' + offer.image + ')'}">
+      <div class="offer-item-content--text">
+        <h4>{{offer.name}}</h4>
+        <p>{{offer.details}}</p>
+        <h4>{{offer.price}}Ft
+          <i class="pi pi-arrow-right"></i></h4>
+      </div>
+    </div>
+  </ng-template>
+</p-carousel>
