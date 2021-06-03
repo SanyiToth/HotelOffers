@@ -3,15 +3,19 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
+import {LandingModule} from "./feature/landing/landing.module";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
     AppComponent
   ],
-  imports: [
-    BrowserModule,
-    CoreModule
-  ],
+    imports: [
+        BrowserModule,
+        CoreModule,
+        LandingModule,
+        BrowserAnimationsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

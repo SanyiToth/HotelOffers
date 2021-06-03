@@ -1,0 +1,30 @@
+.ourNumbers-container {
+  border: 2px solid lightgray;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.ourNumbers {
+  width: 400px;
+}
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 30px;
+}
+.numberOfHotels {
+  color: dodgerblue;
+}
+.numberOfOffers {
+  color: limegreen;
+}
+.numberOfOrders {
+  color: purple;
+}
+mat-card {
+  width: 210px;
+  border: 1px solid lightgray;
+}
+
