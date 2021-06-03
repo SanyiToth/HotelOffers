@@ -1,0 +1,25 @@
+<div class="ourNumbers-container">
+  <div class="ourNumbers">
+    <h2 class="ourNumbers-title">Our numbers</h2>
+    <p class="ourNumbers-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus distinctio eos iusto magnam.</p>
+  </div>
+
+  <div class="stats" *ngFor="let stat of stats">
+    <mat-card class="hotels">
+      <h1 class="numberOfHotels">{{ stat.Hotels }}</h1>
+      <h3 class="numberOfHotels-title">Hotels</h3>
+      <p class="numberOfHotels-body">Widest variaty of provides, and list is growing!</p>
+    </mat-card>
+    <mat-card class="offers">
+      <h1 class="numberOfOffers">{{ stat.Offers }}</h1>
+      <h3>Offers</h3>
+      <p>Widest variaty of provides, and list is growing!</p>
+    </mat-card>
+    <mat-card class="orders">
+      <h1 class="numberOfOrders">{{ stat.Orders }}</h1>
+      <h3>Orders</h3>
+      <p>Widest variaty of provides, and list is growing!</p>
+    </mat-card>
+  </div>
+</div>
+
