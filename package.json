@@ -8,7 +8,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "build-ci": "ng build --progress --configuration production --aot"
+    "build-ci": "ng build --progress --configuration production --aot",
+    "start-mock-db": "json-server ./mocks/ourNumbers.json --watch"
   },
   "private": true,
   "dependencies": {
