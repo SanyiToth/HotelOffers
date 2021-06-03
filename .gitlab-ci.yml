@@ -1,0 +1,20 @@
+image: node:14-alpine
+
+stages:
+    - build
+
+cache:
+    paths:
+        - node_modules/
+
+build:
+    stage: build
+    script:
+        - node --version
+        - npm install --silent
+        - echo "Building $CI_ENVIRONMENT_NAME"
+        - npm run build-ci
+    artifacts:
+        paths:
+            - dist/
+            - node_modules/

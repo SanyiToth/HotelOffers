@@ -1,16 +1,24 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import {HttpClientModule} from "@angular/common/http";
-import {OurNumbersService} from "./services/our-numbers.service";
-
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {CoreRoutingModule} from "./core-routing.module";
+import { CoreComponent } from './core/core.component';
+import {LandingModule} from "../feature/landing/landing.module";
+import {SharedModule} from "../shared/shared.module";
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    CoreComponent
+  ],
   imports: [
     CommonModule,
-    HttpClientModule
+    CoreRoutingModule,
+    SharedModule,
+    LandingModule
   ],
-  providers: [OurNumbersService]
+  exports: [
+    CoreComponent
+  ]
 })
-export class CoreModule { }
+export class CoreModule {
+}
