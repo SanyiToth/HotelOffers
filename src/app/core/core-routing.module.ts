@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {RouterModule, Routes} from "@angular/router";
-import {NotFoundComponent} from "./core/not-found/not-found.component";
+import {NotFoundComponent} from "./not-found/not-found.component";
 
 const routes: Routes = [
   {path: '404', component: NotFoundComponent},
@@ -14,8 +14,9 @@ const routes: Routes = [
     CommonModule,
     RouterModule.forRoot(routes)
   ],
-  exports: [RouterModule]
-
+  exports: [
+    RouterModule
+  ]
 })
-export class AppRoutingModule {
+export class CoreRoutingModule {
 }
