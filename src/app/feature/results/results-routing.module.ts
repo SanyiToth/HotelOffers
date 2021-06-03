@@ -1,10 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ResultsContainerComponent } from './results-container/results-container.component';
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    ResultsContainerComponent
+  ],
   imports: [
     CommonModule
   ]
