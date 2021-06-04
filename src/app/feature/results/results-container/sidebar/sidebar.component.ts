@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {Component, OnInit} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-sidebar',
@@ -8,21 +8,25 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class SidebarComponent implements OnInit {
 
+  citySelector: FormGroup = this.fb.group({
+    cityName: ['', [Validators.required]],
+    guestNumber: ['', Validators.required]
+  })
   isSubmitted = false;
+  Cities: string[] = ['Aclieburgh', 'Diasnard', 'Sheim', 'Oitshire', 'Crokby', 'Elesgan', 'Wirburgh'];
+
 
   // City Names
-  Cities: string[] = ['Aclieburgh', 'Diasnard','Sheim','Oitshire','Crokby','Elesgan','Wirburgh'];
 
 
-  constructor(public fb: FormBuilder) { }
+  constructor(public fb: FormBuilder) {
+
+
+  }
 
 
   /// Form
-  citySelector: FormGroup = this.fb.group({
-    cityName: ['',[Validators.required]],
-    guestNumber: ['',Validators.required]
 
-  })
   // Choose city
   changeCity(event: any) {
     console.log(event.value)
@@ -36,7 +40,7 @@ export class SidebarComponent implements OnInit {
     return this.citySelector.get('cityName')
   }
 
-  onSubmit(){
+  onSubmit() {
     this.isSubmitted = true;
     console.log(this.citySelector.value)
   }

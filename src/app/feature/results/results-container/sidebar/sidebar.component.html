@@ -1,5 +1,4 @@
-
-<<mat-form-field> [formGroup]="citySelector" (ngSubmit)="onSubmit()">
+<mat-form-field [formGroup]="citySelector" (ngSubmit)="onSubmit()">
 
   <!-- choose city -->
   <select  formControlName="cityName">
@@ -21,3 +20,4 @@
   <button type="submit">Show results</button>
 
 </mat-form-field>
+
