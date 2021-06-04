@@ -1,23 +1,23 @@
 <mat-form-field [formGroup]="citySelector" (ngSubmit)="onSubmit()">
 
   <!-- choose city -->
-  <select  formControlName="cityName">
-    <option value="" disabled>Choose your city</option>
-    <option *ngFor="let city of Cities" [ngValue]="city" (change)="changeCity($event)">{{city}}
-    </option>
-  </select>
+  <mat-select  formControlName="cityName">
+    <mat-option value="" disabled>Choose your city</mat-option>
+    <mat-option *ngFor="let city of Cities" [ngValue]="city" (change)="changeCity($event)">{{city}}
+    </mat-option>
+  </mat-select>
 
   <!-- choose guest -->
 
-  <select formControlName="guestNumber">
-    <option value="" disabled>Choose guest number</option>
+  <mat-select formControlName="guestNumber">
+    <mat-option value="" disabled>Choose guest number</mat-option>
 
-  </select>
+  </mat-select>
 
   <!-- error handling -->
 
 
-  <button type="submit">Show results</button>
+  <mat-button type="submit">Show results</mat-button>
 
 </mat-form-field>
 
