@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-heading-form',
   templateUrl: './heading-form.component.html',
-  styleUrls: ['./heading-form.component.css']
+  styleUrls: ['./heading-form.component.scss']
 })
 export class HeadingFormComponent implements OnInit {  
   selected = ""
