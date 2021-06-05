@@ -2,13 +2,13 @@
 <p>sidebar</p>
 
 
-  <form [formGroup]="citySelector" (ngSubmit)="onSubmit()">
+  <form [formGroup]="citySelector" (submit)="onSubmit()">
     <label for="cityName">Chose your destination!</label>
     <select name="cityName" id="cityName"
             formControlName="cityName"
             (change)="selectCity($event)">
       <option value="" disabled>Cities</option>
-      <option *ngFor="let city of Cities" [ngvalue]="city">{{city}}</option>
+      <option *ngFor="let city of Cities" [value]="city">{{city}}</option>
     </select>
 
     <label for="guestNumber">Chose guest number</label>
