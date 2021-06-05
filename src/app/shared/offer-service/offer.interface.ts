@@ -1,8 +1,10 @@
 export interface Offer {
   id?: number;
-  name?: string;
+  heading?: string;
   details?: string;
+  hotelName?: string;
+  hotelStars?: string;
+  rating?: string;
   price?: number;
-  inventoryStatus?: string;
   image?: string;
 }
