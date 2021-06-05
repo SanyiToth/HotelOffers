@@ -5,3 +5,11 @@ html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 ul { list-style-type: none; }
 h1 { margin: 0 }
+.d-flex {
+    display: flex;
+}
+.w-100 { width: 100%; }
+.link { 
+    align-self: center;
+    text-decoration: none;
+ }
