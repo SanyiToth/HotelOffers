@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Offer} from "../../../shared/offers-service/offer.interface";
+import {Offer} from "../../../shared/services/offers/offer.interface";
 
 @Component({
   selector: 'app-top-offers',

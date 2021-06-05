@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {OurNumbersService} from "../../../core/services/our-numbers.service";
-import { Stats } from "../../../core/interfaces/ourNumbers.interface";
+import {OurNumbersService} from "../../../shared/services/our-numbers/our-numbers.service";
+import { Stats } from "../../../shared/services/our-numbers/ourNumbers.interface";
 
 @Component({
   selector: 'app-our-numbers',

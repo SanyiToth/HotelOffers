@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {OffersService} from "../../../shared/offers-service/offers.service";
-import {Offer} from "../../../shared/offers-service/offer.interface";
+import {OffersService} from "../../../shared/services/offers/offers.service";
+import {Offer} from "../../../shared/services/offers/offer.interface";
 import {ErrorMessage} from "@angular/compiler-cli/ngcc/src/execution/cluster/api";
 
 @Component({
