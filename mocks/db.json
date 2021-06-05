@@ -6,6 +6,7 @@
       "Orders": 8002
     }
   ],
+  "hotels": [],
   "offers": [
     {
       "id": 1,
@@ -41,6 +42,42 @@
       "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
       "price": 39500,
       "image": "https://picsum.photos/id/98/1000/500"
+    },
+    {
+      "id": 6,
+      "heading": "Offer heading 6",
+      "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "price": 39500,
+      "image": "https://picsum.photos/id/25/1000/500"
+    },
+    {
+      "id": 7,
+      "heading": "Offer heading 7",
+      "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "price": 39500,
+      "image": "https://picsum.photos/id/36/1000/500"
+    },
+    {
+      "id": 8,
+      "heading": "Offer heading 8",
+      "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "price": 39500,
+      "image": "https://picsum.photos/id/85/1000/500"
+    },
+    {
+      "id": 9,
+      "heading": "Offer heading 9",
+      "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "price": 39500,
+      "image": "https://picsum.photos/id/33/1000/500"
+    },
+    {
+      "id": 10,
+      "heading": "Offer heading 10",
+      "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "price": 39500,
+      "image": "https://picsum.photos/id/98/1000/500"
     }
-  ]
+  ],
+  "orders": []
 }
