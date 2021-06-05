@@ -7,7 +7,7 @@ import {environment} from "../../../environments/environment";
 @Injectable({
   providedIn: 'root'
 })
-export class OfferServiceService {
+export class OffersService {
 
   PATH = "/offers"
 
@@ -16,6 +16,10 @@ export class OfferServiceService {
 
   getOffers(limit: number = 5): Observable<Offer[]> {
     return this.http.get<Offer[]>(environment.API + this.PATH + '?_limit=' + limit);
+  }
+
+  getOffer(id: number): Observable<Offer> {
+    return this.http.get<Offer>(environment.API + this.PATH + '/' + id)
   }
 
 }

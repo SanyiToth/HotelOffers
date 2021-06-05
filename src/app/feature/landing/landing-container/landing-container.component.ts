@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {OfferServiceService} from "../../../shared/offer-service/offer-service.service";
-import {Offer} from "../../../shared/offer-service/offer.interface";
+import {OffersService} from "../../../shared/offers-service/offers.service";
+import {Offer} from "../../../shared/offers-service/offer.interface";
 import {ErrorMessage} from "@angular/compiler-cli/ngcc/src/execution/cluster/api";
 
 @Component({
@@ -13,18 +13,18 @@ export class LandingContainerComponent implements OnInit {
   offers: Offer[] = [];
   errorMsg: ErrorMessage | undefined;
 
-  constructor(private offerService: OfferServiceService) {
+  constructor(private offersService: OffersService) {
   }
 
 
   ngOnInit(): void {
-    this.offerService.getOffers()
+    this.offersService.getOffers()
       .subscribe(offers => {
-        console.log('offers', offers)
         this.offers = offers;
       }, error => {
         this.errorMsg = error
       })
+
   }
 
 }
