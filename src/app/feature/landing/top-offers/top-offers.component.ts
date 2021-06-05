@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Offer} from "../../../shared/offer-service/offer.interface";
 
 @Component({
@@ -8,7 +8,7 @@ import {Offer} from "../../../shared/offer-service/offer.interface";
 })
 export class TopOffersComponent implements OnInit {
 
-  offers: Offer[];
+  @Input() offers: Offer[] = [];
   responsiveOptions: any[];
 
   constructor() {
@@ -30,43 +30,43 @@ export class TopOffersComponent implements OnInit {
       }
     ]
 
-    this.offers = [
-      {
-        id: 1,
-        heading: 'Offer heading 1',
-        details:'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-        price: 39500,
-        image: 'https://picsum.photos/id/25/1000/500'
-      },
-      {
-        id: 2,
-        heading: 'Offer heading 2',
-        details:'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-        price: 39500,
-        image: 'https://picsum.photos/id/36/1000/500'
-      },
-      {
-        id: 3,
-        heading: 'Offer heading 3',
-        details:'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-        price: 39500,
-        image: 'https://picsum.photos/id/85/1000/500'
-      },
-      {
-        id: 4,
-        heading: 'Offer heading 4',
-        details:'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-        price: 39500,
-        image: 'https://picsum.photos/id/33/1000/500'
-      },
-      {
-        id: 5,
-        heading: 'Offer heading 5',
-        details:'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-        price: 39500,
-        image: 'https://picsum.photos/id/98/1000/500'
-      }
-    ]
+    /*  this.offers = [
+        {
+          id: 1,
+          heading: 'Offer heading 1',
+          details:'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+          price: 39500,
+          image: 'https://picsum.photos/id/25/1000/500'
+        },
+        {
+          id: 2,
+          heading: 'Offer heading 2',
+          details:'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+          price: 39500,
+          image: 'https://picsum.photos/id/36/1000/500'
+        },
+        {
+          id: 3,
+          heading: 'Offer heading 3',
+          details:'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+          price: 39500,
+          image: 'https://picsum.photos/id/85/1000/500'
+        },
+        {
+          id: 4,
+          heading: 'Offer heading 4',
+          details:'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+          price: 39500,
+          image: 'https://picsum.photos/id/33/1000/500'
+        },
+        {
+          id: 5,
+          heading: 'Offer heading 5',
+          details:'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+          price: 39500,
+          image: 'https://picsum.photos/id/98/1000/500'
+        }
+      ]*/
   }
 
   ngOnInit(): void {
