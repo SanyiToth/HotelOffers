@@ -6,7 +6,10 @@
       "Orders": 8002
     }
   ],
-  "hotels": [],
+  "hotels": [
+
+
+  ],
   "offers": [
     {
       "id": 1,
@@ -79,5 +82,9 @@
       "image": "https://picsum.photos/id/98/1000/500"
     }
   ],
-  "orders": []
+  "orders": [
+
+
+
+  ]
 }
