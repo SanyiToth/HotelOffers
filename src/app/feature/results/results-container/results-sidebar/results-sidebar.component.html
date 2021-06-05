@@ -1,0 +1,52 @@
+<!--
+  <form [formGroup]="citySelector" (submit)="onSubmit()">
+    <label for="cityName">Chose your destination!</label>
+    <select name="cityName" id="cityName"
+            formControlName="cityName"
+            (change)="selectCity($event)">
+      <option value="" disabled>Cities</option>
+      <option *ngFor="let city of Cities" [value]="city">{{city}}</option>
+    </select>
+
+    <label for="guestNumber">Chose guest number</label>
+    <select name="guestNumber" id="guestNumber"
+            formControlName="guestNumber">
+      <option value="" disabled>Guests</option>
+      <option value="2" >1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+    </select>
+
+    <button type="submit">Show results</button>
+
+  </form> -->
+<form [formGroup]="citySelector" (submit)="onSubmit()">
+<mat-form-field appearance="outline" >
+  <mat-label>Chose your destination!</mat-label>
+  <mat-select name="cityName" id="cityName"
+              formControlName="cityName"
+              (change)="selectCity($event)">
+    <mat-option disabled>Cities</mat-option>
+    <mat-option *ngFor="let city of Cities" [value]="city">{{city}}</mat-option>
+  </mat-select>
+</mat-form-field>
+
+<mat-form-field appearance="outline">
+  <mat-label>Chose guest number</mat-label>
+  <mat-select name="guestNumber" id="guestNumber"
+              formControlName="guestNumber">
+    <mat-option value="1">1</mat-option>
+    <mat-option value="2">2</mat-option>
+    <mat-option value="3">3</mat-option>
+    <mat-option value="4">4</mat-option>
+  </mat-select>
+</mat-form-field>
+
+  <button mat-stroked-button color="primary">Show results</button>
+
+</form>
+
+
+
+

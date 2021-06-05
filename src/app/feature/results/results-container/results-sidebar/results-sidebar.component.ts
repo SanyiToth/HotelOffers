@@ -3,10 +3,10 @@ import {FormBuilder, FormGroup, FormControl, Validators, AbstractControl} from '
 
 @Component({
   selector: 'app-sidebar',
-  templateUrl: './sidebar.component.html',
-  styleUrls: ['./sidebar.component.scss']
+  templateUrl: './results-sidebar.component.html',
+  styleUrls: ['./results-sidebar.component.scss']
 })
-export class SidebarComponent  {
+export class ResultsSidebarComponent  {
 
   isSubmitted = false;
   Cities: string[] = ['Aclieburgh', 'Diasnard', 'Sheim', 'Oitshire', 'Crokby', 'Elesgan', 'Wirburgh'];
