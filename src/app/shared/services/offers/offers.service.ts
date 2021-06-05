@@ -9,17 +9,17 @@ import {environment} from "../../../../environments/environment";
 })
 export class OffersService {
 
-  PATH = "/offers"
+  private static PATH = "/offers"
 
   constructor(private http: HttpClient) {
   }
 
   getOffers(limit: number = 5): Observable<Offer[]> {
-    return this.http.get<Offer[]>(environment.API + this.PATH + '?_limit=' + limit);
+    return this.http.get<Offer[]>(environment.API + OffersService.PATH + '?_limit=' + limit);
   }
 
   getOffer(id: number): Observable<Offer> {
-    return this.http.get<Offer>(environment.API + this.PATH + '/' + id)
+    return this.http.get<Offer>(environment.API + OffersService.PATH + '/' + id)
   }
 
 }
