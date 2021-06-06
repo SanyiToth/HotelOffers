@@ -1,10 +1,15 @@
 export interface Offer {
+  hotelId: number;
   id: number;
+  status?: string;
   heading: string;
   details: string;
-  hotelName?: string;
-  hotelStars?: string;
-  ratings?: string;
+  startDate?: Date;
+  endDate?: Date;
+  availableOffers?: number;
   price: number;
+  description?: string;
+  tags?: string;
+  payment?: string;
   image: string;
 }
