@@ -6,15 +6,85 @@
       "Orders": 8002
     }
   ],
-  "hotels": [{
-    "hotelId": 1,
-    "id": 1,
-    "name": "Hotel 1",
-    "address": "1234, ,Lorem ipsum street 45 ",;
-    classification: string;
-    email: string;
-    phone: string;
-    password: string;}
+  "hotels": [
+    {
+      "id": 1,
+      "name": "Hotel 1",
+      "address": {
+        "city": "Lorem",
+        "street": "ipsum street 5",
+        "postCode": "1234"
+      },
+      "classification": "****",
+      "email": "hotel1@gmail.com",
+      "phone": "+36-30-123-4567",
+      "password": "hotel1"
+    },
+    {
+      "id": 2,
+      "name": "Hotel 2",
+      "address": {
+        "city": "Lorem",
+        "street": "ipsum street 5",
+        "postCode": "1234"
+      },
+      "classification": "****",
+      "email": "hotel2@gmail.com",
+      "phone": "+36-30-123-4567",
+      "password": "hotel2"
+    },
+    {
+      "id": 3,
+      "name": "Hotel 3",
+      "address": {
+        "city": "Lorem",
+        "street": "ipsum street 5",
+        "postCode": "1234"
+      },
+      "classification": "****",
+      "email": "hotel3@gmail.com",
+      "phone": "+36-30-123-4567",
+      "password": "hotel3"
+    },
+    {
+      "id": 4,
+      "name": "Hotel 4",
+      "address": {
+        "city": "Lorem",
+        "street": "ipsum street 5",
+        "postCode": "1234"
+      },
+      "classification": "****",
+      "email": "hotel4@gmail.com",
+      "phone": "+36-30-123-4567",
+      "password": "hotel4"
+    },
+    {
+      "id": 5,
+      "name": "Hotel 5",
+      "address": {
+        "city": "Lorem",
+        "street": "ipsum street 5",
+        "postCode": "1234"
+      },
+      "classification": "****",
+      "email": "hotel5@gmail.com",
+      "phone": "+36-30-123-4567",
+      "password": "hotel5"
+    },
+    {
+      "id": 6,
+      "name": "Hotel 6",
+      "address": {
+        "city": "Lorem",
+        "street": "ipsum street 5",
+        "postCode": "1234"
+      },
+      "classification": "****",
+      "email": "hotel6@gmail.com",
+      "phone": "+36-30-123-4567",
+      "password": "hotel6"
+    }
   ],
   "offers": [
     {
