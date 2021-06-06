@@ -13,11 +13,11 @@ export class OrdersService {
   constructor(private http: HttpClient) {
   }
 
-  getOffers(limit: number = 5): Observable<any[]> {
+  getOrders(limit: number = 5): Observable<any[]> {
     return this.http.get<any[]>(OrdersService.API_URL + OrdersService.PATH);
   }
 
-  getOffer(id: number): Observable<any> {
+  getOrder(id: number): Observable<any> {
     return this.http.get<any>(OrdersService.API_URL + OrdersService.PATH + '/' + id)
   }
 }
