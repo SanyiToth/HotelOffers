@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {OffersService} from "../../../shared/services/offers/offers.service";
 import {Offer} from "../../../shared/services/offers/offer.interface";
 import {ErrorMessage} from "@angular/compiler-cli/ngcc/src/execution/cluster/api";
+import {HotelsService} from "../../../shared/services/hotels/hotels.service";
 
 @Component({
   selector: 'app-landing-container',
@@ -14,6 +15,7 @@ export class LandingContainerComponent implements OnInit {
   errorMsg: ErrorMessage | undefined;
 
   constructor(private offersService: OffersService) {
+
   }
 
 
@@ -24,7 +26,6 @@ export class LandingContainerComponent implements OnInit {
       }, error => {
         this.errorMsg = error
       })
-
   }
 
 }
