@@ -6,7 +6,15 @@
       "Orders": 8002
     }
   ],
-  "hotels": [
+  "hotels": [{
+    "hotelId": 1,
+    "id": 1,
+    "name": "Hotel 1",
+    "address": "1234, ,Lorem ipsum street 45 ",;
+    classification: string;
+    email: string;
+    phone: string;
+    password: string;}
   ],
   "offers": [
     {
