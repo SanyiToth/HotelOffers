@@ -5,6 +5,7 @@ import {ErrorMessage} from "@angular/compiler-cli/ngcc/src/execution/cluster/api
 import {HotelsService} from "../../../shared/services/hotels/hotels.service";
 import {Hotel} from "../../../shared/services/hotels/hotel.interface";
 import {OrdersService} from "../../../shared/services/orders/orders.service";
+import {Stats} from "../../../shared/services/our-numbers/ourNumbers.interface";
 
 @Component({
   selector: 'app-landing-container',
@@ -17,6 +18,11 @@ export class LandingContainerComponent implements OnInit {
   offers: Offer[] = [];
   orders: any[] = [];
 
+  ourNumbers: Stats = {
+    Hotels: 0,
+    Orders: 0,
+    Offers: 0
+  };
 
   errorMsg: ErrorMessage | undefined;
 
@@ -50,6 +56,11 @@ export class LandingContainerComponent implements OnInit {
       }, error => {
         this.errorMsg = error
       })
+    this.ourNumbers = {
+      Hotels: this.hotels.length,
+      Orders: this.orders.length,
+      Offers: this.offers.length
+    }
 
   }
 
