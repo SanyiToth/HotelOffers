@@ -10,6 +10,7 @@ import {MatCardModule} from "@angular/material/card";
 import {TopOffersComponent} from './top-offers/top-offers.component';
 import {CarouselModule} from "primeng/carousel";
 import {LandingContainerComponent} from "./landing-container/landing-container.component";
+import {MatIconModule} from "@angular/material/icon";
 
 @NgModule({
   declarations: [
@@ -18,15 +19,16 @@ import {LandingContainerComponent} from "./landing-container/landing-container.c
     TopOffersComponent,
     OurNumbersComponent
   ],
-  imports: [
-    CommonModule,
-    HttpClientModule,
-    MatSelectModule,
-    MatInputModule,
-    MatButtonModule,
-    CarouselModule,
-    MatCardModule
-  ],
+    imports: [
+        CommonModule,
+        HttpClientModule,
+        MatSelectModule,
+        MatInputModule,
+        MatButtonModule,
+        CarouselModule,
+        MatCardModule,
+        MatIconModule
+    ],
 
   exports: [
     HeadingFormComponent,
