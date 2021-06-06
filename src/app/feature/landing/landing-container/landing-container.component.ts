@@ -18,11 +18,7 @@ export class LandingContainerComponent implements OnInit {
   offers: Offer[] = [];
   orders: any[] = [];
 
-  ourNumbers: Stats = {
-    Hotels: 0,
-    Orders: 0,
-    Offers: 0
-  };
+  ourNumbers: Stats | undefined;
 
   errorMsg: ErrorMessage | undefined;
 
@@ -37,31 +33,28 @@ export class LandingContainerComponent implements OnInit {
   ngOnInit(): void {
     this.offersService.getOffers()
       .subscribe(offers => {
-        console.log("offers", offers)
+
         this.offers = offers;
       }, error => {
         this.errorMsg = error
       })
     this.ordersService.getOrders()
       .subscribe(orders => {
-        console.log("orders", orders)
         this.orders = orders;
       }, error => {
         this.errorMsg = error
       })
     this.hotelsService.getHotels()
       .subscribe(hotels => {
-        console.log("hotels", hotels)
-        this.orders = hotels;
+        this.hotels = hotels;
+        this.ourNumbers = {
+          Hotels: this.hotels.length,
+          Orders: this.orders.length,
+          Offers: this.offers.length
+        }
       }, error => {
         this.errorMsg = error
       })
-    this.ourNumbers = {
-      Hotels: this.hotels.length,
-      Orders: this.orders.length,
-      Offers: this.offers.length
-    }
-
   }
 
 

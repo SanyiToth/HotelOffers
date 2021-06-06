@@ -9,9 +9,9 @@ import {Stats} from "../../../shared/services/our-numbers/ourNumbers.interface";
 })
 export class OurNumbersComponent implements OnInit {
 
-  @Input() stats: Stats[] = [];
+  @Input() stats: Stats | undefined;
 
-  constructor(private stat: OurNumbersService) {
+  constructor() {
   }
 
   ngOnInit(): void {
