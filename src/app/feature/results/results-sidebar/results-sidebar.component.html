@@ -1,0 +1,28 @@
+<div class="results-sidebar">
+  <form [formGroup]="citySelector"
+        (submit)="onSubmit()"
+        class="form-field">
+  <mat-form-field appearance="outline" >
+    <mat-label>Chose your destination!</mat-label>
+    <mat-select name="cityName" id="cityName"
+                formControlName="cityName"
+                (change)="selectCity($event)">
+      <mat-option disabled>Cities</mat-option>
+      <mat-option *ngFor="let city of Cities" [value]="city">{{city}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Chose guest number</mat-label>
+    <input matInput type="number" min="1" max="5"
+               name="guestNumber" id="guestNumber"
+               formControlName="guestNumber">
+  </mat-form-field>
+
+    <button mat-stroked-button color="primary">Show results</button>
+
+  </form>
+
+</div>
+
+
