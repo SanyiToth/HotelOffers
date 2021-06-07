@@ -17,8 +17,7 @@
       },
       "classification": "****",
       "email": "hotel1@gmail.com",
-      "phone": "+36-30-123-4567",
-      "password": "hotel1"
+      "phone": "+36-30-123-4567"
     },
     {
       "id": 2,
@@ -30,8 +29,7 @@
       },
       "classification": "****",
       "email": "hotel2@gmail.com",
-      "phone": "+36-30-123-4567",
-      "password": "hotel2"
+      "phone": "+36-30-123-4567"
     },
     {
       "id": 3,
@@ -43,8 +41,7 @@
       },
       "classification": "****",
       "email": "hotel3@gmail.com",
-      "phone": "+36-30-123-4567",
-      "password": "hotel3"
+      "phone": "+36-30-123-4567"
     },
     {
       "id": 4,
@@ -56,8 +53,7 @@
       },
       "classification": "****",
       "email": "hotel4@gmail.com",
-      "phone": "+36-30-123-4567",
-      "password": "hotel4"
+      "phone": "+36-30-123-4567"
     },
     {
       "id": 5,
@@ -69,8 +65,7 @@
       },
       "classification": "****",
       "email": "hotel5@gmail.com",
-      "phone": "+36-30-123-4567",
-      "password": "hotel5"
+      "phone": "+36-30-123-4567"
     },
     {
       "id": 6,
@@ -82,8 +77,7 @@
       },
       "classification": "****",
       "email": "hotel6@gmail.com",
-      "phone": "+36-30-123-4567",
-      "password": "hotel6"
+      "phone": "+36-30-123-4567"
     }
   ],
   "offers": [
@@ -169,5 +163,6 @@
     }
   ],
   "orders": [
+
   ]
 }

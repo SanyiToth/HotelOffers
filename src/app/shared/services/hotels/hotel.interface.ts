@@ -11,5 +11,4 @@ export interface Hotel {
   classification: string;
   email: string;
   phone: string;
-  password: string;
 }
