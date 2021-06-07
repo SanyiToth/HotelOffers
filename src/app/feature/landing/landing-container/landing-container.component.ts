@@ -5,7 +5,7 @@ import {ErrorMessage} from "@angular/compiler-cli/ngcc/src/execution/cluster/api
 import {HotelsService} from "../../../shared/services/hotels/hotels.service";
 import {Hotel} from "../../../shared/services/hotels/hotel.interface";
 import {OrdersService} from "../../../shared/services/orders/orders.service";
-import {Stats} from "../../../shared/services/our-numbers/ourNumbers.interface";
+import {Stats} from "../our-numbers/ourNumbers.interface";
 
 @Component({
   selector: 'app-landing-container',
