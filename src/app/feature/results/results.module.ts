@@ -6,7 +6,7 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {MatSelectModule} from '@angular/material/select';
 import {MatButtonModule} from "@angular/material/button";
-import {ResultsSidebarComponent} from "./results-container/results-sidebar/results-sidebar.component";
+import {ResultsSidebarComponent} from "./results-sidebar/results-sidebar.component";
 import {ResultsContainerComponent} from "./results-container/results-container.component";
 
 @NgModule({

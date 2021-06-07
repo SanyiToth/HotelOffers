@@ -23,7 +23,6 @@ export class ResultsSidebarComponent  {
 
   // Choose city
   selectCity(event: any) {
-    console.log(event.value)
     this.cityName!.setValue(event.target.value, {
       onlySelf: true
     })
@@ -31,7 +30,6 @@ export class ResultsSidebarComponent  {
   //Submit
   onSubmit() {
     this.isSubmitted = true;
-    console.log(this.citySelector.value)
   }
 
   // formControl access
