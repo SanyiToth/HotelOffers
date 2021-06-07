@@ -2,13 +2,13 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Offer} from "./offer.interface";
+import {environment} from "../../../../environments/environment.prod";
 
 @Injectable({
   providedIn: 'root'
 })
 export class OffersService {
 
-  static API_URL = 'http://localhost:3000'
   static PATH = "/offers"
 
 
@@ -16,11 +16,11 @@ export class OffersService {
   }
 
   getOffers(limit: number = 5): Observable<Offer[]> {
-    return this.http.get<Offer[]>(OffersService.API_URL + OffersService.PATH + '?_limit=' + limit);
+    return this.http.get<Offer[]>(environment.API_URL + OffersService.PATH + '?_limit=' + limit);
   }
 
   getOffer(id: number): Observable<Offer> {
-    return this.http.get<Offer>(OffersService.API_URL + OffersService.PATH + '/' + id)
+    return this.http.get<Offer>(environment.API_URL + OffersService.PATH + '/' + id)
   }
 
 }
