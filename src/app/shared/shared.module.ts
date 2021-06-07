@@ -7,6 +7,7 @@ import { FooterComponent } from "./footer/footer.component";
 import { RatingComponent } from './rating/rating.component';
 
 
+
 @NgModule({
   declarations: [
     HeaderComponent,
