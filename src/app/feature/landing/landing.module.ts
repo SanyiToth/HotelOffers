@@ -11,6 +11,7 @@ import {TopOffersComponent} from './top-offers/top-offers.component';
 import {CarouselModule} from "primeng/carousel";
 import {LandingContainerComponent} from "./landing-container/landing-container.component";
 import {MatIconModule} from "@angular/material/icon";
+import {SharedModule} from "../../shared/shared.module";
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import {MatIconModule} from "@angular/material/icon";
         MatButtonModule,
         CarouselModule,
         MatCardModule,
-        MatIconModule
+        MatIconModule,
+        SharedModule
     ],
 
   exports: [

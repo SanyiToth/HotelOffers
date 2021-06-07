@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {ReviewsService} from "../services/reviews/reviews.service";
 
 @Component({
   selector: 'app-rating',
@@ -6,12 +7,17 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./rating.component.css']
 })
 export class RatingComponent implements OnInit {
-  currentRate = 3.14;
+  reviews: any[] = []
 
-  constructor() {
+  constructor(private reviewsService: ReviewsService) {
   }
 
   ngOnInit(): void {
+    this.reviewsService.getReviews(1)
+      .subscribe(reviews => {
+        console.log('reviews', reviews)
+        this.reviews = reviews;
+      })
   }
 
 }

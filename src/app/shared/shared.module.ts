@@ -1,11 +1,11 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { MatToolbarModule } from "@angular/material/toolbar";
-import { MatIconModule } from '@angular/material/icon';
-import { HeaderComponent } from "./header/header.component";
-import { FooterComponent } from "./footer/footer.component";
-import { RatingComponent } from './rating/rating.component';
-
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {MatToolbarModule} from "@angular/material/toolbar";
+import {MatIconModule} from '@angular/material/icon';
+import {HeaderComponent} from "./header/header.component";
+import {FooterComponent} from "./footer/footer.component";
+import {RatingComponent} from './rating/rating.component';
+import {HttpClientModule} from "@angular/common/http";
 
 
 @NgModule({
@@ -18,12 +18,15 @@ import { RatingComponent } from './rating/rating.component';
     CommonModule,
     MatToolbarModule,
     MatIconModule,
+    HttpClientModule
   ],
   exports: [
     MatToolbarModule,
     MatIconModule,
     FooterComponent,
-    HeaderComponent
+    HeaderComponent,
+    RatingComponent
   ]
 })
-export class SharedModule { }
+export class SharedModule {
+}
