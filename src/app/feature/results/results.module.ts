@@ -8,11 +8,16 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatButtonModule} from "@angular/material/button";
 import {ResultsSidebarComponent} from "./results-sidebar/results-sidebar.component";
 import {ResultsContainerComponent} from "./results-container/results-container.component";
+import { ResultItemComponent } from './result-item/result-item.component';
+import { MatCardModule } from '@angular/material/card';
+
+
 
 @NgModule({
   declarations: [
     ResultsSidebarComponent,
-    ResultsContainerComponent
+    ResultsContainerComponent,
+    ResultItemComponent
   ],
   imports: [
     CommonModule,
@@ -23,9 +28,9 @@ import {ResultsContainerComponent} from "./results-container/results-container.c
     MatInputModule,
     MatSelectModule,
     ResultsRoutingModule,
-  ],
-  exports: [
+    ResultsRoutingModule,
+    MatCardModule,
+    MatButtonModule
   ]
 })
-export class ResultsModule {
-}
+export class ResultsModule { }

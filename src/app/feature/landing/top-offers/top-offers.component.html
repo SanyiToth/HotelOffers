@@ -2,9 +2,9 @@
             [autoplayInterval]="2000" [responsiveOptions]="responsiveOptions">
   <ng-template pTemplate="header">
     <div class="offer-header">
-      <h4>Legfelkapottabb ajánlataink</h4>
+      <h4>Our most popular offers</h4>
       <div class="offer-header--link-all-offers">
-        <p>Összes top ajánlat</p>
+        <p>Top offers</p>
         <i class="pi pi-arrow-right"></i>
       </div>
     </div>
@@ -12,7 +12,7 @@
   <ng-template let-offer pTemplate="item">
     <div class="offer-item-content" [ngStyle]="{'background-image': 'url(' + offer.image + ')'}">
       <div class="offer-item-content--text">
-        <h4>{{offer.name}}</h4>
+        <h4>{{offer.heading}}</h4>
         <p>{{offer.details}}</p>
         <h4>{{offer.price}}Ft
           <i class="pi pi-arrow-right"></i></h4>

@@ -8,6 +8,15 @@ h1 { margin: 0 }
 .d-flex {
     display: flex;
 }
+.justify-content-center {
+    justify-content: center;
+}
+.flex-column {
+    flex-direction: column;
+}
+.flex-grow-1 {
+    flex-grow: 1;
+}
 .w-100 { width: 100%; }
 .link {
     align-self: center;

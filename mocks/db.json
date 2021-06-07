@@ -1,0 +1,160 @@
+{
+  "hotels": [
+    {
+      "id": 1,
+      "name": "Hotel 1",
+      "address": {
+        "city": "Lorem",
+        "street": "ipsum street 5",
+        "postCode": "1234"
+      },
+      "classification": 4,
+      "email": "hotel1@gmail.com",
+      "phone": "+36-30-123-4567"
+    },
+    {
+      "id": 2,
+      "name": "Hotel 2",
+      "address": {
+        "city": "Lorem",
+        "street": "ipsum street 5",
+        "postCode": "1234"
+      },
+      "classification": 4,
+      "email": "hotel2@gmail.com",
+      "phone": "+36-30-123-4567"
+    },
+    {
+      "id": 3,
+      "name": "Hotel 3",
+      "address": {
+        "city": "Lorem",
+        "street": "ipsum street 5",
+        "postCode": "1234"
+      },
+      "classification": 4,
+      "email": "hotel3@gmail.com",
+      "phone": "+36-30-123-4567"
+    },
+    {
+      "id": 4,
+      "name": "Hotel 4",
+      "address": {
+        "city": "Lorem",
+        "street": "ipsum street 5",
+        "postCode": "1234"
+      },
+      "classification": 4,
+      "email": "hotel4@gmail.com",
+      "phone": "+36-30-123-4567"
+    },
+    {
+      "id": 5,
+      "name": "Hotel 5",
+      "address": {
+        "city": "Lorem",
+        "street": "ipsum street 5",
+        "postCode": "1234"
+      },
+      "classification": 4,
+      "email": "hotel5@gmail.com",
+      "phone": "+36-30-123-4567"
+    },
+    {
+      "id": 6,
+      "name": "Hotel 6",
+      "address": {
+        "city": "Lorem",
+        "street": "ipsum street 5",
+        "postCode": "1234"
+      },
+      "classification": 4,
+      "email": "hotel6@gmail.com",
+      "phone": "+36-30-123-4567"
+    }
+  ],
+  "offers": [
+    {
+      "hotelId": 1,
+      "id": 1,
+      "heading": "Offer heading 1",
+      "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "price": 39500,
+      "image": "https://picsum.photos/id/25/1000/500"
+    },
+    {
+      "hotelId": 1,
+      "id": 2,
+      "heading": "Offer heading 2",
+      "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "price": 39500,
+      "image": "https://picsum.photos/id/36/1000/500"
+    },
+    {
+      "hotelId": 1,
+      "id": 3,
+      "heading": "Offer heading 3",
+      "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "price": 39500,
+      "image": "https://picsum.photos/id/85/1000/500"
+    },
+    {
+      "hotelId": 2,
+      "id": 4,
+      "heading": "Offer heading 4",
+      "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "price": 39500,
+      "image": "https://picsum.photos/id/33/1000/500"
+    },
+    {
+      "hotelId": 2,
+      "id": 5,
+      "heading": "Offer heading 5",
+      "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "price": 39500,
+      "image": "https://picsum.photos/id/98/1000/500"
+    },
+    {
+      "hotelId": 3,
+      "id": 6,
+      "heading": "Offer heading 6",
+      "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "price": 39500,
+      "image": "https://picsum.photos/id/25/1000/500"
+    },
+    {
+      "hotelId": 3,
+      "id": 7,
+      "heading": "Offer heading 7",
+      "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "price": 39500,
+      "image": "https://picsum.photos/id/36/1000/500"
+    },
+    {
+      "hotelId": 4,
+      "id": 8,
+      "heading": "Offer heading 9",
+      "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "price": 39500,
+      "image": "https://picsum.photos/id/85/1000/500"
+    },
+    {
+      "hotelId": 5,
+      "id": 9,
+      "heading": "Offer heading 9",
+      "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "price": 39500,
+      "image": "https://picsum.photos/id/33/1000/500"
+    },
+    {
+      "hotelId": 6,
+      "id": 10,
+      "heading": "Offer heading 10",
+      "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "price": 39500,
+      "image": "https://picsum.photos/id/98/1000/500"
+    }
+  ],
+  "orders": [
+  ]
+}
