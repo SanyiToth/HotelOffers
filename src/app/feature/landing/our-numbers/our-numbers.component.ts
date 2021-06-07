@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {OurNumbersService} from "../../../core/services/our-numbers.service";
-import { Stats } from "../../../core/interfaces/ourNumbers.interface";
+import {Component, Input, OnInit} from '@angular/core';
+import {Stats} from "./ourNumbers.interface";
 
 @Component({
   selector: 'app-our-numbers',
@@ -9,14 +8,12 @@ import { Stats } from "../../../core/interfaces/ourNumbers.interface";
 })
 export class OurNumbersComponent implements OnInit {
 
-  public stats: Stats[] = [];
+  @Input() stats: Stats | undefined;
 
-  constructor(private stat: OurNumbersService) { }
+  constructor() {
+  }
 
   ngOnInit(): void {
-    this.stat.getStats().subscribe(data => {
-      this.stats = data;
-    })
   }
 
 }

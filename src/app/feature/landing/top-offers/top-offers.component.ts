@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {Offer} from "./offer.interface";
+import {Component, Input, OnInit} from '@angular/core';
+import {Offer} from "../../../shared/services/offers/offer.interface";
 
 @Component({
   selector: 'app-top-offers',
@@ -8,7 +8,7 @@ import {Offer} from "./offer.interface";
 })
 export class TopOffersComponent implements OnInit {
 
-  offers: Offer[];
+  @Input() offers: Offer[] = [];
   responsiveOptions: any[];
 
   constructor() {
@@ -27,44 +27,6 @@ export class TopOffersComponent implements OnInit {
         breakpoint: '560px',
         numVisible: 1,
         numScroll: 1
-      }
-    ]
-
-    this.offers = [
-      {
-        id: 1,
-        name: 'Offer heading 1',
-        details:'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-        price: 39500,
-        image: 'https://picsum.photos/id/25/1000/500'
-      },
-      {
-        id: 2,
-        name: 'Offer heading 2',
-        details:'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-        price: 39500,
-        image: 'https://picsum.photos/id/36/1000/500'
-      },
-      {
-        id: 3,
-        name: 'Offer heading 3',
-        details:'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-        price: 39500,
-        image: 'https://picsum.photos/id/85/1000/500'
-      },
-      {
-        id: 4,
-        name: 'Offer heading 4',
-        details:'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-        price: 39500,
-        image: 'https://picsum.photos/id/33/1000/500'
-      },
-      {
-        id: 5,
-        name: 'Offer heading 5',
-        details:'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-        price: 39500,
-        image: 'https://picsum.photos/id/98/1000/500'
       }
     ]
   }
