@@ -8,7 +8,7 @@ export interface Hotel {
     street: string;
     postCode: number;
   };
-  classification: string;
+  classification: number;
   email: string;
   phone: string;
 }

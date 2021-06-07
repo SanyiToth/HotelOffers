@@ -15,7 +15,7 @@
         "street": "ipsum street 5",
         "postCode": "1234"
       },
-      "classification": "****",
+      "classification": 4,
       "email": "hotel1@gmail.com",
       "phone": "+36-30-123-4567"
     },
@@ -27,7 +27,7 @@
         "street": "ipsum street 5",
         "postCode": "1234"
       },
-      "classification": "****",
+      "classification": 4,
       "email": "hotel2@gmail.com",
       "phone": "+36-30-123-4567"
     },
@@ -39,7 +39,7 @@
         "street": "ipsum street 5",
         "postCode": "1234"
       },
-      "classification": "****",
+      "classification": 4,
       "email": "hotel3@gmail.com",
       "phone": "+36-30-123-4567"
     },
@@ -51,7 +51,7 @@
         "street": "ipsum street 5",
         "postCode": "1234"
       },
-      "classification": "****",
+      "classification": 4,
       "email": "hotel4@gmail.com",
       "phone": "+36-30-123-4567"
     },
@@ -63,7 +63,7 @@
         "street": "ipsum street 5",
         "postCode": "1234"
       },
-      "classification": "****",
+      "classification": 4,
       "email": "hotel5@gmail.com",
       "phone": "+36-30-123-4567"
     },
@@ -75,7 +75,7 @@
         "street": "ipsum street 5",
         "postCode": "1234"
       },
-      "classification": "****",
+      "classification": 4,
       "email": "hotel6@gmail.com",
       "phone": "+36-30-123-4567"
     }
