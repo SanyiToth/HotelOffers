@@ -13,9 +13,13 @@
     <div class="offer-item-content" [ngStyle]="{'background-image': 'url(' + offer.image + ')'}">
       <div class="offer-item-content--text">
         <h4>{{offer.heading}}</h4>
-        <p>{{offer.details}}</p>
+        <p>{{offer.details}}
+          <app-rating></app-rating>
+        </p>
         <h4>{{offer.price}}Ft
-          <i class="pi pi-arrow-right"></i></h4>
+          <i class="pi pi-arrow-right"></i>
+        </h4>
+
       </div>
     </div>
   </ng-template>

@@ -1,6 +1,6 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {ReviewsService} from "../services/reviews/reviews.service";
-import {ParenthesesPipe} from "../pipes/parentheses/parentheses.pipe";
+import {Review} from "../services/reviews/review.interface";
 
 @Component({
   selector: 'app-rating',
@@ -8,24 +8,25 @@ import {ParenthesesPipe} from "../pipes/parentheses/parentheses.pipe";
   styleUrls: ['./rating.component.scss']
 })
 export class RatingComponent implements OnInit {
-  reviews: any[] = []
+  @Input() hotelId: number = 0;
+  reviews: Review[] = []
   rating: string = '';
   numberOfRatings: number = 0;
 
   constructor(private reviewsService: ReviewsService) {
   }
 
-  avgRating(reviews: any[]): string {
+  avgRating(reviews: Review[]): string {
     let sum: number = 0;
     reviews.forEach((item) => {
-      sum = sum + item.rating;
+        sum = sum + item.rating;
     });
     return (sum / reviews.length).toFixed(1);
   }
 
 
   ngOnInit(): void {
-    this.reviewsService.getReviews(1)
+    this.reviewsService.getReviews(this.hotelId)
       .subscribe(reviews => {
         this.reviews = reviews;
         this.rating = this.avgRating(reviews)
