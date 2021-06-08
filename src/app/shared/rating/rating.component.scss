@@ -1,5 +1,8 @@
 .rating {
   display: inline-flex;
   align-items: center;
-  cursor: pointer
+}
+
+.rating mat-icon {
+  color: gold;
 }
