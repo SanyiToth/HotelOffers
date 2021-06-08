@@ -1,4 +1,13 @@
-<div class="rating">
-  <mat-icon  aria-label="star icon" [ngStyle]="{'color':'gold'}">star</mat-icon>
-  <span> {{rating}} {{numberOfRatings | parentheses}}</span>
-</div>
+<ng-template #ratedTpl >
+  <div class="rating">
+    <mat-icon aria-label="star icon" [ngStyle]="{'color':'gold'}">star</mat-icon>
+    <span> {{rating}} {{numberOfRatings | parentheses}}</span>
+  </div>
+</ng-template>
+
+<ng-template #notRatedTpl>
+  <span>not rated yet</span>
+</ng-template>
+
+<div *ngIf="numberOfRatings then ratedTpl else notRatedTpl"></div>
+
