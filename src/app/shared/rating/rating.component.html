@@ -1,7 +1,7 @@
 <ng-template #ratedTpl>
   <div class="rating">
     <mat-icon aria-label="star icon">star</mat-icon>
-    <span> {{rating}} ({{numberOfRatings}})</span>
+    <span> {{data?.rating}} ({{data?.numberOfRating}})</span>
   </div>
 </ng-template>
 
@@ -9,5 +9,5 @@
   <span>not rated yet</span>
 </ng-template>
 
-<div *ngIf="numberOfRatings then ratedTpl else notRatedTpl"></div>
+<div *ngIf="data then ratedTpl else notRatedTpl"></div>
 
