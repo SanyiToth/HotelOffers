@@ -1,5 +1,5 @@
-<div>
+<div class="rating">
   <mat-icon aria-hidden="false" aria-label="star icon" [ngStyle]="{'color':'gold'}">star
   </mat-icon>
-  <p> {{rating}} ({{numberOfRatings}})</p>
+  <span> {{rating}} {{numberOfRatings | parentheses}}</span>
 </div>

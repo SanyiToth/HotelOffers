@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ReviewsService} from "../services/reviews/reviews.service";
+import {ParenthesesPipe} from "../pipes/parentheses/parentheses.pipe";
 
 @Component({
   selector: 'app-rating',

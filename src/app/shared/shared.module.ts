@@ -6,13 +6,15 @@ import {HeaderComponent} from "./header/header.component";
 import {FooterComponent} from "./footer/footer.component";
 import {RatingComponent} from './rating/rating.component';
 import {HttpClientModule} from "@angular/common/http";
+import { ParenthesesPipe } from './pipes/parentheses/parentheses.pipe';
 
 
 @NgModule({
   declarations: [
     HeaderComponent,
     FooterComponent,
-    RatingComponent
+    RatingComponent,
+    ParenthesesPipe
   ],
   imports: [
     CommonModule,
