@@ -1,4 +1,4 @@
 export interface Rating {
   rating: number;
-  numberOfRating: number;
+  numberOfRatings: number;
 }

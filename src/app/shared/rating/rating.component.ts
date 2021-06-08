@@ -8,7 +8,8 @@ import {Rating} from "./rating.interface";
   styleUrls: ['./rating.component.scss']
 })
 export class RatingComponent implements OnInit {
-  @Input() data: Rating | undefined;
+  @Input() data: Rating | undefined
+
 
   constructor() {
   }

@@ -117,11 +117,7 @@
       "heading": "Offer heading 4",
       "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
       "price": 39500,
-      "image": "https://picsum.photos/id/33/1000/500",
-      "rating": {
-        "rating": 4.1,
-        "numberOfRatings": 521
-      }
+      "image": "https://picsum.photos/id/33/1000/500"
     },
     {
       "hotelId": 2,
