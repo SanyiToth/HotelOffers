@@ -4,10 +4,12 @@ import {ReviewsService} from "../services/reviews/reviews.service";
 @Component({
   selector: 'app-rating',
   templateUrl: './rating.component.html',
-  styleUrls: ['./rating.component.css']
+  styleUrls: ['./rating.component.scss']
 })
 export class RatingComponent implements OnInit {
   reviews: any[] = []
+  rating: string = '';
+  numberOfRatings: number = 0;
 
   constructor(private reviewsService: ReviewsService) {
   }
@@ -25,7 +27,8 @@ export class RatingComponent implements OnInit {
     this.reviewsService.getReviews(1)
       .subscribe(reviews => {
         this.reviews = reviews;
-        this.avgRating(reviews)
+        this.rating = this.avgRating(reviews)
+        this.numberOfRatings = reviews.length;
         console.log(this.avgRating(reviews));
       })
   }
