@@ -1,0 +1,17 @@
+<div *ngFor="let info of infos">
+  <mat-card>
+    <img src="{{info.image}}" alt="picture of hotel offer" >
+    <br><br>
+    <mat-card-title>
+      <p class="offerTitle">{{info.heading}}</p>
+    </mat-card-title>
+    <mat-card-content>
+      <div class="nameOfHotel-container">
+        <p class="nameOfHotel">{{info.name}}</p>
+        <p class="ratingOfHotel"> {{info.rating}}</p>
+      </div>
+      <p class="price">{{info.price}} Ft</p>
+    </mat-card-content>
+  </mat-card>
+</div>
+

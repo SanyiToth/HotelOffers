@@ -1,5 +1,6 @@
 export interface Offer {
   hotelId: number;
+  name: string;
   id: number;
   status?: string;
   heading: string;
@@ -12,4 +13,5 @@ export interface Offer {
   tags?: string;
   payment?: string;
   image: string;
+  rating: string;
 }
