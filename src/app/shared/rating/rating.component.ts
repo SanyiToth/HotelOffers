@@ -12,6 +12,15 @@ export class RatingComponent implements OnInit {
   constructor(private reviewsService: ReviewsService) {
   }
 
+  avgRating(array: []): number {
+    let sum: number = 0;
+    array.forEach((item) => {
+      sum = sum + item;
+    });
+    return sum / array.length
+  }
+
+
   ngOnInit(): void {
     this.reviewsService.getReviews(1)
       .subscribe(reviews => {
