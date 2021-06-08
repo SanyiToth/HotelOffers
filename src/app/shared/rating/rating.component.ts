@@ -31,7 +31,6 @@ export class RatingComponent implements OnInit {
         this.reviews = reviews;
         this.rating = this.avgRating(reviews)
         this.numberOfRatings = reviews.length;
-        console.log(this.avgRating(reviews));
       })
   }
 
