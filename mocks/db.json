@@ -81,7 +81,11 @@
       "heading": "Offer heading 1",
       "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
       "price": 39500,
-      "image": "https://picsum.photos/id/25/1000/500"
+      "image": "https://picsum.photos/id/25/1000/500",
+      "rating": {
+        "rating": 4,
+        "numberOfRatings": 45
+      }
     },
     {
       "hotelId": 1,
@@ -89,7 +93,11 @@
       "heading": "Offer heading 2",
       "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
       "price": 39500,
-      "image": "https://picsum.photos/id/36/1000/500"
+      "image": "https://picsum.photos/id/36/1000/500",
+      "rating": {
+        "rating": 3.5,
+        "numberOfRatings": 360
+      }
     },
     {
       "hotelId": 1,
@@ -97,7 +105,11 @@
       "heading": "Offer heading 3",
       "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
       "price": 39500,
-      "image": "https://picsum.photos/id/85/1000/500"
+      "image": "https://picsum.photos/id/85/1000/500",
+      "rating": {
+        "rating": 4.4,
+        "numberOfRatings": 49
+      }
     },
     {
       "hotelId": 2,
@@ -105,7 +117,11 @@
       "heading": "Offer heading 4",
       "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
       "price": 39500,
-      "image": "https://picsum.photos/id/33/1000/500"
+      "image": "https://picsum.photos/id/33/1000/500",
+      "rating": {
+        "rating": 4.1,
+        "numberOfRatings": 521
+      }
     },
     {
       "hotelId": 2,
@@ -113,7 +129,11 @@
       "heading": "Offer heading 5",
       "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
       "price": 39500,
-      "image": "https://picsum.photos/id/98/1000/500"
+      "image": "https://picsum.photos/id/98/1000/500",
+      "rating": {
+        "rating": 5,
+        "numberOfRatings": 30
+      }
     },
     {
       "hotelId": 3,
@@ -121,7 +141,11 @@
       "heading": "Offer heading 6",
       "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
       "price": 39500,
-      "image": "https://picsum.photos/id/25/1000/500"
+      "image": "https://picsum.photos/id/25/1000/500",
+      "rating": {
+        "rating": 5,
+        "numberOfRatings": 26
+      }
     },
     {
       "hotelId": 3,
@@ -129,7 +153,11 @@
       "heading": "Offer heading 7",
       "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
       "price": 39500,
-      "image": "https://picsum.photos/id/36/1000/500"
+      "image": "https://picsum.photos/id/36/1000/500",
+      "rating": {
+        "rating": 4,
+        "numberOfRatings": 45
+      }
     },
     {
       "hotelId": 4,
@@ -137,7 +165,11 @@
       "heading": "Offer heading 9",
       "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
       "price": 39500,
-      "image": "https://picsum.photos/id/85/1000/500"
+      "image": "https://picsum.photos/id/85/1000/500",
+      "rating": {
+        "rating": 2.5,
+        "numberOfRatings": 64
+      }
     },
     {
       "hotelId": 5,
@@ -145,7 +177,11 @@
       "heading": "Offer heading 9",
       "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
       "price": 39500,
-      "image": "https://picsum.photos/id/33/1000/500"
+      "image": "https://picsum.photos/id/33/1000/500",
+      "rating": {
+        "rating": 4,
+        "numberOfRatings": 45
+      }
     },
     {
       "hotelId": 6,
@@ -153,7 +189,11 @@
       "heading": "Offer heading 10",
       "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
       "price": 39500,
-      "image": "https://picsum.photos/id/98/1000/500"
+      "image": "https://picsum.photos/id/98/1000/500",
+      "rating": {
+        "rating": 5,
+        "numberOfRatings": 20
+      }
     }
   ],
   "orders": [
