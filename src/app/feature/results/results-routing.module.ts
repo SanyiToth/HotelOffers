@@ -7,7 +7,7 @@ import { ResultItemComponent } from './result-item/result-item.component';
 
 const routes: Routes = [
   {path: '', component: ResultsContainerComponent},
-  {path: ':resultId', component: ResultItemComponent}
+  {path: 'detailed/:resultId', component: ResultItemComponent}
 ]
 
 @NgModule({
