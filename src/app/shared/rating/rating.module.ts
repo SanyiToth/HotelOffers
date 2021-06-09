@@ -1,6 +1,7 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {RatingComponent} from "./rating.component";
+import {MatIconModule} from "@angular/material/icon";
 
 
 @NgModule({
@@ -8,7 +9,8 @@ import {RatingComponent} from "./rating.component";
     RatingComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    MatIconModule
   ],
   exports: [
     RatingComponent

@@ -11,7 +11,7 @@ import {TopOffersComponent} from './top-offers/top-offers.component';
 import {CarouselModule} from "primeng/carousel";
 import {LandingContainerComponent} from "./landing-container/landing-container.component";
 import {MatIconModule} from "@angular/material/icon";
-import {SharedModule} from "../../shared/shared.module";
+import {RatingModule} from "../../shared/rating/rating.module";
 
 @NgModule({
   declarations: [
@@ -20,17 +20,17 @@ import {SharedModule} from "../../shared/shared.module";
     TopOffersComponent,
     OurNumbersComponent
   ],
-    imports: [
-        CommonModule,
-        HttpClientModule,
-        MatSelectModule,
-        MatInputModule,
-        MatButtonModule,
-        CarouselModule,
-        MatCardModule,
-        MatIconModule,
-        SharedModule
-    ],
+  imports: [
+    CommonModule,
+    RatingModule,
+    HttpClientModule,
+    MatSelectModule,
+    MatInputModule,
+    MatButtonModule,
+    CarouselModule,
+    MatCardModule,
+    MatIconModule,
+  ],
 
   exports: [
     HeadingFormComponent,
