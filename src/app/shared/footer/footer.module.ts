@@ -1,6 +1,7 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {FooterComponent} from "./footer.component";
+import {MatIconModule} from "@angular/material/icon";
 
 
 @NgModule({
@@ -8,7 +9,8 @@ import {FooterComponent} from "./footer.component";
     FooterComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    MatIconModule,
   ],
   exports: [FooterComponent]
 })
