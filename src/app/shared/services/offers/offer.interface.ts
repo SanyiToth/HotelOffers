@@ -12,7 +12,7 @@ export interface Offer {
   tags?: string;
   payment?: string;
   image: string;
-  rating?: {
+  ratingInfo?: {
     rating: number;
     numberOfRatings: number
   }

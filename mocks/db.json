@@ -82,7 +82,7 @@
       "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
       "price": 39500,
       "image": "https://picsum.photos/id/25/1000/500",
-      "rating": {
+      "ratingInfo": {
         "rating": 4,
         "numberOfRatings": 45
       }
@@ -94,7 +94,7 @@
       "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
       "price": 39500,
       "image": "https://picsum.photos/id/36/1000/500",
-      "rating": {
+      "ratingInfo": {
         "rating": 3.5,
         "numberOfRatings": 360
       }
@@ -106,7 +106,7 @@
       "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
       "price": 39500,
       "image": "https://picsum.photos/id/85/1000/500",
-      "rating": {
+      "ratingInfo": {
         "rating": 4.4,
         "numberOfRatings": 49
       }
@@ -126,7 +126,7 @@
       "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
       "price": 39500,
       "image": "https://picsum.photos/id/98/1000/500",
-      "rating": {
+      "ratingInfo": {
         "rating": 5,
         "numberOfRatings": 30
       }
@@ -138,7 +138,7 @@
       "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
       "price": 39500,
       "image": "https://picsum.photos/id/25/1000/500",
-      "rating": {
+      "ratingInfo": {
         "rating": 5,
         "numberOfRatings": 26
       }
@@ -150,7 +150,7 @@
       "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
       "price": 39500,
       "image": "https://picsum.photos/id/36/1000/500",
-      "rating": {
+      "ratingInfo": {
         "rating": 4,
         "numberOfRatings": 45
       }
@@ -162,7 +162,7 @@
       "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
       "price": 39500,
       "image": "https://picsum.photos/id/85/1000/500",
-      "rating": {
+      "ratingInfo": {
         "rating": 2.5,
         "numberOfRatings": 64
       }
@@ -174,7 +174,7 @@
       "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
       "price": 39500,
       "image": "https://picsum.photos/id/33/1000/500",
-      "rating": {
+      "ratingInfo": {
         "rating": 4,
         "numberOfRatings": 45
       }
@@ -186,7 +186,7 @@
       "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
       "price": 39500,
       "image": "https://picsum.photos/id/98/1000/500",
-      "rating": {
+      "ratingInfo": {
         "rating": 5,
         "numberOfRatings": 20
       }
