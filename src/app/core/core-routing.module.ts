@@ -4,11 +4,13 @@ import {RouterModule, Routes} from "@angular/router";
 import {NotFoundComponent} from "./not-found/not-found.component";
 import {LandingContainerComponent} from "../feature/landing/landing-container/landing-container.component";
 import {OffersResolver} from "../shared/resolver/offers/offers.resolver";
+import {HotelsResolver} from "../shared/resolver/hotels/hotels.resolver";
 
 const routes: Routes = [
   {
     path: '', resolve: {
-      offers: OffersResolver
+      offers: OffersResolver,
+      hotels: HotelsResolver
     }, component: LandingContainerComponent
   },
   {path: 'results', loadChildren: () => import('../feature/results/results.module').then(m => m.ResultsModule)},

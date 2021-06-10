@@ -12,7 +12,6 @@ import {CarouselModule} from "primeng/carousel";
 import {LandingContainerComponent} from "./landing-container/landing-container.component";
 import {MatIconModule} from "@angular/material/icon";
 import {RatingModule} from "../../shared/rating/rating.module";
-import { LandingRoutingModule } from './landing-routing.module';
 
 @NgModule({
   declarations: [
@@ -31,7 +30,6 @@ import { LandingRoutingModule } from './landing-routing.module';
     CarouselModule,
     MatCardModule,
     MatIconModule,
-    LandingRoutingModule,
   ],
 
   exports: [
