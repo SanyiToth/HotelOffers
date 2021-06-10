@@ -3,7 +3,7 @@ import {CommonModule} from '@angular/common';
 import {RouterModule, Routes} from "@angular/router";
 import {NotFoundComponent} from "./not-found/not-found.component";
 import {LandingContainerComponent} from "../feature/landing/landing-container/landing-container.component";
-import {OffersResolver} from "../shared/services/offers/offers.resolver";
+import {OffersResolver} from "../shared/resolver/offers/offers.resolver";
 
 const routes: Routes = [
   {

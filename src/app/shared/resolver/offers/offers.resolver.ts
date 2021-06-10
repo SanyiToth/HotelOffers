@@ -5,8 +5,9 @@ import {
   ActivatedRouteSnapshot
 } from '@angular/router';
 import {Observable, of} from 'rxjs';
-import {Offer} from "./offer.interface";
+import {Offer} from "../../services/offers/offer.interface";
 import {HttpClient} from "@angular/common/http";
+import {environment} from "../../../../environments/environment.prod";
 
 @Injectable({
   providedIn: 'root'
@@ -15,13 +16,13 @@ import {HttpClient} from "@angular/common/http";
 
 export class OffersResolver implements Resolve<Offer[]> {
 
-  static PATH: '/offers'
+  static PATH = '/offers'
 
   constructor(private http: HttpClient) {
   }
 
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Offer[]> {
-    return this.http.get<Offer[]>('http://localhost:3000/offers');
+    return this.http.get<Offer[]>(environment.API_URL + OffersResolver.PATH);
   }
 }
