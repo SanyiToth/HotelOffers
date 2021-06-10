@@ -12,7 +12,6 @@ import {AuthInterceptor} from "./auth.interceptor";
     CommonModule,
     HttpClientModule
   ],
-  exports: [],
   providers: [
     AuthService,
     AuthGuard,

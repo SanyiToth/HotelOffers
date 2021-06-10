@@ -19,9 +19,6 @@ export class AuthInterceptor implements HttpInterceptor {
 
       const jwtToken = this.auth.currentJwtValue.accessToken;
 
-      console.log('interceptor', jwtToken);
-      console.log('request.url', request.url);
-
       const cloned = request.clone({
         headers: request.headers.set('Authorization',
           'Bearer ' + jwtToken)

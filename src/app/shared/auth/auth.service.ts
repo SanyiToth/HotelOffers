@@ -12,6 +12,8 @@ import {environment} from "../../../environments/environment.prod";
 export class AuthService {
 
   private static PATH = '/login';
+  jwtSubject: BehaviorSubject<AccessToken>;
+
 
   public get currentJwtValue(): AccessToken {
     return this.jwtSubject.value;
@@ -21,8 +23,6 @@ export class AuthService {
     const jwtToken = JSON.parse(localStorage.getItem('jwt') as string) as AccessToken || undefined;
     this.jwtSubject = new BehaviorSubject<AccessToken>(jwtToken);
   }
-
-  jwtSubject: BehaviorSubject<AccessToken> = new BehaviorSubject<AccessToken>(null);
 
 
   login(credentials: LoginCredential): Observable<AccessToken> {
@@ -36,14 +36,7 @@ export class AuthService {
       );
   }
 
-  logout(): void {
-    localStorage.setItem('jwt', JSON.stringify(''));
-    this.jwtSubject.next(null);
-  }
-
-
   isLoggedIn(): boolean {
-    console.log('this.currentJwtValue', this.currentJwtValue);
     return !!this.jwtSubject.value;
   }
 
