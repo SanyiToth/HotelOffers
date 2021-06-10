@@ -11,15 +11,16 @@ import {ActivatedRoute} from "@angular/router";
 })
 export class LandingContainerComponent implements OnInit {
 
-  hotels: Hotel[] = [];
-  offers: Offer[] = [];
+  hotels: Hotel[];
+  offers: Offer[];
   orders: any[] = [];
-  ourNumbers: Stats | undefined;
+  ourNumbers: Stats;
 
 
   constructor(private router: ActivatedRoute) {
     this.offers = this.router.snapshot.data.offers;
     this.hotels = this.router.snapshot.data.hotels;
+
     this.ourNumbers = {
       Hotels: this.hotels.length,
       Orders: 0,
