@@ -6,6 +6,7 @@ import {HotelsService} from "../../../shared/services/hotels/hotels.service";
 import {Hotel} from "../../../shared/services/hotels/hotel.interface";
 import {OrdersService} from "../../../shared/services/orders/orders.service";
 import {Stats} from "../our-numbers/ourNumbers.interface";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-landing-container',
@@ -24,7 +25,7 @@ export class LandingContainerComponent implements OnInit {
 
   constructor(private offersService: OffersService,
               private hotelsService: HotelsService,
-              private ordersService: OrdersService) {
+              private ordersService: OrdersService, private router: ActivatedRoute) {
 
 
   }
@@ -38,6 +39,8 @@ export class LandingContainerComponent implements OnInit {
       }, error => {
         this.errorMsg = error
       })
+/*    this.offers =  this.router.snapshot.data;*/
+    console.log(this.offers)
     this.ordersService.getOrders()
       .subscribe(orders => {
         this.orders = orders;
