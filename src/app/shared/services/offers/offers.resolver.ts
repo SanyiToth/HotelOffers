@@ -7,7 +7,6 @@ import {
 import {Observable, of} from 'rxjs';
 import {Offer} from "./offer.interface";
 import {HttpClient} from "@angular/common/http";
-import {environment} from "../../../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
@@ -23,6 +22,6 @@ export class OffersResolver implements Resolve<Offer[]> {
 
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Offer[]> {
-    return this.http.get<Offer[]>(environment.API_URL + OffersResolver.PATH);
+    return this.http.get<Offer[]>('http://localhost:3000/offers');
   }
 }

@@ -32,14 +32,14 @@ export class LandingContainerComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.offersService.getOffers()
-      .subscribe(offers => {
+    /* this.offersService.getOffers()
+       .subscribe(offers => {
 
-        this.offers = offers;
-      }, error => {
-        this.errorMsg = error
-      })
-/*    this.offers =  this.router.snapshot.data;*/
+         this.offers = offers;
+       }, error => {
+         this.errorMsg = error
+       })*/
+    this.offers = this.router.snapshot.data.offers;
     console.log(this.offers)
     this.ordersService.getOrders()
       .subscribe(orders => {
