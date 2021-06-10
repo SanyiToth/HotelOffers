@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Offer} from "../../../shared/services/offers/offer.interface";
 import {Hotel} from "../../../shared/services/hotels/hotel.interface";
-import {Stats} from "../our-numbers/ourNumbers.interface";
+import {Stats} from "../our-numbers/our-numbers.interface";
 import {ActivatedRoute} from "@angular/router";
 
 @Component({
@@ -9,6 +9,8 @@ import {ActivatedRoute} from "@angular/router";
   templateUrl: './landing-container.component.html',
   styleUrls: ['./landing-container.component.css']
 })
+
+
 export class LandingContainerComponent implements OnInit {
 
   hotels: Hotel[];
@@ -22,9 +24,9 @@ export class LandingContainerComponent implements OnInit {
     this.hotels = this.router.snapshot.data.hotels;
     this.orders = this.router.snapshot.data.orders;
     this.ourNumbers = {
-      Hotels: this.hotels.length,
-      Orders: this.orders.length,
-      Offers: this.offers.length
+      hotels: this.hotels.length,
+      orders: this.orders.length,
+      offers: this.offers.length
     }
   }
 
