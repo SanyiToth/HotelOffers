@@ -6,6 +6,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { ResultItemCardComponent } from './result-item-card/result-item-card.component';
 import { ResultItemListComponent } from './result-item-list/result-item-list.component';
+import {ResultsContainerComponent} from "./results-container/results-container.component";
 
 
 
@@ -13,7 +14,8 @@ import { ResultItemListComponent } from './result-item-list/result-item-list.com
   declarations: [
     ResultItemComponent,
     ResultItemCardComponent,
-    ResultItemListComponent
+    ResultItemListComponent,
+    ResultsContainerComponent
   ],
   imports: [
     CommonModule,
