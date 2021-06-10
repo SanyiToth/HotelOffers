@@ -3,7 +3,7 @@ import {BehaviorSubject, Observable} from 'rxjs';
 import {AccessToken, LoginCredential, User} from './auth.interface';
 import {HttpClient} from '@angular/common/http';
 import {tap} from 'rxjs/operators';
-import {environment} from "../../../environments/environment.prod";
+import {environment} from "../../../environments/environment";
 
 
 @Injectable({
