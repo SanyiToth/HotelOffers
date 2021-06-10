@@ -13,26 +13,23 @@ export class LandingContainerComponent implements OnInit {
 
   hotels: Hotel[];
   offers: Offer[];
-  orders: any[] = [];
+  orders: any[];
   ourNumbers: Stats;
 
 
   constructor(private router: ActivatedRoute) {
     this.offers = this.router.snapshot.data.offers;
     this.hotels = this.router.snapshot.data.hotels;
-
+    this.orders = this.router.snapshot.data.orders;
     this.ourNumbers = {
       Hotels: this.hotels.length,
-      Orders: 0,
+      Orders: this.orders.length,
       Offers: this.offers.length
     }
   }
 
 
   ngOnInit(): void {
-
-    console.log("hotels", this.router.snapshot.data.hotels);
-
   }
 
 
