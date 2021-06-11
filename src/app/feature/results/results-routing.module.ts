@@ -4,9 +4,10 @@ import {ResultsContainerComponent} from './results-container/results-container.c
 import {RouterModule, Routes} from "@angular/router";
 import { ResultItemComponent } from './result-item/result-item.component';
 
+
 const routes: Routes = [
   {path: '', component: ResultsContainerComponent},
-  {path: ':resultId', component: ResultItemComponent},
+  {path: 'detailed/:resultId', component: ResultItemComponent}
 ]
 
 @NgModule({
@@ -14,9 +15,10 @@ const routes: Routes = [
   ],
   imports: [
     CommonModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
   ],
-  exports: [RouterModule]
+  exports: [
+    RouterModule]
 })
 export class ResultsRoutingModule {
 }
