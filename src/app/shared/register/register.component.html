@@ -21,7 +21,10 @@
                 </mat-form-field>
                 <mat-form-field>
                     <mat-label>Password again</mat-label>
-                    <input type="password" matInput formControlName="passwordAgain">
+                    <input type="password" matInput formControlName="passwordAgain" [errorStateMatcher]="matcher">
+                    <mat-error *ngIf="form.hasError('notSame')">
+                        Passwords do not match
+                    </mat-error> 
                 </mat-form-field>
                 <button mat-button color="primary">Register</button>
             </form>

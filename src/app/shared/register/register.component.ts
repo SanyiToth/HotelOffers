@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { AbstractControl, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
+import { NotSameErrorStateMatcher } from './not-same-error-state-matcher';
 
 @Component({
   selector: 'app-register',
@@ -7,14 +8,16 @@ import { FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
+
+  matcher = new NotSameErrorStateMatcher();
   
   form = new FormGroup({
-    companyName: new FormControl(),
-    email: new FormControl(),
-    phoneNumber: new FormControl(),
-    password: new FormControl(),
+    companyName: new FormControl('', Validators.required),
+    email: new FormControl('', [Validators.required, Validators.email]),
+    phoneNumber: new FormControl('', Validators.required),
+    password: new FormControl('', Validators.required),
     passwordAgain: new FormControl()
-  })
+  }, this.checkPasswords)
 
   constructor() { }
 
@@ -23,5 +26,12 @@ export class RegisterComponent implements OnInit {
 
   onSubmit() {
     console.log(this.form.value)
+  }
+
+  checkPasswords(group: AbstractControl): null | ValidationErrors {
+    const password = group.get('password')?.value;
+    const passwordAgain = group.get('passwordAgain')?.value;
+  
+    return password === passwordAgain ? null : { notSame: true }     
   }
 }
