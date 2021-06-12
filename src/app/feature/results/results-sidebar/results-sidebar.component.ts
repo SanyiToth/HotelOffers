@@ -1,5 +1,8 @@
-import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, FormControl, Validators, AbstractControl} from '@angular/forms';
+import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
+import {FormBuilder, FormGroup, FormControl, Validators, AbstractControl, FormArray} from '@angular/forms';
+import { HotelsService } from "../../../shared/services/hotels/hotels.service";
+import {Hotel} from "../../../shared/services/hotels/hotel.interface";
+
 
 @Component({
   selector: 'app-sidebar',
@@ -8,12 +11,15 @@ import {FormBuilder, FormGroup, FormControl, Validators, AbstractControl} from '
 })
 export class ResultsSidebarComponent  {
 
+  @Input() Cities: Hotel[] = [];
+
+  @Output() sendData: EventEmitter<FormGroup> = new EventEmitter<FormGroup>();
+
   isSubmitted = false;
-  Cities: string[] = ['Aclieburgh', 'Diasnard', 'Sheim', 'Oitshire', 'Crokby', 'Elesgan', 'Wirburgh'];
 
 
   // Form
-  citySelector: FormGroup = this.fb.group({
+  citySelectorForm: FormGroup = this.fb.group({
     cityName: ['', [Validators.required]],
     guestNumber: ['', [Validators.required]]
   })
@@ -30,11 +36,13 @@ export class ResultsSidebarComponent  {
   //Submit
   onSubmit() {
     this.isSubmitted = true;
+    this.sendData.emit(this.citySelectorForm.value);
   }
 
   // formControl access
   get cityName(): AbstractControl | null {
-    return this.citySelector.get('cityName')
+    return this.citySelectorForm.get('cityName')
   }
+
 
 }
