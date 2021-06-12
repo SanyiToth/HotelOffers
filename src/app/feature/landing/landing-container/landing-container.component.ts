@@ -20,7 +20,7 @@ export class LandingContainerComponent implements OnInit {
     this.ourNumbers = {
       hotels: this.router.snapshot.data.hotels.length,
       orders: this.router.snapshot.data.orders.length,
-      offers: this.offers.length
+      offers: this.router.snapshot.data.offers.length
     }
   }
 
