@@ -26,6 +26,11 @@ export class RegisterComponent implements OnInit {
 
   onSubmit() {
     console.log(this.form.value)
+
+    //form valid állapot vizsgálat
+    //ha nem valid, akkor hibák jelzése
+    //ha valid, akkor regisztráció api hívás, majd bejelentkezés és nav a kezdőoldalra
+
   }
 
   checkPasswords(group: AbstractControl): null | ValidationErrors {
