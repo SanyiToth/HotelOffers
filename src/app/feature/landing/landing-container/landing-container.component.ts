@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {Offer} from "../../../shared/services/offers/offer.interface";
-import {Hotel} from "../../../shared/services/hotels/hotel.interface";
 import {Stats} from "../our-numbers/our-numbers.interface";
 import {ActivatedRoute} from "@angular/router";
 
@@ -12,20 +11,15 @@ import {ActivatedRoute} from "@angular/router";
 
 
 export class LandingContainerComponent implements OnInit {
-
-  hotels: Hotel[];
   offers: Offer[];
-  orders: any[];
   ourNumbers: Stats;
 
 
   constructor(private router: ActivatedRoute) {
     this.offers = this.router.snapshot.data.offers;
-    this.hotels = this.router.snapshot.data.hotels;
-    this.orders = this.router.snapshot.data.orders;
     this.ourNumbers = {
-      hotels: this.hotels.length,
-      orders: this.orders.length,
+      hotels: this.router.snapshot.data.hotels.length,
+      orders: this.router.snapshot.data.orders.length,
       offers: this.offers.length
     }
   }
