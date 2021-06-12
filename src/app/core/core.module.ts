@@ -1,10 +1,12 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {CoreRoutingModule} from "./core-routing.module";
-import { CoreComponent } from './core/core.component';
+import {CoreComponent} from './core/core.component';
 import {LandingModule} from "../feature/landing/landing.module";
-import {SharedModule} from "../shared/shared.module";
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
+import {HeaderModule} from "../shared/header/header.module";
+import {FooterModule} from "../shared/footer/footer.module";
+import {HttpErrorInterceptor} from "./interceptors/http-error/http-error.interceptor";
 
 
 @NgModule({
@@ -13,14 +15,22 @@ import {HttpClientModule} from "@angular/common/http";
   ],
   imports: [
     CommonModule,
+    HeaderModule,
+    FooterModule,
     CoreRoutingModule,
-    SharedModule,
     LandingModule,
     HttpClientModule
   ],
   exports: [
     CoreComponent
-  ]
+  ],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpErrorInterceptor,
+      multi: true
+    }
+  ],
 })
 export class CoreModule {
 }
