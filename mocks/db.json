@@ -193,5 +193,23 @@
     }
   ],
   "orders": [
+  ],
+  "locations": [
+    {
+      "id": 1,
+      "name": "Lorem"
+    },
+    {
+      "id": 2,
+      "name": "Lorem2"
+    },
+    {
+      "id": 3,
+      "name": "Lorem3"
+    },
+    {
+      "id": 4,
+      "name": "Lorem4"
+    }
   ]
 }
