@@ -20,7 +20,7 @@ export class ResultsSidebarComponent {
   // Form
   citySelectorForm: FormGroup = this.fb.group({
     cityName: ['', [Validators.required]],
-    guestNumber: ['', [Validators.required]]
+    guestNumber: [2, [Validators.required]]
   })
 
   constructor(public fb: FormBuilder) {
@@ -36,6 +36,7 @@ export class ResultsSidebarComponent {
   onSubmit() {
     this.isSubmitted = true;
     this.sendData.emit(this.citySelectorForm.value);
+    console.log(this.citySelectorForm.value)
   }
 
   // formControl access
