@@ -6,10 +6,12 @@ import {MatIconModule} from "@angular/material/icon";
 import {HeaderModule} from "../../shared/header/header.module";
 import {MatMenuModule} from "@angular/material/menu";
 import {MatButtonModule} from "@angular/material/button";
+import { DashboardMyBadgeMenuComponent } from './dashboard-my-badge-menu/dashboard-my-badge-menu.component';
 
 @NgModule({
   declarations: [
     DashboardComponent,
+    DashboardMyBadgeMenuComponent,
   ],
   imports: [
     CommonModule,
