@@ -12,13 +12,17 @@ import {ResultItemComponent} from './result-item/result-item.component';
 import {MatCardModule} from '@angular/material/card';
 import {HeaderModule} from "../../shared/header/header.module";
 import {MatIconModule} from "@angular/material/icon";
+import { ResultItemCardComponent } from './result-item-card/result-item-card.component';
+import { ResultItemListComponent } from './result-item-list/result-item-list.component';
 
 
 @NgModule({
   declarations: [
     ResultsSidebarComponent,
     ResultsContainerComponent,
-    ResultItemComponent
+    ResultItemComponent,
+    ResultItemCardComponent,
+    ResultItemListComponent,
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,33 @@
+<div class="container">
+    <h1 class="mt-8">Register</h1>
+    <div class="row">
+        <div class="col-lg-4">
+            <form class="register-form" [formGroup]="form" (ngSubmit)="onSubmit()">
+                <mat-form-field>
+                    <mat-label>Company name</mat-label>
+                    <input matInput formControlName="companyName">
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>E-mail</mat-label>
+                    <input type="email" matInput formControlName="email">
+                </mat-form-field>
+                <mat-form-field class="mb-5">
+                    <mat-label>Phone number</mat-label>
+                    <input type="tel" matInput formControlName="phoneNumber">
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Password</mat-label>
+                    <input type="password" matInput formControlName="password">
+                </mat-form-field>
+                <mat-form-field class="mb-5">
+                    <mat-label>Password again</mat-label>
+                    <input type="password" matInput formControlName="passwordAgain" [errorStateMatcher]="matcher">
+                    <mat-error *ngIf="form.hasError('notSame')">
+                        Passwords do not match
+                    </mat-error> 
+                </mat-form-field>
+                <button class="mb-8" mat-button color="primary">Register</button>
+            </form>
+        </div>
+    </div>
+</div>
