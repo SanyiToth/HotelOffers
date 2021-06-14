@@ -1,6 +1,7 @@
 import {Component, Input, Output, EventEmitter} from '@angular/core';
-import {FormBuilder, FormGroup, FormControl, Validators, AbstractControl, FormArray} from '@angular/forms';
+import {FormBuilder, FormGroup, Validators, AbstractControl,} from '@angular/forms';
 import { Location } from "../../../shared/services/result/location.interface";
+import { SearchRequest } from "../../../shared/services/result/search-request";
 
 
 @Component({
@@ -12,14 +13,14 @@ export class ResultsSidebarComponent {
 
   @Input() cities!: Location[];
 
-  @Output() sendData: EventEmitter<FormGroup> = new EventEmitter<FormGroup>();
+  @Output() sendData: EventEmitter<SearchRequest> = new EventEmitter<SearchRequest>();
 
   isSubmitted = false;
 
 
   // Form
   citySelectorForm: FormGroup = this.fb.group({
-    cityName: ['', [Validators.required]],
+    city: ['', [Validators.required]],
     guestNumber: [2, [Validators.required]]
   })
 
@@ -35,7 +36,7 @@ export class ResultsSidebarComponent {
   //Submit
   onSubmit() {
     this.isSubmitted = true;
-    this.sendData.emit(this.citySelectorForm.value);
+    this.sendData.emit(this.citySelectorForm.value as SearchRequest);
 
   }
 

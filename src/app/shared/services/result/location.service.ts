@@ -14,7 +14,7 @@ export class LocationService {
 
   constructor(private http: HttpClient) { }
 
-  getLocation(): Observable<Location[]> {
+  getLocations(): Observable<Location[]> {
     return this.http.get<Location[]>(environment.API_URL + LocationService.PATH)
 
   }

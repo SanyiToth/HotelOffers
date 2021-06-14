@@ -19,7 +19,7 @@ export class ResultsContainerComponent implements OnInit {
   locations!: Location[];
 
   ngOnInit(): void {
-    this.locationService.getLocation().subscribe(data => {
+    this.locationService.getLocations().subscribe(data => {
       this.locations = data;
     })
     this.item.getOffers().subscribe(data => {
