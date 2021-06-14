@@ -17,7 +17,6 @@ export class ResultsContainerComponent implements OnInit {
   ngOnInit() {
     this.locationService.getLocation().subscribe( data => {
       this.locations = data;
-      console.log("data from result-container", data)
     })
   }
 

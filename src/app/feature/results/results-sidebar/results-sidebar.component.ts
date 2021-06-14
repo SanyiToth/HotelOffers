@@ -36,7 +36,7 @@ export class ResultsSidebarComponent {
   onSubmit() {
     this.isSubmitted = true;
     this.sendData.emit(this.citySelectorForm.value);
-    console.log(this.citySelectorForm.value)
+
   }
 
   // formControl access
