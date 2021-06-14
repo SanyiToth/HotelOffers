@@ -9,7 +9,8 @@ import {Offer} from "../../../shared/services/offers/offer.interface";
 })
 export class ResultItemCardComponent implements OnInit {
 
-  @Input() data: Offer | any;
+  @Input()
+  data!: Offer;
 
   constructor() { }
 
