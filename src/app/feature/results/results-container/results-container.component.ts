@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, Output} from '@angular/core';
+import { Location } from "../../../shared/services/result/location.interface";
+import { LocationService } from "../../../shared/services/result/location.service";
 
 
 @Component({
@@ -8,9 +10,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ResultsContainerComponent implements OnInit {
 
-  constructor() { }
+  constructor(private locationService: LocationService ) { }
 
-  ngOnInit(): void {
+  locations!: Location[];
+
+  ngOnInit() {
+    this.locationService.getLocation().subscribe( data => {
+      this.locations = data;
+      console.log("data from result-container", data)
+    })
   }
 
 }

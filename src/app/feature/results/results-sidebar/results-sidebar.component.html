@@ -9,7 +9,7 @@
                 formControlName="cityName"
                 (change)="selectCity($event)">
       <mat-option disabled>Cities</mat-option>
-      <mat-option *ngFor="let city of Cities" [value]="city">{{city.name}}</mat-option>
+      <mat-option *ngFor="let city of cities" [value]="city">{{city.name}}</mat-option>
     </mat-select>
   </mat-form-field>
 

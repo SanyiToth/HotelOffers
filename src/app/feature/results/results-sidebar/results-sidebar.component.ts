@@ -1,7 +1,6 @@
-import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
+import {Component, Input, Output, EventEmitter} from '@angular/core';
 import {FormBuilder, FormGroup, FormControl, Validators, AbstractControl, FormArray} from '@angular/forms';
 import { Location } from "../../../shared/services/result/location.interface";
-import { LocationService } from "../../../shared/services/result/location.service";
 
 
 @Component({
@@ -9,9 +8,9 @@ import { LocationService } from "../../../shared/services/result/location.servic
   templateUrl: './results-sidebar.component.html',
   styleUrls: ['./results-sidebar.component.scss']
 })
-export class ResultsSidebarComponent implements OnInit{
+export class ResultsSidebarComponent {
 
-  @Input() Cities!: Location[]
+  @Input() cities!: Location[];
 
   @Output() sendData: EventEmitter<FormGroup> = new EventEmitter<FormGroup>();
 
@@ -44,9 +43,6 @@ export class ResultsSidebarComponent implements OnInit{
     return this.citySelectorForm.get('cityName')
   }
 
-    ngOnInit() {
-    console.log(this.Cities)
-    }
 
 
 }
