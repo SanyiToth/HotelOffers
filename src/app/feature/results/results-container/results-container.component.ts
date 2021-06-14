@@ -1,6 +1,8 @@
-import {Component, OnInit, Output} from '@angular/core';
+import {Component, OnInit } from '@angular/core';
 import { Location } from "../../../shared/services/result/location.interface";
 import { LocationService } from "../../../shared/services/result/location.service";
+import { OffersService } from "../../../shared/services/offers/offers.service";
+import {Offer} from "../../../shared/services/offers/offer.interface";
 
 
 @Component({
@@ -10,14 +12,18 @@ import { LocationService } from "../../../shared/services/result/location.servic
 })
 export class ResultsContainerComponent implements OnInit {
 
-  constructor(private locationService: LocationService ) { }
+  public items: Offer[] = [];
+
+  constructor(private locationService: LocationService, private item: OffersService ) { }
 
   locations!: Location[];
 
-  ngOnInit() {
-    this.locationService.getLocation().subscribe( data => {
+  ngOnInit(): void {
+    this.locationService.getLocation().subscribe(data => {
       this.locations = data;
     })
+    this.item.getOffers().subscribe(data => {
+      this.items = data;
+    });
   }
-
 }
