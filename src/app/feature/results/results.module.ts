@@ -10,14 +10,17 @@ import {ResultsSidebarComponent} from "./results-sidebar/results-sidebar.compone
 import {ResultsContainerComponent} from "./results-container/results-container.component";
 import { ResultItemComponent } from './result-item/result-item.component';
 import { MatCardModule } from '@angular/material/card';
-
+import { ResultItemCardComponent } from './result-item-card/result-item-card.component';
+import { ResultItemListComponent } from './result-item-list/result-item-list.component';
 
 
 @NgModule({
   declarations: [
     ResultsSidebarComponent,
     ResultsContainerComponent,
-    ResultItemComponent
+    ResultItemComponent,
+    ResultItemCardComponent,
+    ResultItemListComponent,
   ],
   imports: [
     CommonModule,
