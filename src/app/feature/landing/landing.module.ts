@@ -12,6 +12,7 @@ import {CarouselModule} from "primeng/carousel";
 import {LandingContainerComponent} from "./landing-container/landing-container.component";
 import {MatIconModule} from "@angular/material/icon";
 import {RatingModule} from "../../shared/rating/rating.module";
+import {HeaderModule} from "../../shared/header/header.module";
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import {RatingModule} from "../../shared/rating/rating.module";
   ],
   imports: [
     CommonModule,
+    HeaderModule,
     RatingModule,
     HttpClientModule,
     MatSelectModule,
