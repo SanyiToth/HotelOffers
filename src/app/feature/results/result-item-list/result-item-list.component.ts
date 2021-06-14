@@ -8,9 +8,7 @@ import { Offer } from "../../../shared/services/offers/offer.interface";
 })
 export class ResultItemListComponent implements OnInit {
 
-@Input()
-items: Offer[] = [];
-
+@Input() items: Offer[] = [];
 
   constructor() {}
 
