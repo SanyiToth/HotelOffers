@@ -17,8 +17,10 @@ const routes: Routes = [
   },
   {path: 'results', loadChildren: () => import('../feature/results/results.module').then(m => m.ResultsModule)},
   {path: 'dashboard', loadChildren: () => import('../feature/dashboard/dashboard.module').then(m => m.DashboardModule)},
+  {path: 'register', loadChildren: () => import('../shared/register/register.module').then(m => m.RegisterModule)},
   {path: '404', component: NotFoundComponent},
   {path: '**', redirectTo: '404'}
+
 ];
 
 @NgModule({
