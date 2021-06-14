@@ -7,18 +7,18 @@ import {
 import {Observable, of} from 'rxjs';
 import {environment} from "../../../../environments/environment";
 import {HttpClient} from "@angular/common/http";
+import {OrdersService} from "../../services/orders/orders.service";
 
 @Injectable({
   providedIn: 'root'
 })
 export class OrdersResolver implements Resolve<any[]> {
 
-  static PATH = '/orders'
 
-  constructor(private http: HttpClient) {
+  constructor(private ordersService:OrdersService) {
   }
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<any[]> {
-    return this.http.get<any[]>(environment.API_URL + OrdersResolver.PATH);
+    return this.ordersService.getOrders();
   }
 }

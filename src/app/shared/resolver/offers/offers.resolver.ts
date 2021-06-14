@@ -17,8 +17,6 @@ import {OffersService} from "../../services/offers/offers.service";
 
 export class OffersResolver implements Resolve<Offer[]> {
 
-  static PATH = '/offers'
-
   constructor(private offersService: OffersService) {
   }
 
