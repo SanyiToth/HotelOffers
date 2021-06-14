@@ -8,9 +8,10 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatButtonModule} from "@angular/material/button";
 import {ResultsSidebarComponent} from "./results-sidebar/results-sidebar.component";
 import {ResultsContainerComponent} from "./results-container/results-container.component";
-import { ResultItemComponent } from './result-item/result-item.component';
-import { MatCardModule } from '@angular/material/card';
-
+import {ResultItemComponent} from './result-item/result-item.component';
+import {MatCardModule} from '@angular/material/card';
+import {HeaderModule} from "../../shared/header/header.module";
+import {MatIconModule} from "@angular/material/icon";
 
 
 @NgModule({
@@ -21,6 +22,8 @@ import { MatCardModule } from '@angular/material/card';
   ],
   imports: [
     CommonModule,
+    HeaderModule,
+    MatIconModule,
     FormsModule,
     ReactiveFormsModule,
     MatFormFieldModule,
@@ -33,4 +36,5 @@ import { MatCardModule } from '@angular/material/card';
     MatButtonModule
   ]
 })
-export class ResultsModule { }
+export class ResultsModule {
+}
