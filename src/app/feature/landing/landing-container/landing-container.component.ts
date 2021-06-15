@@ -16,7 +16,7 @@ export class LandingContainerComponent implements OnInit {
 
 
   constructor(private router: ActivatedRoute) {
-    this.offers = this.router.snapshot.data.offers;
+    this.offers = this.router.snapshot.data.topOffers;
     this.ourNumbers = {
       hotels: this.router.snapshot.data.hotels.length,
       orders: this.router.snapshot.data.orders.length,
