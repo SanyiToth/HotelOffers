@@ -26,7 +26,6 @@ export class ResultsSidebarComponent {
 
   constructor(public fb: FormBuilder) {
   }
-
   // Choose city
   selectCity(event: any) {
     this.cityName!.setValue(event.target.value, {
@@ -39,7 +38,6 @@ export class ResultsSidebarComponent {
     this.sendData.emit(this.citySelectorForm.value as SearchRequest);
 
   }
-
   // formControl access
   get cityName(): AbstractControl | null {
     return this.citySelectorForm.get('cityName')
