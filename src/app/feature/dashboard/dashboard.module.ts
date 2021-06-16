@@ -4,7 +4,9 @@ import {DashboardComponent} from './dashboard-container/dashboard.component';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { DashboardSidenavComponent } from './dashboard-sidenav/dashboard-sidenav.component';
-import {MatListModule} from '@angular/material/list';
+import { MatListModule } from '@angular/material/list';
+import { MatToolbarModule } from "@angular/material/toolbar";
+import {MatTabsModule} from '@angular/material/tabs';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import {MatListModule} from '@angular/material/list';
     CommonModule,
     DashboardRoutingModule,
     MatSidenavModule,
-    MatListModule
+    MatListModule,
+    MatToolbarModule,
+    MatTabsModule
   ],
   exports: [DashboardComponent]
 })

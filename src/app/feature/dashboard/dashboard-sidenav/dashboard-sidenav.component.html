@@ -1,7 +1,18 @@
 <mat-sidenav-container>
-    <mat-nav-list class="sidenav">
-      <mat-list-item class="menu-item">Stats</mat-list-item>
-      <mat-list-item class="menu-item">Offers</mat-list-item>
-      <mat-list-item class="menu-item">Orders</mat-list-item>
+  <mat-sidenav opened="true" mode="side">
+    <mat-nav-list>
+      <mat-list-item>
+        <h4 matLine>Stats</h4>
+      </mat-list-item>
+      <mat-list-item>
+        <h4 matLine>Offers</h4>
+      </mat-list-item>
     </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    router outlet
+  </mat-sidenav-content>
+
 </mat-sidenav-container>
+
+
