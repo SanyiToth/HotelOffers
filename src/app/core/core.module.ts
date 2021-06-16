@@ -19,7 +19,7 @@ import {HttpErrorInterceptor} from "./interceptors/http-error/http-error.interce
     FooterModule,
     CoreRoutingModule,
     LandingModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   exports: [
     CoreComponent
