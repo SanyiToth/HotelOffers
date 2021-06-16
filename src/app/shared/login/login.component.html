@@ -10,11 +10,10 @@
         <input type="password" matInput placeholder="Password" formControlName="password">
       </mat-form-field>
       <div class="button">
-        <button type="submit" mat-button>Login</button>
+        <button type="submit" mat-raised-button color="primary">Login</button>
       </div>
-      <p class="registerTitle">Don't have an account yet?
-        <a [routerLink]="'/register'" class="registerButton">register</a>
-      </p>
+      <p class="registerTitle">Don't have an account yet?</p>
+      <button class="registerButton" [routerLink]="'/register'" mat-raised-button >Registration</button>
     </form>
   </mat-card-content>
 </mat-card>
