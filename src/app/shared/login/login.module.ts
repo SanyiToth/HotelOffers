@@ -7,20 +7,24 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatSelectModule} from "@angular/material/select";
 import {MatInputModule} from "@angular/material/input";
 import {MatButtonModule} from "@angular/material/button";
+import {LoginRoutingModule} from "./login-routing.module";
 
 
 @NgModule({
   declarations: [
-    LoginComponent
+    LoginComponent,
   ],
   imports: [
     CommonModule,
+    LoginRoutingModule,
     MatCardModule,
     ReactiveFormsModule,
     MatFormFieldModule,
     MatSelectModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+  ],
+  exports: [
   ]
 })
 export class LoginModule { }

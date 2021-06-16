@@ -1,7 +1,7 @@
 <mat-card class="container">
   <mat-card-title>Hotel login</mat-card-title>
   <mat-card-content>
-    <form [formGroup]="form">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
       <mat-form-field>
         <input type="email" matInput placeholder="Email" formControlName="email">
       </mat-form-field>
@@ -12,7 +12,9 @@
       <div class="button">
         <button type="submit" mat-button>Login</button>
       </div>
-      <p class="registerTitle">Don't have an account yet?   <a class="registerButton" href="#">register</a></p>
+      <p class="registerTitle">Don't have an account yet?  <a [routerLink]="'register'" class="registerButton">register</a></p>
     </form>
   </mat-card-content>
 </mat-card>
+
+
