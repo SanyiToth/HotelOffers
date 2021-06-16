@@ -1,14 +1,15 @@
 <div class="results-sidebar">
-  <form [formGroup]="citySelector"
+  <form [formGroup]="citySelectorForm"
         (submit)="onSubmit()"
         class="form-field">
-  <mat-form-field appearance="outline" >
+        <!--(submit)="onSubmit()-->
+  <mat-form-field appearance="outline">
     <mat-label>Chose your destination!</mat-label>
-    <mat-select name="cityName" id="cityName"
-                formControlName="cityName"
+    <mat-select name="city" id="city"
+                formControlName="city"
                 (change)="selectCity($event)">
       <mat-option disabled>Cities</mat-option>
-      <mat-option *ngFor="let city of Cities" [value]="city">{{city}}</mat-option>
+      <mat-option *ngFor="let city of cities" [value]="city">{{city.name}}</mat-option>
     </mat-select>
   </mat-form-field>
 

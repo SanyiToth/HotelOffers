@@ -6,18 +6,21 @@ import {LandingContainerComponent} from "../feature/landing/landing-container/la
 import {OffersResolver} from "../shared/resolver/offers/offers.resolver";
 import {HotelsResolver} from "../shared/resolver/hotels/hotels.resolver";
 import {OrdersResolver} from "../shared/resolver/orders/orders.resolver";
+import {TopOffersResolver} from "../shared/resolver/top-offers/top-offers.resolver";
 
 const routes: Routes = [
   {
     path: '', resolve: {
       offers: OffersResolver,
       hotels: HotelsResolver,
-      orders: OrdersResolver
+      orders: OrdersResolver,
+      topOffers: TopOffersResolver,
     }, component: LandingContainerComponent
   },
   {path: 'results', loadChildren: () => import('../feature/results/results.module').then(m => m.ResultsModule)},
   {path: 'dashboard', loadChildren: () => import('../feature/dashboard/dashboard.module').then(m => m.DashboardModule)},
   {path: 'register', loadChildren: () => import('../shared/register/register.module').then(m => m.RegisterModule)},
+  {path: 'login', loadChildren: () => import('../shared/login/login.module').then(m => m.LoginModule)},
   {path: '404', component: NotFoundComponent},
   {path: '**', redirectTo: '404'}
 

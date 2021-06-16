@@ -15,8 +15,12 @@ export class OffersService {
   constructor(private http: HttpClient) {
   }
 
-  getOffers(limit: number = 5): Observable<Offer[]> {
-    return this.http.get<Offer[]>(environment.API_URL + OffersService.PATH + '?_limit=' + limit);
+  getOffers(limit?: number): Observable<Offer[]> {
+    if (limit) {
+      return this.http.get<Offer[]>(environment.API_URL + OffersService.PATH + '?_limit=' + limit);
+    } else {
+      return this.http.get<Offer[]>(environment.API_URL + OffersService.PATH);
+    }
   }
 
   getOffer(id: number): Observable<Offer> {
