@@ -24,14 +24,7 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onSubmit() {
-    console.log(this.form.value)
-
-    //form valid állapot vizsgálat
-    //ha nem valid, akkor hibák jelzése
-    //ha valid, akkor regisztráció api hívás, majd bejelentkezés és nav a kezdőoldalra
-
-  }
+  onSubmit() {}
 
   checkPasswords(group: AbstractControl): null | ValidationErrors {
     const password = group.get('password')?.value;
