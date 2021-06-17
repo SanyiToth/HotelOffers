@@ -3,6 +3,7 @@ import {BehaviorSubject, Observable} from 'rxjs';
 import {AccessToken, LoginCredential, User} from './auth.interface';
 import {HttpClient} from '@angular/common/http';
 import {tap} from 'rxjs/operators';
+import {Router} from '@angular/router';
 import {environment} from "../../../environments/environment";
 
 
@@ -19,7 +20,7 @@ export class AuthService {
     return this.jwtSubject.value;
   }
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private router: Router) {
     const jwtToken = JSON.parse(localStorage.getItem('jwt') as string) as AccessToken || undefined;
     this.jwtSubject = new BehaviorSubject<AccessToken>(jwtToken);
   }
@@ -34,6 +35,14 @@ export class AuthService {
           this.jwtSubject.next(token);
         })
       );
+  }
+
+  logout() {
+    localStorage.removeItem('jwt');
+   setTimeout(() => {
+      this.router.navigate(['/login']);
+    }, 1000);
+
   }
 
   isLoggedIn(): boolean {
