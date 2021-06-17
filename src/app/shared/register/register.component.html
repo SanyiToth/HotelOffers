@@ -9,11 +9,13 @@
                 </mat-form-field>
                 <mat-form-field>
                     <mat-label>E-mail</mat-label>
-                    <input type="email" matInput formControlName="email">
+                    <input type="email" name="email" ngModel email="true" matInput formControlName="email">
                 </mat-form-field>
                 <mat-form-field class="mb-5">
                     <mat-label>Phone number</mat-label>
-                    <input type="tel" matInput formControlName="phoneNumber">
+                    <input type="tel" name="phone"
+                        pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                        matInput formControlName="phoneNumber" placeholder="123-456-7899">
                 </mat-form-field>
                 <mat-form-field>
                     <mat-label>Password</mat-label>
@@ -21,7 +23,7 @@
                 </mat-form-field>
                 <mat-form-field class="mb-5">
                     <mat-label>Password again</mat-label>
-                    <input type="password" matInput formControlName="passwordAgain" [errorStateMatcher]="matcher">
+                    <input type="password" minlength="6" maxlength="12" matInput formControlName="passwordAgain" [errorStateMatcher]="matcher">
                     <mat-error *ngIf="form.hasError('notSame')">
                         Passwords do not match
                     </mat-error> 
