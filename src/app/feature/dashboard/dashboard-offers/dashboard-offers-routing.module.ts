@@ -1,3 +1,4 @@
+/*
 import { NgModule } from '@angular/core';
 import {RouterModule, Routes} from "@angular/router";
 import {DashboardOffersContainerComponent} from "./dashboard-offers-container/dashboard-offers-container.component";
@@ -12,3 +13,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class DashboardOffersRoutingModule { }
+*/

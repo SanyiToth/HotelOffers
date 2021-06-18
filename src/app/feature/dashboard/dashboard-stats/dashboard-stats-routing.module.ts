@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+/*import { NgModule } from '@angular/core';
 import {RouterModule, Routes} from "@angular/router";
 import {DashboardStatsContainerComponent} from "./dashboard-stats-container/dashboard-stats-container.component";
 
@@ -12,3 +12,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class DashboardStatsRoutingModule { }
+*/

@@ -1,16 +1,16 @@
 <mat-sidenav-container>
   <mat-sidenav opened="true" mode="side">
     <mat-nav-list>
-      <mat-list-item >
-        <h4 matLine routerLink="/stats">Stats</h4>
+      <mat-list-item [routerLink]="'stats'" routerLinkActive="active">
+        <h4>Stats</h4>
       </mat-list-item>
-      <mat-list-item>
-        <h4 matLine routerLink="/offers">Offers</h4>
+      <mat-list-item [routerLink]="'offers'" routerLinkActive="active">
+        <h4>Offers</h4>
       </mat-list-item>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
-    router outlet
+    <router-outlet></router-outlet>
   </mat-sidenav-content>
 
 </mat-sidenav-container>

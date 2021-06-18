@@ -9,7 +9,6 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatToolbarModule } from "@angular/material/toolbar";
 import {MatTabsModule} from '@angular/material/tabs';
-import { RouterModule } from "@angular/router";
 import { DashboardComponent } from './dashboard-container/dashboard.component';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardSidenavComponent } from './dashboard-sidenav/dashboard-sidenav.component';
@@ -31,7 +30,6 @@ import { DashboardSidenavComponent } from './dashboard-sidenav/dashboard-sidenav
     MatIconModule,
     MatMenuModule,
     MatButtonModule,
-    RouterModule,
   ],
   exports: [
     DashboardComponent,
