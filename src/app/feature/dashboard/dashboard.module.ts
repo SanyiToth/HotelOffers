@@ -13,14 +13,12 @@ import { RouterModule } from "@angular/router";
 import { DashboardComponent } from './dashboard-container/dashboard.component';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardSidenavComponent } from './dashboard-sidenav/dashboard-sidenav.component';
-import { DashboardResultContainerComponent } from "./dashboard-result-container/dashboard-result-container.component";
 
 @NgModule({
   declarations: [
     DashboardComponent,
     DashboardMyBadgeMenuComponent,
     DashboardSidenavComponent,
-    DashboardResultContainerComponent
   ],
   imports: [
     CommonModule,
