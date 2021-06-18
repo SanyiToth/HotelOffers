@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { NotSameErrorStateMatcher } from './not-same-error-state-matcher';
+import { HotelsService } from '../services/hotels/hotels.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -19,12 +21,27 @@ export class RegisterComponent implements OnInit {
     passwordAgain: new FormControl()
   }, this.checkPasswords)
 
-  constructor() { }
+  constructor(private myService: HotelsService, private route: Router) {}
 
   ngOnInit(): void {
   }
 
-  onSubmit() {}
+  onSubmit() {
+    
+    if (this.form.valid) {
+
+      const companyData = {
+        companyName: this.form.get('companyName')?.value,
+        email: this.form.get('email')?.value,
+        phoneNumber: this.form.get('phoneNumber')?.value,
+        password: this.form.get('password')?.value
+      }      
+      this.myService.createHotel(companyData).subscribe(res => {        
+        //this.route.navigate(['/dashboard']);
+      })      
+    }
+
+  }
 
   checkPasswords(group: AbstractControl): null | ValidationErrors {
     const password = group.get('password')?.value;
