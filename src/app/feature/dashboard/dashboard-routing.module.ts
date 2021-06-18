@@ -8,7 +8,8 @@ const routes: Routes = [
     { path: 'stats', loadChildren: () => import('./dashboard-stats/dashboard-stats.module').then(m => m.DashboardStatsModule )},
     { path: 'offers', loadChildren: () => import('./dashboard-offers/dashboard-offers.module').then(m => m.DashboardOffersModule)},
     { path: '', redirectTo: 'stats', pathMatch: 'full'},
-    { path: '**', redirectTo: '' }]
+    { path: '**', redirectTo: '' }
+    ]
   }
 ]
 
