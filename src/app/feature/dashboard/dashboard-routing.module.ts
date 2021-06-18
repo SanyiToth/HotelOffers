@@ -6,8 +6,10 @@ import {DashboardComponent} from "./dashboard-container/dashboard.component";
 const routes: Routes = [
   {path: '', component: DashboardComponent, children: [
     { path: 'stats', loadChildren: () => import('./dashboard-stats/dashboard-stats.module').then(m => m.DashboardStatsModule )},
-    { path: 'offers', loadChildren: () => import('./dashboard-offers/dashboard-offers.module').then(m => m.DashboardOffersModule) }
-    ]}
+    { path: 'offers', loadChildren: () => import('./dashboard-offers/dashboard-offers.module').then(m => m.DashboardOffersModule)},
+    { path: '', redirectTo: 'stats', pathMatch: 'full'},
+    { path: '**', redirectTo: '' }]
+  }
 ]
 
 @NgModule({
