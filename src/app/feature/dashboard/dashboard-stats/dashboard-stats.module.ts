@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DashboardStatsContainerComponent } from "./dashboard-stats-container/dashboard-stats-container.component";
+import { DashboardStatsRoutingModule } from "./dashboard-stats-routing.module";
 
 @NgModule({
   declarations: [
@@ -8,6 +9,7 @@ import { DashboardStatsContainerComponent } from "./dashboard-stats-container/da
   ],
   imports: [
     CommonModule,
+    DashboardStatsRoutingModule
 
 
   ]

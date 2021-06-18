@@ -21,7 +21,6 @@ import { DashboardSidenavComponent } from './dashboard-sidenav/dashboard-sidenav
   ],
   imports: [
     CommonModule,
-    DashboardRoutingModule,
     MatSidenavModule,
     MatListModule,
     MatToolbarModule,
@@ -30,6 +29,10 @@ import { DashboardSidenavComponent } from './dashboard-sidenav/dashboard-sidenav
     MatIconModule,
     MatMenuModule,
     MatButtonModule,
+    DashboardRoutingModule
+
+
+
   ],
   exports: [
     DashboardComponent,
