@@ -210,5 +210,12 @@
       "id": 4,
       "name": "Lorem4"
     }
+  ],
+  "users": [
+    {
+      "email": "hello@asd.com",
+      "password": "$2a$10$tI7l/IVW4F3h40eHj7u/g.5fuYQE4nwWvN/7aC6ejOceaCr.11Z7O",
+      "id": 1
+    }
   ]
 }
