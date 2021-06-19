@@ -1,17 +1,17 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {DashboardComponent} from './dashboard-container/dashboard.component';
-import { DashboardRoutingModule } from './dashboard-routing.module';
 import {MatIconModule} from "@angular/material/icon";
 import {HeaderModule} from "../../shared/header/header.module";
 import {MatMenuModule} from "@angular/material/menu";
 import {MatButtonModule} from "@angular/material/button";
 import { DashboardMyBadgeMenuComponent } from './dashboard-my-badge-menu/dashboard-my-badge-menu.component';
 import {MatSidenavModule} from '@angular/material/sidenav';
-import { DashboardSidenavComponent } from './dashboard-sidenav/dashboard-sidenav.component';
 import { MatListModule } from '@angular/material/list';
 import { MatToolbarModule } from "@angular/material/toolbar";
 import {MatTabsModule} from '@angular/material/tabs';
+import { DashboardComponent } from './dashboard-container/dashboard.component';
+import { DashboardRoutingModule } from './dashboard-routing.module';
+import { DashboardSidenavComponent } from './dashboard-sidenav/dashboard-sidenav.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +21,6 @@ import {MatTabsModule} from '@angular/material/tabs';
   ],
   imports: [
     CommonModule,
-    DashboardRoutingModule,
     MatSidenavModule,
     MatListModule,
     MatToolbarModule,
@@ -29,9 +28,9 @@ import {MatTabsModule} from '@angular/material/tabs';
     HeaderModule,
     MatIconModule,
     MatMenuModule,
-    MatButtonModule
-  ],
-  exports: [DashboardComponent]
+    MatButtonModule,
+    DashboardRoutingModule
+  ]
 })
 export class DashboardModule {
 }
