@@ -13,6 +13,7 @@ import {LandingContainerComponent} from "./landing-container/landing-container.c
 import {MatIconModule} from "@angular/material/icon";
 import {RatingModule} from "../../shared/rating/rating.module";
 import {HeaderModule} from "../../shared/header/header.module";
+import {RouterModule} from "@angular/router";
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import {HeaderModule} from "../../shared/header/header.module";
     CarouselModule,
     MatCardModule,
     MatIconModule,
+    RouterModule,
   ],
 
   exports: [
