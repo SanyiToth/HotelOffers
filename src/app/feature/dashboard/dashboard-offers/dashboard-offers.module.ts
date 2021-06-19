@@ -8,7 +8,6 @@ import { DashboardOffersRoutingModule  } from "./dashboard-offers-routing.module
   imports: [
     CommonModule,
     DashboardOffersRoutingModule
-
   ]
 })
 export class DashboardOffersModule { }
