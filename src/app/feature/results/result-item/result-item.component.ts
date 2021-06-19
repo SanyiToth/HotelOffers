@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {switchMap, tap} from "rxjs/operators";
 import {OffersService} from "../../../shared/services/offers/offers.service";
+import {Offer} from "../../../shared/services/offers/offer.interface";
 
 
 @Component({
@@ -10,15 +11,14 @@ import {OffersService} from "../../../shared/services/offers/offers.service";
   styleUrls: ['./result-item.component.scss']
 })
 export class ResultItemComponent implements OnInit {
-  offer: any;
-  id: any;
+  offer!: Offer;
+  id: number | undefined;
   errorMessage = '';
 
   constructor(private route: ActivatedRoute, private offersService: OffersService) {
   }
 
   ngOnInit(): void {
-
     this.route.params
       .pipe(
         tap(params => {
@@ -28,7 +28,6 @@ export class ResultItemComponent implements OnInit {
         switchMap(() => this.offersService.getOffer(this.id)))
       .subscribe(response => {
         this.offer = response;
-        console.log('offer',this.offer)
       }, error => {
         this.errorMessage = error;
       });
