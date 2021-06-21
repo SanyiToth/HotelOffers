@@ -8,6 +8,8 @@ import {MatSelectModule} from "@angular/material/select";
 import {MatInputModule} from "@angular/material/input";
 import {MatButtonModule} from "@angular/material/button";
 import {LoginRoutingModule} from "./login-routing.module";
+import {HeaderModule} from "../header/header.module";
+import {MatIconModule} from "@angular/material/icon";
 
 
 @NgModule({
@@ -23,6 +25,8 @@ import {LoginRoutingModule} from "./login-routing.module";
     MatSelectModule,
     MatInputModule,
     MatButtonModule,
+    HeaderModule,
+    MatIconModule,
   ],
   exports: [
   ]
