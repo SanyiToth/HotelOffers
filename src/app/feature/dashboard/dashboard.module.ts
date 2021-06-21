@@ -13,6 +13,10 @@ import { DashboardComponent } from './dashboard-container/dashboard.component';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardSidenavComponent } from './dashboard-sidenav/dashboard-sidenav.component';
 import { DashboardNewOfferComponent } from './dashboard-new-offer/dashboard-new-offer.component';
+import {MatStepperModule} from "@angular/material/stepper";
+import {ReactiveFormsModule} from "@angular/forms";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatInputModule} from "@angular/material/input";
 
 @NgModule({
   declarations: [
@@ -31,7 +35,11 @@ import { DashboardNewOfferComponent } from './dashboard-new-offer/dashboard-new-
     MatIconModule,
     MatMenuModule,
     MatButtonModule,
-    DashboardRoutingModule
+    DashboardRoutingModule,
+    MatStepperModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule
   ]
 })
 export class DashboardModule {
