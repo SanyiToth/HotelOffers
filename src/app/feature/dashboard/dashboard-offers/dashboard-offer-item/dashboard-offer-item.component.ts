@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import { Offer } from "../../../../shared/services/offers/offer.interface";
 
 @Component({
   selector: 'app-dashboard-offer-item',
@@ -6,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard-offer-item.component.scss']
 })
 export class DashboardOfferItemComponent implements OnInit {
+
+  @Input()
+  data!: Offer;
 
   constructor() { }
 

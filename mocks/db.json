@@ -79,6 +79,10 @@
       "id": 1,
       "heading": "Offer heading 1",
       "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "dateInterval": {
+        "startDate": "2022-08-23",
+        "endDate": "2022-09-01"
+      },
       "price": 39500,
       "image": "https://picsum.photos/id/98/400/200",
       "ratingInfo": {
