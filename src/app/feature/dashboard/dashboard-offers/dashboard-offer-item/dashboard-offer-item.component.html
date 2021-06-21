@@ -1,46 +1,43 @@
-<div class="offer-item-card d-flex flex-column">
-  <div class="d-inline-flex justify-content-between">
-    <div class="offer-title">
-      <h4>Offer Title</h4>
+<mat-card class="d-flex flex-column">
+  <mat-card-header class="d-inline-flex justify-content-between">
+    <mat-card-title>Offer title</mat-card-title>
+    <div class="d-inline-flex flex-row">
+      <p>starting-day.data</p>
+      <p>ending-day.data</p>
     </div>
-    <table>
-      <tr>
-        <td>start date</td>
-        <td>end date</td>
-      </tr>
-      <tbody>
-      <tr>
-        <td>2021.04.21.</td>
-        <td>2021.04.28.</td>
-      </tr>
-      </tbody>
-    </table>
+  </mat-card-header>
+  <div class="d-inline-flex flex-row justify-content-between">
+    <mat-card-content>
+      <table>
+        <tr>
+          <th>status</th>
+          <th>images</th>
+          <th>complete</th>
+          <th>price</th>
+          <th>orders</th>
+          <th>count</th>
+        </tr>
+        <tbody>
+        <tr>
+          <td>status.data</td>
+          <td>images.data</td>
+          <td>complete.data</td>
+          <td>price.data</td>
+          <td>orders.data</td>
+          <td>count.data</td>
+        </tr>
+        </tbody>
+      </table>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-mini-fab color="primary">
+        <mat-icon class="edit">edit_outline</mat-icon>
+      </button>
+      <button mat-mini-fab color="warn">
+        <mat-icon class="delete">delete_outline</mat-icon>
+      </button>
+    </mat-card-actions>
   </div>
-  <div class="d-inline-flex justify-content-between align-items-end">
-    <table>
-      <tr>
-        <td>status</td>
-        <td>images</td>
-        <td>complete</td>
-        <td>price</td>
-        <td>orders count</td>
-      </tr>
-      <tbody>
-      <tr>
-        <td>lorem</td>
-        <td>lorem</td>
-        <td>lorem</td>
-        <td>lorem</td>
-        <td>lorem</td>
-      </tr>
-      </tbody>
-    </table>
-    <div class="d-inline-flex justify-content-between ">
-      <mat-icon>edit_outline</mat-icon>
-      <mat-icon>delete_outline</mat-icon>
-    </div>
-  </div>
-
-</div>
+</mat-card>
 
 

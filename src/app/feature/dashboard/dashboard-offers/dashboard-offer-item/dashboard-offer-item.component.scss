@@ -1,8 +1,33 @@
+$shadow-color:#636363;
+$background-color: #ffffff;
+$separation-padding: 19px;
+
 :host {
-  .offer-item-card {
-    background-color: #ffffff;
+  th {
+    font-size: small;
+    font-weight: lighter;
+    text-align: start;
+    padding-left: $separation-padding
+  }
+  td {
+    text-align: start;
+    padding-left: $separation-padding
+  }
+  p {
+    padding-left: $separation-padding
+  }
+  .mat-mini-fab {
+    margin-right: 5px
+  }
+  .mat-card {
     margin: 20px;
     padding: 20px;
-    border: 2px solid #3f51b5;
+  }
+  .mat-card-header {
+    margin-bottom: 20px;
+  }
+  .mat-card-actions, .mat-card-content {
+    padding-top: 10px;
+    margin: 0;
   }
 }

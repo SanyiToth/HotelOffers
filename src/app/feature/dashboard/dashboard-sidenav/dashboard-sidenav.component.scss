@@ -26,10 +26,7 @@ $nav-width: 20%;
   }
    .mat-sidenav-content{
       background-color: $background-color;
+     overflow: hidden;
     }
-  .mat-sidenav-content {
-    overflow: hidden;
-  }
-
   }
 
