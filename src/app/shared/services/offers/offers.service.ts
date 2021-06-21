@@ -27,4 +27,9 @@ export class OffersService {
     return this.http.get<Offer>(environment.API_URL + OffersService.PATH + '/' + id)
   }
 
+  createOffer(offer: Offer): Observable<Offer> {
+    return this.http.post<Offer>(environment.API_URL + OffersService.PATH, offer);
+  }
+
+
 }
