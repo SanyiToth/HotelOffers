@@ -29,7 +29,7 @@ import { DashboardSidenavComponent } from './dashboard-sidenav/dashboard-sidenav
     MatIconModule,
     MatMenuModule,
     MatButtonModule,
-    DashboardRoutingModule
+    DashboardRoutingModule,
   ]
 })
 export class DashboardModule {

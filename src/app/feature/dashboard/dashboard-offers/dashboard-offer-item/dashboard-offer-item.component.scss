@@ -1,30 +1,30 @@
 $shadow-color:#636363;
 $background-color: #ffffff;
-$separation-padding: 19px;
+$separation: 20px;
 
 :host {
   th {
     font-size: small;
     font-weight: lighter;
     text-align: start;
-    padding-left: $separation-padding
+    padding-left: $separation
   }
   td {
     text-align: start;
-    padding-left: $separation-padding
+    padding-left: $separation
   }
   p {
-    padding-left: $separation-padding
+    padding-left: $separation
   }
   .mat-mini-fab {
     margin-right: 5px
   }
   .mat-card {
-    margin: 20px;
-    padding: 20px;
+    margin: $separation;
+    padding: $separation;
   }
   .mat-card-header {
-    margin-bottom: 20px;
+    margin-bottom: $separation;
   }
   .mat-card-actions, .mat-card-content {
     padding-top: 10px;

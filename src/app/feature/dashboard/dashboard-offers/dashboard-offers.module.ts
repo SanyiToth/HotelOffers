@@ -9,7 +9,9 @@ import { MatCardModule } from "@angular/material/card";
 import {MatTableModule} from '@angular/material/table';
 
 @NgModule({
-  declarations: [DashboardOffersContainerComponent, DashboardOfferItemComponent],
+  declarations: [
+    DashboardOffersContainerComponent,
+    DashboardOfferItemComponent],
   imports: [
     CommonModule,
     DashboardOffersRoutingModule,
