@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Offer } from "../../../../shared/services/offers/offer.interface";
+import { OffersService } from "../../../../shared/services/offers/offers.service";
 
 @Component({
   selector: 'app-dashboard-offers-container',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardOffersContainerComponent implements OnInit {
 
-  constructor() { }
+  data!: Offer[]
+
+  constructor(private offers: OffersService) { }
 
   ngOnInit(): void {
+    this.offers.getOffers().subscribe(data => {
+      this.data = data;
+      console.log(data)
+    })
   }
 
 }
