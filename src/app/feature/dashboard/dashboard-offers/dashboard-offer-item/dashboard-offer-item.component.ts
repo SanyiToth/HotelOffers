@@ -16,7 +16,7 @@ export class DashboardOfferItemComponent implements OnInit {
   constructor(private offer: OffersService) { }
 
   ngOnInit(): void {
-  this.offer.getOffer(this.data.id).subscribe(data => {
+  this.offer.getOffer(this.data.hotelId).subscribe(data => {
     this.data = data;
     console.log("getOffer", data)
   })

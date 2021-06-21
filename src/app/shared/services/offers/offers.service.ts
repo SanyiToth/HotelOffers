@@ -26,5 +26,4 @@ export class OffersService {
   getOffer(id: number): Observable<Offer> {
     return this.http.get<Offer>(environment.API_URL + OffersService.PATH + '/' + id)
   }
-
 }

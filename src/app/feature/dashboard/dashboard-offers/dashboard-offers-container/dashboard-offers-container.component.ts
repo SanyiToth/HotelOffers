@@ -16,7 +16,7 @@ export class DashboardOffersContainerComponent implements OnInit {
   ngOnInit(): void {
     this.offers.getOffers().subscribe(data => {
       this.data = data;
-      console.log(data)
+      console.log("all offers:", data)
     })
   }
 
