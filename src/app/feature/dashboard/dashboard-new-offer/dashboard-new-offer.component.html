@@ -38,11 +38,19 @@
          <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
          <mat-datepicker #picker2></mat-datepicker>
        </mat-form-field>
-
-
-
-
      </div>
+
+      <div class="available-offers">
+
+        <mat-form-field >
+          <mat-label>Available offers (quantity the offer can be selled)</mat-label>
+          <input matInput type="number" step="1" min="1" max="5" required>
+        </mat-form-field>
+
+
+
+
+      </div>
 
       <div>
         <button mat-button matStepperNext>Next</button>
