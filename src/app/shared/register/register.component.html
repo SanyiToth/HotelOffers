@@ -1,69 +1,66 @@
-<div class="container">    
-    <div class="row justify-content-md-center">        
-        <div class="col-lg-4">
-            <h1 class="mt-8">Register</h1>
-            <form class="register-form" [formGroup]="form" (ngSubmit)="onSubmit()">
-                <mat-form-field>
-                    <mat-label>Company name</mat-label>
-                    <input matInput formControlName="name">
-                </mat-form-field>
-                <mat-form-field>
-                    <mat-label>E-mail</mat-label>
-                    <input type="email" name="email" matInput formControlName="email">
-                </mat-form-field>
-                <mat-form-field class="mb-5">
-                    <mat-label>Phone number</mat-label>
-                    <input type="tel" name="phone"
-                        pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-                        matInput formControlName="phone" placeholder="123-456-7899">
-                </mat-form-field>
-                <mat-form-field>
-                    <mat-label>Password</mat-label>
-                    <input type="password" matInput formControlName="password">
-                </mat-form-field>
-                <mat-form-field class="mb-2">
-                    <mat-label>Password again</mat-label>
-                    <input type="password" minlength="6" matInput formControlName="passwordAgain" [errorStateMatcher]="matcher">
-                    <mat-error *ngIf="form.hasError('notSame')">
-                        Passwords do not match
-                    </mat-error> 
-                </mat-form-field>
-                <mat-divider class="divider"></mat-divider>
-                <h3 class="mt-3">Address</h3>
-                <div formGroupName="address">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <mat-select-country formControlName="country"></mat-select-country>
-                        </div>
-                        <div class="col-lg-4">
-                            <mat-form-field>
-                                <input type="text" matInput formControlName="postalCode" placeholder="zipCode">
-                            </mat-form-field>
-                        </div>
+<div class="row justify-content-md-center">        
+    <div class="col-lg-4">
+        <h1 class="mt-8">Register</h1>
+        <form class="register-form" [formGroup]="form" (ngSubmit)="onSubmit()">
+            <mat-form-field>
+                <mat-label>Company name</mat-label>
+                <input matInput formControlName="name">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>E-mail</mat-label>
+                <input type="email" name="email" matInput formControlName="email">
+            </mat-form-field>
+            <mat-form-field class="mb-5">
+                <mat-label>Phone number</mat-label>
+                <input type="tel" name="phone"
+                    pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                    matInput formControlName="phone" placeholder="123-456-7899">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Password</mat-label>
+                <input type="password" matInput formControlName="password">
+            </mat-form-field>
+            <mat-form-field class="mb-2">
+                <mat-label>Password again</mat-label>
+                <input type="password" minlength="6" matInput formControlName="passwordAgain" [errorStateMatcher]="matcher">
+                <mat-error *ngIf="form.hasError('notSame')">
+                    Passwords do not match
+                </mat-error> 
+            </mat-form-field>
+            <mat-divider class="divider"></mat-divider>
+            <h3 class="mt-3">Address</h3>
+            <div formGroupName="address">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <mat-select-country formControlName="country"></mat-select-country>
                     </div>
-                    <mat-form-field>
-                        <input type="text" matInput formControlName="city" placeholder="City">
-                    </mat-form-field>
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <mat-form-field>
-                                <input type="text" matInput formControlName="streetName" placeholder="Street Name">
-                            </mat-form-field>
-                        </div>
-                        <div class="col-lg-4">
-                            <mat-form-field>
-                                <input type="text" matInput formControlName="streetNumber" placeholder="Street Number">
-                            </mat-form-field>
-                        </div>
+                    <div class="col-lg-4">
+                        <mat-form-field>
+                            <input type="text" matInput formControlName="postalCode" placeholder="zipCode">
+                        </mat-form-field>
                     </div>
-                    <mat-divider class="divider"></mat-divider>
-                    <mat-form-field class="rating">
-                        <input type="text" matInput formControlName="classification" placeholder="Rating">
-                    </mat-form-field>
                 </div>
-                    <button class="mb-8" mat-button color="primary">Register</button>
-                </form>
+                <mat-form-field>
+                    <input type="text" matInput formControlName="city" placeholder="City">
+                </mat-form-field>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <mat-form-field>
+                            <input type="text" matInput formControlName="streetName" placeholder="Street Name">
+                        </mat-form-field>
+                    </div>
+                    <div class="col-lg-4">
+                        <mat-form-field>
+                            <input type="text" matInput formControlName="streetNumber" placeholder="Street Number">
+                        </mat-form-field>
+                    </div>
+                </div>
+                <mat-divider class="divider"></mat-divider>
+                <mat-form-field class="rating">
+                    <input type="text" matInput formControlName="classification" placeholder="Rating">
+                </mat-form-field>
             </div>
+            <button class="mb-8" mat-button color="primary">Register</button>
+        </form>
     </div>
-  </div>
 </div>

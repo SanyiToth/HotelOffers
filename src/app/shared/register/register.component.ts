@@ -4,7 +4,7 @@ import { NotSameErrorStateMatcher } from './not-same-error-state-matcher';
 import { HotelsService } from '../services/hotels/hotels.service';
 import { Hotel } from '../services/hotels/hotel.interface';
 import { Router } from '@angular/router';
-import { AuthService } from '../../shared/auth/auth.service';
+import { AuthService } from '../auth/auth.service'
 
 @Component({
   selector: 'app-register',

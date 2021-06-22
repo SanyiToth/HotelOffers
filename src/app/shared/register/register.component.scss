@@ -1,20 +1,10 @@
-.logo-title-subtitle {
-  display: inline-flex;
-}
-
-.container {
-  height: 70vh;
-
-}
-
 .register-form {
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
 .mb-8 {
     margin-bottom: 1rem;
 }
-
 .mt-8 {
     margin-top: 4rem;
 }
@@ -24,7 +14,4 @@
 }
 .rating {
     margin-bottom: 20px;
-}
-.mywidth > .mat-form-field {
-    width: 100%;
 }
