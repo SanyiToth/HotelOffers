@@ -5,3 +5,20 @@
 .mat-form-field {
   margin-top: 16px;
 }
+
+
+.dashboard-header {
+  padding: 20px;
+  align-items: center;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.dashboard-header--buttons {
+  display: flex;
+  align-items: center;
+  width: 150px;
+  justify-content: space-between;
+
+}
