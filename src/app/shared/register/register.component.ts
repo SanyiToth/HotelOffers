@@ -52,9 +52,12 @@ export class RegisterComponent implements OnInit {
           streetNumber: this.form.get('streetNumber')?.value
         },
         classification: this.form.get('classification')?.value
-
       }      
-      this.hotelService.createHotel(hotel).subscribe(res => {        
+      this.hotelService.createHotel(hotel).subscribe(res => {  
+        const credentials = {
+          email: this.form.get('email')?.value,
+          password: this.form.get('password')?.value
+        }
         this.route.navigate(['/dashboard']);
       })      
     }
