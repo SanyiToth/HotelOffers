@@ -9,6 +9,9 @@ import { MatButtonModule } from '@angular/material/button';
 import {MatDividerModule} from '@angular/material/divider';
 import { MatSelectCountryModule } from "@angular-material-extensions/select-country";
 import { HttpClientModule } from '@angular/common/http';
+import {HeaderModule} from "../header/header.module";
+import {MatIconModule} from "@angular/material/icon";
+
 
 
 @NgModule({
@@ -24,7 +27,9 @@ import { HttpClientModule } from '@angular/common/http';
     MatButtonModule,
     MatDividerModule,
     MatSelectCountryModule.forRoot('en'),
-    HttpClientModule
+    HttpClientModule,
+    HeaderModule,
+    MatIconModule
   ]
 })
 export class RegisterModule { }
