@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import { Offer } from "../../../../shared/services/offers/offer.interface";
 import { OffersService } from "../../../../shared/services/offers/offers.service";
+import {ActivatedRoute, Router} from "@angular/router";
 
 
 @Component({
@@ -10,17 +11,21 @@ import { OffersService } from "../../../../shared/services/offers/offers.service
 })
 export class DashboardOfferItemComponent implements OnInit {
 
-  @Input()
-  data!: Offer;
+  @Input() data!: Offer;
+  ID!: number
 
-  constructor(private offer: OffersService) { }
+  constructor(private offer: OffersService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
-  this.offer.getOffer(this.data.hotelId).subscribe(data => {
-    this.data = data;
-    console.log("getOffer", data)
-  })
-  }
-
-
-}
+    /*this.offer.getOffer(this.data.id).subscribe(data => {
+      this.data = data;
+      console.log("getOffer", data)
+    })*/
+    this.route.params.subscribe(params => {
+      this.ID = params['id'];
+      this.offer.getOffer(this.ID).subscribe(data => {
+        this.data = data
+        console.log(this.data)
+      })
+    })
+  }}
