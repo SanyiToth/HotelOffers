@@ -1,9 +1,9 @@
-<mat-card class="d-flex flex-column">
+<mat-card class="d-flex flex-column" [id]="data.id">
   <mat-card-header class="d-inline-flex justify-content-between">
-    <mat-card-title>data</mat-card-title>
+    <mat-card-title>{{data.heading}}</mat-card-title>
     <div class="d-inline-flex flex-row">
-      <p>data</p>
-      <p>data</p>
+      <p>{{data.startDate}}</p>
+      <p>{{data.endDate}}</p>
     </div>
   </mat-card-header>
   <div class="d-inline-flex flex-row justify-content-between">
@@ -19,10 +19,10 @@
         </tr>
         <tbody>
         <tr>
-          <td>data</td>
+          <td>{{data.status}}</td>
           <td>data</td>
           <td>complete.data</td>
-          <td>price.data</td>
+          <td>{{data.price}}</td>
           <td>orders.data</td>
           <td>count.data</td>
         </tr>

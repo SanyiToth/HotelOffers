@@ -1,1 +1,4 @@
-<app-dashboard-offer-item></app-dashboard-offer-item>
+<article *ngFor="let offer of offers" [id]="offer.id">
+  <app-dashboard-offer-item [data]="offer"></app-dashboard-offer-item>
+</article>
+

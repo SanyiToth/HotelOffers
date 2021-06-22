@@ -12,20 +12,10 @@ import {ActivatedRoute, Router} from "@angular/router";
 export class DashboardOfferItemComponent implements OnInit {
 
   @Input() data!: Offer;
-  ID!: number
 
-  constructor(private offer: OffersService, private route: ActivatedRoute, private router: Router) { }
+  constructor() {
 
-  ngOnInit(): void {
-    /*this.offer.getOffer(this.data.id).subscribe(data => {
-      this.data = data;
-      console.log("getOffer", data)
-    })*/
-    this.route.params.subscribe(params => {
-      this.ID = params['id'];
-      this.offer.getOffer(this.ID).subscribe(data => {
-        this.data = data
-        console.log(this.data)
-      })
-    })
-  }}
+  }
+
+  ngOnInit(): void {}
+}
