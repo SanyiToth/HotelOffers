@@ -4,6 +4,7 @@ import { NotSameErrorStateMatcher } from './not-same-error-state-matcher';
 import { HotelsService } from '../services/hotels/hotels.service';
 import { Hotel } from '../services/hotels/hotel.interface';
 import { Router } from '@angular/router';
+import { AuthService } from '../../shared/auth/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -30,7 +31,7 @@ export class RegisterComponent implements OnInit {
     classification: new FormControl('')
   }, this.checkPasswords)
 
-  constructor(private hotelService: HotelsService, private route: Router) {}
+  constructor(private hotelService: HotelsService, private route: Router, private authService: AuthService) {}
 
   ngOnInit(): void {
   }
@@ -58,6 +59,7 @@ export class RegisterComponent implements OnInit {
           email: this.form.get('email')?.value,
           password: this.form.get('password')?.value
         }
+        this.authService.login(credentials);
         this.route.navigate(['/dashboard']);
       })      
     }
