@@ -1,0 +1,18 @@
+<mat-sidenav-container>
+  <mat-sidenav opened="true" mode="side">
+    <mat-nav-list>
+      <mat-list-item [routerLink]="'stats'" routerLinkActive="active">
+        <h4>Stats</h4>
+      </mat-list-item>
+      <mat-list-item [routerLink]="'offers'" routerLinkActive="active">
+        <h4>Offers</h4>
+      </mat-list-item>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <ng-content></ng-content>
+  </mat-sidenav-content>
+
+</mat-sidenav-container>
+
+

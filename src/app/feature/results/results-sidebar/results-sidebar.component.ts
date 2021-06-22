@@ -1,26 +1,31 @@
-import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, FormControl, Validators, AbstractControl} from '@angular/forms';
+import {Component, Input, Output, EventEmitter} from '@angular/core';
+import {FormBuilder, FormGroup, Validators, AbstractControl,} from '@angular/forms';
+import { Location } from "../../../shared/services/result/location.interface";
+import { SearchRequest } from "../../../shared/services/result/search-request";
+
 
 @Component({
   selector: 'app-sidebar',
   templateUrl: './results-sidebar.component.html',
   styleUrls: ['./results-sidebar.component.scss']
 })
-export class ResultsSidebarComponent  {
+export class ResultsSidebarComponent {
+
+  @Input() cities!: Location[];
+
+  @Output() sendData: EventEmitter<SearchRequest> = new EventEmitter<SearchRequest>();
 
   isSubmitted = false;
-  Cities: string[] = ['Aclieburgh', 'Diasnard', 'Sheim', 'Oitshire', 'Crokby', 'Elesgan', 'Wirburgh'];
 
 
   // Form
-  citySelector: FormGroup = this.fb.group({
-    cityName: ['', [Validators.required]],
-    guestNumber: ['', [Validators.required]]
+  citySelectorForm: FormGroup = this.fb.group({
+    city: ['', [Validators.required]],
+    guestNumber: [2, [Validators.required]]
   })
 
   constructor(public fb: FormBuilder) {
   }
-
   // Choose city
   selectCity(event: any) {
     this.cityName!.setValue(event.target.value, {
@@ -30,11 +35,14 @@ export class ResultsSidebarComponent  {
   //Submit
   onSubmit() {
     this.isSubmitted = true;
-  }
+    this.sendData.emit(this.citySelectorForm.value as SearchRequest);
 
+  }
   // formControl access
   get cityName(): AbstractControl | null {
-    return this.citySelector.get('cityName')
+    return this.citySelectorForm.get('cityName')
   }
+
+
 
 }

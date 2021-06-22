@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Stats} from "./ourNumbers.interface";
+import {Stats} from "./our-numbers.interface";
 
 @Component({
   selector: 'app-our-numbers',

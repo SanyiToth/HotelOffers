@@ -2,6 +2,7 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {FooterComponent} from "./footer.component";
 import {MatIconModule} from "@angular/material/icon";
+import {RouterModule} from "@angular/router";
 
 
 @NgModule({
@@ -11,6 +12,7 @@ import {MatIconModule} from "@angular/material/icon";
   imports: [
     CommonModule,
     MatIconModule,
+    RouterModule,
   ],
   exports: [FooterComponent]
 })

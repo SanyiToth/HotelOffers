@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit } from '@angular/core';
+import { Location } from "../../../shared/services/result/location.interface";
+import { LocationService } from "../../../shared/services/result/location.service";
+import { OffersService } from "../../../shared/services/offers/offers.service";
+import {Offer} from "../../../shared/services/offers/offer.interface";
 
 
 @Component({
@@ -8,9 +12,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ResultsContainerComponent implements OnInit {
 
-  constructor() { }
+  public items: Offer[] = [];
+
+  constructor(private locationService: LocationService, private item: OffersService ) { }
+
+  locations!: Location[];
 
   ngOnInit(): void {
+    this.locationService.getLocations().subscribe(data => {
+      this.locations = data;
+    })
+    this.item.getOffers().subscribe(data => {
+      this.items = data;
+    });
   }
-
 }

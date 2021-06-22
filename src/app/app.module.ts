@@ -8,13 +8,13 @@ import { LandingModule } from './feature/landing/landing.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
     CoreModule,
     BrowserAnimationsModule,
-    LandingModule
+    LandingModule,
   ],
   providers: [LandingModule],
   bootstrap: [AppComponent]
