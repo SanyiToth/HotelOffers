@@ -1,0 +1,32 @@
+$padding: 20px;
+$hover-color: #3f51b5;
+$background-color: #EFEFEF;
+$nav-width: 20%;
+
+:host {
+    .mat-sidenav-container {
+      background-color: transparent;
+      height: 100vh
+    }
+    .mat-sidenav {
+      border: none;
+      padding-left: $padding;
+      width: $nav-width;
+    }
+    h4 {
+    margin: 0;
+    }
+   .mat-list-item:hover{
+      background-color: transparent;
+      border-left: 3px solid $hover-color;
+    }
+  .mat-list-item:focus {
+    background-color: transparent;
+    border-left: 3px solid $hover-color;
+  }
+   .mat-sidenav-content{
+      background-color: $background-color;
+    }
+
+  }
+

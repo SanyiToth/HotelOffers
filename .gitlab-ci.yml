@@ -2,10 +2,12 @@ image: node:14-alpine
 
 stages:
     - build
+    - deploy
 
 cache:
     paths:
         - node_modules/
+        - public/
 
 build:
     stage: build
@@ -18,3 +20,22 @@ build:
         paths:
             - dist/
             - node_modules/
+
+deploy:
+  stage: deploy
+  dependencies:
+    - build
+  only:
+    - main
+  environment:
+    name: development
+    url: https://hotel-offers.surge.sh
+  script:
+    - echo "Deploy public"
+    - npm i surge -g
+    - npm run deploy
+  artifacts:
+    paths:
+      - public
+
+

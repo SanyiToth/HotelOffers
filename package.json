@@ -9,7 +9,8 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "build-ci": "ng build --progress --configuration production --aot",
-    "start-mock-db": "json-server-auth ./mocks/db.json --watch"
+    "start-mock-db": "json-server-auth ./mocks/db.json --watch",
+    "deploy": "cd public && cp index.html 200.html && surge --project ./public --domain https://hotel-offers.surge.sh"
   },
   "private": true,
   "dependencies": {
