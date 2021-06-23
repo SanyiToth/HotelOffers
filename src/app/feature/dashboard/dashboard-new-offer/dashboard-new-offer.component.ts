@@ -18,7 +18,7 @@ export class DashboardNewOfferComponent {
       details: ['', [Validators.required, Validators.maxLength(50)]],
       startDate: ['', Validators.required],
       endDate: ['', Validators.required],
-      availableOffers: [{value: '', disabled: false},Validators.required],
+      availableOffers: [{value: '', disabled: false}, Validators.required],
       price: ['', Validators.required]
     });
   }
@@ -31,11 +31,6 @@ export class DashboardNewOfferComponent {
     console.log(this.firstFormGroup.value)
   }
 
-
-  get availableOffers(): AbstractControl | null {
-    return this.firstFormGroup.get('availableOffers');
-  }
-
   onChange() {
     if (this.availableOffers?.disabled) {
       this.availableOffers.enable();
@@ -44,5 +39,25 @@ export class DashboardNewOfferComponent {
       this.availableOffers?.disable();
       this.availableOffers?.reset();
     }
+  }
+
+  get heading(): AbstractControl | null {
+    return this.firstFormGroup.get('heading');
+  }
+  get details(): AbstractControl | null {
+    return this.firstFormGroup.get('details');
+  }
+  get startDate(): AbstractControl | null {
+    return this.firstFormGroup.get('startDate');
+  }
+  get endDate(): AbstractControl | null {
+    return this.firstFormGroup.get('endDate');
+  }
+  get availableOffers(): AbstractControl | null {
+    return this.firstFormGroup.get('availableOffers');
+  }
+
+  get price(): AbstractControl | null {
+    return this.firstFormGroup.get('price');
   }
 }

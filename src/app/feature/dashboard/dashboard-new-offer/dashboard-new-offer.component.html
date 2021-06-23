@@ -27,6 +27,7 @@
           <mat-datepicker-toggle matSuffix [for]="startDatepicker"></mat-datepicker-toggle>
           <mat-datepicker #startDatepicker></mat-datepicker>
         </mat-form-field>
+        <br>
         <mat-form-field appearance="fill">
           <mat-label>Choose a end date</mat-label>
           <input matInput [matDatepicker]="endDatepicker" formControlName="endDate">
@@ -38,16 +39,17 @@
       <div class="available-offers">
         <mat-form-field>
           <mat-label>Available offers (quantity the offer can be selled)</mat-label>
-          <input matInput type="number" step="1" min="1" max="5" formControlName="availableOffers" >
+          <input matInput type="number" step="1" min="1"  formControlName="availableOffers" >
         </mat-form-field>
+        <br>
         <mat-checkbox (change)="onChange()"  class="example-margin">limitless offer</mat-checkbox>
       </div>
       <mat-form-field>
         <mat-label>Price (HUF)</mat-label>
-        <input matInput type="number" step="100" required formControlName="price">
+        <input matInput type="number" step="500" required formControlName="price">
       </mat-form-field>
       <div>
-        <button mat-button matStepperNext [disabled]="!firstFormGroup.valid" (click)="onSubmit()">Next</button>
+        <button mat-raised-button matStepperNext [disabled]="!firstFormGroup.valid" (click)="onSubmit()">Next</button>
       </div>
     </form>
   </mat-step>
