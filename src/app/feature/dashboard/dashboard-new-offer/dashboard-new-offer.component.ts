@@ -22,7 +22,7 @@ export class DashboardNewOfferComponent {
   filteredTags: Observable<string[]> | undefined;
   tagsArray: string[];
   allTags: string[] = ['Wifi', 'Free parking', 'Swimming pool', 'Beachfront', 'All inclusive', 'Breakfast included'];
-
+  paymentOptions = ['Cash', 'Bank card', 'Bank transfer', 'Visa', 'American express', 'Master Card', 'Szép kártya']
 
   firstFormGroup: FormGroup;
 

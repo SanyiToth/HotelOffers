@@ -73,7 +73,7 @@
         Please set offers price!
       </p>
       <div>
-        <button mat-raised-button matStepperNext >Next</button>
+        <button mat-raised-button matStepperNext>Next</button>
       </div>
     </form>
   </mat-step>
@@ -82,7 +82,8 @@
       <ng-template matStepLabel>Extra details</ng-template>
       <mat-form-field>
         <mat-label>Offer headline title</mat-label>
-        <textarea matInput placeholder="Offer detailed description (max 300 characters)" formControlName="description" required></textarea>
+        <textarea matInput placeholder="Offer detailed description (max 300 characters)" formControlName="description"
+                  required></textarea>
       </mat-form-field>
       <div class="error-containers" *ngIf="description?.invalid && description?.touched">
         <p class="error" *ngIf="description?.errors?.required">
@@ -119,19 +120,17 @@
           </mat-option>
         </mat-autocomplete>
       </mat-form-field>
-
-
-
-
-
-
-
-
-
-
+      <section>
+        <p>Payment options:</p>
+        <div *ngFor="let paymentOption of paymentOptions">
+          <p>
+            <mat-checkbox>{{paymentOption}}</mat-checkbox>
+          </p>
+        </div>
+      </section>
       <div>
         <button mat-raised-button matStepperPrevious>Previous</button>
-        <button mat-raised-button matStepperNext  (click)="onSubmit()">Next</button>
+        <button mat-raised-button matStepperNext (click)="onSubmit()">Next</button>
       </div>
     </form>
 
