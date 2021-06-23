@@ -77,8 +77,8 @@
       </div>
     </form>
   </mat-step>
-  <mat-step [stepControl]="firstFormGroup">
-    <form [formGroup]="firstFormGroup" class="extra-details">
+  <mat-step [stepControl]="secondFormGroup">
+    <form [formGroup]="secondFormGroup" class="extra-details">
       <ng-template matStepLabel>Extra details</ng-template>
       <mat-form-field>
         <mat-label>Offer headline title</mat-label>
@@ -120,14 +120,25 @@
           </mat-option>
         </mat-autocomplete>
       </mat-form-field>
-      <section>
+
+
+      <section [formGroup]="paymentMethods">
         <p>Payment options:</p>
-        <div *ngFor="let paymentOption of paymentOptions">
-          <p>
-            <mat-checkbox>{{paymentOption}}</mat-checkbox>
-          </p>
-        </div>
+        <p>
+          <mat-checkbox formControlName="cash">Cash</mat-checkbox>
+        </p>
+        <p>
+          <mat-checkbox formControlName="bankCard">Bank Card</mat-checkbox>
+        </p>
+        <p>
+          <mat-checkbox formControlName="bankTransfer">Bank Transfer</mat-checkbox>
+        </p>
+        <p>
+          <mat-checkbox formControlName="szepKartya">Szép kártya</mat-checkbox>
+        </p>
       </section>
+
+
       <div>
         <button mat-raised-button matStepperPrevious>Previous</button>
         <button mat-raised-button matStepperNext (click)="onSubmit()">Next</button>
