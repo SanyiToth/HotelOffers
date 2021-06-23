@@ -6,6 +6,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
+import {HeaderModule} from "../header/header.module";
+import {MatIconModule} from "@angular/material/icon";
 
 
 
@@ -19,7 +21,9 @@ import { MatButtonModule } from '@angular/material/button';
     ReactiveFormsModule,
     MatInputModule,
     MatFormFieldModule,
-    MatButtonModule
+    MatButtonModule,
+    HeaderModule,
+    MatIconModule
   ]
 })
 export class RegisterModule { }

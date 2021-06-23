@@ -23,7 +23,7 @@ export class OffersService {
     }
   }
 
-  getOffer(id: number): Observable<Offer> {
+  getOffer(id: number | undefined): Observable<Offer> {
     return this.http.get<Offer>(environment.API_URL + OffersService.PATH + '/' + id)
   }
 }
