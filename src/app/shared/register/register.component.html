@@ -32,8 +32,7 @@
             <div formGroupName="address">
                 <div class="row">
                     <div class="col-lg-6">
-                        <mat-select-country formControlName="country"></mat-select-country>
-                    </div>
+                        <mat-select-country formControlName="country"></mat-select-country>                    </div>
                     <div class="col-lg-4">
                         <mat-form-field>
                             <input type="text" matInput formControlName="postalCode" placeholder="zipCode">
@@ -57,7 +56,7 @@
                 </div>
                 <mat-divider class="divider"></mat-divider>
                 <mat-form-field class="rating">
-                    <input type="text" matInput formControlName="classification" placeholder="Rating">
+                    <input type="number" step="1" min="1" max="5" matInput formControlName="classification" placeholder="Hotel Stars">
                 </mat-form-field>
             </div>
             <button class="mb-8" mat-button color="primary">Register</button>
