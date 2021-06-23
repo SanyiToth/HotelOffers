@@ -8,26 +8,24 @@
   </mat-card-header>
   <div class="d-inline-flex flex-row justify-content-between">
     <mat-card-content>
-      <table>
-        <tr>
-          <th>status</th>
-          <th>images</th>
-          <th>complete</th>
-          <th>price</th>
-          <th>orders</th>
-          <th>count</th>
-        </tr>
-        <tbody>
-        <tr>
-          <td>{{data.status}}</td>
-          <td>data</td>
-          <td>complete.data</td>
-          <td>{{data.price}}</td>
-          <td>orders.data</td>
-          <td>count.data</td>
-        </tr>
-        </tbody>
-      </table>
+      <div class="container">
+        <div class="row">
+          <h5 class="col">status</h5>
+          <h5 class="col">images</h5>
+          <h5 class="col">complete</h5>
+          <h5 class="col">price</h5>
+          <h5 class="col">orders</h5>
+          <h5 class="col">count</h5>
+        </div>
+        <div class="row">
+          <h4 class="col">{{data.status}}</h4>
+          <h4 class="col">data</h4>
+          <h4 class="col">data</h4>
+          <h4 class="col">{{data.price}}</h4>
+          <h4 class="col">data</h4>
+          <h4 class="col">data</h4>
+        </div>
+      </div>
     </mat-card-content>
     <mat-card-actions>
       <button mat-mini-fab color="primary">
