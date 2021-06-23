@@ -67,4 +67,7 @@ export class DashboardNewOfferComponent {
   get price(): AbstractControl | null {
     return this.firstFormGroup.get('price');
   }
+  get description(): AbstractControl | null {
+    return this.firstFormGroup.get('description');
+  }
 }

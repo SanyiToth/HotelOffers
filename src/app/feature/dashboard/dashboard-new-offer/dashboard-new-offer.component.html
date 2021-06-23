@@ -82,9 +82,16 @@
       <ng-template matStepLabel>Extra details</ng-template>
       <mat-form-field>
         <mat-label>Offer headline title</mat-label>
-        <input matInput placeholder="Offer headline title" formControlName="heading" required>
+        <textarea matInput placeholder="Offer detailed description (max 300 characters)" formControlName="description" required></textarea>
       </mat-form-field>
-
+      <div class="error-containers" *ngIf="description?.invalid && description?.touched">
+        <p class="error" *ngIf="description?.errors?.required">
+          Please fill offer detailed description!
+        </p>
+        <p class="error" *ngIf="description?.errors?.maxlength">
+          Detailed description should be max 300 characters!
+        </p>
+      </div>
 
       <div>
         <button mat-raised-button matStepperPrevious>Previous</button>
