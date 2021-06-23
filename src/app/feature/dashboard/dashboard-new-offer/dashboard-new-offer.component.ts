@@ -1,7 +1,6 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {
   AbstractControl,
-  AbstractFormGroupDirective, FormArray,
   FormBuilder,
   FormControl,
   FormGroup,
@@ -12,7 +11,6 @@ import {COMMA, ENTER} from "@angular/cdk/keycodes";
 import {MatAutocomplete, MatAutocompleteSelectedEvent} from "@angular/material/autocomplete";
 import {map, startWith} from "rxjs/operators";
 import {MatChipInputEvent} from "@angular/material/chips";
-import {MatCheckboxChange} from "@angular/material/checkbox";
 
 
 @Component({
@@ -40,6 +38,7 @@ export class DashboardNewOfferComponent {
 
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
+  thirdFormGroup: FormGroup;
 
   constructor(private fb: FormBuilder) {
 
@@ -63,7 +62,9 @@ export class DashboardNewOfferComponent {
         bankTransfer: false,
         szepKartya: false,
       })
-    })
+    });
+
+    this.thirdFormGroup = this.fb.group({})
 
 
     this.tagsArray = this.tags?.value

@@ -148,4 +148,10 @@
   </mat-step>
 
 
+  <mat-step [stepControl]="thirdFormGroup">
+    <form [formGroup]="thirdFormGroup" class="extra-details">
+      <ng-template matStepLabel>Upload images</ng-template>
+    </form>
+  </mat-step>
+
 </mat-horizontal-stepper>
