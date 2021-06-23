@@ -12,10 +12,6 @@ export class DashboardNewOfferComponent {
   isLinear = false;
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
-  checked = false;
-  indeterminate = false;
-  labelPosition: 'before' | 'after' = 'after';
-  disabled = false;
 
   constructor(private _formBuilder: FormBuilder) {
     this.firstFormGroup = this._formBuilder.group({
@@ -29,5 +25,9 @@ export class DashboardNewOfferComponent {
 
   ngOnInit() {
 
+  }
+
+  onSubmit() {
+    console.log(!(this.secondFormGroup.valid && this.firstFormGroup.valid))
   }
 }
