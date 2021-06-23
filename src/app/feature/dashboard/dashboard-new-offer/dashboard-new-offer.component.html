@@ -7,14 +7,9 @@
 </div>
 
 
-<!--<button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
-  {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
-</button>-->
-
-
-<mat-horizontal-stepper [linear]="isLinear" #stepper (submit)="onSubmit()">
+<mat-horizontal-stepper>
   <mat-step [stepControl]="firstFormGroup">
-    <form [formGroup]="firstFormGroup" #costumeForm="ngForm">
+    <form [formGroup]="firstFormGroup">
       <ng-template matStepLabel>Basic details</ng-template>
       <mat-form-field>
         <mat-label>Offer headline title</mat-label>
@@ -54,27 +49,6 @@
 
       <div>
         <button mat-button matStepperNext [disabled]="!firstFormGroup.valid">Next</button>
-      </div>
-    </form>
-  </mat-step>
-
-
-  <mat-step [stepControl]="secondFormGroup" label="Extra details">
-    <form  [formGroup]="secondFormGroup" (submit)="onSubmit()">
-      <mat-form-field>
-        <mat-label>Address</mat-label>
-        <input matInput formControlName="secondCtrl" placeholder="Ex. 1 Main St, New York, NY"
-               required>
-      </mat-form-field>
-      <div>
-        <div>
-          <button mat-button matStepperPrevious>Back</button>
-          <button mat-raised-button color="warn" (click)="stepper.reset()">Cancel</button>
-          <button type="submit" mat-raised-button color="primary"
-                  [disabled]="!secondFormGroup.valid">
-            Save
-          </button>
-        </div>
       </div>
     </form>
   </mat-step>
