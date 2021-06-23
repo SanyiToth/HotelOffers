@@ -149,8 +149,12 @@
 
 
   <mat-step [stepControl]="thirdFormGroup">
-    <form [formGroup]="thirdFormGroup" class="extra-details">
+    <form [formGroup]="thirdFormGroup" class="extra-details" (submit)="onSubmit()">
       <ng-template matStepLabel>Upload images</ng-template>
+      <div>
+        <button mat-raised-button matStepperPrevious>Previous</button>
+        <button type="submit" mat-raised-button matStepperNext color="primary">Finish</button>
+      </div>
     </form>
   </mat-step>
 

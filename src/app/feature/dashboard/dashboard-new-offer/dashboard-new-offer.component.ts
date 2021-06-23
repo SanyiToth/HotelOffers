@@ -77,6 +77,7 @@ export class DashboardNewOfferComponent {
   onSubmit() {
     console.log(this.firstFormGroup.value)
     console.log(this.secondFormGroup.value)
+    console.log(this.thirdFormGroup.value)
   }
 
   onChange() {
