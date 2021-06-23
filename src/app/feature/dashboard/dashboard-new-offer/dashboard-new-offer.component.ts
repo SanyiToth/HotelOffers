@@ -18,19 +18,17 @@ export class DashboardNewOfferComponent {
       details: ['', [Validators.required, Validators.maxLength(50)]],
       startDate: ['', Validators.required],
       endDate: ['', Validators.required],
-      availableOffers: [{value: '', disabled: false}],
-      price: ['', Validators.required],
-      limit: [false]
+      availableOffers: [{value: '', disabled: false},Validators.required],
+      price: ['', Validators.required]
     });
   }
 
   ngOnInit() {
-    console.log(this.limit?.value);
+
   }
 
   onSubmit() {
     console.log(this.firstFormGroup.value)
-    console.log(this.limit?.value);
   }
 
 
@@ -38,16 +36,13 @@ export class DashboardNewOfferComponent {
     return this.firstFormGroup.get('availableOffers');
   }
 
-  get limit(): AbstractControl | null {
-    return this.firstFormGroup.get('limit');
-  }
-
   onChange() {
     if (this.availableOffers?.disabled) {
-      this.availableOffers.enable()
+      this.availableOffers.enable();
+      this.availableOffers?.reset();
     } else {
-      this.availableOffers?.reset()
-      this.availableOffers?.disable()
+      this.availableOffers?.disable();
+      this.availableOffers?.reset();
     }
   }
 }
