@@ -10,16 +10,16 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 export class DashboardNewOfferComponent {
 
   firstFormGroup: FormGroup;
-  secondFormGroup: FormGroup;
 
   constructor(private _formBuilder: FormBuilder) {
     this.firstFormGroup = this._formBuilder.group({
-      firstCtrl: ['', Validators.required]
+      heading: ['', Validators.required],
+      details: ['', Validators.required, Validators.max(50)],
+      startDate: ['', Validators.required],
+      endDate: ['', Validators.required],
+      availableOffers: ['', Validators.required],
+      price: ['', Validators.required]
     });
-    this.secondFormGroup = this._formBuilder.group({
-      secondCtrl: ['', Validators.required]
-    });
-
   }
 
   ngOnInit() {
