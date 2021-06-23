@@ -38,6 +38,9 @@
           <mat-datepicker-toggle matSuffix [for]="startDatepicker"></mat-datepicker-toggle>
           <mat-datepicker #startDatepicker></mat-datepicker>
         </mat-form-field>
+        <p class="error" *ngIf="startDate?.invalid && startDate?.touched && startDate?.errors?.required">
+          Please choose offer start date!
+        </p>
         <br>
         <mat-form-field appearance="fill">
           <mat-label>Choose a end date</mat-label>
@@ -45,6 +48,9 @@
           <mat-datepicker-toggle matSuffix [for]="endDatepicker"></mat-datepicker-toggle>
           <mat-datepicker #endDatepicker></mat-datepicker>
         </mat-form-field>
+        <p class="error" *ngIf="endDate?.invalid && endDate?.touched && endDate?.errors?.required">
+          Please choose offer end date!
+        </p>
       </div>
 
       <div class="available-offers">
@@ -52,6 +58,10 @@
           <mat-label>Available offers (quantity the offer can be selled)</mat-label>
           <input matInput type="number" step="1" min="1" formControlName="availableOffers">
         </mat-form-field>
+        <p class="error"
+           *ngIf="availableOffers?.invalid && availableOffers?.touched && availableOffers?.errors?.required">
+          Please set how many offers are available!
+        </p>
         <br>
         <mat-checkbox (change)="onChange()" class="example-margin">limitless offer</mat-checkbox>
       </div>
@@ -59,6 +69,9 @@
         <mat-label>Price (HUF)</mat-label>
         <input matInput type="number" step="500" required formControlName="price">
       </mat-form-field>
+      <p class="error" *ngIf="price?.invalid && price?.touched && price?.errors?.required">
+        Please set offers price!
+      </p>
       <div>
         <button mat-raised-button matStepperNext [disabled]="!firstFormGroup.valid" (click)="onSubmit()">Next</button>
       </div>
