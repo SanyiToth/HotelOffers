@@ -32,7 +32,9 @@
             <div formGroupName="address">
                 <div class="row">
                     <div class="col-lg-6">
-                        <mat-select-country formControlName="country"></mat-select-country>                    </div>
+                        <!-- flag only works on devBuild -->
+                        <mat-select-country formControlName="country"></mat-select-country>
+                    </div>
                     <div class="col-lg-4">
                         <mat-form-field>
                             <input type="text" matInput formControlName="postalCode" placeholder="zipCode">
