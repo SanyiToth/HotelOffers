@@ -77,4 +77,22 @@
       </div>
     </form>
   </mat-step>
+  <mat-step [stepControl]="firstFormGroup">
+    <form [formGroup]="firstFormGroup" class="extra-details">
+      <ng-template matStepLabel>Extra details</ng-template>
+      <mat-form-field>
+        <mat-label>Offer headline title</mat-label>
+        <input matInput placeholder="Offer headline title" formControlName="heading" required>
+      </mat-form-field>
+
+
+      <div>
+        <button mat-raised-button matStepperPrevious>Previous</button>
+        <button mat-raised-button matStepperNext [disabled]="!firstFormGroup.valid" (click)="onSubmit()">Next</button>
+      </div>
+    </form>
+
+  </mat-step>
+
+
 </mat-horizontal-stepper>

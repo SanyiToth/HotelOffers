@@ -19,7 +19,10 @@ export class DashboardNewOfferComponent {
       startDate: ['', Validators.required],
       endDate: ['', Validators.required],
       availableOffers: [{value: '', disabled: false}, Validators.required],
-      price: ['', Validators.required]
+      price: ['', Validators.required],
+      description: ['', [Validators.required, Validators.maxLength(300)]],
+      tags: ['', [Validators.required]],
+      paymentMethods: ['', [Validators.required]]
     });
   }
 
@@ -44,15 +47,19 @@ export class DashboardNewOfferComponent {
   get heading(): AbstractControl | null {
     return this.firstFormGroup.get('heading');
   }
+
   get details(): AbstractControl | null {
     return this.firstFormGroup.get('details');
   }
+
   get startDate(): AbstractControl | null {
     return this.firstFormGroup.get('startDate');
   }
+
   get endDate(): AbstractControl | null {
     return this.firstFormGroup.get('endDate');
   }
+
   get availableOffers(): AbstractControl | null {
     return this.firstFormGroup.get('availableOffers');
   }
