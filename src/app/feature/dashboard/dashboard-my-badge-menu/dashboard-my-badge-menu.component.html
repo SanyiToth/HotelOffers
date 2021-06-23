@@ -8,7 +8,7 @@
     </div>
     <button mat-menu-item>
       <mat-icon>settings</mat-icon>
-      <span>Account settings</span>
+      <span [routerLink]="'account-settings'">Account settings</span>
     </button>
     <button (click)="clickOnLogOut()" mat-menu-item>
       <mat-icon>exit_to_app</mat-icon>
