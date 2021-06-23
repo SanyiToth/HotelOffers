@@ -1,12 +1,12 @@
-<mat-card class="d-flex flex-column" [id]="data.id">
-  <mat-card-header class="d-inline-flex justify-content-between">
+<mat-card [id]="data.id">
+  <mat-card-header>
     <mat-card-title>{{data.heading}}</mat-card-title>
-    <div class="d-inline-flex flex-row">
-      <p>{{data.startDate}}</p>
-      <p>{{data.endDate}}</p>
+    <div class="card-date">
+      <p>start-date</p>
+      <p>end-date</p>
     </div>
   </mat-card-header>
-  <div class="d-inline-flex flex-row justify-content-between">
+  <div class="card-content">
     <mat-card-content>
       <div class="container">
         <div class="row">

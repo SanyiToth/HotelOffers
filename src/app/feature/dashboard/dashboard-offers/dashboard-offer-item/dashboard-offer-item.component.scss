@@ -1,33 +1,46 @@
-$shadow-color:#636363;
+$shadow-color: #636363;
 $background-color: #ffffff;
 $separation: 20px;
 
 :host {
-  th {
-    font-size: small;
-    font-weight: lighter;
-    text-align: start;
-    padding-left: $separation
-  }
-  td {
-    text-align: start;
-    padding-left: $separation
-  }
-  p {
-    padding-left: $separation
-  }
-  .mat-mini-fab {
-    margin-right: 5px
-  }
   .mat-card {
+    display: flex;
+    flex-direction: column;
     margin: $separation;
     padding: $separation;
   }
+
   .mat-card-header {
+    display: flex;
+    justify-content: space-between;
     margin-bottom: $separation;
+
+    .card-date {
+      display: flex;
+      flex-direction: row;
+    }
   }
+
+  .card-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
   .mat-card-actions, .mat-card-content {
-    padding-top: 10px;
+    margin: 0;
+    align-items: flex-end;
+  }
+
+  .mat-mini-fab {
+    margin-right: 5px
+  }
+
+  p {
+    padding-left: $separation
+  }
+
+  h5, h4 {
     margin: 0;
   }
 }
