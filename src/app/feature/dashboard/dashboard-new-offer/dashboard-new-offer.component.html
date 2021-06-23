@@ -25,32 +25,29 @@
         <mat-label>Offer short details (max 50 characters)</mat-label>
         <textarea matInput placeholder="Offer headline title" formControlName="firstCtrl" required></textarea>
       </mat-form-field>
-     <div class="date-interval">
-       <mat-form-field appearance="fill">
-         <mat-label>Choose a date</mat-label>
-         <input matInput [matDatepicker]="picker">
-         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-         <mat-datepicker #picker></mat-datepicker>
-       </mat-form-field>
-       <mat-form-field appearance="fill">
-         <mat-label>Choose a date</mat-label>
-         <input matInput [matDatepicker]="picker2">
-         <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
-         <mat-datepicker #picker2></mat-datepicker>
-       </mat-form-field>
-     </div>
+      <div class="date-interval">
+        <mat-form-field appearance="fill">
+          <mat-label>Choose a date</mat-label>
+          <input matInput [matDatepicker]="picker">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Choose a date</mat-label>
+          <input matInput [matDatepicker]="picker2">
+          <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+          <mat-datepicker #picker2></mat-datepicker>
+        </mat-form-field>
+      </div>
 
       <div class="available-offers">
-
-        <mat-form-field >
+        <mat-form-field>
           <mat-label>Available offers (quantity the offer can be selled)</mat-label>
           <input matInput type="number" step="1" min="1" max="5" required>
         </mat-form-field>
-
-
-
-
+        <mat-checkbox class="example-margin">limitless offer</mat-checkbox>
       </div>
+
 
       <div>
         <button mat-button matStepperNext>Next</button>
