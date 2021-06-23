@@ -1,32 +1,35 @@
 $padding: 20px;
-$hover-color: #3f51b5;
+$primary-color: #3f51b5;
 $background-color: #EFEFEF;
+$active-background: white;
 $nav-width: 20%;
 
 :host {
-    .mat-sidenav-container {
-      background-color: transparent;
-      height: 100vh
-    }
-    .mat-sidenav {
-      border: none;
-      padding-left: $padding;
-      width: $nav-width;
-    }
-    h4 {
-    margin: 0;
-    }
-   .mat-list-item:hover{
-      background-color: transparent;
-      border-left: 3px solid $hover-color;
-    }
-  .mat-list-item:focus {
+  .mat-sidenav-container {
     background-color: transparent;
-    border-left: 3px solid $hover-color;
+    height: 100vh
   }
-   .mat-sidenav-content{
-      background-color: $background-color;
-     overflow: hidden;
-    }
+  .mat-sidenav {
+    border: none;
+    width: $nav-width;
   }
+  h4 {
+    margin: 0;
+    color: $primary-color;
+  }
+  .mat-list-item {
+    box-shadow: rgba(67, 71, 85, 0.27) 0 0 0.25em, rgba(90, 125, 188, 0.05) 0 0.25em 1em;
+    border-radius: 15px;
+    width: 80%;
+    margin: 20px 20px;
+    background-color: $background-color;
+  }
+  .mat-list-item:focus {
+    overflow: hidden;
+    background-color: $active-background;
+  }
+  .mat-sidenav-content {
+    background-color: $background-color;
+  }
+}
 
