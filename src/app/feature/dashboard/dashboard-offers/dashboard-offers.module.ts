@@ -6,7 +6,7 @@ import { DashboardOfferItemComponent } from './dashboard-offer-item/dashboard-of
 import { MatIconModule } from "@angular/material/icon";
 import { MatButtonModule } from "@angular/material/button";
 import { MatCardModule } from "@angular/material/card";
-import {MatTableModule} from '@angular/material/table';
+
 
 @NgModule({
   declarations: [
@@ -17,8 +17,7 @@ import {MatTableModule} from '@angular/material/table';
     DashboardOffersRoutingModule,
     MatIconModule,
     MatButtonModule,
-    MatCardModule,
-    MatTableModule
+    MatCardModule
   ]
 })
 export class DashboardOffersModule { }
