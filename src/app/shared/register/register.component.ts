@@ -59,8 +59,13 @@ export class RegisterComponent implements OnInit {
           email: this.form.get('email')?.value,
           password: this.form.get('password')?.value
         }
-        this.authService.login(credentials);
-        this.route.navigate(['/dashboard']);
+        this.authService.login(credentials).subscribe(res => {
+          this.route.navigate(['/dashboard']);
+        },
+        err => {
+          this.route.navigate(['/login']);
+        });
+        
       })      
     }
 
