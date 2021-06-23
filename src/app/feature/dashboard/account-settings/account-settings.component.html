@@ -1,0 +1,59 @@
+<div class="container">
+  <h1 class="mt-8">Provider account settings</h1>
+  <div class="row">
+    <div class="col-lg-4">
+      <form class="account-settings-form" [formGroup]="form">
+        <mat-form-field>
+          <mat-label>Name</mat-label>
+          <input matInput formControlName="name">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>E-mail</mat-label>
+          <input type="email" matInput formControlName="email">
+        </mat-form-field>
+        <mat-form-field class="mb-5">
+          <input type="tel" name="phone"
+                 pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                 matInput formControlName="phone" placeholder="Phone number (123-456-7899)">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Password</mat-label>
+          <input type="password" matInput formControlName="password">
+        </mat-form-field>
+        <mat-form-field class="mb-5">
+          <mat-label>Password again</mat-label>
+          <input type="password" matInput formControlName="passwordAgain">
+          <input type="password" minlength="6" matInput formControlName="passwordAgain">
+        </mat-form-field>
+        <h3>Address</h3>
+        <div class="address" formGroupName="address">
+          <mat-form-field>
+            <mat-label>Country</mat-label>
+            <input matInput formControlName="country">
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Postal code</mat-label>
+            <input matInput formControlName="postalCode">
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>City</mat-label>
+            <input matInput formControlName="city">
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Street name</mat-label>
+            <input matInput formControlName="streetName">
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Street number</mat-label>
+            <input matInput formControlName="streetNumber">
+          </mat-form-field>
+        </div>
+
+        <div class="buttonContainer">
+          <button class="mb-8" mat-button color="primary">Save</button>
+          <button class="mb-8" mat-button color="primary">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

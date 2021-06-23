@@ -13,6 +13,7 @@ import { DashboardComponent } from './dashboard-container/dashboard.component';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardSidenavComponent } from './dashboard-sidenav/dashboard-sidenav.component';
 import { DashboardNewOfferComponent } from './dashboard-new-offer/dashboard-new-offer.component';
+import {AccountSettingsModule} from "./account-settings/account-settings.module";
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { DashboardNewOfferComponent } from './dashboard-new-offer/dashboard-new-
     MatIconModule,
     MatMenuModule,
     MatButtonModule,
-    DashboardRoutingModule
+    DashboardRoutingModule,
+    AccountSettingsModule
   ]
 })
 export class DashboardModule {
