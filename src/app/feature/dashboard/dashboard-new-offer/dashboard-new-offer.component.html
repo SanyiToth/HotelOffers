@@ -15,15 +15,26 @@
         <mat-label>Offer headline title</mat-label>
         <input matInput placeholder="Offer headline title" formControlName="heading" required>
       </mat-form-field>
+      <p class="error" *ngIf="heading?.invalid && heading?.touched && heading?.errors?.required">
+        Please fill offer headline title!
+      </p>
       <br>
       <mat-form-field>
         <mat-label>Offer short details (max 50 characters)</mat-label>
         <input matInput placeholder="Offer short details" formControlName="details" required>
       </mat-form-field>
+      <div class="error-containers" *ngIf="details?.invalid && details?.touched">
+        <p class="error" *ngIf="details?.errors?.required">
+          Please fill offer details!
+        </p>
+        <p class="error" *ngIf="details?.errors?.maxlength">
+          Details should be max 50 characters!
+        </p>
+      </div>
       <div class="date-interval">
         <mat-form-field appearance="fill">
           <mat-label>Choose a start date</mat-label>
-          <input matInput [matDatepicker]="startDatepicker"  formControlName="startDate">
+          <input matInput [matDatepicker]="startDatepicker" formControlName="startDate">
           <mat-datepicker-toggle matSuffix [for]="startDatepicker"></mat-datepicker-toggle>
           <mat-datepicker #startDatepicker></mat-datepicker>
         </mat-form-field>
@@ -39,10 +50,10 @@
       <div class="available-offers">
         <mat-form-field>
           <mat-label>Available offers (quantity the offer can be selled)</mat-label>
-          <input matInput type="number" step="1" min="1"  formControlName="availableOffers" >
+          <input matInput type="number" step="1" min="1" formControlName="availableOffers">
         </mat-form-field>
         <br>
-        <mat-checkbox (change)="onChange()"  class="example-margin">limitless offer</mat-checkbox>
+        <mat-checkbox (change)="onChange()" class="example-margin">limitless offer</mat-checkbox>
       </div>
       <mat-form-field>
         <mat-label>Price (HUF)</mat-label>
