@@ -1,6 +1,6 @@
 export interface Offer {
   hotelId: number;
-  id: number;
+  id?: number;
   status?: string;
   heading: string;
   details: string;
