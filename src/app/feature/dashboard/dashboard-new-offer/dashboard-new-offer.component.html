@@ -34,7 +34,7 @@
       <div class="date-interval">
         <mat-form-field appearance="fill">
           <mat-label>Choose a start date</mat-label>
-          <input matInput [matDatepicker]="startDatepicker" formControlName="startDate">
+          <input matInput [matDatepicker]="startDatepicker" formControlName="startDate" required>
           <mat-datepicker-toggle matSuffix [for]="startDatepicker"></mat-datepicker-toggle>
           <mat-datepicker #startDatepicker></mat-datepicker>
         </mat-form-field>
@@ -44,7 +44,7 @@
         <br>
         <mat-form-field appearance="fill">
           <mat-label>Choose a end date</mat-label>
-          <input matInput [matDatepicker]="endDatepicker" formControlName="endDate">
+          <input matInput [matDatepicker]="endDatepicker" formControlName="endDate" required>
           <mat-datepicker-toggle matSuffix [for]="endDatepicker"></mat-datepicker-toggle>
           <mat-datepicker #endDatepicker></mat-datepicker>
         </mat-form-field>
@@ -56,7 +56,7 @@
       <div class="available-offers">
         <mat-form-field>
           <mat-label>Available offers (quantity the offer can be selled)</mat-label>
-          <input matInput type="number" step="1" min="1" formControlName="availableOffers">
+          <input matInput type="number" step="1" min="1" formControlName="availableOffers" required>
         </mat-form-field>
         <p class="error"
            *ngIf="availableOffers?.invalid && availableOffers?.touched && availableOffers?.errors?.required">
