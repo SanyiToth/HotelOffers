@@ -9,8 +9,11 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatInputModule} from "@angular/material/input";
 import {MatDatepickerModule} from "@angular/material/datepicker";
-import {MatNativeDateModule} from "@angular/material/core";
+import {MatNativeDateModule, MatOptionModule} from "@angular/material/core";
 import {MatCheckboxModule} from "@angular/material/checkbox";
+import {MatChipsModule} from "@angular/material/chips";
+import {MatAutocompleteModule} from "@angular/material/autocomplete";
+import {MatIconModule} from "@angular/material/icon";
 
 @NgModule({
   declarations: [DashboardOffersContainerComponent,
@@ -26,7 +29,11 @@ import {MatCheckboxModule} from "@angular/material/checkbox";
     MatDatepickerModule,
     MatNativeDateModule,
     MatCheckboxModule,
-    FormsModule
+    FormsModule,
+    MatChipsModule,
+    MatAutocompleteModule,
+    MatOptionModule,
+    MatIconModule
   ]
 })
 export class DashboardOffersModule {
