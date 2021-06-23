@@ -27,6 +27,6 @@ export class DashboardNewOfferComponent {
   }
 
   onSubmit() {
-    console.log(!(this.secondFormGroup.valid && this.firstFormGroup.valid))
+    console.log(this.firstFormGroup.value)
   }
 }

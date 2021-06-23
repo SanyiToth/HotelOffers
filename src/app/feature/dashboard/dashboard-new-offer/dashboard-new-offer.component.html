@@ -9,46 +9,45 @@
 
 <mat-horizontal-stepper>
   <mat-step [stepControl]="firstFormGroup">
-    <form [formGroup]="firstFormGroup">
+    <form [formGroup]="firstFormGroup" class="basic-details">
       <ng-template matStepLabel>Basic details</ng-template>
       <mat-form-field>
         <mat-label>Offer headline title</mat-label>
-        <input matInput placeholder="Offer headline title" formControlName="firstCtrl" required>
+        <input matInput placeholder="Offer headline title" formControlName="heading" required>
       </mat-form-field>
       <br>
       <mat-form-field>
         <mat-label>Offer short details (max 50 characters)</mat-label>
-        <textarea matInput placeholder="Offer headline title" formControlName="firstCtrl" required></textarea>
+        <input matInput placeholder="Offer short details" formControlName="details" required>
       </mat-form-field>
       <div class="date-interval">
         <mat-form-field appearance="fill">
-          <mat-label>Choose a date</mat-label>
-          <input matInput [matDatepicker]="picker">
-          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
+          <mat-label>Choose a start date</mat-label>
+          <input matInput [matDatepicker]="startDatepicker"  formControlName="startDate">
+          <mat-datepicker-toggle matSuffix [for]="startDatepicker"></mat-datepicker-toggle>
+          <mat-datepicker #startDatepicker></mat-datepicker>
         </mat-form-field>
         <mat-form-field appearance="fill">
-          <mat-label>Choose a date</mat-label>
-          <input matInput [matDatepicker]="picker2">
-          <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
-          <mat-datepicker #picker2></mat-datepicker>
+          <mat-label>Choose a end date</mat-label>
+          <input matInput [matDatepicker]="endDatepicker" formControlName="endDate">
+          <mat-datepicker-toggle matSuffix [for]="endDatepicker"></mat-datepicker-toggle>
+          <mat-datepicker #endDatepicker></mat-datepicker>
         </mat-form-field>
       </div>
 
       <div class="available-offers">
         <mat-form-field>
           <mat-label>Available offers (quantity the offer can be selled)</mat-label>
-          <input matInput type="number" step="1" min="1" max="5" required>
+          <input matInput type="number" step="1" min="1" max="5" required formControlName="availableOffers">
         </mat-form-field>
         <mat-checkbox class="example-margin">limitless offer</mat-checkbox>
       </div>
       <mat-form-field>
         <mat-label>Price (HUF)</mat-label>
-        <input matInput type="number" step="100" required>
+        <input matInput type="number" step="100" required formControlName="price">
       </mat-form-field>
-
       <div>
-        <button mat-button matStepperNext [disabled]="!firstFormGroup.valid">Next</button>
+        <button mat-button matStepperNext [disabled]="!firstFormGroup.valid" (click)="onSubmit()">Next</button>
       </div>
     </form>
   </mat-step>
