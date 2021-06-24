@@ -1,6 +1,7 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {
   AbstractControl,
+  AbstractFormGroupDirective, FormArray,
   FormBuilder,
   FormControl,
   FormGroup,
@@ -12,6 +13,7 @@ import {MatAutocomplete, MatAutocompleteSelectedEvent} from "@angular/material/a
 import {map, startWith} from "rxjs/operators";
 import {MatChipInputEvent} from "@angular/material/chips";
 import {HttpClient} from "@angular/common/http";
+import {environment} from "../../../../environments/environment";
 
 
 @Component({
@@ -21,6 +23,8 @@ import {HttpClient} from "@angular/common/http";
 })
 export class DashboardNewOfferComponent {
 
+  static readonly DETAILS_MAX_LENGTH = 50;
+  static readonly DESCRIPTION_MAX_LENGTH = 300;
   visible = true;
   selectable = true;
   removable = true;
@@ -28,14 +32,14 @@ export class DashboardNewOfferComponent {
   separatorKeysCodes: number[] = [ENTER, COMMA];
   filteredTags: Observable<string[]> | undefined;
   tagsArray: string[];
-  allTags: string[] = ['Wifi', 'Free parking', 'Swimming pool', 'Beachfront', 'All inclusive', 'Breakfast included'];
+  allTags: string[] = environment.OFFER_EXTRAS
   payArr: string[] = [];
   selectedFile: File | undefined;
 
   // @ts-ignore
   @ViewChild('tagsInput') tagInput: ElementRef<HTMLInputElement>;
   // @ts-ignore
-  @ViewChild('auto') matAutocomplete: MatAutocomplete;
+  @ViewChild('autocompleteInput') matAutocomplete: MatAutocomplete;
 
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
@@ -46,7 +50,7 @@ export class DashboardNewOfferComponent {
 
     this.firstFormGroup = this.fb.group({
       heading: ['', Validators.required],
-      details: ['', [Validators.required, Validators.maxLength(50)]],
+      details: ['', [Validators.required, Validators.maxLength(DashboardNewOfferComponent.DETAILS_MAX_LENGTH)]],
       startDate: ['', Validators.required],
       endDate: ['', Validators.required],
       availableOffers: [{value: '', disabled: false}, Validators.required],
@@ -55,7 +59,7 @@ export class DashboardNewOfferComponent {
     });
 
     this.secondFormGroup = this.fb.group({
-      description: ['', [Validators.required, Validators.maxLength(300)]],
+      description: ['', [Validators.required, Validators.maxLength(DashboardNewOfferComponent.DESCRIPTION_MAX_LENGTH)]],
       tags: [['Wifi'], [Validators.required]],
       paymentMethods: this.fb.group({
         cash: false,
@@ -94,7 +98,7 @@ export class DashboardNewOfferComponent {
   ngOnInit() {
   }
 
-  add(event: MatChipInputEvent): void {
+  addTag(event: MatChipInputEvent): void {
     const value = (event.value || '').trim();
     if (value) {
       this.tagsArray.push(value);
@@ -103,14 +107,14 @@ export class DashboardNewOfferComponent {
     this.tagCtrl.setValue(null);
   }
 
-  remove(fruit: string): void {
-    const index = this.tagsArray.indexOf(fruit);
+  removeTag(tag: string): void {
+    const index = this.tagsArray.indexOf(tag);
     if (index >= 0) {
       this.tagsArray.splice(index, 1);
     }
   }
 
-  selected(event: MatAutocompleteSelectedEvent): void {
+  selectedTag(event: MatAutocompleteSelectedEvent): void {
     this.tagsArray.push(event.option.viewValue);
     this.tagInput.nativeElement.value = '';
     this.tagCtrl.setValue(null);
