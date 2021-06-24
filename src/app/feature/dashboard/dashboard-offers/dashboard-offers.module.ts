@@ -14,6 +14,7 @@ import {MatCheckboxModule} from "@angular/material/checkbox";
 import {MatChipsModule} from "@angular/material/chips";
 import {MatAutocompleteModule} from "@angular/material/autocomplete";
 import {MatIconModule} from "@angular/material/icon";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [DashboardOffersContainerComponent,
@@ -33,7 +34,8 @@ import {MatIconModule} from "@angular/material/icon";
     MatChipsModule,
     MatAutocompleteModule,
     MatOptionModule,
-    MatIconModule
+    MatIconModule,
+    HttpClientModule
   ]
 })
 export class DashboardOffersModule {

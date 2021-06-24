@@ -11,6 +11,7 @@ import {COMMA, ENTER} from "@angular/cdk/keycodes";
 import {MatAutocomplete, MatAutocompleteSelectedEvent} from "@angular/material/autocomplete";
 import {map, startWith} from "rxjs/operators";
 import {MatChipInputEvent} from "@angular/material/chips";
+import {HttpClient} from "@angular/common/http";
 
 
 @Component({
@@ -29,7 +30,7 @@ export class DashboardNewOfferComponent {
   tagsArray: string[];
   allTags: string[] = ['Wifi', 'Free parking', 'Swimming pool', 'Beachfront', 'All inclusive', 'Breakfast included'];
   payArr: string[] = [];
-
+  selectedFile: File | undefined;
 
   // @ts-ignore
   @ViewChild('tagsInput') tagInput: ElementRef<HTMLInputElement>;
@@ -40,7 +41,7 @@ export class DashboardNewOfferComponent {
   secondFormGroup: FormGroup;
   thirdFormGroup: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private http: HttpClient) {
 
 
     this.firstFormGroup = this.fb.group({
@@ -154,5 +155,13 @@ export class DashboardNewOfferComponent {
 
   get paymentMethods(): any {
     return this.secondFormGroup.get('paymentMethods')
+  }
+
+  onFileSelected($event: any) {
+    this.selectedFile = $event.target.files[0]
+  }
+
+  upLoad() {
+    const fd = new FormData()
   }
 }
