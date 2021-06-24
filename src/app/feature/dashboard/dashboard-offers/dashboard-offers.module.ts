@@ -6,6 +6,8 @@ import { DashboardOfferItemComponent } from './dashboard-offer-item/dashboard-of
 import { MatIconModule } from "@angular/material/icon";
 import { MatButtonModule } from "@angular/material/button";
 import { MatCardModule } from "@angular/material/card";
+import { DashboardOfferListComponent } from './dashboard-offer-list/dashboard-offer-list.component';
+
 import { DashboardOffersHeaderComponent } from './dashboard-offers-header/dashboard-offers-header.component';
 import {ReactiveFormsModule, FormsModule} from '@angular/forms';
 import {MatFormFieldModule} from "@angular/material/form-field";
@@ -15,7 +17,8 @@ import {MatSelectModule} from '@angular/material/select';
   declarations: [
     DashboardOffersContainerComponent,
     DashboardOfferItemComponent,
-    DashboardOffersHeaderComponent],
+    DashboardOffersHeaderComponent,
+    DashboardOfferListComponent],
   imports: [
     CommonModule,
     DashboardOffersRoutingModule,
