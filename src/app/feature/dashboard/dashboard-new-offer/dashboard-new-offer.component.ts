@@ -33,8 +33,6 @@ export class DashboardNewOfferComponent {
   filteredTags: Observable<string[]> | undefined;
   tagsArray: string[];
   allTags: string[] = environment.OFFER_EXTRAS
-  payArr: string[] = [];
-  selectedFile: File | undefined;
 
   // @ts-ignore
   @ViewChild('tagsInput') tagInput: ElementRef<HTMLInputElement>;
@@ -161,11 +159,7 @@ export class DashboardNewOfferComponent {
     return this.secondFormGroup.get('paymentMethods')
   }
 
-  onFileSelected($event: any) {
-    this.selectedFile = $event.target.files[0]
-  }
+  onInputFileChanges($event:any) {
 
-  upLoad() {
-    const fd = new FormData()
   }
 }

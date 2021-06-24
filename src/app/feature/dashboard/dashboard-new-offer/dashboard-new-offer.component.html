@@ -153,10 +153,8 @@
       <ng-template matStepLabel>Upload images</ng-template>
 
       <h1>File upload</h1>
-      <button type="button" mat-raised-button (click)="fileInput.click()">Choose File</button>
-      <input hidden (change)="onFileSelected($event)" #fileInput type="file" id="file">
- <!--     <input type="file"  (change)="onFileSelected($event)">
-      <button mat-button type="button" (click)="upLoad()"></button>-->
+
+
       <div>
         <button mat-raised-button matStepperPrevious>Previous</button>
         <button type="submit" mat-raised-button matStepperNext color="primary">Finish</button>
