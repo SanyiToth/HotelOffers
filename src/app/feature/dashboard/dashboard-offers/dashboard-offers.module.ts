@@ -6,12 +6,14 @@ import { DashboardOfferItemComponent } from './dashboard-offer-item/dashboard-of
 import { MatIconModule } from "@angular/material/icon";
 import { MatButtonModule } from "@angular/material/button";
 import { MatCardModule } from "@angular/material/card";
+import { DashboardOfferListComponent } from './dashboard-offer-list/dashboard-offer-list.component';
 
 
 @NgModule({
   declarations: [
     DashboardOffersContainerComponent,
-    DashboardOfferItemComponent],
+    DashboardOfferItemComponent,
+    DashboardOfferListComponent],
   imports: [
     CommonModule,
     DashboardOffersRoutingModule,
