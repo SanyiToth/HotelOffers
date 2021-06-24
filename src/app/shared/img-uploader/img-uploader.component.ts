@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {ImagesService} from "../services/images/images.service";
 
 @Component({
   selector: 'app-img-uploader',
@@ -6,19 +7,19 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./img-uploader.component.scss']
 })
 export class ImgUploaderComponent implements OnInit {
-  uploadedFiles: any[] = [];
-  multiple = true;
-  maxFileSize = 1000000
-
-  constructor() {
+  constructor(private imgService: ImagesService) {
   }
 
   ngOnInit(): void {
   }
 
   onUpload(event: any) {
-    for (let file of event.files) {
-      this.uploadedFiles.push(file);
-    }
+    console.log('files',event.target.files[0])
+    this.imgService.uploadImage(event.target.files[0])
+      .subscribe(response => {
+        console.log('imageObject', response);
+      }, error => {
+        console.log('error', error);
+      })
   }
 }

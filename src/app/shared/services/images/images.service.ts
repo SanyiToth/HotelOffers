@@ -14,7 +14,7 @@ export class ImagesService {
   }
 
 
-  upLoadImage(image: any) {
+  uploadImage(image: any) {
     const httpOptions = {
       headers: new HttpHeaders({
         Authorization: `Client-ID ${this.clientId}`
