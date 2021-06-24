@@ -4,13 +4,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { LandingModule } from './feature/landing/landing.module';
-import { ImgUploaderComponent } from './shared/img-uploader/img-uploader.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ImgUploaderComponent,
   ],
   imports: [
     BrowserModule,

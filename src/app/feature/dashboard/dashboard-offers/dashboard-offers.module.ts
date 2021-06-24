@@ -13,12 +13,15 @@ import {MatNativeDateModule, MatOptionModule} from "@angular/material/core";
 import {MatCheckboxModule} from "@angular/material/checkbox";
 import {MatChipsModule} from "@angular/material/chips";
 import {MatAutocompleteModule} from "@angular/material/autocomplete";
-import { MatIconModule } from "@angular/material/icon";
-import { MatCardModule } from "@angular/material/card";
-import { DashboardOfferItemComponent } from './dashboard-offer-item/dashboard-offer-item.component';
+import {MatIconModule} from "@angular/material/icon";
+import {MatCardModule} from "@angular/material/card";
+import {DashboardOfferItemComponent} from './dashboard-offer-item/dashboard-offer-item.component';
+import {ImgUploaderModule} from "../../../shared/img-uploader/img-uploader.module";
+import {AppModule} from "../../../app.module";
 
 @NgModule({
-  declarations: [DashboardOffersContainerComponent,
+  declarations: [
+    DashboardOffersContainerComponent,
     DashboardOfferItemComponent,
     DashboardNewOfferComponent],
   imports: [
@@ -39,7 +42,8 @@ import { DashboardOfferItemComponent } from './dashboard-offer-item/dashboard-of
     MatIconModule,
     MatIconModule,
     MatButtonModule,
-    MatCardModule
+    MatCardModule,
+    ImgUploaderModule
   ]
 })
 export class DashboardOffersModule {
