@@ -7,7 +7,7 @@
                     formControlName="status"
                     (change)="selectStatus($event)"
                     onchange="onSubmit()">
-          <mat-option *ngFor="let stat of offerStatus" [value]="stat">active</mat-option>
+          <mat-option *ngFor="let stat of offerStatus" [value]="stat">{{stat.status}}</mat-option>
         </mat-select>
       </mat-form-field>
     </form>

@@ -11,7 +11,6 @@ export class DashboardOfferListComponent implements OnInit {
 
   offers: Offer[] = []
 
-
   constructor(private offerService: OffersService) { }
 
   ngOnInit(): void {
