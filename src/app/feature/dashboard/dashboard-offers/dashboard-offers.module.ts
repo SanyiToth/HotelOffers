@@ -13,10 +13,13 @@ import {MatNativeDateModule, MatOptionModule} from "@angular/material/core";
 import {MatCheckboxModule} from "@angular/material/checkbox";
 import {MatChipsModule} from "@angular/material/chips";
 import {MatAutocompleteModule} from "@angular/material/autocomplete";
-import {MatIconModule} from "@angular/material/icon";
+import { MatIconModule } from "@angular/material/icon";
+import { MatCardModule } from "@angular/material/card";
+import { DashboardOfferItemComponent } from './dashboard-offer-item/dashboard-offer-item.component';
 
 @NgModule({
   declarations: [DashboardOffersContainerComponent,
+    DashboardOfferItemComponent,
     DashboardNewOfferComponent],
   imports: [
     CommonModule,
@@ -33,8 +36,10 @@ import {MatIconModule} from "@angular/material/icon";
     MatChipsModule,
     MatAutocompleteModule,
     MatOptionModule,
-    MatIconModule
+    MatIconModule,
+    MatIconModule,
+    MatButtonModule,
+    MatCardModule
   ]
 })
-export class DashboardOffersModule {
-}
+export class DashboardOffersModule { }
