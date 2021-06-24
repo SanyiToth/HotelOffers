@@ -1,1 +1,10 @@
-<p>img-uploader works!</p>
+<div class="card">
+  <p-fileUpload name="demo[]" url="./upload.php" (onUpload)="onUpload($event)"
+                 accept="image/*" [multiple]=multiple  [maxFileSize]=maxFileSize>
+    <ng-template pTemplate="content">
+      <ul *ngIf="uploadedFiles.length">
+        <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes</li>
+      </ul>
+    </ng-template>
+  </p-fileUpload>
+</div>

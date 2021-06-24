@@ -1,15 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-img-uploader',
   templateUrl: './img-uploader.component.html',
-  styleUrls: ['./img-uploader.component.css']
+  styleUrls: ['./img-uploader.component.scss']
 })
 export class ImgUploaderComponent implements OnInit {
+  uploadedFiles: any[] = [];
+  multiple = true;
+  maxFileSize = 1000000
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
 
+  onUpload(event: any) {
+    for (let file of event.files) {
+      this.uploadedFiles.push(file);
+    }
+  }
 }
