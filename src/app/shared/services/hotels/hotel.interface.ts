@@ -1,14 +1,16 @@
 export interface Hotel {
   hotelId?: number;
-  id: number;
+  id?: number;
   name: string;
   address: {
     country?: string;
     city: string;
-    street: string;
-    postCode: number;
+    streetName: string;
+    streetNumber: number;
+    postalCode: number;
   };
   classification: number;
   email: string;
   phone: string;
+  password: string;
 }
