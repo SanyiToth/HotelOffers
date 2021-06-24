@@ -5,13 +5,14 @@
         <mat-label>Status</mat-label>
         <mat-select name="status" id="status"
                     formControlName="status"
-                    (change)="selectStatus($event)">
+                    (change)="selectStatus($event)"
+                    onchange="onSubmit()">
           <mat-option *ngFor="let stat of offerStatus" [value]="stat">active</mat-option>
         </mat-select>
       </mat-form-field>
     </form>
   <div class="add-btn">
-    <button mat-raised-button color="primary" > <mat-icon>add</mat-icon>New offer </button>
+    <button mat-raised-button color="primary"><mat-icon>add</mat-icon>New offer </button>
   </div>
 </div>
 
