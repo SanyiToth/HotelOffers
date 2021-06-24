@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,7 @@ export class ImagesService {
   }
 
 
-  uploadImage(image: any) {
+  uploadImage(image: any):Observable<any> {
     const httpOptions = {
       headers: new HttpHeaders({
         Authorization: `Client-ID ${this.clientId}`
@@ -22,6 +23,6 @@ export class ImagesService {
     };
     const formData = new FormData();
     formData.append('image', image);
-    return this.http.post(`${this.IMGUR_UPLOAD_URL}`, formData, httpOptions);
+    return this.http.post<any>(`${this.IMGUR_UPLOAD_URL}`, formData, httpOptions);
   }
 }
