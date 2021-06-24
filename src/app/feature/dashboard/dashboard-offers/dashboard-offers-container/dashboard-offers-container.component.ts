@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Offer } from "../../../../shared/services/offers/offer.interface";
 import { OffersService } from "../../../../shared/services/offers/offers.service";
-import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-dashboard-offers-container',

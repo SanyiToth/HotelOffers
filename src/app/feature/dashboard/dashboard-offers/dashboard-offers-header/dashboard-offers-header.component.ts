@@ -1,6 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
-import {FormBuilder, FormGroup, Validators, AbstractControl,} from '@angular/forms';
+import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
+import {FormBuilder, FormGroup, AbstractControl,} from '@angular/forms';
 import { Offer } from "../../../../shared/services/offers/offer.interface";
+import { StatusRequest } from "../../../../shared/services/offers/status-request.interface";
 
 
 @Component({
@@ -10,7 +11,8 @@ import { Offer } from "../../../../shared/services/offers/offer.interface";
 })
 export class DashboardOffersHeaderComponent implements OnInit {
 
-  @Input() offerStatus!: Offer
+  @Input() offerStatus!: Offer[]
+  @Output() sendStatus: EventEmitter<StatusRequest> = new EventEmitter<StatusRequest>();
 
   selectStatusForm: FormGroup = this.fb.group({
     status:[],
