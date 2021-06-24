@@ -7,7 +7,7 @@
 </div>
 
 
-<mat-horizontal-stepper>
+<mat-horizontal-stepper [linear]="isLinear">
   <mat-step [stepControl]="firstFormGroup">
     <form [formGroup]="firstFormGroup" class="basic-details">
       <ng-template matStepLabel>Basic details</ng-template>
@@ -76,6 +76,8 @@
         <button mat-raised-button matStepperNext [disabled]="!firstFormGroup.valid">Next</button>
       </div>
     </form>
+
+
   </mat-step>
   <mat-step [stepControl]="secondFormGroup">
     <form [formGroup]="secondFormGroup" class="extra-details">
@@ -93,7 +95,6 @@
           Detailed description should be max 300 characters!
         </p>
       </div>
-
       <mat-form-field class="example-chip-list">
         <mat-label>You can add a new tag to your offer</mat-label>
         <mat-chip-list #chipList aria-label="Tag selection">
@@ -141,24 +142,24 @@
 
       <div>
         <button mat-raised-button matStepperPrevious>Previous</button>
-        <button mat-raised-button matStepperNext (click)="onSubmit()">Next</button>
+        <button mat-raised-button matStepperNext [disabled]="!secondFormGroup.valid">Next</button>
       </div>
     </form>
 
   </mat-step>
 
 
-  <mat-step [stepControl]="thirdFormGroup">
-    <form [formGroup]="thirdFormGroup" class="extra-details" (submit)="onSubmit()">
+  <mat-step >
+    <form  class="picture-upload" >
       <ng-template matStepLabel>Upload images</ng-template>
 
       <h1>File upload</h1>
 
-        <app-img-uploader></app-img-uploader>
+      <app-img-uploader></app-img-uploader>
 
       <div>
         <button mat-raised-button matStepperPrevious>Previous</button>
-        <button type="submit" mat-raised-button matStepperNext color="primary">Finish</button>
+        <button (click)="onSubmit()" mat-raised-button matStepperNext color="primary">Finish</button>
       </div>
     </form>
   </mat-step>

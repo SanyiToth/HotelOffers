@@ -250,6 +250,56 @@
         "numberOfRatings": 45
       },
       "id": 11
+    },
+    {
+      "status": "Active",
+      "heading": "Hunguest Hotel Balatonfüred",
+      "details": "Töltsön egy kellemes hetet balatonfüredi hotelban.",
+      "dateInterval": {
+        "startDate": "2021-06-25T22:00:00.000Z",
+        "endDate": "2021-06-29T22:00:00.000Z"
+      },
+      "availableOffers": 5,
+      "price": 68000,
+      "description": "dgafhjdsgfjkadsfgkadhjfgdjshafgdhjsafgdsjhafagkj",
+      "tags": [
+        "Wifi"
+      ],
+      "images": [],
+      "ratingInfo": {
+        "rating": 5,
+        "numberOfRatings": 25
+      },
+      "provider": "",
+      "id": 12
+    },
+    {
+      "status": "Active",
+      "heading": "Hunguest Hotel Balatonfüred",
+      "details": "Töltsön egy kellemes hetet balatonfüredi hotelban.",
+      "dateInterval": {
+        "startDate": "2021-06-25T22:00:00.000Z",
+        "endDate": "2021-06-29T22:00:00.000Z"
+      },
+      "availableOffers": 5,
+      "price": 68000,
+      "description": "dgafhjdsgfjkadsfgkadhjfgdjshafgdhjsafgdsjhafagkj",
+      "tags": [
+        "Wifi"
+      ],
+      "paymentMethods": {
+        "cash": true,
+        "bankCard": false,
+        "bankTransfer": false,
+        "szepKartya": false
+      },
+      "images": [],
+      "ratingInfo": {
+        "rating": 5,
+        "numberOfRatings": 25
+      },
+      "provider": "",
+      "id": 13
     }
   ],
   "orders": [],
