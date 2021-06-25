@@ -28,7 +28,7 @@ export class ImgUploaderComponent implements OnInit {
   onUpload(event: any) {
     this.imgService.uploadImage(event.target.files[0])
       .subscribe(response => {
-        this._snackBar.open('Success! Your offer has been uploaded! We will redirect you to the offers page.', 'Close', {
+        this._snackBar.open('You have successfully uploaded 1 image!', 'Close', {
           horizontalPosition: this.horizontalPosition,
           verticalPosition: this.verticalPosition,
         });
