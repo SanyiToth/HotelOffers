@@ -11,9 +11,7 @@ import {COMMA, ENTER} from "@angular/cdk/keycodes";
 import {MatAutocomplete, MatAutocompleteSelectedEvent} from "@angular/material/autocomplete";
 import {map, startWith} from "rxjs/operators";
 import {MatChipInputEvent} from "@angular/material/chips";
-import {HttpClient} from "@angular/common/http";
 import {environment} from "../../../../environments/environment";
-import {Offer} from "../../../shared/services/offers/offer.interface";
 import {OffersService} from "../../../shared/services/offers/offers.service";
 
 
@@ -28,7 +26,6 @@ export class DashboardNewOfferComponent {
   isLinear = true;
   static readonly DETAILS_MAX_LENGTH = 50;
   static readonly DESCRIPTION_MAX_LENGTH = 300;
-  visible = true;
   selectable = true;
   removable = true;
   tagCtrl = new FormControl();
@@ -84,10 +81,7 @@ export class DashboardNewOfferComponent {
 
 
   onSubmit() {
-    console.log(this.firstFormGroup.value)
-    console.log(this.secondFormGroup.value)
     this.newOffer = {
-      status: 'Active',
       heading: this.heading?.value,
       details: this.details?.value,
       dateInterval: {
@@ -96,15 +90,13 @@ export class DashboardNewOfferComponent {
       },
       availableOffers: this.availableOffers?.value,
       price: this.price?.value,
+      images: this.imagesUrl,
       description: this.description?.value,
       tags: this.tags?.value,
-      paymentMethods: this.paymentMethods?.value,
-      images: this.imagesUrl,
       ratingInfo: {
         rating: 5,
         numberOfRatings: 25
-      },
-      provider: ''
+      }
     }
     console.log('offer', this.newOffer)
     this.offerService.createOffer(this.newOffer).subscribe(response => {
