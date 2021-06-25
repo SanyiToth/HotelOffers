@@ -263,6 +263,31 @@
         "Wifi"
       ],
       "id": 11
+    },
+    {
+      "heading": "Offer 12",
+      "details": "fdsafadsfasfafasdfdasfdsa",
+      "dateInterval": {
+        "startDate": "2021-06-04T22:00:00.000Z",
+        "endDate": "2021-06-11T22:00:00.000Z"
+      },
+      "availableOffers": 4,
+      "price": 540000,
+      "images": [
+        {
+          "link": "https://i.imgur.com/txio3F4.jpg",
+          "height": 501,
+          "width": 750,
+          "type": "image/jpeg",
+          "size": 64673,
+          "imgId": "txio3F4"
+        }
+      ],
+      "description": "xgfdgdsfgfsfgfdsgfdsgsdgdsfgds",
+      "tags": [
+        "Wifi"
+      ],
+      "id": 12
     }
   ],
   "orders": [],

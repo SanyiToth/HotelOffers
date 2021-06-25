@@ -108,6 +108,7 @@ export class DashboardNewOfferComponent {
     this.offerService.createOffer(this.newOffer).subscribe(response => {
       this.firstFormGroup.reset();
       this.secondFormGroup.reset();
+      this.imagesData = [];
       console.log("Stored offer:", response)
     }, error => {
       this.errorMessage = error;
