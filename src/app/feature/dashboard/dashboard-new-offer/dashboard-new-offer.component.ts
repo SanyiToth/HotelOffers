@@ -106,6 +106,8 @@ export class DashboardNewOfferComponent {
       tags: this.tags?.value
     }
     this.offerService.createOffer(this.newOffer).subscribe(response => {
+      this.firstFormGroup.reset();
+      this.secondFormGroup.reset();
       console.log("Stored offer:", response)
     }, error => {
       this.errorMessage = error;

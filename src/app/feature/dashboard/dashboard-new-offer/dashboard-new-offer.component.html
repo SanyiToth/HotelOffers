@@ -85,7 +85,7 @@
       <mat-form-field>
         <mat-label>Offer detailed description</mat-label>
         <textarea matInput placeholder="Offer detailed description (max 300 characters)" formControlName="description"
-                  rows="8" cols="50"  required></textarea>
+                  rows="8" cols="50" required></textarea>
       </mat-form-field>
       <div class="error-containers" *ngIf="description?.invalid && description?.touched">
         <p class="error" *ngIf="description?.errors?.required">
@@ -140,7 +140,7 @@
 
       <div>
         <button mat-raised-button matStepperPrevious>Previous</button>
-        <button type="submit"  mat-raised-button matStepperNext color="primary">
+        <button type="submit" [disabled]="imagesData.length===0" mat-raised-button matStepperNext color="primary">
           Finish
         </button>
       </div>

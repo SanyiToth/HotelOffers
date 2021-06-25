@@ -238,6 +238,31 @@
         "rating": 5,
         "numberOfRatings": 20
       }
+    },
+    {
+      "heading": "Offer 11",
+      "details": "Lorem ipsum dolor sit amet",
+      "dateInterval": {
+        "startDate": "2021-05-31T22:00:00.000Z",
+        "endDate": "2021-06-11T22:00:00.000Z"
+      },
+      "availableOffers": 2,
+      "price": 67000,
+      "images": [
+        {
+          "link": "https://i.imgur.com/eNqQ7uf.jpg",
+          "height": 501,
+          "width": 750,
+          "type": "image/jpeg",
+          "size": 64673,
+          "imgId": "eNqQ7uf"
+        }
+      ],
+      "description": "consectetur adipiscing elit. Integer dapibus dui ut turpis cursus, eget eleifend risus gravida.",
+      "tags": [
+        "Wifi"
+      ],
+      "id": 11
     }
   ],
   "orders": [],
