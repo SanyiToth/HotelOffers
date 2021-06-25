@@ -23,9 +23,20 @@ import {OffersService} from "../../../shared/services/offers/offers.service";
 
 
 export class DashboardNewOfferComponent {
+
+  //forms
+  firstFormGroup: FormGroup;
+  secondFormGroup: FormGroup;
+  thirdFormGroup: FormGroup;
+
+  //mat-stepper
   isLinear = true;
+
+  //firstFormGroup Validators Magic Numbers
   static readonly DETAILS_MAX_LENGTH = 50;
   static readonly DESCRIPTION_MAX_LENGTH = 300;
+
+  //mat-chip
   selectable = true;
   removable = true;
   tagCtrl = new FormControl();
@@ -33,6 +44,8 @@ export class DashboardNewOfferComponent {
   filteredTags: Observable<string[]> | undefined;
   tagsArray: string[];
   allTags: string[] = environment.OFFER_EXTRAS
+
+  //new Offer data
   newOffer: any;
   imagesData: any[] = [];
 
@@ -42,13 +55,8 @@ export class DashboardNewOfferComponent {
   // @ts-ignore
   @ViewChild('autocompleteInput') matAutocomplete: MatAutocomplete;
 
-  firstFormGroup: FormGroup;
-  secondFormGroup: FormGroup;
-  thirdFormGroup: FormGroup;
 
   constructor(private fb: FormBuilder, private offerService: OffersService) {
-
-
     this.firstFormGroup = this.fb.group({
       heading: ['', Validators.required],
       details: ['', [Validators.required, Validators.maxLength(DashboardNewOfferComponent.DETAILS_MAX_LENGTH)]],
@@ -72,13 +80,21 @@ export class DashboardNewOfferComponent {
 
     this.thirdFormGroup = this.fb.group({})
 
-
     this.tagsArray = this.tags?.value
     this.filteredTags = this.tagCtrl.valueChanges.pipe(
       startWith(null),
       map((tag: string | null) => tag ? this._filter(tag) : this.allTags.slice()));
   }
 
+
+  // The component get image data from img-uploader component
+
+  addImgData(newImg: any) {
+    this.imagesData.push(newImg);
+    console.log('parent Img data', this.imagesData)
+  }
+
+  //Submit event send data to db
 
   onSubmit() {
     this.newOffer = {
@@ -98,11 +114,12 @@ export class DashboardNewOfferComponent {
         numberOfRatings: 25
       }
     }
-    console.log('offer', this.newOffer)
     this.offerService.createOffer(this.newOffer).subscribe(response => {
-      console.log("response", response)
+      console.log("Stored offer:", response)
     })
   }
+
+  //Limitless available offers
 
   onChange() {
     if (this.availableOffers?.disabled) {
@@ -114,14 +131,8 @@ export class DashboardNewOfferComponent {
     }
   }
 
-  ngOnInit() {
-  }
 
-  addImgData(newImg: any) {
-    this.imagesData.push(newImg);
-    console.log('parent Img data', this.imagesData)
-  }
-
+  //Material Chip methods
 
   addTag(event: MatChipInputEvent): void {
     const value = (event.value || '').trim();
@@ -149,6 +160,8 @@ export class DashboardNewOfferComponent {
     const filterValue = value.toLowerCase();
     return this.allTags.filter(tag => tag.toLowerCase().indexOf(filterValue) === 0);
   }
+
+  //FormControl getters
 
   get heading(): AbstractControl | null {
     return this.firstFormGroup.get('heading');
