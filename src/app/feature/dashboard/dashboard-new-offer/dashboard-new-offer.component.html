@@ -126,18 +126,15 @@
         <button mat-raised-button matStepperNext [disabled]="!secondFormGroup.valid">Next</button>
       </div>
     </form>
-
   </mat-step>
+
 
 
   <mat-step>
     <form class="picture-upload" (submit)="onSubmit()">
       <ng-template matStepLabel>Upload images</ng-template>
-
       <h1>File upload</h1>
-
       <app-img-uploader (imgDataToParent)="addImgData($event)"></app-img-uploader>
-
       <div>
         <button mat-raised-button matStepperPrevious>Previous</button>
         <button type="submit" [disabled]="imagesData.length===0" mat-raised-button matStepperNext color="primary">
