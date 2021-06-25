@@ -445,6 +445,92 @@
         "numberOfRatings": 25
       },
       "id": 14
+    },
+    {
+      "heading": "Offer 20",
+      "details": "dsfsdfsafsafasfd",
+      "dateInterval": {
+        "startDate": "2021-05-31T22:00:00.000Z",
+        "endDate": "2021-06-25T22:00:00.000Z"
+      },
+      "availableOffers": null,
+      "price": 4500000,
+      "images": [],
+      "description": "ddfafafdsafafafdadfafdffssdfsdfdasdfsadf",
+      "tags": [
+        "Wifi"
+      ],
+      "id": 15
+    },
+    {
+      "heading": "Offer 20",
+      "details": "dsfsdfsafsafasfd",
+      "dateInterval": {
+        "startDate": "2021-05-31T22:00:00.000Z",
+        "endDate": "2021-06-25T22:00:00.000Z"
+      },
+      "availableOffers": null,
+      "price": 4500000,
+      "images": [],
+      "description": "ddfafafdsafafafdadfafdffssdfsdfdasdfsadf",
+      "tags": [
+        "Wifi"
+      ],
+      "id": 16
+    },
+    {
+      "heading": "Offer 20",
+      "details": "dsfsdfsafsafasfd",
+      "dateInterval": {
+        "startDate": "2021-05-31T22:00:00.000Z",
+        "endDate": "2021-06-25T22:00:00.000Z"
+      },
+      "availableOffers": null,
+      "price": 4500000,
+      "images": [
+        [
+          {
+            "link": "https://i.imgur.com/2dl5TWy.jpg",
+            "height": 501,
+            "width": 750,
+            "type": "image/jpeg",
+            "size": 64673,
+            "imgId": "2dl5TWy"
+          }
+        ]
+      ],
+      "description": "ddfafafdsafafafdadfafdffssdfsdfdasdfsadf",
+      "tags": [
+        "Wifi"
+      ],
+      "id": 17
+    },
+    {
+      "heading": "Offer 20",
+      "details": "dsfsdfsafsafasfd",
+      "dateInterval": {
+        "startDate": "2021-05-31T22:00:00.000Z",
+        "endDate": "2021-06-25T22:00:00.000Z"
+      },
+      "availableOffers": null,
+      "price": 4500000,
+      "images": [
+        [
+          {
+            "link": "https://i.imgur.com/2dl5TWy.jpg",
+            "height": 501,
+            "width": 750,
+            "type": "image/jpeg",
+            "size": 64673,
+            "imgId": "2dl5TWy"
+          }
+        ]
+      ],
+      "description": "ddfafafdsafafafdadfafdffssdfsdfdasdfsadf",
+      "tags": [
+        "Wifi"
+      ],
+      "id": 18
     }
   ],
   "orders": [],

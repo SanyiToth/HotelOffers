@@ -85,7 +85,7 @@
       <mat-form-field>
         <mat-label>Offer detailed description</mat-label>
         <textarea matInput placeholder="Offer detailed description (max 300 characters)" formControlName="description"
-                  required></textarea>
+                  rows="8" cols="50"  required></textarea>
       </mat-form-field>
       <div class="error-containers" *ngIf="description?.invalid && description?.touched">
         <p class="error" *ngIf="description?.errors?.required">
@@ -121,25 +121,6 @@
           </mat-option>
         </mat-autocomplete>
       </mat-form-field>
-
-
-      <section [formGroup]="paymentMethods">
-        <p>Payment options:</p>
-        <p>
-          <mat-checkbox formControlName="cash">Cash</mat-checkbox>
-        </p>
-        <p>
-          <mat-checkbox formControlName="bankCard">Bank Card</mat-checkbox>
-        </p>
-        <p>
-          <mat-checkbox formControlName="bankTransfer">Bank Transfer</mat-checkbox>
-        </p>
-        <p>
-          <mat-checkbox formControlName="szepKartya">Szép kártya</mat-checkbox>
-        </p>
-      </section>
-
-
       <div>
         <button mat-raised-button matStepperPrevious>Previous</button>
         <button mat-raised-button matStepperNext [disabled]="!secondFormGroup.valid">Next</button>

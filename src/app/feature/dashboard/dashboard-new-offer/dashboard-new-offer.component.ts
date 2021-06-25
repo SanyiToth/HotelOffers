@@ -13,6 +13,7 @@ import {map, startWith} from "rxjs/operators";
 import {MatChipInputEvent} from "@angular/material/chips";
 import {environment} from "../../../../environments/environment";
 import {OffersService} from "../../../shared/services/offers/offers.service";
+import {Offer} from "../../../shared/services/offers/offer.interface";
 
 
 @Component({
@@ -27,7 +28,6 @@ export class DashboardNewOfferComponent {
   //forms
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
-  thirdFormGroup: FormGroup;
 
   //mat-stepper
   isLinear = true;
@@ -46,7 +46,7 @@ export class DashboardNewOfferComponent {
   allTags: string[] = environment.OFFER_EXTRAS
 
   //new Offer data
-  newOffer: any;
+  newOffer!: Offer;
   imagesData: any[] = [];
 
 
@@ -69,16 +69,9 @@ export class DashboardNewOfferComponent {
 
     this.secondFormGroup = this.fb.group({
       description: ['', [Validators.required, Validators.maxLength(DashboardNewOfferComponent.DESCRIPTION_MAX_LENGTH)]],
-      tags: [['Wifi']],
-      paymentMethods: this.fb.group({
-        cash: [false, Validators.requiredTrue],
-        bankCard: false,
-        bankTransfer: false,
-        szepKartya: false,
-      },)
+      tags: [['Wifi']]
     });
 
-    this.thirdFormGroup = this.fb.group({})
 
     this.tagsArray = this.tags?.value
     this.filteredTags = this.tagCtrl.valueChanges.pipe(
@@ -108,11 +101,7 @@ export class DashboardNewOfferComponent {
       price: this.price?.value,
       images: this.imagesData,
       description: this.description?.value,
-      tags: this.tags?.value,
-      ratingInfo: {
-        rating: 5,
-        numberOfRatings: 25
-      }
+      tags: this.tags?.value
     }
     this.offerService.createOffer(this.newOffer).subscribe(response => {
       console.log("Stored offer:", response)
@@ -193,10 +182,6 @@ export class DashboardNewOfferComponent {
 
   get tags(): AbstractControl | null {
     return this.secondFormGroup.get('tags');
-  }
-
-  get paymentMethods(): any {
-    return this.secondFormGroup.get('paymentMethods')
   }
 }
 
