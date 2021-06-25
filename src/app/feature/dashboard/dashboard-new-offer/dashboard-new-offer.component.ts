@@ -15,6 +15,7 @@ import {environment} from "../../../../environments/environment";
 import {OffersService} from "../../../shared/services/offers/offers.service";
 import {Image, Offer} from "../../../shared/services/offers/offer.interface";
 import {ErrorMessage} from "@angular/compiler-cli/ngcc/src/execution/cluster/api";
+import {Router} from "@angular/router";
 
 
 @Component({
@@ -51,6 +52,9 @@ export class DashboardNewOfferComponent {
   imagesData: Image[];
   errorMessage!: ErrorMessage;
 
+  //alert
+
+
 
   // @ts-ignore
   @ViewChild('tagsInput') tagInput: ElementRef<HTMLInputElement>;
@@ -58,7 +62,7 @@ export class DashboardNewOfferComponent {
   @ViewChild('autocompleteInput') matAutocomplete: MatAutocomplete;
 
 
-  constructor(private fb: FormBuilder, private offerService: OffersService) {
+  constructor(private fb: FormBuilder, private offerService: OffersService, private router: Router) {
     this.imagesData = [];
     this.firstFormGroup = this.fb.group({
       heading: ['', Validators.required],
@@ -109,6 +113,10 @@ export class DashboardNewOfferComponent {
       this.firstFormGroup.reset();
       this.secondFormGroup.reset();
       this.imagesData = [];
+      setTimeout(() => {
+        this.router.navigate(['/dashboard/offers']);
+      }, 1000)
+
       console.log("Stored offer:", response)
     }, error => {
       this.errorMessage = error;
