@@ -1,6 +1,7 @@
 import {Component, OnInit, Output, EventEmitter} from '@angular/core';
 import {ImagesService} from "../services/images/images.service";
 import {ErrorMessage} from "@angular/compiler-cli/ngcc/src/execution/cluster/api";
+import {Image} from "../services/offers/offer.interface";
 
 
 @Component({
@@ -10,11 +11,12 @@ import {ErrorMessage} from "@angular/compiler-cli/ngcc/src/execution/cluster/api
 })
 export class ImgUploaderComponent implements OnInit {
 
-  @Output() imgDataToParent = new EventEmitter<any[]>();
+  @Output() imgDataToParent = new EventEmitter<Image[]>();
   successAlert: boolean;
   errorAlert: boolean;
-  errorMessage: ErrorMessage | undefined;
-  imagesData: any[];
+  errorMessage!: ErrorMessage;
+  imagesData: Image[];
+  newImageData!: Image;
 
   constructor(private imgService: ImagesService) {
     this.successAlert = false;
@@ -29,7 +31,15 @@ export class ImgUploaderComponent implements OnInit {
     this.imgService.uploadImage(event.target.files[0])
       .subscribe(response => {
         this.successAlert = true;
-        this.imagesData.push(response.data);
+        this.newImageData = {
+          link: response.data.link,
+          height: response.data.height,
+          width: response.data.width,
+          type: response.data.type,
+          size: response.data.size,
+          imgId: response.data.id,
+        }
+        this.imagesData.push(this.newImageData);
         this.imgDataToParent.emit(this.imagesData);
       }, error => {
         this.errorMessage = error;

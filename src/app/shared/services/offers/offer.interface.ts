@@ -11,9 +11,18 @@ export interface Offer {
   description?: string;
   tags?: string;
   payment?: string;
-  image: string;
+  images: Image[];
   ratingInfo?: {
     rating: number;
     numberOfRatings: number
   }
+}
+
+export interface Image {
+  link: string;
+  height: number;
+  width: number;
+  type: string;
+  size: number;
+  imgId: string;
 }
