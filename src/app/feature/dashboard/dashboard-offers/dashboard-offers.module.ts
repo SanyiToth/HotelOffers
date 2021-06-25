@@ -17,11 +17,13 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatCardModule} from "@angular/material/card";
 import {DashboardOfferItemComponent} from './dashboard-offer-item/dashboard-offer-item.component';
 import {ImgUploaderModule} from "../../../shared/img-uploader/img-uploader.module";
+import {DashboardOfferListComponent} from "./dashboard-offer-list/dashboard-offer-list.component";
 
 
 @NgModule({
   declarations: [
     DashboardOffersContainerComponent,
+    DashboardOfferListComponent,
     DashboardOfferItemComponent,
     DashboardNewOfferComponent],
   imports: [
