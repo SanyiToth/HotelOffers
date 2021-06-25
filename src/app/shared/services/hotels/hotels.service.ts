@@ -22,4 +22,7 @@ export class HotelsService {
     return this.http.get<Hotel>(environment.API_URL + HotelsService.PATH + '/' + id);
   }
 
+  createHotel(hotelData: Hotel): Observable<Hotel>{
+    return this.http.post<Hotel>(environment.API_URL + HotelsService.PATH, hotelData);
+  }
 }

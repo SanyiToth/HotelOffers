@@ -17,7 +17,7 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatCardModule} from "@angular/material/card";
 import {DashboardOfferItemComponent} from './dashboard-offer-item/dashboard-offer-item.component';
 import {ImgUploaderModule} from "../../../shared/img-uploader/img-uploader.module";
-import {AppModule} from "../../../app.module";
+
 
 @NgModule({
   declarations: [
@@ -46,5 +46,4 @@ import {AppModule} from "../../../app.module";
     ImgUploaderModule
   ]
 })
-export class DashboardOffersModule {
-}
+export class DashboardOffersModule { }
