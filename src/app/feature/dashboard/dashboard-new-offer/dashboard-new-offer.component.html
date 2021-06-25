@@ -131,7 +131,7 @@
 
 
   <mat-step>
-    <form class="picture-upload" (click)="onSubmit()">
+    <form class="picture-upload" (submit)="onSubmit()">
       <ng-template matStepLabel>Upload images</ng-template>
 
       <h1>File upload</h1>
@@ -140,7 +140,7 @@
 
       <div>
         <button mat-raised-button matStepperPrevious>Previous</button>
-        <button type="submit" [disabled]="imagesData.length===0" mat-raised-button matStepperNext color="primary">
+        <button type="submit"  mat-raised-button matStepperNext color="primary">
           Finish
         </button>
       </div>

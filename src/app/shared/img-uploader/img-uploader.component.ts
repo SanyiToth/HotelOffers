@@ -11,17 +11,15 @@ import {Image} from "../services/offers/offer.interface";
 })
 export class ImgUploaderComponent implements OnInit {
 
-  @Output() imgDataToParent = new EventEmitter<Image[]>();
+  @Output() imgDataToParent = new EventEmitter<Image>();
   successAlert: boolean;
   errorAlert: boolean;
   errorMessage!: ErrorMessage;
-  imagesData: Image[];
   newImageData!: Image;
 
   constructor(private imgService: ImagesService) {
     this.successAlert = false;
     this.errorAlert = false;
-    this.imagesData = [];
   }
 
   ngOnInit(): void {
@@ -39,8 +37,8 @@ export class ImgUploaderComponent implements OnInit {
           size: response.data.size,
           imgId: response.data.id,
         }
-        this.imagesData.push(this.newImageData);
-        this.imgDataToParent.emit(this.imagesData);
+        console.log('child image data', this.newImageData)
+        this.imgDataToParent.emit(this.newImageData);
       }, error => {
         this.errorMessage = error;
         this.errorAlert = true;

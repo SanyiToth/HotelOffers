@@ -13,7 +13,8 @@ import {map, startWith} from "rxjs/operators";
 import {MatChipInputEvent} from "@angular/material/chips";
 import {environment} from "../../../../environments/environment";
 import {OffersService} from "../../../shared/services/offers/offers.service";
-import {Offer} from "../../../shared/services/offers/offer.interface";
+import {Image, Offer} from "../../../shared/services/offers/offer.interface";
+import {ErrorMessage} from "@angular/compiler-cli/ngcc/src/execution/cluster/api";
 
 
 @Component({
@@ -47,7 +48,8 @@ export class DashboardNewOfferComponent {
 
   //new Offer data
   newOffer!: Offer;
-  imagesData: any[] = [];
+  imagesData: Image[];
+  errorMessage!: ErrorMessage;
 
 
   // @ts-ignore
@@ -57,6 +59,7 @@ export class DashboardNewOfferComponent {
 
 
   constructor(private fb: FormBuilder, private offerService: OffersService) {
+    this.imagesData = [];
     this.firstFormGroup = this.fb.group({
       heading: ['', Validators.required],
       details: ['', [Validators.required, Validators.maxLength(DashboardNewOfferComponent.DETAILS_MAX_LENGTH)]],
@@ -82,9 +85,8 @@ export class DashboardNewOfferComponent {
 
   // The component get image data from img-uploader component
 
-  addImgData(newImg: any) {
+  addImgData(newImg: Image) {
     this.imagesData.push(newImg);
-    console.log('parent Img data', this.imagesData)
   }
 
   //Submit event send data to db
@@ -105,6 +107,8 @@ export class DashboardNewOfferComponent {
     }
     this.offerService.createOffer(this.newOffer).subscribe(response => {
       console.log("Stored offer:", response)
+    }, error => {
+      this.errorMessage = error;
     })
   }
 
