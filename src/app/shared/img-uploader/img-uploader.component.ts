@@ -2,6 +2,7 @@ import {Component, OnInit, Output, EventEmitter} from '@angular/core';
 import {ImagesService} from "../services/images/images.service";
 import {ErrorMessage} from "@angular/compiler-cli/ngcc/src/execution/cluster/api";
 import {Image} from "../services/offers/offer.interface";
+import {MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition} from "@angular/material/snack-bar";
 
 
 @Component({
@@ -12,14 +13,13 @@ import {Image} from "../services/offers/offer.interface";
 export class ImgUploaderComponent implements OnInit {
 
   @Output() imgDataToParent = new EventEmitter<Image>();
-  successAlert: boolean;
-  errorAlert: boolean;
+
   errorMessage!: ErrorMessage;
   newImageData!: Image;
+  horizontalPosition: MatSnackBarHorizontalPosition = 'center';
+  verticalPosition: MatSnackBarVerticalPosition = 'top';
 
-  constructor(private imgService: ImagesService) {
-    this.successAlert = false;
-    this.errorAlert = false;
+  constructor(private imgService: ImagesService, private _snackBar: MatSnackBar) {
   }
 
   ngOnInit(): void {
@@ -28,7 +28,10 @@ export class ImgUploaderComponent implements OnInit {
   onUpload(event: any) {
     this.imgService.uploadImage(event.target.files[0])
       .subscribe(response => {
-        this.successAlert = true;
+        this._snackBar.open('Success! Your offer has been uploaded! We will redirect you to the offers page.', 'Close', {
+          horizontalPosition: this.horizontalPosition,
+          verticalPosition: this.verticalPosition,
+        });
         this.newImageData = {
           link: response.data.link,
           height: response.data.height,
@@ -41,15 +44,10 @@ export class ImgUploaderComponent implements OnInit {
         this.imgDataToParent.emit(this.newImageData);
       }, error => {
         this.errorMessage = error;
-        this.errorAlert = true;
+        this._snackBar.open(error, 'Close', {
+          horizontalPosition: this.horizontalPosition,
+          verticalPosition: this.verticalPosition,
+        });
       })
-  }
-
-  closeSuccessAlert() {
-    this.successAlert = false;
-  }
-
-  closeErrorAlert() {
-    this.errorAlert = false;
   }
 }
