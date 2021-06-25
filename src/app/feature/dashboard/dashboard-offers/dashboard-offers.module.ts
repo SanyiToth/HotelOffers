@@ -18,6 +18,7 @@ import {MatCardModule} from "@angular/material/card";
 import {DashboardOfferItemComponent} from './dashboard-offer-item/dashboard-offer-item.component';
 import {ImgUploaderModule} from "../../../shared/img-uploader/img-uploader.module";
 import {DashboardOfferListComponent} from "./dashboard-offer-list/dashboard-offer-list.component";
+import {MatSnackBarModule} from "@angular/material/snack-bar";
 
 
 @NgModule({
@@ -45,7 +46,9 @@ import {DashboardOfferListComponent} from "./dashboard-offer-list/dashboard-offe
     MatIconModule,
     MatButtonModule,
     MatCardModule,
-    ImgUploaderModule
+    ImgUploaderModule,
+    MatSnackBarModule
   ]
 })
-export class DashboardOffersModule { }
+export class DashboardOffersModule {
+}

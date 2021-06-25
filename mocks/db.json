@@ -288,6 +288,56 @@
         "Wifi"
       ],
       "id": 12
+    },
+    {
+      "heading": "Offer 15",
+      "details": "dsafasfdasfdsafd",
+      "dateInterval": {
+        "startDate": "2021-05-31T22:00:00.000Z",
+        "endDate": "2021-06-04T22:00:00.000Z"
+      },
+      "availableOffers": null,
+      "price": 6565656,
+      "images": [
+        {
+          "link": "https://i.imgur.com/GqoxTUS.jpg",
+          "height": 501,
+          "width": 750,
+          "type": "image/jpeg",
+          "size": 64673,
+          "imgId": "GqoxTUS"
+        }
+      ],
+      "description": "fgdgsdgsfdgsdgsdg",
+      "tags": [
+        "Wifi"
+      ],
+      "id": 13
+    },
+    {
+      "heading": "Offer 15",
+      "details": "fdgdfgsgfsdg",
+      "dateInterval": {
+        "startDate": "2021-06-04T22:00:00.000Z",
+        "endDate": "2021-06-18T22:00:00.000Z"
+      },
+      "availableOffers": null,
+      "price": 66666,
+      "images": [
+        {
+          "link": "https://i.imgur.com/tD60vaS.jpg",
+          "height": 501,
+          "width": 750,
+          "type": "image/jpeg",
+          "size": 64673,
+          "imgId": "tD60vaS"
+        }
+      ],
+      "description": "gfdsgsdgfsdfgsgfsdfgs",
+      "tags": [
+        "Wifi"
+      ],
+      "id": 14
     }
   ],
   "orders": [],

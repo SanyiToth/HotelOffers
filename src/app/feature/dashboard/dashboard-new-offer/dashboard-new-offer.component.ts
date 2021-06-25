@@ -16,6 +16,7 @@ import {OffersService} from "../../../shared/services/offers/offers.service";
 import {Image, Offer} from "../../../shared/services/offers/offer.interface";
 import {ErrorMessage} from "@angular/compiler-cli/ngcc/src/execution/cluster/api";
 import {Router} from "@angular/router";
+import {MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition} from "@angular/material/snack-bar";
 
 
 @Component({
@@ -47,13 +48,14 @@ export class DashboardNewOfferComponent {
   tagsArray: string[];
   allTags: string[] = environment.OFFER_EXTRAS
 
+  //mat-snackbar
+  horizontalPosition: MatSnackBarHorizontalPosition = 'center';
+  verticalPosition: MatSnackBarVerticalPosition = 'top';
+
   //new Offer data
   newOffer!: Offer;
   imagesData: Image[];
   errorMessage!: ErrorMessage;
-
-  //alert
-
 
 
   // @ts-ignore
@@ -62,7 +64,10 @@ export class DashboardNewOfferComponent {
   @ViewChild('autocompleteInput') matAutocomplete: MatAutocomplete;
 
 
-  constructor(private fb: FormBuilder, private offerService: OffersService, private router: Router) {
+  constructor(private fb: FormBuilder,
+              private offerService: OffersService,
+              private router: Router,
+              private _snackBar: MatSnackBar) {
     this.imagesData = [];
     this.firstFormGroup = this.fb.group({
       heading: ['', Validators.required],
@@ -113,13 +118,19 @@ export class DashboardNewOfferComponent {
       this.firstFormGroup.reset();
       this.secondFormGroup.reset();
       this.imagesData = [];
+      this._snackBar.open('Success! Your offer has been uploaded! We will redirect you to the offers page.', 'Close', {
+        horizontalPosition: this.horizontalPosition,
+        verticalPosition: this.verticalPosition,
+      });
       setTimeout(() => {
         this.router.navigate(['/dashboard/offers']);
       }, 1000)
-
-      console.log("Stored offer:", response)
     }, error => {
       this.errorMessage = error;
+      this._snackBar.open(error, 'Close', {
+        horizontalPosition: this.horizontalPosition,
+        verticalPosition: this.verticalPosition,
+      });
     })
   }
 
