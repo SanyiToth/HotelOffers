@@ -34,7 +34,7 @@ export class DashboardNewOfferComponent {
   tagsArray: string[];
   allTags: string[] = environment.OFFER_EXTRAS
   newOffer: any;
-  imagesUrl: any[] = [];
+  imagesData: any[] = [];
 
 
   // @ts-ignore
@@ -90,7 +90,7 @@ export class DashboardNewOfferComponent {
       },
       availableOffers: this.availableOffers?.value,
       price: this.price?.value,
-      images: this.imagesUrl,
+      images: this.imagesData,
       description: this.description?.value,
       tags: this.tags?.value,
       ratingInfo: {
@@ -116,6 +116,12 @@ export class DashboardNewOfferComponent {
 
   ngOnInit() {
   }
+
+  addImgData(newImg: any) {
+    this.imagesData.push(newImg);
+    console.log('parent Img data', this.imagesData)
+  }
+
 
   addTag(event: MatChipInputEvent): void {
     const value = (event.value || '').trim();

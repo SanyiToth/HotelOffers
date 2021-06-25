@@ -155,7 +155,7 @@
 
       <h1>File upload</h1>
 
-      <app-img-uploader></app-img-uploader>
+      <app-img-uploader (imgDataToParent)="addImgData($event)"></app-img-uploader>
 
       <div>
         <button mat-raised-button matStepperPrevious>Previous</button>
