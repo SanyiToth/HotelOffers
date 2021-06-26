@@ -2,7 +2,6 @@ import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import {FormBuilder, FormGroup, AbstractControl,} from '@angular/forms';
 import { Offer } from "../../../../shared/services/offers/offer.interface";
 import { StatusRequest } from "../../../../shared/services/offers/status-request.interface";
-import {SearchRequest} from "../../../../shared/services/result/search-request";
 
 
 @Component({
@@ -13,12 +12,15 @@ import {SearchRequest} from "../../../../shared/services/result/search-request";
 export class DashboardOffersHeaderComponent implements OnInit {
 
   @Input() offerStatus!: Offer[]
+
   @Output() sendStatus: EventEmitter<StatusRequest> = new EventEmitter<StatusRequest>();
 
   selectStatusForm: FormGroup = this.fb.group({
     status:[null],
   })
   isSubmitted = false;
+
+  statusList =  ['Active', 'Deactivated', 'Ended', 'Deleted', 'Draft']
 
   constructor(public fb: FormBuilder) { }
 
