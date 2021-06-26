@@ -1,1 +1,148 @@
-<p>dashboard-new-offer works!</p>
+<div class="dashboard-header">
+  <h1>Create new Offer</h1>
+  <div class="dashboard-header--buttons">
+    <button mat-raised-button color="primary">Save</button>
+    <button mat-raised-button color="warn">Cancel</button>
+  </div>
+</div>
+
+
+<mat-horizontal-stepper [linear]="isLinear">
+  <mat-step [stepControl]="firstFormGroup">
+    <form [formGroup]="firstFormGroup" class="basic-details">
+      <ng-template matStepLabel>Basic details</ng-template>
+      <mat-form-field>
+        <mat-label>Offer headline title</mat-label>
+        <input matInput placeholder="Offer headline title" formControlName="heading" required>
+      </mat-form-field>
+      <p class="error" *ngIf="heading?.invalid && heading?.touched && heading?.errors?.required">
+        Please fill offer headline title!
+      </p>
+      <br>
+      <mat-form-field>
+        <mat-label>Offer short details (max 50 characters)</mat-label>
+        <input matInput placeholder="Offer short details" formControlName="details" required>
+      </mat-form-field>
+      <div class="error-containers" *ngIf="details?.invalid && details?.touched">
+        <p class="error" *ngIf="details?.errors?.required">
+          Please fill offer details!
+        </p>
+        <p class="error" *ngIf="details?.errors?.maxlength">
+          Details should be max 50 characters!
+        </p>
+      </div>
+      <div class="date-interval">
+        <mat-form-field appearance="fill">
+          <mat-label>Choose a start date</mat-label>
+          <input matInput [matDatepicker]="startDatepicker" formControlName="startDate" required>
+          <mat-datepicker-toggle matSuffix [for]="startDatepicker"></mat-datepicker-toggle>
+          <mat-datepicker #startDatepicker></mat-datepicker>
+        </mat-form-field>
+        <p class="error" *ngIf="startDate?.invalid && startDate?.touched && startDate?.errors?.required">
+          Please choose offer start date!
+        </p>
+        <br>
+        <mat-form-field appearance="fill">
+          <mat-label>Choose a end date</mat-label>
+          <input matInput [matDatepicker]="endDatepicker" formControlName="endDate" required>
+          <mat-datepicker-toggle matSuffix [for]="endDatepicker"></mat-datepicker-toggle>
+          <mat-datepicker #endDatepicker></mat-datepicker>
+        </mat-form-field>
+        <p class="error" *ngIf="endDate?.invalid && endDate?.touched && endDate?.errors?.required">
+          Please choose offer end date!
+        </p>
+      </div>
+
+      <div class="available-offers">
+        <mat-form-field>
+          <mat-label>Available offers (quantity the offer can be selled)</mat-label>
+          <input matInput type="number" step="1" min="1" formControlName="availableOffers" required>
+        </mat-form-field>
+        <p class="error"
+           *ngIf="availableOffers?.invalid && availableOffers?.touched && availableOffers?.errors?.required">
+          Please set how many offers are available!
+        </p>
+        <br>
+        <mat-checkbox (change)="onChange()" class="example-margin">limitless offer</mat-checkbox>
+      </div>
+      <mat-form-field>
+        <mat-label>Price (HUF)</mat-label>
+        <input matInput type="number" step="500" required formControlName="price">
+      </mat-form-field>
+      <p class="error" *ngIf="price?.invalid && price?.touched && price?.errors?.required">
+        Please set offers price!
+      </p>
+      <div>
+        <button mat-raised-button matStepperNext [disabled]="!firstFormGroup.valid">Next</button>
+      </div>
+    </form>
+
+
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup">
+    <form [formGroup]="secondFormGroup" class="extra-details">
+      <ng-template matStepLabel>Extra details</ng-template>
+      <mat-form-field>
+        <mat-label>Offer detailed description</mat-label>
+        <textarea matInput placeholder="Offer detailed description (max 300 characters)" formControlName="description"
+                  rows="8" cols="50" required></textarea>
+      </mat-form-field>
+      <div class="error-containers" *ngIf="description?.invalid && description?.touched">
+        <p class="error" *ngIf="description?.errors?.required">
+          Please fill offer detailed description!
+        </p>
+        <p class="error" *ngIf="description?.errors?.maxlength">
+          Detailed description should be max 300 characters!
+        </p>
+      </div>
+      <mat-form-field class="example-chip-list">
+        <mat-label>You can add a new tag to your offer (optional)</mat-label>
+        <mat-chip-list #chipList aria-label="Tag selection">
+          <mat-chip
+            *ngFor="let tag of tagsArray"
+            [selectable]="selectable"
+            [removable]="removable"
+            (removed)="removeTag(tag)">
+            {{tag}}
+            <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+          </mat-chip>
+          <input
+            placeholder="New tag..."
+            #tagsInput
+            [formControl]="tagCtrl"
+            [matAutocomplete]="autocompleteInput"
+            [matChipInputFor]="chipList"
+            [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+            (matChipInputTokenEnd)="addTag($event)">
+        </mat-chip-list>
+        <mat-autocomplete #autocompleteInput="matAutocomplete" (optionSelected)="selectedTag($event)">
+          <mat-option *ngFor="let tag of filteredTags | async" [value]="tag">
+            {{tag}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+      <div>
+        <button mat-raised-button matStepperPrevious>Previous</button>
+        <button mat-raised-button matStepperNext [disabled]="!secondFormGroup.valid">Next</button>
+      </div>
+    </form>
+  </mat-step>
+
+
+
+  <mat-step>
+    <form class="picture-upload" (submit)="onSubmit()">
+      <ng-template matStepLabel>Upload images</ng-template>
+      <h1>File upload</h1>
+      <app-img-uploader (imgDataToParent)="addImgData($event)"></app-img-uploader>
+      <div>
+        <button mat-raised-button matStepperPrevious>Previous</button>
+        <button type="submit" [disabled]="imagesData.length===0" mat-raised-button matStepperNext color="primary">
+          Finish
+        </button>
+      </div>
+    </form>
+  </mat-step>
+
+</mat-horizontal-stepper>
+

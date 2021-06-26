@@ -1,19 +1,30 @@
 export interface Offer {
-  hotelId: number;
+  hotelId?: number;
   id?: number;
   status?: string;
   heading: string;
   details: string;
-  startDate?: Date;
-  endDate?: Date;
+  dateInterval: {
+    startDate?: Date;
+    endDate?: Date;
+  }
   availableOffers?: number;
   price: number;
   description?: string;
   tags?: string;
   payment?: string;
-  image: string;
+  images: Image[];
   ratingInfo?: {
     rating: number;
     numberOfRatings: number
   }
+}
+
+export interface Image {
+  link: string;
+  height: number;
+  width: number;
+  type: string;
+  size: number;
+  imgId: string;
 }

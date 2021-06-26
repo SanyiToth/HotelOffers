@@ -238,18 +238,6 @@
         "rating": 5,
         "numberOfRatings": 20
       }
-    },
-    {
-      "hotelId": 1,
-      "heading": "Offer heading 1",
-      "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      "price": 39500,
-      "image": "https://picsum.photos/id/98/400/200",
-      "ratingInfo": {
-        "rating": 4,
-        "numberOfRatings": 45
-      },
-      "id": 11
     }
   ],
   "orders": [],

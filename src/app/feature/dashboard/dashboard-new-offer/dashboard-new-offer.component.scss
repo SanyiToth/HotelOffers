@@ -1,0 +1,44 @@
+form {
+  max-width: 800px;
+  margin: 0 auto;
+  padding:20px
+}
+
+mat-form-field {
+  width: 70%;
+}
+
+.error {
+  margin-top: -10px;
+  color: red;
+  font-size: 12px;
+}
+
+
+.mat-stepper-horizontal {
+  margin-top: 8px;
+}
+
+.mat-form-field {
+  margin-top: 16px;
+}
+
+
+.dashboard-header {
+  padding: 20px;
+  align-items: center;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.dashboard-header--buttons {
+  display: flex;
+  align-items: center;
+  width: 150px;
+  justify-content: space-between;
+}
+
+mat-form-field {
+  margin-right: 12px;
+}
