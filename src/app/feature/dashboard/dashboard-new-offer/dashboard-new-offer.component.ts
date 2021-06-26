@@ -102,6 +102,7 @@ export class DashboardNewOfferComponent {
 
   onSubmit() {
     this.newOffer = {
+      status: 'Draft',
       heading: this.heading?.value,
       details: this.details?.value,
       dateInterval: {
