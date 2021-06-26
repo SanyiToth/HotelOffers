@@ -40,7 +40,6 @@ export class ImgUploaderComponent implements OnInit {
           size: response.data.size,
           imgId: response.data.id,
         }
-        console.log('child image data', this.newImageData)
         this.imgDataToParent.emit(this.newImageData);
       }, error => {
         this.errorMessage = error;
