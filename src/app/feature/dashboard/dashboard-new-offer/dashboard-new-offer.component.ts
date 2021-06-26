@@ -67,7 +67,7 @@ export class DashboardNewOfferComponent {
   constructor(private fb: FormBuilder,
               private offerService: OffersService,
               private router: Router,
-              private _snackBar: MatSnackBar) {
+              private snackBar: MatSnackBar) {
     this.imagesData = [];
     this.firstFormGroup = this.fb.group({
       heading: ['', Validators.required],
@@ -118,7 +118,7 @@ export class DashboardNewOfferComponent {
       this.firstFormGroup.reset();
       this.secondFormGroup.reset();
       this.imagesData = [];
-      this._snackBar.open('Success! Your offer has been uploaded! We will redirect you to the offers page.', 'Close', {
+      this.snackBar.open('Success! Your offer has been uploaded! We will redirect you to the offers page.', 'Close', {
         horizontalPosition: this.horizontalPosition,
         verticalPosition: this.verticalPosition,
       });
@@ -127,7 +127,7 @@ export class DashboardNewOfferComponent {
       }, 1000)
     }, error => {
       this.errorMessage = error;
-      this._snackBar.open(error, 'Close', {
+      this.snackBar.open(error, 'Close', {
         horizontalPosition: this.horizontalPosition,
         verticalPosition: this.verticalPosition,
       });

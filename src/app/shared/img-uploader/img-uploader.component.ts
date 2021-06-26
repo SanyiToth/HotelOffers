@@ -19,7 +19,7 @@ export class ImgUploaderComponent implements OnInit {
   horizontalPosition: MatSnackBarHorizontalPosition = 'center';
   verticalPosition: MatSnackBarVerticalPosition = 'top';
 
-  constructor(private imgService: ImagesService, private _snackBar: MatSnackBar) {
+  constructor(private imgService: ImagesService, private snackBar: MatSnackBar) {
   }
 
   ngOnInit(): void {
@@ -28,7 +28,7 @@ export class ImgUploaderComponent implements OnInit {
   onUpload(event: any) {
     this.imgService.uploadImage(event.target.files[0])
       .subscribe(response => {
-        this._snackBar.open('You have successfully uploaded 1 image!', 'Close', {
+        this.snackBar.open('You have successfully uploaded 1 image!', 'Close', {
           horizontalPosition: this.horizontalPosition,
           verticalPosition: this.verticalPosition,
         });
@@ -43,7 +43,7 @@ export class ImgUploaderComponent implements OnInit {
         this.imgDataToParent.emit(this.newImageData);
       }, error => {
         this.errorMessage = error;
-        this._snackBar.open(error, 'Close', {
+        this.snackBar.open(error, 'Close', {
           horizontalPosition: this.horizontalPosition,
           verticalPosition: this.verticalPosition,
         });
