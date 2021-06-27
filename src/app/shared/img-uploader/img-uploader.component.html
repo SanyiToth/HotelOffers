@@ -3,7 +3,7 @@
   <mat-grid-list class="file-container" cols="4">
     <mat-grid-tile class="files" *ngFor="let image of uploadedImages">
       <mat-grid-tile-header>
-        Image ID: {{image.imgId}}
+        Image: {{image.imgId}}
       </mat-grid-tile-header>
       <div>
         <img [src]="image.link" alt="image">
