@@ -1,4 +1,9 @@
 <mat-card>
-  <button type="button" mat-raised-button color="primary" (click)="fileInput.click()">Browse files</button>
+  <div class="add-new-file">
+    <button type="button" mat-raised-button color="primary" (click)="fileInput.click()">
+      <mat-icon>add</mat-icon>
+      Add new
+    </button>
+  </div>
   <input hidden type="file" #fileInput (change)="onUpload($event)" accept="image/*">
 </mat-card>
