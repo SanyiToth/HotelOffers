@@ -6,6 +6,7 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {MatButtonModule} from "@angular/material/button";
 import {MatCardModule} from "@angular/material/card";
 import {MatIconModule} from "@angular/material/icon";
+import {MatGridListModule} from "@angular/material/grid-list";
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import {MatIconModule} from "@angular/material/icon";
         MatSnackBarModule,
         MatButtonModule,
         MatCardModule,
-        MatIconModule
+        MatIconModule,
+        MatGridListModule
     ],
   exports: [
     ImgUploaderComponent
