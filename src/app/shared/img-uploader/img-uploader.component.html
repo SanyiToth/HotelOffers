@@ -5,7 +5,7 @@
       <mat-grid-tile-header>
         <div class="header">
           <p>Image: {{image.imgId}}</p>
-          <mat-icon class="delete-icon" matTooltip="Delete"  (click)="deleteImage(image.deletehash)">highlight_off</mat-icon>
+          <mat-icon class="delete-icon" matTooltip="Delete"  (click)="deleteImage(image.deletehash, image.imgId)">highlight_off</mat-icon>
         </div>
       </mat-grid-tile-header>
       <div>

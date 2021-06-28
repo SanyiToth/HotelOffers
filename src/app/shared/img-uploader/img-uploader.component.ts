@@ -39,7 +39,7 @@ export class ImgUploaderComponent implements OnInit {
           type: response.data.type,
           size: response.data.size,
           imgId: response.data.id,
-          deletehash: response.deletehash
+          deletehash: response.data.deletehash
         };
         this.imgDataToParent.emit(this.newImageData);
         this.uploadedImages.push(this.newImageData);
@@ -56,7 +56,17 @@ export class ImgUploaderComponent implements OnInit {
       })
   }
 
-  deleteImage($event: string) {
-    console.log('event', $event)
+
+  deleteImage(deleteHash: string, imageId: string) {
+    if (confirm("Are you sure to delete " + imageId)) {
+      this.imgService.deleteImage(deleteHash)
+        .subscribe(response => {
+          if (response.success) {
+            this.uploadedImages = this.uploadedImages.filter(item => {
+              return item.deletehash !== deleteHash;
+            })
+          }
+        })
+    }
   }
 }
