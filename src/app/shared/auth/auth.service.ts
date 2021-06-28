@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {BehaviorSubject, Observable} from 'rxjs';
-import {AccessToken, LoginCredential, User} from './auth.interface';
+import {LoginResponse, LoginCredential, User} from './auth.interface';
 import {HttpClient} from '@angular/common/http';
 import {tap} from 'rxjs/operators';
 import {Router} from '@angular/router';
@@ -13,33 +13,35 @@ import {environment} from "../../../environments/environment";
 export class AuthService {
 
   private static PATH = '/login';
-  jwtSubject: BehaviorSubject<AccessToken>;
+  jwtSubject: BehaviorSubject<string>;
 
 
-  public get currentJwtValue(): AccessToken {
+  public get currentJwtValue(): string {
     return this.jwtSubject.value;
   }
 
   constructor(private http: HttpClient, private router: Router) {
-    const jwtToken = JSON.parse(localStorage.getItem('jwt') as string) as AccessToken || undefined;
-    this.jwtSubject = new BehaviorSubject<AccessToken>(jwtToken);
+    const jwtToken = JSON.parse(localStorage.getItem('jwt') as string) || undefined;
+    this.jwtSubject = new BehaviorSubject<string>(jwtToken);
   }
 
 
-  login(credentials: LoginCredential): Observable<AccessToken> {
+  login(credentials: LoginCredential): Observable<LoginResponse> {
     return this.http
-      .post<AccessToken>(environment.API_URL + AuthService.PATH, credentials)
+      .post<LoginResponse>(environment.API_URL + AuthService.PATH, credentials)
       .pipe(
         tap(token => {
-          localStorage.setItem('jwt', JSON.stringify(token));
-          this.jwtSubject.next(token);
+          localStorage.setItem('jwt', JSON.stringify(token.accessToken));
+          localStorage.setItem('loggedInProvider', JSON.stringify(token.loggedInProvider));
+          this.jwtSubject.next(token.accessToken);
         })
       );
   }
 
   logout() {
     localStorage.removeItem('jwt');
-   setTimeout(() => {
+    localStorage.removeItem('loggedInProvider');
+    setTimeout(() => {
       this.router.navigate(['/login']);
     }, 1000);
 

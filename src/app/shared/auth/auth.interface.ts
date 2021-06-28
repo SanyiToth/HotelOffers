@@ -1,10 +1,13 @@
+import {Hotel} from "../services/hotels/hotel.interface";
+
 export interface LoginCredential {
   email: string;
   password: string;
 }
 
-export interface AccessToken {
+export interface LoginResponse {
   accessToken: string;
+  loggedInProvider: Hotel;
 }
 
 export interface User {
