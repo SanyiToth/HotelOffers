@@ -7,6 +7,7 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatCardModule} from "@angular/material/card";
 import {MatIconModule} from "@angular/material/icon";
 import {MatGridListModule} from "@angular/material/grid-list";
+import {MatTooltipModule} from "@angular/material/tooltip";
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import {MatGridListModule} from "@angular/material/grid-list";
         MatButtonModule,
         MatCardModule,
         MatIconModule,
-        MatGridListModule
+        MatGridListModule,
+        MatTooltipModule
     ],
   exports: [
     ImgUploaderComponent

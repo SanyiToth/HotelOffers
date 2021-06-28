@@ -39,6 +39,7 @@ export class ImgUploaderComponent implements OnInit {
           type: response.data.type,
           size: response.data.size,
           imgId: response.data.id,
+          deletehash: response.deletehash
         };
         this.imgDataToParent.emit(this.newImageData);
         this.uploadedImages.push(this.newImageData);
@@ -53,5 +54,9 @@ export class ImgUploaderComponent implements OnInit {
           verticalPosition: this.verticalPosition,
         });
       })
+  }
+
+  deleteImage($event: string) {
+    console.log('event', $event)
   }
 }
