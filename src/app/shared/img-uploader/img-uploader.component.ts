@@ -29,7 +29,7 @@ export class ImgUploaderComponent implements OnInit {
   }
 
   onUpload(event: any) {
-
+    const fileName = event.target.files[0].name
     this.imgService.postImage(event.target.files[0])
       .subscribe(response => {
         this.newImageData = {
@@ -42,7 +42,7 @@ export class ImgUploaderComponent implements OnInit {
         };
         this.imgDataToParent.emit(this.newImageData);
         this.uploadedImages.push(this.newImageData);
-        this.snackBar.open('You have successfully uploaded 1 image!', 'Close', {
+        this.snackBar.open(`You have successfully uploaded "${fileName}"!`, 'Close', {
           horizontalPosition: this.horizontalPosition,
           verticalPosition: this.verticalPosition,
         });
