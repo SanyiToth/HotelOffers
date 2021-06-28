@@ -16,6 +16,7 @@ import {OffersService} from "../../../shared/services/offers/offers.service";
 import {Image, Offer} from "../../../shared/services/offers/offer.interface";
 import {ErrorMessage} from "@angular/compiler-cli/ngcc/src/execution/cluster/api";
 import {Router} from "@angular/router";
+import {MessageService} from "../../../shared/services/message/message.service";
 
 
 @Component({
@@ -62,6 +63,7 @@ export class DashboardNewOfferComponent {
 
   constructor(private fb: FormBuilder,
               private offerService: OffersService,
+              private messageService: MessageService,
               private router: Router) {
     this.imagesData = [];
     this.firstFormGroup = this.fb.group({
@@ -110,16 +112,20 @@ export class DashboardNewOfferComponent {
       description: this.description?.value,
       tags: this.tags?.value
     }
-    this.offerService.createOffer(this.newOffer).subscribe(response => {
-      this.firstFormGroup.reset();
-      this.secondFormGroup.reset();
-      this.imagesData = [];
-      setTimeout(() => {
-        this.router.navigate(['/dashboard/offers']);
-      }, 1000)
-    }, error => {
-      this.errorMessage = error;
-    })
+    this.offerService.createOffer(this.newOffer)
+      .subscribe(response => {
+        this.firstFormGroup.reset();
+        this.secondFormGroup.reset();
+        this.imagesData = [];
+        this.messageService
+          .open('Success! Your offer has been uploaded! We will redirect you to the offers page.');
+        setTimeout(() => {
+          this.router.navigate(['/dashboard/offers']);
+        }, 1000)
+      }, error => {
+        this.errorMessage = error;
+        this.messageService.open(error);
+      })
   }
 
   //Limitless available offers

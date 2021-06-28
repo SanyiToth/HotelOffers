@@ -40,11 +40,11 @@ export class ImgUploaderComponent implements OnInit {
         };
         this.uploadedImages.push(this.newImageData);
         this.imagesDataToParent.emit(this.uploadedImages);
-        this.messageService.open('You have successfully uploaded this file!', fileName);
+        this.messageService.open('You have successfully uploaded this image!', fileName);
         event.target.value = null;
       }, error => {
         this.errorMessage = error;
-
+        this.messageService.open(error);
       })
   }
 
@@ -57,9 +57,11 @@ export class ImgUploaderComponent implements OnInit {
             this.uploadedImages = this.uploadedImages
               .filter(item => item.deletehash !== deleteHash);
             this.imagesDataToParent.emit(this.uploadedImages);
+            this.messageService.open('You have successfully deleted this image!', imageId)
           }
         }, error => {
           this.errorMessage = error;
+          this.messageService.open(error);
         })
     }
   }
