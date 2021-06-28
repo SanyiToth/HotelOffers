@@ -9,14 +9,14 @@ import { StatusRequest } from "../../../../shared/services/offers/status-request
   templateUrl: './dashboard-offers-header.component.html',
   styleUrls: ['./dashboard-offers-header.component.scss']
 })
-export class DashboardOffersHeaderComponent implements OnInit {
+export class DashboardOffersHeaderComponent {
 
   @Input() offerStatus!: Offer[]
 
   @Output() sendStatus: EventEmitter<StatusRequest> = new EventEmitter<StatusRequest>();
 
   selectStatusForm: FormGroup = this.fb.group({
-    status:[null],
+    status:['All'],
   })
   isSubmitted = false;
 
@@ -39,9 +39,5 @@ export class DashboardOffersHeaderComponent implements OnInit {
     console.log(this.selectStatusForm.value)
   }
 
-
-  ngOnInit(): void {
-
-  }
 
 }
