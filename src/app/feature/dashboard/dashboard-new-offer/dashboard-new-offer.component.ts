@@ -96,7 +96,6 @@ export class DashboardNewOfferComponent {
 
   addImgData(updatedImages: Image[]) {
     this.imagesData = updatedImages;
-    console.log("imagesData", this.imagesData)
   }
 
   //Submit event send data to db
