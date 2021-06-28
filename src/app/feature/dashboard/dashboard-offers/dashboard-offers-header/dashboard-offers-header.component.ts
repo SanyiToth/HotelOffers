@@ -1,7 +1,8 @@
-import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
+import {Component, Input, Output, EventEmitter} from '@angular/core';
 import {FormBuilder, FormGroup, AbstractControl,} from '@angular/forms';
 import { Offer } from "../../../../shared/services/offers/offer.interface";
 import { StatusRequest } from "../../../../shared/services/offers/status-request.interface";
+import {SearchRequest} from "../../../../shared/services/result/search-request";
 
 
 @Component({
@@ -15,10 +16,11 @@ export class DashboardOffersHeaderComponent {
 
   @Output() sendStatus: EventEmitter<StatusRequest> = new EventEmitter<StatusRequest>();
 
+  submitted = false;
+
   selectStatusForm: FormGroup = this.fb.group({
-    status:['All'],
+    status:[''],
   })
-  isSubmitted = false;
 
   statusList =  ['Active', 'Deactivated', 'Ended', 'Deleted', 'Draft']
 
@@ -34,9 +36,10 @@ export class DashboardOffersHeaderComponent {
     return this.selectStatusForm.get('status')
   }
   onSubmit(){
-    this.isSubmitted = true;
+    this.submitted = true;
     this.sendStatus.emit(this.selectStatusForm.value as StatusRequest);
     console.log(this.selectStatusForm.value)
+
   }
 
 
