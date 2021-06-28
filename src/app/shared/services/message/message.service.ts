@@ -6,23 +6,26 @@ import {MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition}
 })
 export class MessageService {
 
-
   horizontalPosition: MatSnackBarHorizontalPosition;
   verticalPosition: MatSnackBarVerticalPosition;
+  duration: number;
+  panelClass: string[];
 
   constructor(private snackBar: MatSnackBar) {
     this.horizontalPosition = 'center';
     this.verticalPosition = 'top';
-  }
+    this.duration = 5000;
+    this.panelClass = ['mat-toolbar', 'mat-primary'];
 
+  }
 
   open(message: string, fileName: string = '') {
     if (fileName) message = `${message} ${fileName}`;
     return this.snackBar.open(message, 'Close', {
       horizontalPosition: this.horizontalPosition,
       verticalPosition: this.verticalPosition,
-      duration: 5000,
-      panelClass: ['mat-toolbar', 'mat-primary']
+      duration: this.duration,
+      panelClass: this.panelClass
     });
   }
 }
