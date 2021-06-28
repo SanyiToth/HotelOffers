@@ -16,8 +16,9 @@ export class MessageService {
   }
 
 
-  public open(message: string) {
-    this.snackBar.open(message, 'Close', {
+  open(message: string, fileName: string = '') {
+    if (fileName) message = `${message} ${fileName}`;
+    return this.snackBar.open(message, 'Close', {
       horizontalPosition: this.horizontalPosition,
       verticalPosition: this.verticalPosition,
       duration: 5000,

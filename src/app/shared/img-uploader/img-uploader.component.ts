@@ -2,8 +2,7 @@ import {Component, OnInit, Output, EventEmitter} from '@angular/core';
 import {ImagesService} from "./images.service";
 import {ErrorMessage} from "@angular/compiler-cli/ngcc/src/execution/cluster/api";
 import {Image} from "../services/offers/offer.interface";
-import {MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition} from "@angular/material/snack-bar";
-import {Config} from "../../../config";
+import {MessageService} from "../services/message/message.service";
 
 
 @Component({
@@ -17,11 +16,9 @@ export class ImgUploaderComponent implements OnInit {
 
   errorMessage!: ErrorMessage;
   newImageData!: Image;
-  horizontalPosition: MatSnackBarHorizontalPosition = 'center';
-  verticalPosition: MatSnackBarVerticalPosition = 'top';
   uploadedImages: Image[];
 
-  constructor(private imgService: ImagesService, private snackBar: MatSnackBar) {
+  constructor(private imgService: ImagesService, private messageService: MessageService) {
     this.uploadedImages = [];
   }
 
@@ -43,23 +40,14 @@ export class ImgUploaderComponent implements OnInit {
         };
         this.uploadedImages.push(this.newImageData);
         this.imagesDataToParent.emit(this.uploadedImages);
-        this.snackBar.open(`You have successfully uploaded "${fileName}"!`, 'Close', {
-          horizontalPosition: this.horizontalPosition,
-          verticalPosition: this.verticalPosition,
-        });
+        this.messageService.open('You have successfully uploaded this file!', fileName);
         event.target.value = null;
       }, error => {
         this.errorMessage = error;
-        this.errorSnackbar(error);
+
       })
   }
 
-  private errorSnackbar(error: string) {
-    this.snackBar.open(error, 'Close', {
-      horizontalPosition: this.horizontalPosition,
-      verticalPosition: this.verticalPosition,
-    });
-  }
 
   deleteImage(deleteHash: string, imageId: string) {
     if (confirm(`Are you sure to delete? "${imageId}"`)) {
@@ -69,14 +57,9 @@ export class ImgUploaderComponent implements OnInit {
             this.uploadedImages = this.uploadedImages
               .filter(item => item.deletehash !== deleteHash);
             this.imagesDataToParent.emit(this.uploadedImages);
-            this.snackBar.open(`You have successfully deleted "${imageId}"!`, 'Close', {
-              horizontalPosition: this.horizontalPosition,
-              verticalPosition: this.verticalPosition,
-            });
           }
         }, error => {
           this.errorMessage = error;
-          this.errorSnackbar(error);
         })
     }
   }

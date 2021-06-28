@@ -16,7 +16,6 @@ import {OffersService} from "../../../shared/services/offers/offers.service";
 import {Image, Offer} from "../../../shared/services/offers/offer.interface";
 import {ErrorMessage} from "@angular/compiler-cli/ngcc/src/execution/cluster/api";
 import {Router} from "@angular/router";
-import {MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition} from "@angular/material/snack-bar";
 
 
 @Component({
@@ -48,9 +47,6 @@ export class DashboardNewOfferComponent {
   tagsArray: string[];
   allTags: string[] = environment.OFFER_EXTRAS
 
-  //mat-snackbar
-  horizontalPosition: MatSnackBarHorizontalPosition = 'center';
-  verticalPosition: MatSnackBarVerticalPosition = 'top';
 
   //new Offer data
   newOffer!: Offer;
@@ -66,8 +62,7 @@ export class DashboardNewOfferComponent {
 
   constructor(private fb: FormBuilder,
               private offerService: OffersService,
-              private router: Router,
-              private snackBar: MatSnackBar) {
+              private router: Router) {
     this.imagesData = [];
     this.firstFormGroup = this.fb.group({
       heading: ['', Validators.required],
@@ -119,19 +114,11 @@ export class DashboardNewOfferComponent {
       this.firstFormGroup.reset();
       this.secondFormGroup.reset();
       this.imagesData = [];
-      this.snackBar.open('Success! Your offer has been uploaded! We will redirect you to the offers page.', 'Close', {
-        horizontalPosition: this.horizontalPosition,
-        verticalPosition: this.verticalPosition,
-      });
       setTimeout(() => {
         this.router.navigate(['/dashboard/offers']);
       }, 1000)
     }, error => {
       this.errorMessage = error;
-      this.snackBar.open(error, 'Close', {
-        horizontalPosition: this.horizontalPosition,
-        verticalPosition: this.verticalPosition,
-      });
     })
   }
 
