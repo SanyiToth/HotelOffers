@@ -66,9 +66,7 @@ export class ImgUploaderComponent implements OnInit {
         .subscribe(response => {
           if (response.success) {
             this.uploadedImages = this.uploadedImages
-              .filter(item => {
-                return item.deletehash !== deleteHash;
-              });
+              .filter(item => item.deletehash !== deleteHash);
             this.imagesDataToParent.emit(this.uploadedImages);
             this.snackBar.open(`You have successfully deleted "${imageId}"!`, 'Close', {
               horizontalPosition: this.horizontalPosition,
