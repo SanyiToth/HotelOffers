@@ -1,0 +1,20 @@
+:host {
+  padding: 20px;
+}
+
+.add-new-file {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.file-container {
+  height: 300px;
+  border: 1px solid lightgray;
+  margin-bottom: 5px;
+}
+
+
+
+img {
+  width: 100%;
+}
