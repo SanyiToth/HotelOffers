@@ -16,7 +16,6 @@ export class MessageService {
     this.verticalPosition = 'top';
     this.duration = 5000;
     this.panelClass = ['mat-toolbar', 'mat-primary'];
-
   }
 
   open(message: string, fileName: string = '') {
