@@ -30,4 +30,7 @@ export class AccountSettingsComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onSubmit(): void {
+  }
+
 }
