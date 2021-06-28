@@ -12,14 +12,13 @@ import {MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition}
 })
 export class ImgUploaderComponent implements OnInit {
 
-  @Output() imgDataToParent = new EventEmitter<Image>();
+  @Output() imagesDataToParent = new EventEmitter<Image[]>();
 
   errorMessage!: ErrorMessage;
   newImageData!: Image;
   horizontalPosition: MatSnackBarHorizontalPosition = 'center';
   verticalPosition: MatSnackBarVerticalPosition = 'top';
   uploadedImages: Image[];
-  src = '';
 
   constructor(private imgService: ImagesService, private snackBar: MatSnackBar) {
     this.uploadedImages = [];
@@ -41,31 +40,39 @@ export class ImgUploaderComponent implements OnInit {
           imgId: response.data.id,
           deletehash: response.data.deletehash
         };
-        this.imgDataToParent.emit(this.newImageData);
         this.uploadedImages.push(this.newImageData);
+        this.imagesDataToParent.emit(this.uploadedImages);
         this.snackBar.open(`You have successfully uploaded "${fileName}"!`, 'Close', {
           horizontalPosition: this.horizontalPosition,
           verticalPosition: this.verticalPosition,
         });
       }, error => {
         this.errorMessage = error;
-        this.snackBar.open(error, 'Close', {
-          horizontalPosition: this.horizontalPosition,
-          verticalPosition: this.verticalPosition,
-        });
+        this.errorSnackbar(error);
       })
   }
 
+  private errorSnackbar(error: string) {
+    this.snackBar.open(error, 'Close', {
+      horizontalPosition: this.horizontalPosition,
+      verticalPosition: this.verticalPosition,
+    });
+  }
 
   deleteImage(deleteHash: string, imageId: string) {
-    if (confirm("Are you sure to delete " + imageId)) {
+    if (confirm(`Are you sure to delete? "${imageId}"`)) {
       this.imgService.deleteImage(deleteHash)
         .subscribe(response => {
           if (response.success) {
-            this.uploadedImages = this.uploadedImages.filter(item => {
-              return item.deletehash !== deleteHash;
-            })
+            this.uploadedImages = this.uploadedImages
+              .filter(item => {
+                return item.deletehash !== deleteHash;
+              });
+            this.imagesDataToParent.emit(this.uploadedImages);
           }
+        }, error => {
+          this.errorMessage = error;
+          this.errorSnackbar(error);
         })
     }
   }

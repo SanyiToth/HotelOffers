@@ -94,8 +94,9 @@ export class DashboardNewOfferComponent {
 
   // The component get image data from img-uploader component
 
-  addImgData(newImg: Image) {
-    this.imagesData.push(newImg);
+  addImgData(updatedImages: Image[]) {
+    this.imagesData = updatedImages;
+    console.log("imagesData", this.imagesData)
   }
 
   //Submit event send data to db
