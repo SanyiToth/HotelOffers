@@ -28,9 +28,11 @@ export class ImgUploaderComponent implements OnInit {
   }
 
   onUpload(event: any) {
-    const fileName = event.target.files[0].name
+    console.log('event upload,', event);
+    const fileName = event.target.files[0].name;
     this.imgService.postImage(event.target.files[0])
       .subscribe(response => {
+        console.log('response upload service', response)
         this.newImageData = {
           link: response.data.link,
           height: response.data.height,
