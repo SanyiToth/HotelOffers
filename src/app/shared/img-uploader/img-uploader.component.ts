@@ -70,6 +70,10 @@ export class ImgUploaderComponent implements OnInit {
                 return item.deletehash !== deleteHash;
               });
             this.imagesDataToParent.emit(this.uploadedImages);
+            this.snackBar.open(`You have successfully deleted "${imageId}"!`, 'Close', {
+              horizontalPosition: this.horizontalPosition,
+              verticalPosition: this.verticalPosition,
+            });
           }
         }, error => {
           this.errorMessage = error;
