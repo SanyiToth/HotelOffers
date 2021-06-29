@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {CurrentProviderService} from "../current-provider.service";
 
 @Component({
   selector: 'app-dashboard',
@@ -9,13 +10,11 @@ export class DashboardComponent implements OnInit {
   routeName: string;
 
 
-
-  constructor() {
+  constructor(private currentProvider: CurrentProviderService) {
     this.routeName = "-Dashboard"
   }
 
   ngOnInit(): void {
-
   }
 
 }
