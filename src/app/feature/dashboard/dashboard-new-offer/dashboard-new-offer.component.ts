@@ -56,7 +56,7 @@ export class DashboardNewOfferComponent {
   //new Offer data
   offer!: Offer;
   imagesData: Image[];
-  providerId: string;
+  providerId: string | undefined;
   errorMessage!: ErrorMessage;
 
 

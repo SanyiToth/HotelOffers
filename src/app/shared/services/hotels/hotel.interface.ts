@@ -1,7 +1,7 @@
 export interface Hotel {
   hotelId?: number;
   id?: number;
-  _id:string;
+  _id?:string;
   name: string;
   address: {
     country?: string;
