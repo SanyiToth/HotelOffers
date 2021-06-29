@@ -54,7 +54,7 @@ export class DashboardNewOfferComponent {
   verticalPosition: MatSnackBarVerticalPosition = 'top';
 
   //new Offer data
-  newOffer!: Offer;
+  offer!: Offer;
   imagesData: Image[];
   providerId: string;
   errorMessage!: ErrorMessage;
@@ -106,7 +106,7 @@ export class DashboardNewOfferComponent {
   //Submit event send data to db
 
   onSubmit() {
-    this.newOffer = {
+    this.offer = {
       status: 'Draft',
       heading: this.heading?.value,
       details: this.details?.value,
@@ -121,7 +121,7 @@ export class DashboardNewOfferComponent {
       tags: this.tags?.value,
       provider: this.providerId
     }
-    this.offerService.createOffer(this.newOffer).subscribe(response => {
+    this.offerService.createOffer(this.offer).subscribe(response => {
       this.firstFormGroup.reset();
       this.secondFormGroup.reset();
       this.imagesData = [];
