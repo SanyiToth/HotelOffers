@@ -5,12 +5,12 @@ import {Hotel} from "../../shared/services/hotels/hotel.interface";
   providedIn: 'root'
 })
 export class CurrentProviderService {
-  loggedInProvider!: Hotel;
+
 
   constructor() {
   }
 
   getLoggedInProvider(): Hotel {
-    return this.loggedInProvider = JSON.parse(<string>localStorage.getItem('loggedInProvider'));
+    return <Hotel>JSON.parse(<string>localStorage.getItem('loggedInProvider'));
   }
 }
