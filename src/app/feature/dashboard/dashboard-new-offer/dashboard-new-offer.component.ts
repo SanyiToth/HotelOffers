@@ -17,6 +17,7 @@ import {Image, Offer} from "../../../shared/services/offers/offer.interface";
 import {ErrorMessage} from "@angular/compiler-cli/ngcc/src/execution/cluster/api";
 import {Router} from "@angular/router";
 import {MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition} from "@angular/material/snack-bar";
+import {CurrentProviderService} from "../current-provider.service";
 
 
 @Component({
@@ -55,6 +56,7 @@ export class DashboardNewOfferComponent {
   //new Offer data
   newOffer!: Offer;
   imagesData: Image[];
+  providerId: string;
   errorMessage!: ErrorMessage;
 
 
@@ -64,11 +66,14 @@ export class DashboardNewOfferComponent {
   @ViewChild('autocompleteInput') matAutocomplete: MatAutocomplete;
 
 
+
   constructor(private fb: FormBuilder,
               private offerService: OffersService,
               private router: Router,
+              private currentProvider:CurrentProviderService,
               private snackBar: MatSnackBar) {
     this.imagesData = [];
+    this.providerId=this.currentProvider.getLoggedInProvider()._id;
     this.firstFormGroup = this.fb.group({
       heading: ['', Validators.required],
       details: ['', [Validators.required, Validators.maxLength(DashboardNewOfferComponent.DETAILS_MAX_LENGTH)]],
@@ -113,7 +118,8 @@ export class DashboardNewOfferComponent {
       price: this.price?.value,
       images: this.imagesData,
       description: this.description?.value,
-      tags: this.tags?.value
+      tags: this.tags?.value,
+      provider: this.providerId
     }
     this.offerService.createOffer(this.newOffer).subscribe(response => {
       this.firstFormGroup.reset();

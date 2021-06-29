@@ -1,6 +1,7 @@
 export interface Offer {
   hotelId?: number;
   id?: number;
+  _id?:string;
   status?: string;
   heading: string;
   details: string;
@@ -18,6 +19,7 @@ export interface Offer {
     rating: number;
     numberOfRatings: number
   }
+  provider: string;
 }
 
 export interface Image {
