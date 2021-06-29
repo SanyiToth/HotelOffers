@@ -21,6 +21,7 @@ import {DashboardOfferListComponent} from "./dashboard-offer-list/dashboard-offe
 
 
 
+
 @NgModule({
   declarations: [
     DashboardOffersContainerComponent,
