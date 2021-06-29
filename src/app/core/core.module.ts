@@ -7,7 +7,6 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {HeaderModule} from "../shared/header/header.module";
 import {FooterModule} from "../shared/footer/footer.module";
 import {HttpErrorInterceptor} from "./interceptors/http-error/http-error.interceptor";
-import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 
 
@@ -20,7 +19,6 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
     HeaderModule,
     FooterModule,
     MatSnackBarModule,
-    BrowserAnimationsModule,
     CoreRoutingModule,
     LandingModule,
     HttpClientModule,
