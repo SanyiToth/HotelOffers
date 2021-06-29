@@ -16,7 +16,7 @@ import {OffersService} from "../../../shared/services/offers/offers.service";
 import {Image, Offer} from "../../../shared/services/offers/offer.interface";
 import {ErrorMessage} from "@angular/compiler-cli/ngcc/src/execution/cluster/api";
 import {Router} from "@angular/router";
-import {MessageService} from "../../../shared/services/message/message.service";
+import {NotificationService} from "../../../shared/services/notification/notification.service";
 
 
 @Component({
@@ -63,7 +63,7 @@ export class DashboardNewOfferComponent {
 
   constructor(private fb: FormBuilder,
               private offerService: OffersService,
-              private messageService: MessageService,
+              private notificationService: NotificationService,
               private router: Router) {
     this.imagesData = [];
     this.firstFormGroup = this.fb.group({
@@ -117,14 +117,14 @@ export class DashboardNewOfferComponent {
         this.firstFormGroup.reset();
         this.secondFormGroup.reset();
         this.imagesData = [];
-        this.messageService
+        this.notificationService
           .open('Success! Your offer has been uploaded! We will redirect you to the offers page.');
         setTimeout(() => {
           this.router.navigate(['/dashboard/offers']);
         }, 1000)
       }, error => {
         this.errorMessage = error;
-        this.messageService.open(error);
+        this.notificationService.open(error);
       })
   }
 

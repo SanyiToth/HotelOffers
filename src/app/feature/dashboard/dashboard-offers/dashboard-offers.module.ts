@@ -30,6 +30,7 @@ import {DashboardOfferListComponent} from "./dashboard-offer-list/dashboard-offe
     DashboardNewOfferComponent],
   imports: [
     CommonModule,
+    ImgUploaderModule,
     DashboardOffersRoutingModule,
     MatButtonModule,
     MatStepperModule,
@@ -47,7 +48,6 @@ import {DashboardOfferListComponent} from "./dashboard-offer-list/dashboard-offe
     MatIconModule,
     MatButtonModule,
     MatCardModule,
-    ImgUploaderModule
   ]
 })
 export class DashboardOffersModule {

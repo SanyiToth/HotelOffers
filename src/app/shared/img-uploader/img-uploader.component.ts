@@ -2,7 +2,7 @@ import {Component, OnInit, Output, EventEmitter} from '@angular/core';
 import {ImagesService} from "./images.service";
 import {ErrorMessage} from "@angular/compiler-cli/ngcc/src/execution/cluster/api";
 import {Image} from "../services/offers/offer.interface";
-import {MessageService} from "../services/message/message.service";
+import {NotificationService} from "../services/notification/notification.service";
 
 
 @Component({
@@ -18,7 +18,7 @@ export class ImgUploaderComponent implements OnInit {
   newImageData!: Image;
   uploadedImages: Image[];
 
-  constructor(private imgService: ImagesService, private messageService: MessageService) {
+  constructor(private imgService: ImagesService, private notificationService: NotificationService) {
     this.uploadedImages = [];
   }
 
@@ -40,11 +40,11 @@ export class ImgUploaderComponent implements OnInit {
         };
         this.uploadedImages.push(this.newImageData);
         this.imagesDataToParent.emit(this.uploadedImages);
-        this.messageService.open('You have successfully uploaded this image!', fileName);
+        this.notificationService.open('You have successfully uploaded this image!', fileName);
         event.target.value = null;
       }, error => {
         this.errorMessage = error;
-        this.messageService.open(error);
+        this.notificationService.open(error);
       })
   }
 
@@ -57,11 +57,11 @@ export class ImgUploaderComponent implements OnInit {
             this.uploadedImages = this.uploadedImages
               .filter(item => item.deletehash !== deleteHash);
             this.imagesDataToParent.emit(this.uploadedImages);
-            this.messageService.open('You have successfully deleted this image!', imageId)
+            this.notificationService.open('You have successfully deleted this image!', imageId)
           }
         }, error => {
           this.errorMessage = error;
-          this.messageService.open(error);
+          this.notificationService.open(error);
         })
     }
   }

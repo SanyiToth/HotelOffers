@@ -4,7 +4,7 @@ import {MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition}
 @Injectable({
   providedIn: 'root'
 })
-export class MessageService {
+export class NotificationService {
 
   horizontalPosition: MatSnackBarHorizontalPosition;
   verticalPosition: MatSnackBarVerticalPosition;
