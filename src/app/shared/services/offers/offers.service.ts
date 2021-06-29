@@ -3,14 +3,14 @@ import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Offer} from "./offer.interface";
 import {environment} from "../../../../environments/environment.prod";
+import { OfferStatus } from "./offer-status";
 
 @Injectable({
   providedIn: 'root'
 })
 export class OffersService {
 
-  static PATH = "/products"
-
+  static PATH = "/orders";
 
   constructor(private http: HttpClient) {
   }
