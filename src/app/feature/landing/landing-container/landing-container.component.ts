@@ -11,7 +11,7 @@ import {ActivatedRoute} from "@angular/router";
 
 
 export class LandingContainerComponent implements OnInit {
-  offers: Offer[];
+  offers!: Offer[];
   ourNumbers: Stats;
 
 
