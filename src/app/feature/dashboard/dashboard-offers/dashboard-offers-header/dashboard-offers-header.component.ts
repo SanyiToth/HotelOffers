@@ -12,23 +12,21 @@ import {Status} from "../../../../shared/services/offers/offer-status";
 export class DashboardOffersHeaderComponent {
 
 
-  @Input( )statusList!: Status[];
+ @Input() statusList!: Status[];
 
  @Output() sendStatus: EventEmitter<StatusRequest> = new EventEmitter<StatusRequest>();
 
   selectStatusForm: FormGroup = this.fb.group({
-    status:[''],
+    status:[null],
   })
 
-  constructor(public fb: FormBuilder) {
-
-  }
+  constructor(public fb: FormBuilder) {}
 
   get status(): AbstractControl | null {
     return this.selectStatusForm.get('status')
   }
   onSelectionChange(){
-   this.sendStatus.emit(this.selectStatusForm.value);
+   this.sendStatus.emit(this.selectStatusForm.value as StatusRequest);
     console.log(this.selectStatusForm.value)
   }
 }
