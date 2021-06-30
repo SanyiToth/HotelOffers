@@ -22,7 +22,6 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
 import { DashboardOffersHeaderComponent } from './dashboard-offers-header/dashboard-offers-header.component';
 import {MatSelectModule} from '@angular/material/select';
 
-
 @NgModule({
   declarations: [
     DashboardOffersContainerComponent,
