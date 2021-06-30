@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {AbstractControl, FormBuilder, FormGroup,} from '@angular/forms';
-import {Status} from "../../../../shared/services/offers/offer-status";
+import { Status } from "../../../../shared/services/offers/offer.interface";
 
 
 @Component({
