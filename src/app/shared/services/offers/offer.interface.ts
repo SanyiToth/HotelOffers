@@ -27,7 +27,7 @@ export interface Offer {
     rating: number;
     numberOfRatings: number
   }
-  provider: any;
+  provider: string;
 }
 
 export interface Image {
