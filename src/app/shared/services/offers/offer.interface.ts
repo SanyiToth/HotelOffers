@@ -1,8 +1,16 @@
+export enum Status {
+  Active = 'Active',
+  Inactive = 'Inactive',
+  Ended = 'Ended',
+  Deleted = 'Deleted',
+  Draft = 'Draft',
+}
+
 export interface Offer {
   hotelId?: number;
   id?: number;
+  status?: Status;
   _id?:string;
-  status?: string;
   heading: string;
   details: string;
   dateInterval: {

@@ -4,13 +4,13 @@ import {Observable} from "rxjs";
 import {Offer} from "./offer.interface";
 import {environment} from "../../../../environments/environment.prod";
 
+
 @Injectable({
   providedIn: 'root'
 })
 export class OffersService {
 
-  static PATH = "/offers"
-
+  static PATH = "/offers";
 
   constructor(private http: HttpClient) {
   }
