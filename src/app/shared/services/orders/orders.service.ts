@@ -8,7 +8,7 @@ import {environment} from "../../../../environments/environment.prod";
 })
 export class OrdersService {
 
-  static PATH = "/providers"
+  static PATH = "/orders"
 
   constructor(private http: HttpClient) {
   }
