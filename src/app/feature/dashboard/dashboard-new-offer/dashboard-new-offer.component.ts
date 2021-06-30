@@ -1,11 +1,5 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import {
-  AbstractControl,
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  Validators
-} from "@angular/forms";
+import {Component, ElementRef, ViewChild} from '@angular/core';
+import {AbstractControl, FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {Observable} from "rxjs";
 import {COMMA, ENTER} from "@angular/cdk/keycodes";
 import {MatAutocomplete, MatAutocompleteSelectedEvent} from "@angular/material/autocomplete";
@@ -13,11 +7,12 @@ import {map, startWith} from "rxjs/operators";
 import {MatChipInputEvent} from "@angular/material/chips";
 import {environment} from "../../../../environments/environment";
 import {OffersService} from "../../../shared/services/offers/offers.service";
-import {Image, Offer} from "../../../shared/services/offers/offer.interface";
+import {Image, Offer, Status} from "../../../shared/services/offers/offer.interface";
 import {ErrorMessage} from "@angular/compiler-cli/ngcc/src/execution/cluster/api";
 import {Router} from "@angular/router";
 import {NotificationService} from "../../../shared/services/notification/notification.service";
 import {CurrentProviderService} from "../current-provider.service";
+
 @Component({
   selector: 'app-dashboard-new-offer',
   templateUrl: './dashboard-new-offer.component.html',
@@ -100,7 +95,7 @@ export class DashboardNewOfferComponent {
 
   onSubmit() {
     this.offer = {
-      status: 'Draft',
+      status: Status.Draft,
       heading: this.heading?.value,
       details: this.details?.value,
       dateInterval: {

@@ -6,10 +6,6 @@ import {Hotel} from "../../shared/services/hotels/hotel.interface";
 })
 export class CurrentProviderService {
 
-
-  constructor() {
-  }
-
   getLoggedInProvider(): Hotel {
     return <Hotel>JSON.parse(<string>localStorage.getItem('loggedInProvider'));
   }

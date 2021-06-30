@@ -10,7 +10,7 @@ export class DashboardComponent implements OnInit {
   routeName: string;
 
 
-  constructor(private currentProvider: CurrentProviderService) {
+  constructor() {
     this.routeName = "-Dashboard"
   }
 
