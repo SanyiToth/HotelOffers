@@ -12,7 +12,7 @@ import {environment} from "../../../environments/environment";
 })
 export class AuthService {
 
-  private static PATH = '/auth/login';
+  private static PATH = '/login';
   jwtSubject: BehaviorSubject<string>;
 
 
