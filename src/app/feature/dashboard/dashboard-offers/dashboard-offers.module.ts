@@ -19,7 +19,6 @@ import {DashboardOfferItemComponent} from './dashboard-offer-item/dashboard-offe
 import {ImgUploaderModule} from "../../../shared/img-uploader/img-uploader.module";
 import {DashboardOfferListComponent} from "./dashboard-offer-list/dashboard-offer-list.component";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
-
 import { DashboardOffersHeaderComponent } from './dashboard-offers-header/dashboard-offers-header.component';
 import {MatSelectModule} from '@angular/material/select';
 
