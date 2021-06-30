@@ -6,6 +6,7 @@ import { CoreModule } from './core/core.module';
 import { LandingModule } from './feature/landing/landing.module';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,

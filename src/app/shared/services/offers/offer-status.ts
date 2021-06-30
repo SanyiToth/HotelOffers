@@ -1,8 +1,7 @@
-export enum OfferStatus {
+export enum Status {
   Active = 'Active',
-  Deactivated = 'Deactivated',
+  Inactive = 'Inactive',
   Ended = 'Ended',
   Deleted = 'Deleted',
-  Draft = 'Draft'
-
+  Draft = 'Draft',
 }
