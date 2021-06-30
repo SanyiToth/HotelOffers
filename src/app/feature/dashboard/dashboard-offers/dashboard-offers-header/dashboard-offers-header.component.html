@@ -6,8 +6,7 @@
       <mat-select name="status" id="status"
                   formControlName="status"
                   (selectionChange)="onSelectionChange()">
-       <!-- <mat-option *ngFor="let status of statusList" [value]="status">{{status}}</mat-option> -->
-        <mat-option *ngFor="let status of statusList | keyvalue" [value]="status.value">{{status.value}}</mat-option>
+        <mat-option *ngFor="let status of statusList" [value]="status">{{status}}</mat-option>
       </mat-select>
     </mat-form-field>
   </form>

@@ -1,6 +1,5 @@
-import {Component, Input, Output, EventEmitter} from '@angular/core';
-import {FormBuilder, FormGroup, AbstractControl,} from '@angular/forms';
-import { StatusRequest } from "../../../../shared/services/offers/status-request.interface";
+import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {AbstractControl, FormBuilder, FormGroup,} from '@angular/forms';
 import {Status} from "../../../../shared/services/offers/offer-status";
 
 
@@ -9,16 +8,16 @@ import {Status} from "../../../../shared/services/offers/offer-status";
   templateUrl: './dashboard-offers-header.component.html',
   styleUrls: ['./dashboard-offers-header.component.scss']
 })
+
 export class DashboardOffersHeaderComponent {
 
-
- @Input() statusList!: Status[];
-
- @Output() sendStatus: EventEmitter<StatusRequest> = new EventEmitter<StatusRequest>();
+  @Output() sendStatus: EventEmitter<Status> = new EventEmitter<Status>();
 
   selectStatusForm: FormGroup = this.fb.group({
-    status:[null],
+    status:[],
   })
+
+  statusList: Status[]  = [Status.Active,Status.Deleted,Status.Draft,Status.Ended, Status.Inactive];
 
   constructor(public fb: FormBuilder) {}
 
@@ -26,7 +25,7 @@ export class DashboardOffersHeaderComponent {
     return this.selectStatusForm.get('status')
   }
   onSelectionChange(){
-   this.sendStatus.emit(this.selectStatusForm.value as StatusRequest);
+   this.sendStatus.emit(this.selectStatusForm.value as Status);
     console.log(this.selectStatusForm.value)
   }
 }
