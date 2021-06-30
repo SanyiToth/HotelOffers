@@ -26,6 +26,5 @@ export class DashboardOffersHeaderComponent {
   }
   onSelectionChange(){
    this.sendStatus.emit(this.selectStatusForm.value as Status);
-    console.log(this.selectStatusForm.value)
   }
 }
