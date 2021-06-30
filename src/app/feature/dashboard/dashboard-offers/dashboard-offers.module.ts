@@ -18,15 +18,17 @@ import {MatCardModule} from "@angular/material/card";
 import {DashboardOfferItemComponent} from './dashboard-offer-item/dashboard-offer-item.component';
 import {ImgUploaderModule} from "../../../shared/img-uploader/img-uploader.module";
 import {DashboardOfferListComponent} from "./dashboard-offer-list/dashboard-offer-list.component";
-
-
-
+import {MatSnackBarModule} from "@angular/material/snack-bar";
+import { DashboardOffersHeaderComponent } from './dashboard-offers-header/dashboard-offers-header.component';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [
     DashboardOffersContainerComponent,
     DashboardOfferListComponent,
     DashboardOfferItemComponent,
+    DashboardOffersHeaderComponent,
+    DashboardOfferListComponent,
     DashboardNewOfferComponent],
   imports: [
     CommonModule,
@@ -44,10 +46,16 @@ import {DashboardOfferListComponent} from "./dashboard-offer-list/dashboard-offe
     MatChipsModule,
     MatAutocompleteModule,
     MatOptionModule,
-    MatIconModule,
-    MatIconModule,
     MatButtonModule,
     MatCardModule,
+    MatIconModule,
+    MatSelectModule,
+    MatFormFieldModule,
+    ReactiveFormsModule,
+    FormsModule,
+    MatCardModule,
+    ImgUploaderModule,
+    MatSnackBarModule
   ]
 })
 export class DashboardOffersModule {

@@ -9,15 +9,16 @@ import { OffersService } from "../../../../shared/services/offers/offers.service
 })
 export class DashboardOfferListComponent implements OnInit {
 
-  offers: Offer[] = []
 
+  offers: Offer[] = [];
 
   constructor(private offerService: OffersService) { }
 
   ngOnInit(): void {
-    this.offerService.getOffers().subscribe(data => {
+    /*this.offerService.getOffers().subscribe(data => {
+    // bind to app-dashboard-offer-item
       this.offers = data;
-    })
+    })*/
   }
 
 }
