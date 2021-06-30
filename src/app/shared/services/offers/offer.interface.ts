@@ -29,4 +29,5 @@ export interface Image {
   type: string;
   size: number;
   imgId: string;
+  deletehash: string;
 }

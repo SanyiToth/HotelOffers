@@ -16,10 +16,8 @@ import {OffersService} from "../../../shared/services/offers/offers.service";
 import {Image, Offer} from "../../../shared/services/offers/offer.interface";
 import {ErrorMessage} from "@angular/compiler-cli/ngcc/src/execution/cluster/api";
 import {Router} from "@angular/router";
-import {MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition} from "@angular/material/snack-bar";
+import {NotificationService} from "../../../shared/services/notification/notification.service";
 import {CurrentProviderService} from "../current-provider.service";
-
-
 @Component({
   selector: 'app-dashboard-new-offer',
   templateUrl: './dashboard-new-offer.component.html',
@@ -49,10 +47,6 @@ export class DashboardNewOfferComponent {
   tagsArray: string[];
   allTags: string[] = environment.OFFER_EXTRAS
 
-  //mat-snackbar
-  horizontalPosition: MatSnackBarHorizontalPosition = 'center';
-  verticalPosition: MatSnackBarVerticalPosition = 'top';
-
   //new Offer data
   offer!: Offer;
   imagesData: Image[];
@@ -66,12 +60,11 @@ export class DashboardNewOfferComponent {
   @ViewChild('autocompleteInput') matAutocomplete: MatAutocomplete;
 
 
-
   constructor(private fb: FormBuilder,
               private offerService: OffersService,
-              private router: Router,
+              private notificationService: NotificationService,
               private currentProvider:CurrentProviderService,
-              private snackBar: MatSnackBar) {
+              private router: Router) {
     this.imagesData = [];
     this.providerId=this.currentProvider.getLoggedInProvider()._id;
     this.firstFormGroup = this.fb.group({
@@ -99,8 +92,8 @@ export class DashboardNewOfferComponent {
 
   // The component get image data from img-uploader component
 
-  addImgData(newImg: Image) {
-    this.imagesData.push(newImg);
+  addImgData(updatedImages: Image[]) {
+    this.imagesData = updatedImages;
   }
 
   //Submit event send data to db
@@ -121,24 +114,20 @@ export class DashboardNewOfferComponent {
       tags: this.tags?.value,
       provider: this.providerId
     }
-    this.offerService.createOffer(this.offer).subscribe(response => {
-      this.firstFormGroup.reset();
-      this.secondFormGroup.reset();
-      this.imagesData = [];
-      this.snackBar.open('Success! Your offer has been uploaded! We will redirect you to the offers page.', 'Close', {
-        horizontalPosition: this.horizontalPosition,
-        verticalPosition: this.verticalPosition,
-      });
-      setTimeout(() => {
-        this.router.navigate(['/dashboard/offers']);
-      }, 1000)
-    }, error => {
-      this.errorMessage = error;
-      this.snackBar.open(error, 'Close', {
-        horizontalPosition: this.horizontalPosition,
-        verticalPosition: this.verticalPosition,
-      });
-    })
+    this.offerService.createOffer(this.offer)
+      .subscribe(response => {
+        this.firstFormGroup.reset();
+        this.secondFormGroup.reset();
+        this.imagesData = [];
+        this.notificationService
+          .open('Success! Your offer has been uploaded! We will redirect you to the offers page.');
+        setTimeout(() => {
+          this.router.navigate(['/dashboard/offers']);
+        }, 1000)
+      }, error => {
+        this.errorMessage = error;
+        this.notificationService.open(error);
+      })
   }
 
   //Limitless available offers
