@@ -32,6 +32,7 @@ import {MatSelectModule} from '@angular/material/select';
     DashboardNewOfferComponent],
   imports: [
     CommonModule,
+    ImgUploaderModule,
     DashboardOffersRoutingModule,
     MatButtonModule,
     MatStepperModule,

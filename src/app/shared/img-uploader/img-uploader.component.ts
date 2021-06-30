@@ -2,7 +2,7 @@ import {Component, OnInit, Output, EventEmitter} from '@angular/core';
 import {ImagesService} from "./images.service";
 import {ErrorMessage} from "@angular/compiler-cli/ngcc/src/execution/cluster/api";
 import {Image} from "../services/offers/offer.interface";
-import {MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition} from "@angular/material/snack-bar";
+import {NotificationService} from "../services/notification/notification.service";
 
 
 @Component({
@@ -12,16 +12,13 @@ import {MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition}
 })
 export class ImgUploaderComponent implements OnInit {
 
-  @Output() imgDataToParent = new EventEmitter<Image>();
+  @Output() imagesDataToParent = new EventEmitter<Image[]>();
 
   errorMessage!: ErrorMessage;
   newImageData!: Image;
-  horizontalPosition: MatSnackBarHorizontalPosition = 'center';
-  verticalPosition: MatSnackBarVerticalPosition = 'top';
   uploadedImages: Image[];
-  src = '';
 
-  constructor(private imgService: ImagesService, private snackBar: MatSnackBar) {
+  constructor(private imgService: ImagesService, private notificationService: NotificationService) {
     this.uploadedImages = [];
   }
 
@@ -29,7 +26,7 @@ export class ImgUploaderComponent implements OnInit {
   }
 
   onUpload(event: any) {
-
+    const fileName = event.target.files[0].name;
     this.imgService.postImage(event.target.files[0])
       .subscribe(response => {
         this.newImageData = {
@@ -39,19 +36,33 @@ export class ImgUploaderComponent implements OnInit {
           type: response.data.type,
           size: response.data.size,
           imgId: response.data.id,
+          deletehash: response.data.deletehash
         };
-        this.imgDataToParent.emit(this.newImageData);
         this.uploadedImages.push(this.newImageData);
-        this.snackBar.open('You have successfully uploaded 1 image!', 'Close', {
-          horizontalPosition: this.horizontalPosition,
-          verticalPosition: this.verticalPosition,
-        });
+        this.imagesDataToParent.emit(this.uploadedImages);
+        this.notificationService.open('You have successfully uploaded this image!', fileName);
+        event.target.value = null;
       }, error => {
         this.errorMessage = error;
-        this.snackBar.open(error, 'Close', {
-          horizontalPosition: this.horizontalPosition,
-          verticalPosition: this.verticalPosition,
-        });
+        this.notificationService.open(error);
       })
+  }
+
+
+  deleteImage(deleteHash: string, imageId: string) {
+    if (confirm(`Are you sure to delete? "${imageId}"`)) {
+      this.imgService.deleteImage(deleteHash)
+        .subscribe(response => {
+          if (response.success) {
+            this.uploadedImages = this.uploadedImages
+              .filter(item => item.deletehash !== deleteHash);
+            this.imagesDataToParent.emit(this.uploadedImages);
+            this.notificationService.open('You have successfully deleted this image!', imageId)
+          }
+        }, error => {
+          this.errorMessage = error;
+          this.notificationService.open(error);
+        })
+    }
   }
 }

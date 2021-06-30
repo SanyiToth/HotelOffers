@@ -193,7 +193,7 @@
       "hotelId": 4,
       "id": 8,
       "heading": "Offer heading 9",
-      "status": "inactive",
+      "status": "active",
       "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
       "dateInterval": {
         "startDate": "2022-08-23",
@@ -210,7 +210,7 @@
       "hotelId": 5,
       "id": 9,
       "heading": "Offer heading 9",
-      "status": "inactive",
+      "status": "active",
       "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
       "dateInterval": {
         "startDate": "2022-08-23",
@@ -227,7 +227,6 @@
       "hotelId": 6,
       "id": 10,
       "heading": "Offer heading 10",
-      "status": "inactive",
       "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
       "dateInterval": {
         "startDate": "2022-08-23",
@@ -241,16 +240,29 @@
       }
     },
     {
-      "hotelId": 1,
-      "heading": "Offer heading 1",
-      "status": "inactive",
-      "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      "price": 39500,
-      "image": "https://picsum.photos/id/98/400/200",
-      "ratingInfo": {
-        "rating": 4,
-        "numberOfRatings": 45
+      "status": "Draft",
+      "heading": "The best offer",
+      "details": "hdsgfjhsadfgajhsdfkkjsdahfgjashdgkjasdh",
+      "dateInterval": {
+        "startDate": "2021-05-31T22:00:00.000Z",
+        "endDate": "2021-06-25T22:00:00.000Z"
       },
+      "availableOffers": null,
+      "price": 56000,
+      "images": [
+        {
+          "link": "https://i.imgur.com/vnBwFkM.jpg",
+          "height": 501,
+          "width": 750,
+          "type": "image/jpeg",
+          "size": 64673,
+          "imgId": "vnBwFkM"
+        }
+      ],
+      "description": "dffaasdfsdaffdfd gfgfdgdsgfsdgsdfgsfdg",
+      "tags": [
+        "Wifi"
+      ],
       "id": 11
     }
   ],

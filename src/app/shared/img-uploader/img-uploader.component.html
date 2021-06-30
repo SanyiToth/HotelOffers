@@ -3,7 +3,10 @@
   <mat-grid-list class="file-container" cols="4">
     <mat-grid-tile class="files" *ngFor="let image of uploadedImages">
       <mat-grid-tile-header>
-        Image: {{image.imgId}}
+        <div class="header">
+          <p>Image: {{image.imgId}}</p>
+          <mat-icon class="delete-icon" matTooltip="Delete"  (click)="deleteImage(image.deletehash, image.imgId)">highlight_off</mat-icon>
+        </div>
       </mat-grid-tile-header>
       <div>
         <img [src]="image.link" alt="image">

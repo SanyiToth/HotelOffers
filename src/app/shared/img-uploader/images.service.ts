@@ -37,4 +37,15 @@ export class ImagesService {
 
   }
 
+  deleteImage(deleteHash: string): Observable<any> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        Authorization: `Client-ID ${ImagesService.CLIENT_ID}`
+      }),
+    }
+    return this.http.delete<any>(`${ImagesService.IMGUR_UPLOAD_URL}/${deleteHash}`, httpOptions);
+
+  }
+
+
 }

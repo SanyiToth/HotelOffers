@@ -2,10 +2,14 @@
   <h1 class="mt-8">Provider account settings</h1>
   <div class="row">
     <div class="col-lg-4">
-      <form class="account-settings-form" [formGroup]="form">
+      <form class="account-settings-form" [formGroup]="form" (ngSubmit)="onSubmit()">
         <mat-form-field>
           <mat-label>Name</mat-label>
           <input matInput formControlName="name">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Username</mat-label>
+          <input matInput formControlName="username">
         </mat-form-field>
         <mat-form-field>
           <mat-label>E-mail</mat-label>
@@ -48,10 +52,9 @@
             <input matInput formControlName="streetNumber">
           </mat-form-field>
         </div>
-
         <div class="buttonContainer">
-          <button class="mb-8" mat-button color="primary">Save</button>
-          <button class="mb-8" mat-button color="primary">Cancel</button>
+          <button class="mb-8" mat-raised-button>Save</button>
+          <button class="mb-8" mat-raised-button color="primary" [routerLink]="'dashboard'" >Cancel</button>
         </div>
       </form>
     </div>

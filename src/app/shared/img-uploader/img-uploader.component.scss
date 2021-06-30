@@ -2,6 +2,24 @@
   padding: 20px;
 }
 
+
+.header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header p {
+  margin: 0;
+
+}
+
+.delete-icon:hover {
+  color: red;
+  cursor: pointer
+}
+
 .add-new-file {
   display: flex;
   justify-content: flex-end;
@@ -12,7 +30,6 @@
   border: 1px solid lightgray;
   margin-bottom: 5px;
 }
-
 
 
 img {
