@@ -12,26 +12,27 @@ import {environment} from "../../../environments/environment";
 })
 export class AuthService {
 
-  private static PATH = '/login';
-  jwtSubject: BehaviorSubject<string>;
+  static readonly  PATH = '/auth/login';
+  static readonly JWT_STORAGE_KEY = 'jwt';
+
+  jwtSubject!: BehaviorSubject<string|null>;
 
 
-  public get currentJwtValue(): string {
+  public get currentJwtValue(): string|null {
     return this.jwtSubject.value;
   }
 
   constructor(private http: HttpClient, private router: Router) {
-    const jwtToken = JSON.parse(localStorage.getItem('jwt') as string) || undefined;
-    this.jwtSubject = new BehaviorSubject<string>(jwtToken);
+    const jwtToken = (localStorage.getItem('jwt') as string) || null;
+    this.jwtSubject = new BehaviorSubject<string|null>(jwtToken);
   }
-
 
   login(credentials: LoginCredential): Observable<LoginResponse> {
     return this.http
       .post<LoginResponse>(environment.API_URL + AuthService.PATH, credentials)
       .pipe(
         tap(token => {
-          localStorage.setItem('jwt', JSON.stringify(token.accessToken));
+          localStorage.setItem(AuthService.JWT_STORAGE_KEY,token.accessToken);
           localStorage.setItem('loggedInProvider', JSON.stringify(token.loggedInProvider));
           this.jwtSubject.next(token.accessToken);
         })
@@ -39,7 +40,7 @@ export class AuthService {
   }
 
   logout() {
-    localStorage.removeItem('jwt');
+    localStorage.removeItem(AuthService.JWT_STORAGE_KEY);
     localStorage.removeItem('loggedInProvider');
     setTimeout(() => {
       this.router.navigate(['/login']);
