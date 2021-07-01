@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import { Hotel } from "../../../shared/services/hotels/hotel.interface";
+import {Hotel, NewHotel} from "../../../shared/services/hotels/hotel.interface";
 
 @Component({
   selector: 'app-account-settings',
@@ -9,7 +9,7 @@ import { Hotel } from "../../../shared/services/hotels/hotel.interface";
 })
 export class AccountSettingsComponent implements OnInit {
 
-  form = new FormGroup({
+  form: FormGroup = new FormGroup({
     name: new FormControl('', Validators.required),
     username: new FormControl('', Validators.required),
     email: new FormControl('', [Validators.required, Validators.email]),
@@ -27,7 +27,7 @@ export class AccountSettingsComponent implements OnInit {
     classification: new FormControl('', Validators.required)
   });
 
-  hotel: Hotel = {
+  hotel: NewHotel = {
     name: this.form.get('name')?.value,
     username: this.form.get('username')?.value,
     email: this.form.get('email')?.value,

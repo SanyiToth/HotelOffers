@@ -7,7 +7,7 @@ import {map, startWith} from "rxjs/operators";
 import {MatChipInputEvent} from "@angular/material/chips";
 import {environment} from "../../../../environments/environment";
 import {OffersService} from "../../../shared/services/offers/offers.service";
-import {Image, Offer, Status} from "../../../shared/services/offers/offer.interface";
+import {Image, NewOffer, Offer, Status} from "../../../shared/services/offers/offer.interface";
 import {ErrorMessage} from "@angular/compiler-cli/ngcc/src/execution/cluster/api";
 import {Router} from "@angular/router";
 import {NotificationService} from "../../../shared/services/notification/notification.service";
@@ -43,9 +43,9 @@ export class DashboardNewOfferComponent {
   allTags: string[] = environment.OFFER_EXTRAS
 
   //new Offer data
-  offer!: Offer;
-  imagesData: Image[];
-  providerId: string | undefined;
+  offer!: NewOffer;
+  imagesData: Image[] = [];
+  providerId!: string;
   errorMessage!: ErrorMessage;
 
 
@@ -60,8 +60,8 @@ export class DashboardNewOfferComponent {
               private notificationService: NotificationService,
               private currentProvider:CurrentProviderService,
               private router: Router) {
-    this.imagesData = [];
-    this.providerId=this.currentProvider.getLoggedInProvider()._id;
+    this.providerId = this.currentProvider.getLoggedInProvider()._id;
+
     this.firstFormGroup = this.fb.group({
       heading: ['', Validators.required],
       details: ['', [Validators.required, Validators.maxLength(DashboardNewOfferComponent.DETAILS_MAX_LENGTH)]],

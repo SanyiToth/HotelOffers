@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { NotSameErrorStateMatcher } from './not-same-error-state-matcher';
 import { HotelsService } from '../services/hotels/hotels.service';
-import { Hotel } from '../services/hotels/hotel.interface';
+import {Hotel, NewHotel} from '../services/hotels/hotel.interface';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth/auth.service'
 
@@ -41,7 +41,7 @@ export class RegisterComponent implements OnInit {
 
     if (this.form.valid) {
 
-      const hotel: Hotel = {
+      const hotel: NewHotel = {
         name: this.form.get('name')?.value,
         username: this.form.get('username')?.value,
         email: this.form.get('email')?.value,
@@ -56,6 +56,7 @@ export class RegisterComponent implements OnInit {
         },
         classification: this.form.get('classification')?.value
       }
+
       this.hotelService.createHotel(hotel).subscribe(res => {
         const credentials = {
           email: this.form.get('email')?.value,

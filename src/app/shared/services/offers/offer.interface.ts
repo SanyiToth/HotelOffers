@@ -1,3 +1,5 @@
+import {Hotel} from "../hotels/hotel.interface";
+
 export enum Status {
   Active = 'Active',
   Inactive = 'Inactive',
@@ -27,7 +29,11 @@ export interface Offer {
     rating: number;
     numberOfRatings: number
   }
-  provider: string;
+  provider: Hotel | string;
+}
+
+export interface NewOffer extends Omit<Offer, 'provider'> {
+  provider: string
 }
 
 export interface Image {
