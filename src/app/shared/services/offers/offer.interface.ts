@@ -10,7 +10,6 @@ export enum Status {
 
 export interface Offer {
   hotelId?: number;
-  id?: number;
   status?: Status;
   _id?:string;
   heading: string;
