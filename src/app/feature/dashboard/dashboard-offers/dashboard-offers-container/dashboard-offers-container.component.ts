@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Status} from "../../../../shared/services/offers/offer.interface";
 
 
 
@@ -9,6 +10,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardOffersContainerComponent implements OnInit {
 
-  ngOnInit() {}
+  ngOnInit() {
+    //this.offerservice.getOffersById(providerId, 'all')
+  }
+
+  statusChanged(status: Status) {
+    console.log("status", status);
+   // this.offerService.getOffersById(providerId, status)
+  }
 
 }
