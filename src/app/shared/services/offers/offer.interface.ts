@@ -1,3 +1,5 @@
+import {Hotel} from "../hotels/hotel.interface";
+
 export enum Status {
   Active = 'Active',
   Inactive = 'Inactive',
@@ -7,25 +9,28 @@ export enum Status {
 }
 
 export interface Offer {
-  hotelId?: number;
-  id?: number;
-  status?: Status;
+  status: Status;
+  _id?:string;
   heading: string;
   details: string;
   dateInterval: {
-    startDate?: Date;
-    endDate?: Date;
+    startDate: Date;
+    endDate: Date;
   }
-  availableOffers?: number;
+  availableOffers: number;
   price: number;
-  description?: string;
+  description: string;
   tags?: string;
-  payment?: string;
   images: Image[];
   ratingInfo?: {
     rating: number;
     numberOfRatings: number
   }
+  provider: Hotel
+}
+
+export interface NewOffer extends Omit<Offer, 'provider'> {
+  provider: string
 }
 
 export interface Image {
