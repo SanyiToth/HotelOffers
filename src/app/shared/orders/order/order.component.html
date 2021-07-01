@@ -1,9 +1,38 @@
-<div class="row justify-content-between">
-    <div class="col-lg-4">Dialog with elements</div>
-    <div class="col-lg-1">
-        <button mat-button (click)="close()">Close</button>
+<div class="container-fluid">
+    <div class="row justify-content-between align-items-center">
+        <h2 class="col-9" mat-dialog-title>Order: Offer title</h2>
+        <div class="col-3 d-flex justify-content-end">
+            <button mat-icon-button color="primary" (click)="close()"><mat-icon>close</mat-icon></button>
+        </div>
+    </div>    
+    <div class="row justify-content-center">
+        <div class="col-sm-6">
+            <div class="row">
+                <div class="col-lg-6">
+                    <mat-form-field>
+                        <input matInput placeholder="Name" formControlName="name">
+                    </mat-form-field>
+                </div>
+                <div class="col-lg-6">
+                    <mat-form-field>
+                        <input matInput placeholder="E-mail" formControlName="email">
+                    </mat-form-field>
+                </div>
+                <div class="col-lg-6">
+                    <mat-form-field>
+                        <input matInput placeholder="Phone Number" formControlName="phone">
+                    </mat-form-field>
+                </div>
+                <div class="col-lg-6">
+        
+                </div>
+                <div class="col-lg-6">Order note</div>
+                <div class="col-lg-6">
+                    <mat-form-field>
+                        <textarea matInput placeholder="Note comes here"></textarea>
+                    </mat-form-field>
+                </div>
+            </div>         
+        </div>
     </div>
-</div>    
-
-
-<div mat-dialog-content>This dialog showcases the title, close, content and actions elements.</div>
+</div>

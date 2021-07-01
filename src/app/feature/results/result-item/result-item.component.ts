@@ -42,7 +42,7 @@ export class ResultItemComponent implements OnInit {
     dialogConfig.disableClose = false;
     dialogConfig.autoFocus = true;
     dialogConfig.hasBackdrop = false;    
-
+    dialogConfig.width = '100%'
     const dialogRef = this.dialog.open(OrderComponent, dialogConfig);
 
     dialogRef.afterClosed().subscribe(
