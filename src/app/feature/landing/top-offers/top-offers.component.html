@@ -11,8 +11,8 @@
       </div>
     </ng-template>
     <ng-template let-offer pTemplate="item">
-      <div class="offer-item-content" routerLink="/results/{{offer.id}}"
-           [ngStyle]="{'background-image': 'url(' + offer.images[0].link.image+ ')'}">
+      <div class="offer-item-content" routerLink="/results/{{offer._id}}"
+           [ngStyle]="{'background-image': 'url(' + offer.images[0].link + ')'}">
         <div class="offer-item-content--text">
           <h4>{{offer.heading}}</h4>
           <p>{{offer.details}}</p>
