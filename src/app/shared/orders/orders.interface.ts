@@ -3,4 +3,5 @@ export interface Orders {
     email: string;
     phone: string;
     payment: string;
+    notes: string;
 }

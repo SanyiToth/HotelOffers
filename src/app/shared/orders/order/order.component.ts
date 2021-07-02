@@ -1,6 +1,11 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
+
+interface Payment {
+  value: string;
+  viewValue: string;
+}
 
 @Component({
   selector: 'app-order',
@@ -9,10 +14,21 @@ import { MatDialogRef } from '@angular/material/dialog';
 })
 export class OrderComponent implements OnInit {
 
-  form?: FormGroup;
+  form = new FormGroup({
+    name: new FormControl('', [Validators.required]),
+    email: new FormControl('', [Validators.required, Validators.email]),
+    phone: new FormControl('', [Validators.required]),
+    notes: new FormControl('', []),
+    payment: new FormControl('', [])
+  })
 
+  payments: Payment[] = [
+    {value: 'cash', viewValue: 'Cash'},
+    {value: 'card', viewValue: 'Card'},
+    {value: 'valami', viewValue: 'Valami'}
+  ];
 
-  constructor( private fb: FormBuilder, private dialogRef: MatDialogRef<OrderComponent> ) { }
+  constructor( private dialogRef: MatDialogRef<OrderComponent> ) { }
 
   ngOnInit(): void {
   }
@@ -22,7 +38,11 @@ export class OrderComponent implements OnInit {
   }
 
   close() {
-    this.dialogRef.close('hello');
+    this.dialogRef.close();
   }
 
+  submit() {
+    // API HTTP post request to book hotel room
+    console.log(this.form);
+  }
 }
