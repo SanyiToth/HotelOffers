@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Offer} from "../../../shared/services/offers/offer.interface";
-import {Stats} from "../our-numbers/our-numbers.interface";
 import {ActivatedRoute} from "@angular/router";
+import {Stat} from "../../../shared/services/stat/stat.interface";
 
 @Component({
   selector: 'app-landing-container',
@@ -12,16 +12,12 @@ import {ActivatedRoute} from "@angular/router";
 
 export class LandingContainerComponent implements OnInit {
   offers: Offer[];
-  ourNumbers: Stats;
+  ourNumbers!: Stat;
 
 
   constructor(private router: ActivatedRoute) {
     this.offers = this.router.snapshot.data.topOffers;
-    this.ourNumbers = {
-      hotels: this.router.snapshot.data.hotels.length,
-      orders: this.router.snapshot.data.orders.length,
-      offers: this.router.snapshot.data.offers.length
-    }
+    this.ourNumbers = this.router.snapshot.data.stats;
   }
 
 

@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Stats} from "./our-numbers.interface";
+import {Stat} from "../../../shared/services/stat/stat.interface";
 
 @Component({
   selector: 'app-our-numbers',
@@ -8,7 +8,7 @@ import {Stats} from "./our-numbers.interface";
 })
 export class OurNumbersComponent implements OnInit {
 
-  @Input() stats: Stats | undefined;
+  @Input() stats!: Stat;
 
   constructor() {
   }

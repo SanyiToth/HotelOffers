@@ -7,7 +7,7 @@ import {Stat} from "./stat.interface";
 @Injectable({
   providedIn: 'root'
 })
-export class StatService {
+export class StatsService {
 
   static PATH = "/statistics"
 
@@ -16,7 +16,7 @@ export class StatService {
 
 
   getStatistics(): Observable<Stat> {
-    return this.http.get<Stat>(environment.API_URL + StatService.PATH)
+    return this.http.get<Stat>(environment.API_URL + StatsService.PATH)
   }
 
 
