@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {Status} from "../../../../shared/services/offers/offer.interface";
-
-
+import {Offer, Status} from "../../../../shared/services/offers/offer.interface";
+import { DashboardOffersService } from "../dashboard-offers.service";
+import {ActivatedRoute, Router} from "@angular/router";
+import { CurrentProviderService } from "../../current-provider.service";
 
 @Component({
   selector: 'app-dashboard-offers-container',
@@ -10,13 +11,34 @@ import {Status} from "../../../../shared/services/offers/offer.interface";
 })
 export class DashboardOffersContainerComponent implements OnInit {
 
+  allOffers!: Offer[]
+  providerId = this.currentProviderService.getLoggedInProvider()._id;
+
+  constructor(private dashboardOfferService: DashboardOffersService,
+              private currentProviderService: CurrentProviderService,
+              private route: ActivatedRoute,
+              private router: Router) {}
+
+
   ngOnInit() {
-    //this.offerservice.getOffersById(providerId, 'all')
+    this.dashboardOfferService.getOffersByProviderId(this.providerId).subscribe(data => {
+      // bind to app-dashboard-offer-item template
+      this.allOffers = data
+      console.log(this.providerId)
+      console.log(data)
+    })
+   /* this.route.params.subscribe(params => {
+      this.id = params['id'];
+      this.dashboardOfferService.getOffersByProviderId(this.id).subscribe(data =>{
+        this.allOffers = data;
+        console.log("param", data)
+      })
+    })*/
   }
 
   statusChanged(status: Status) {
     console.log("status", status);
-   // this.offerService.getOffersById(providerId, status)
+   // this.dashboardOfferService.getOffersById(providerId, status)
   }
 
 }

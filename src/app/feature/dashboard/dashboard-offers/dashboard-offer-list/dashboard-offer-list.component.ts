@@ -16,7 +16,7 @@ export class DashboardOfferListComponent implements OnInit {
 
   ngOnInit(): void {
     /*this.offerService.getOffers().subscribe(data => {
-    // bind to app-dashboard-offer-item
+    // bind to app-dashboard-offer-item template
       this.offers = data;
     })*/
   }
