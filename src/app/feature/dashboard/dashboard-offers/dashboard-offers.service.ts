@@ -3,6 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import { Offer } from "../../../shared/services/offers/offer.interface";
 import {environment} from "../../../../environments/environment.prod";
+import { BehaviorSubject } from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,7 @@ import {environment} from "../../../../environments/environment.prod";
 export class DashboardOffersService {
 
   static PATH = "/offers/findByProviderId";
+
 
   constructor(private http: HttpClient) { }
 

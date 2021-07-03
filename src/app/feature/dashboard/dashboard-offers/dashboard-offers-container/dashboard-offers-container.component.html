@@ -1,5 +1,7 @@
 <app-dashboard-offers-header (sendStatus)="statusChanged($event)" ></app-dashboard-offers-header>
 <!-- inputot kap a list [item] -->
-<app-dashboard-offer-list></app-dashboard-offer-list>
+<app-dashboard-offer-list [offers]="allOffers">
+
+</app-dashboard-offer-list>
 
 

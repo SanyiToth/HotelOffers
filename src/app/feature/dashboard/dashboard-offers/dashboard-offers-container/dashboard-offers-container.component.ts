@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import {Offer, Status} from "../../../../shared/services/offers/offer.interface";
 import { DashboardOffersService } from "../dashboard-offers.service";
 import {ActivatedRoute, Router} from "@angular/router";
