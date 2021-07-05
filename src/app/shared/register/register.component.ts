@@ -58,8 +58,7 @@ export class RegisterComponent implements OnInit {
           password: newHotel.password
         }
         this.authService.login(credentials)
-          .subscribe(response => {
-              console.log('response loginService', response)
+          .subscribe(() => {
               this.router.navigate(['/dashboard'])
             },
             error => {
