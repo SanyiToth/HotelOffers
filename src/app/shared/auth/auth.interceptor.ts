@@ -17,7 +17,7 @@ export class AuthInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     if (this.auth.currentJwtValue) {
 
-      const jwtToken = this.auth.currentJwtValue.accessToken;
+      const jwtToken = this.auth.currentJwtValue;
 
       const cloned = request.clone({
         headers: request.headers.set('Authorization',

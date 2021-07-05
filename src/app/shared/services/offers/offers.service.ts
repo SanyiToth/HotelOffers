@@ -1,16 +1,16 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {Offer} from "./offer.interface";
+import {NewOffer, Offer} from "./offer.interface";
 import {environment} from "../../../../environments/environment.prod";
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class OffersService {
 
-  static PATH = "/offers"
-
+  static PATH = "/offers";
 
   constructor(private http: HttpClient) {
   }
@@ -27,7 +27,7 @@ export class OffersService {
     return this.http.get<Offer>(environment.API_URL + OffersService.PATH + '/' + id)
   }
 
-  createOffer(offer: Offer): Observable<Offer> {
+  createOffer(offer: NewOffer): Observable<Offer> {
     return this.http.post<Offer>(environment.API_URL + OffersService.PATH, offer);
   }
 

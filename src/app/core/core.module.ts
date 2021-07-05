@@ -7,7 +7,7 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {HeaderModule} from "../shared/header/header.module";
 import {FooterModule} from "../shared/footer/footer.module";
 import {HttpErrorInterceptor} from "./interceptors/http-error/http-error.interceptor";
-import { OrdersModule } from '../shared/orders/orders.module';
+import {MatSnackBarModule} from "@angular/material/snack-bar";
 
 
 @NgModule({
@@ -18,6 +18,7 @@ import { OrdersModule } from '../shared/orders/orders.module';
     CommonModule,
     HeaderModule,
     FooterModule,
+    MatSnackBarModule,
     CoreRoutingModule,
     LandingModule,
     HttpClientModule,

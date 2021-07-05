@@ -7,6 +7,7 @@ import {OffersResolver} from "../shared/resolver/offers/offers.resolver";
 import {HotelsResolver} from "../shared/resolver/hotels/hotels.resolver";
 import {OrdersResolver} from "../shared/resolver/orders/orders.resolver";
 import {TopOffersResolver} from "../shared/resolver/top-offers/top-offers.resolver";
+import {AuthGuard} from "../shared/auth/auth.guard";
 
 const routes: Routes = [
   {
@@ -18,7 +19,11 @@ const routes: Routes = [
     }, component: LandingContainerComponent
   },
   {path: 'results', loadChildren: () => import('../feature/results/results.module').then(m => m.ResultsModule)},
-  {path: 'dashboard', loadChildren: () => import('../feature/dashboard/dashboard.module').then(m => m.DashboardModule)},
+  {
+    path: 'dashboard',
+    canLoad: [AuthGuard],
+    loadChildren: () => import('../feature/dashboard/dashboard.module').then(m => m.DashboardModule)
+  },
   {path: 'register', loadChildren: () => import('../shared/register/register.module').then(m => m.RegisterModule)},
   {path: 'login', loadChildren: () => import('../shared/login/login.module').then(m => m.LoginModule)},
   {path: '404', component: NotFoundComponent},
@@ -30,7 +35,7 @@ const routes: Routes = [
   declarations: [],
   imports: [
     CommonModule,
-    RouterModule.forRoot(routes, { enableTracing: false })
+    RouterModule.forRoot(routes, {enableTracing: false})
   ],
   exports: [
     RouterModule

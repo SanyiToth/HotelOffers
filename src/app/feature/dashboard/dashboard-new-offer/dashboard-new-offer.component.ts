@@ -1,11 +1,5 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import {
-  AbstractControl,
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  Validators
-} from "@angular/forms";
+import {Component, ElementRef, ViewChild} from '@angular/core';
+import {AbstractControl, FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {Observable} from "rxjs";
 import {COMMA, ENTER} from "@angular/cdk/keycodes";
 import {MatAutocomplete, MatAutocompleteSelectedEvent} from "@angular/material/autocomplete";
@@ -13,11 +7,11 @@ import {map, startWith} from "rxjs/operators";
 import {MatChipInputEvent} from "@angular/material/chips";
 import {environment} from "../../../../environments/environment";
 import {OffersService} from "../../../shared/services/offers/offers.service";
-import {Image, Offer} from "../../../shared/services/offers/offer.interface";
+import {Image, NewOffer, Offer, Status} from "../../../shared/services/offers/offer.interface";
 import {ErrorMessage} from "@angular/compiler-cli/ngcc/src/execution/cluster/api";
 import {Router} from "@angular/router";
-import {MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition} from "@angular/material/snack-bar";
-
+import {NotificationService} from "../../../shared/services/notification/notification.service";
+import {CurrentProviderService} from "../current-provider.service";
 
 @Component({
   selector: 'app-dashboard-new-offer',
@@ -48,13 +42,10 @@ export class DashboardNewOfferComponent {
   tagsArray: string[];
   allTags: string[] = environment.OFFER_EXTRAS
 
-  //mat-snackbar
-  horizontalPosition: MatSnackBarHorizontalPosition = 'center';
-  verticalPosition: MatSnackBarVerticalPosition = 'top';
-
   //new Offer data
-  newOffer!: Offer;
-  imagesData: Image[];
+  offer!: NewOffer;
+  imagesData: Image[] = [];
+  providerId!: string;
   errorMessage!: ErrorMessage;
 
 
@@ -66,9 +57,11 @@ export class DashboardNewOfferComponent {
 
   constructor(private fb: FormBuilder,
               private offerService: OffersService,
-              private router: Router,
-              private snackBar: MatSnackBar) {
-    this.imagesData = [];
+              private notificationService: NotificationService,
+              private currentProvider:CurrentProviderService,
+              private router: Router) {
+    this.providerId = this.currentProvider.getLoggedInProvider()._id;
+
     this.firstFormGroup = this.fb.group({
       heading: ['', Validators.required],
       details: ['', [Validators.required, Validators.maxLength(DashboardNewOfferComponent.DETAILS_MAX_LENGTH)]],
@@ -94,15 +87,15 @@ export class DashboardNewOfferComponent {
 
   // The component get image data from img-uploader component
 
-  addImgData(newImg: Image) {
-    this.imagesData.push(newImg);
+  addImgData(updatedImages: Image[]) {
+    this.imagesData = updatedImages;
   }
 
   //Submit event send data to db
 
   onSubmit() {
-    this.newOffer = {
-      status: 'Draft',
+    this.offer = {
+      status: Status.Draft,
       heading: this.heading?.value,
       details: this.details?.value,
       dateInterval: {
@@ -113,26 +106,23 @@ export class DashboardNewOfferComponent {
       price: this.price?.value,
       images: this.imagesData,
       description: this.description?.value,
-      tags: this.tags?.value
+      tags: this.tags?.value,
+      provider: this.providerId
     }
-    this.offerService.createOffer(this.newOffer).subscribe(response => {
-      this.firstFormGroup.reset();
-      this.secondFormGroup.reset();
-      this.imagesData = [];
-      this.snackBar.open('Success! Your offer has been uploaded! We will redirect you to the offers page.', 'Close', {
-        horizontalPosition: this.horizontalPosition,
-        verticalPosition: this.verticalPosition,
-      });
-      setTimeout(() => {
-        this.router.navigate(['/dashboard/offers']);
-      }, 1000)
-    }, error => {
-      this.errorMessage = error;
-      this.snackBar.open(error, 'Close', {
-        horizontalPosition: this.horizontalPosition,
-        verticalPosition: this.verticalPosition,
-      });
-    })
+    this.offerService.createOffer(this.offer)
+      .subscribe(response => {
+        this.firstFormGroup.reset();
+        this.secondFormGroup.reset();
+        this.imagesData = [];
+        this.notificationService
+          .open('Success! Your offer has been uploaded! We will redirect you to the offers page.');
+        setTimeout(() => {
+          this.router.navigate(['/dashboard/offers']);
+        }, 1000)
+      }, error => {
+        this.errorMessage = error;
+        this.notificationService.open(error);
+      })
   }
 
   //Limitless available offers
