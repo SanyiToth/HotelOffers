@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthService} from "../../../shared/auth/auth.service";
+import {CurrentProviderService} from "../current-provider.service";
 
 @Component({
   selector: 'app-dashboard-my-badge-menu',
@@ -8,10 +9,14 @@ import {AuthService} from "../../../shared/auth/auth.service";
 })
 export class DashboardMyBadgeMenuComponent implements OnInit {
 
-  constructor(private authService: AuthService) {
+  providerName!: string;
+
+  constructor(private authService: AuthService, private currentProvider: CurrentProviderService) {
+    this.providerName = this.currentProvider.getLoggedInProvider().name;
   }
 
   ngOnInit(): void {
+
   }
 
   clickOnLogOut() {
