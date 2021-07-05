@@ -5,18 +5,18 @@ import {
   ActivatedRouteSnapshot
 } from '@angular/router';
 import {Observable, of} from 'rxjs';
-import {Stat} from "../../services/stat/stat.interface";
-import {StatsService} from "../../services/stat/stats.service";
+import {Statistics} from "../../services/statistics/statistics.interface";
+import {StatisticsService} from "../../services/statistics/statistics.service";
 
 @Injectable({
   providedIn: 'root'
 })
-export class StatsResolver implements Resolve<Stat> {
+export class StatsResolver implements Resolve<Statistics> {
 
-  constructor(private statsService: StatsService) {
+  constructor(private statsService: StatisticsService) {
   }
 
-  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Stat> {
+  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Statistics> {
     return this.statsService.getStatistics();
   }
 }

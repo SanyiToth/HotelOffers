@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Offer} from "../../../shared/services/offers/offer.interface";
 import {ActivatedRoute} from "@angular/router";
-import {Stat} from "../../../shared/services/stat/stat.interface";
+import {Statistics} from "../../../shared/services/statistics/statistics.interface";
 
 @Component({
   selector: 'app-landing-container',
@@ -12,7 +12,7 @@ import {Stat} from "../../../shared/services/stat/stat.interface";
 
 export class LandingContainerComponent implements OnInit {
   offers: Offer[];
-  ourNumbers!: Stat;
+  ourNumbers!: Statistics;
 
 
   constructor(private router: ActivatedRoute) {

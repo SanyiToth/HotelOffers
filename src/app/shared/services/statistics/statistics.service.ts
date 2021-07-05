@@ -2,12 +2,12 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {environment} from "../../../../environments/environment";
-import {Stat} from "./stat.interface";
+import {Statistics} from "./statistics.interface";
 
 @Injectable({
   providedIn: 'root'
 })
-export class StatsService {
+export class StatisticsService {
 
   static PATH = "/statistics"
 
@@ -15,8 +15,8 @@ export class StatsService {
   }
 
 
-  getStatistics(): Observable<Stat> {
-    return this.http.get<Stat>(environment.API_URL + StatsService.PATH)
+  getStatistics(): Observable<Statistics> {
+    return this.http.get<Statistics>(environment.API_URL + StatisticsService.PATH)
   }
 
 
