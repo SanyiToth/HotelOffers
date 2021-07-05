@@ -1,4 +1,6 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {SearchRequest} from "../../../shared/services/result/search-request";
+
 
 
 @Component({
@@ -7,17 +9,29 @@ import {Component, Input, OnInit} from '@angular/core';
   styleUrls: ['./heading-form.component.scss']
 })
 export class HeadingFormComponent implements OnInit {
-  selected = ""
+
+
+  city!: string;
+  guestNumber!: number;
+
   @Input() cities!: string[];
 
-  constructor() {
-  }
+  selectedValues!: SearchRequest;
+
+  @Output() selectedValuesToParent = new EventEmitter<SearchRequest>();
 
   ngOnInit(): void {
-    this.setDefaultValues()
   }
 
-  private setDefaultValues() {
-    this.selected = this.cities[0]
+  OnShowResults() {
+    if (this.city && this.guestNumber) {
+      this.selectedValues = {
+        city: this.city,
+        guestNumber: this.guestNumber
+      }
+      this.selectedValuesToParent.emit(this.selectedValues);
+    }
+
+
   }
 }
