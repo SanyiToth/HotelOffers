@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 
 @Component({
@@ -6,17 +6,16 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './heading-form.component.html',
   styleUrls: ['./heading-form.component.scss']
 })
-export class HeadingFormComponent implements OnInit {  
+export class HeadingFormComponent implements OnInit {
   selected = ""
-  cities: string[] = [
-    'Budapest', 'Miskolc', 'Debrecen', 'Eger'
-  ]
+  @Input() cities!: string[];
 
-  constructor() {}
+  constructor() {
+  }
 
-  ngOnInit(): void {    
+  ngOnInit(): void {
     this.setDefaultValues()
-  }  
+  }
 
   private setDefaultValues() {
     this.selected = this.cities[0]
