@@ -24,7 +24,7 @@ export class DashboardOffersContainerComponent implements OnInit {
 
 
   ngOnInit() {
-    this.dashboardOfferService.getOffersByProviderId(this.providerId, '').subscribe(data => {
+    this.dashboardOfferService.getOffersByProviderId(this.providerId, null).subscribe(data => {
       // bind to app-dashboard-offer-item template
       this.allOffers = data
       console.log(this.providerId)

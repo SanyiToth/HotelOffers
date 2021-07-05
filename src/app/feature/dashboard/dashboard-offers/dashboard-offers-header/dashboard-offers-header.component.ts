@@ -25,6 +25,6 @@ export class DashboardOffersHeaderComponent {
     return this.selectStatusForm.get('status')
   }
   onSelectionChange(){
-   this.sendStatus.emit(this.selectStatusForm.value as Status);
+   this.sendStatus.emit(this.selectStatusForm.value.status as Status);
   }
 }

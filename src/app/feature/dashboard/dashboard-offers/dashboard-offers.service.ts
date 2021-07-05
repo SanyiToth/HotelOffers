@@ -15,10 +15,14 @@ export class DashboardOffersService {
 
   constructor(private http: HttpClient) {}
 
-  getOffersByProviderId(providerId: string, status: string): Observable<Offer[]>{
+  getOffersByProviderId(providerId: string, status: null | string): Observable<Offer[]>{
+    console.log("service",status)
+    //if-else az allra
     return this.http.get<Offer[]>(environment.API_URL + DashboardOffersService.PATH + '/' + providerId, {
-      params: new HttpParams().set('status', status.toString())
+      // @ts-ignore
+      params: new HttpParams().set('status', status)
     })
+
     };
 
 
