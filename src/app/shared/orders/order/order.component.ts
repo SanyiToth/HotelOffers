@@ -25,7 +25,7 @@ export class OrderComponent implements OnInit {
   payments: Payment[] = [
     {value: 'cash', viewValue: 'Cash'},
     {value: 'card', viewValue: 'Card'},
-    {value: 'valami', viewValue: 'Valami'}
+    {value: 'szép card', viewValue: 'Szép Card'}
   ];
 
   constructor( private dialogRef: MatDialogRef<OrderComponent> ) { }

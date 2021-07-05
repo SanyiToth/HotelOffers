@@ -7,7 +7,6 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {HeaderModule} from "../shared/header/header.module";
 import {FooterModule} from "../shared/footer/footer.module";
 import {HttpErrorInterceptor} from "./interceptors/http-error/http-error.interceptor";
-import { OrdersModule } from '../shared/orders/orders.module';
 
 
 @NgModule({
@@ -20,8 +19,7 @@ import { OrdersModule } from '../shared/orders/orders.module';
     FooterModule,
     CoreRoutingModule,
     LandingModule,
-    HttpClientModule,
-    OrdersModule
+    HttpClientModule
   ],
   exports: [
     CoreComponent
