@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {Offer, Status} from "../../../../shared/services/offers/offer.interface";
 import { DashboardOffersService } from "../dashboard-offers.service";
-import {ActivatedRoute, Router} from "@angular/router";
+import {ActivatedRoute, Params, Router} from "@angular/router";
 import { CurrentProviderService } from "../../current-provider.service";
 
 @Component({
@@ -11,8 +11,10 @@ import { CurrentProviderService } from "../../current-provider.service";
 })
 export class DashboardOffersContainerComponent implements OnInit {
 
-  allOffers!: Offer[]
+
+  allOffers!: Offer[];
   providerId = this.currentProviderService.getLoggedInProvider()._id;
+  state!: Status
 
   constructor(private dashboardOfferService: DashboardOffersService,
               private currentProviderService: CurrentProviderService,
@@ -21,24 +23,25 @@ export class DashboardOffersContainerComponent implements OnInit {
 
 
   ngOnInit() {
-    this.dashboardOfferService.getOffersByProviderId(this.providerId).subscribe(data => {
+    this.dashboardOfferService.getOffersByProviderId(this.providerId, "all").subscribe(data => {
       // bind to app-dashboard-offer-item template
       this.allOffers = data
       console.log(this.providerId)
-      console.log(data)
-    })
-   /* this.route.params.subscribe(params => {
-      this.id = params['id'];
-      this.dashboardOfferService.getOffersByProviderId(this.id).subscribe(data =>{
-        this.allOffers = data;
-        console.log("param", data)
+      console.log("all:", data)
+    });
+  }
+  //getting status and filtering
+  statusChanged(status: Status) {
+    console.log("status from status change", status);
+    this.route.params.subscribe(params => {
+      this.state = params[status]
       })
-    })*/
+    this.dashboardOfferService.getOffersByProviderId(this.providerId, this.state).subscribe(data => {
+      this.allOffers = data
+      console.log("filtered:", data)
+    })
   }
 
-  statusChanged(status: Status) {
-    console.log("status", status);
-   // this.dashboardOfferService.getOffersById(providerId, status)
-  }
+
 
 }

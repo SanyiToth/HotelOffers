@@ -3,7 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import { Offer } from "../../../shared/services/offers/offer.interface";
 import {environment} from "../../../../environments/environment.prod";
-import { BehaviorSubject } from "rxjs";
+
 
 @Injectable({
   providedIn: 'root'
@@ -15,8 +15,8 @@ export class DashboardOffersService {
 
   constructor(private http: HttpClient) { }
 
-  getOffersByProviderId(providerId: string): Observable<Offer[]>{
-    return this.http.get<Offer[]>(environment.API_URL + DashboardOffersService.PATH + '/' + providerId)
+  getOffersByProviderId(providerId: string, status:string = 'all'): Observable<Offer[]>{
+    return this.http.get<Offer[]>(environment.API_URL + DashboardOffersService.PATH + '/' + providerId + '?=' + status)
   }
 
 }
