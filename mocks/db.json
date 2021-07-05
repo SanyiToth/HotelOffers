@@ -238,6 +238,32 @@
         "rating": 5,
         "numberOfRatings": 20
       }
+    },
+    {
+      "status": "Draft",
+      "heading": "The best offer",
+      "details": "hdsgfjhsadfgajhsdfkkjsdahfgjashdgkjasdh",
+      "dateInterval": {
+        "startDate": "2021-05-31T22:00:00.000Z",
+        "endDate": "2021-06-25T22:00:00.000Z"
+      },
+      "availableOffers": null,
+      "price": 56000,
+      "images": [
+        {
+          "link": "https://i.imgur.com/vnBwFkM.jpg",
+          "height": 501,
+          "width": 750,
+          "type": "image/jpeg",
+          "size": 64673,
+          "imgId": "vnBwFkM"
+        }
+      ],
+      "description": "dffaasdfsdaffdfd gfgfdgdsgfsdgsdfgsfdg",
+      "tags": [
+        "Wifi"
+      ],
+      "id": 11
     }
   ],
   "orders": [],

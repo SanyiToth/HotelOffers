@@ -3,7 +3,6 @@ import {environment} from "../../../../environments/environment.prod";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import { Location } from "./location.interface";
-import { map } from 'rxjs/operators'
 
 @Injectable({
   providedIn: 'root'

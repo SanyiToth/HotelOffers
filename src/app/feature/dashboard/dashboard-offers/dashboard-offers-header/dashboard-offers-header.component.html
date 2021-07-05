@@ -1,0 +1,18 @@
+<div class="header">
+  <form [formGroup]="selectStatusForm"
+        class="form-field">
+    <mat-form-field appearance="outline">
+      <mat-label>Status</mat-label>
+      <mat-select name="status" id="status"
+                  formControlName="status"
+                  (selectionChange)="onSelectionChange()">
+        <mat-option [value]="'all'" >All</mat-option>
+        <mat-option *ngFor="let status of statusList" [value]="status">{{status}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </form>
+  <div class="add-btn">
+    <button mat-raised-button color="primary"><mat-icon>add</mat-icon>New offer </button>
+  </div>
+</div>
+
