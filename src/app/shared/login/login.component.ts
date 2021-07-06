@@ -33,7 +33,8 @@ export class LoginComponent implements OnInit {
           console.log("user", user);
           console.log("isLoggedIn", this.auth.isLoggedIn());
           setTimeout(() => {
-            this.router.navigate(["/dashboard"]); },2000);
+            this.router.navigate(["/dashboard"]);
+            },2000);
         },
         (error: HttpErrorResponse) => {
           console.log("error", error);
