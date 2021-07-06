@@ -12,11 +12,10 @@ export class DashboardMyBadgeMenuComponent implements OnInit {
   providerName!: string;
 
   constructor(private authService: AuthService, private currentProvider: CurrentProviderService) {
-    this.providerName = this.currentProvider.getLoggedInProvider().name;
   }
 
   ngOnInit(): void {
-
+    this.providerName = this.currentProvider.getLoggedInProvider().name;
   }
 
   clickOnLogOut() {
