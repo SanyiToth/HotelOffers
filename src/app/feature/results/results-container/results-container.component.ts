@@ -14,7 +14,7 @@ export class ResultsContainerComponent implements OnInit {
 
   public items: Offer[] = [];
 
-  constructor(private locationService: LocationService, private item: OffersService ) { }
+  constructor(private locationService: LocationService, private offersService: OffersService ) { }
 
   locations!: Location[];
 
@@ -22,7 +22,7 @@ export class ResultsContainerComponent implements OnInit {
     this.locationService.getLocations().subscribe(data => {
       this.locations = data;
     })
-    this.item.getOffers().subscribe(data => {
+    this.offersService.getOffers().subscribe(data => {
       this.items = data;
     });
   }

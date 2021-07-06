@@ -1,7 +1,7 @@
 import {Hotel} from "../services/hotels/hotel.interface";
 
 export interface LoginCredential {
-  email: string;
+  username: string;
   password: string;
 }
 
