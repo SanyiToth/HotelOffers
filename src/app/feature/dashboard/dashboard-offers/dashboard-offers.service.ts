@@ -1,6 +1,6 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Observable, throwError} from "rxjs";
-import { Offer } from "../../../shared/services/offers/offer.interface";
+import {Offer} from "../../../shared/services/offers/offer.interface";
 import {environment} from "../../../../environments/environment.prod";
 import {HttpClient, HttpErrorResponse, HttpParams} from "@angular/common/http";
 import {catchError, retry} from "rxjs/operators";
@@ -13,17 +13,21 @@ export class DashboardOffersService {
   static PATH = "/offers/findByProviderId";
 
 
-  constructor(private http: HttpClient) {}
-
-  getOffersByProviderId(providerId: string, status: null | string): Observable<Offer[]>{
-    console.log("service",status)
-    //if-else az allra
-    return this.http.get<Offer[]>(environment.API_URL + DashboardOffersService.PATH + '/' + providerId, {
-      // @ts-ignore
-      params: new HttpParams().set('status', status)
-    })
-
-    };
-
-
+  constructor(private http: HttpClient) {
   }
+
+  getOffersByProviderId(providerId: string, status?: string): Observable<Offer[]> {
+    console.log("status from service", status)
+    //if-else az allra
+    if (status) {
+      return this.http.get<Offer[]>(environment.API_URL + DashboardOffersService.PATH + '/' + providerId, {
+        // @ts-ignore
+        params: new HttpParams().set('status', status)
+      })
+    } else {
+      return this.http.get<Offer[]>(environment.API_URL + DashboardOffersService.PATH + '/' + providerId)
+    }
+  };
+
+
+}
