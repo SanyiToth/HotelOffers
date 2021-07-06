@@ -8,6 +8,7 @@ import {HeaderModule} from "../shared/header/header.module";
 import {FooterModule} from "../shared/footer/footer.module";
 import {HttpErrorInterceptor} from "./interceptors/http-error/http-error.interceptor";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
+import {AuthModule} from "../shared/auth/auth.module";
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
     MatSnackBarModule,
     CoreRoutingModule,
     LandingModule,
-    HttpClientModule
+    HttpClientModule,
+    AuthModule
   ],
   exports: [
     CoreComponent

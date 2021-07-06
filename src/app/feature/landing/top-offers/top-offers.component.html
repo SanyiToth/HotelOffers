@@ -1,26 +1,27 @@
 <div class="top-offers-slider">
-<p-carousel [value]="offers" styleClass="custom-carousel" [numVisible]="4" [numScroll]="1" [circular]="true"
-            [autoplayInterval]="2000" [responsiveOptions]="responsiveOptions">
-  <ng-template pTemplate="header">
-    <div class="offer-header">
-      <h4>Our most popular offers</h4>
-      <div class="offer-header--link-all-offers">
-        <p>Top offers</p>
-        <i class="pi pi-arrow-right"></i>
-      </div>
-    </div>
-  </ng-template>
-  <ng-template let-offer pTemplate="item">
-    <div class="offer-item-content" routerLink="/results/{{offer.id}}" [ngStyle]="{'background-image': 'url(' + offer.image+ ')'}" >
-      <div class="offer-item-content--text">
-        <h4>{{offer.heading}}</h4>
-        <p>{{offer.details}}</p>
-        <app-rating [data]="offer.ratingInfo"></app-rating>
-        <h4>{{offer.price}}Ft
+  <p-carousel [value]="offers" styleClass="custom-carousel" [numVisible]="4" [numScroll]="1" [circular]="true"
+              [autoplayInterval]="2000" [responsiveOptions]="responsiveOptions">
+    <ng-template pTemplate="header">
+      <div class="offer-header">
+        <h4>Our most popular offers</h4>
+        <div class="offer-header--link-all-offers">
+          <p>Top offers</p>
           <i class="pi pi-arrow-right"></i>
-        </h4>
+        </div>
       </div>
-    </div>
-  </ng-template>
-</p-carousel>
+    </ng-template>
+    <ng-template let-offer pTemplate="item">
+      <div class="offer-item-content" routerLink="/results/{{offer._id}}"
+           [ngStyle]="{'background-image': 'url(' + offer.images[0].link + ')'}">
+        <div class="offer-item-content--text">
+          <h4>{{offer.heading}}</h4>
+          <p>{{offer.details}}</p>
+          <app-rating [data]="offer.ratingInfo"></app-rating>
+          <h4>{{offer.price}}Ft
+            <i class="pi pi-arrow-right"></i>
+          </h4>
+        </div>
+      </div>
+    </ng-template>
+  </p-carousel>
 </div>

@@ -17,7 +17,7 @@ export class TopOffersResolver implements Resolve<Offer[]> {
   }
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Offer[]> {
-    return this.offersService.getOffers(5);
+    return this.offersService.getOffers();
   }
 
 }

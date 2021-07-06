@@ -2,14 +2,14 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {environment} from "../../../../environments/environment";
-import { Hotel } from "../../../shared/services/hotels/hotel.interface";
+import {Hotel, NewHotel} from "../../../shared/services/hotels/hotel.interface";
 
 @Injectable({
   providedIn: 'root'
 })
 export class AccountSettingsService {
 
-  static PATH = "/profiles";
+  static PATH = "/profile";
 
 
   constructor(private http: HttpClient) { }
@@ -18,7 +18,7 @@ export class AccountSettingsService {
     return this.http.get<Hotel>(environment.API_URL + AccountSettingsService.PATH + '/' + id);
   }
 
-  patchProfile(id: string, hotel: Hotel): Observable<Hotel> {
+  patchProfile(id: string, hotel: NewHotel): Observable<Hotel> {
     return this.http.patch<Hotel>(environment.API_URL + AccountSettingsService.PATH + '/' + id, hotel);
   }
 
