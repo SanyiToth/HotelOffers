@@ -15,7 +15,6 @@ export class DashboardOffersContainerComponent implements OnInit {
 
   allOffers!: Offer[];
   providerId = this.currentProviderService.getLoggedInProvider()._id;
-  state!: Status
 
   constructor(private dashboardOfferService: DashboardOffersService,
               private currentProviderService: CurrentProviderService,
