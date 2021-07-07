@@ -1,7 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Offer } from "../../../../shared/services/offers/offer.interface";
-import { OffersService } from "../../../../shared/services/offers/offers.service";
-
 
 @Component({
   selector: 'app-dashboard-offer-list',
@@ -14,7 +12,7 @@ export class DashboardOfferListComponent implements OnInit {
  @Input() offers: Offer[] = [];
 
 
-  constructor(private offerService: OffersService) { }
+  constructor() { }
 
   ngOnInit(): void {}
 

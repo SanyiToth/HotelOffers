@@ -1,7 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {Offer, Status} from "../../../../shared/services/offers/offer.interface";
 import { DashboardOffersService } from "../dashboard-offers.service";
-import {ActivatedRoute, Params, Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import { CurrentProviderService } from "../../current-provider.service";
 
 
