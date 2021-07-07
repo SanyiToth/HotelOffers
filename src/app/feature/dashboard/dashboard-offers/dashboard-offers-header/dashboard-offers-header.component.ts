@@ -14,7 +14,7 @@ export class DashboardOffersHeaderComponent {
   @Output() sendStatus: EventEmitter<Status> = new EventEmitter<Status>();
 
   selectStatusForm: FormGroup = this.fb.group({
-    status:[],
+    status:['all'],
   })
 
   statusList: Status[]  = [Status.Active,Status.Deleted,Status.Draft,Status.Ended, Status.Inactive];
