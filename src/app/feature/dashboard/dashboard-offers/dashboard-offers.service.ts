@@ -14,14 +14,15 @@ export class DashboardOffersService {
 
   constructor(private http: HttpClient) {}
 
-  getOffersByProviderId(providerId: string, status?: string): Observable<Offer[]> {
+  getOffersByProviderId(providerId: string, status: string): Observable<Offer[]> {
     console.log("status from service", status)
-    if (status) {
+    if (status == 'all') {
+      return this.http.get<Offer[]>(environment.API_URL + DashboardOffersService.PATH + '/' + providerId)
+
+    } else {
       return this.http.get<Offer[]>(environment.API_URL + DashboardOffersService.PATH + '/' + providerId, {
         params: new HttpParams().set('status', status)
       })
-    } else {
-      return this.http.get<Offer[]>(environment.API_URL + DashboardOffersService.PATH + '/' + providerId)
     }
   };
 

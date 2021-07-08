@@ -23,7 +23,7 @@ export class DashboardOffersContainerComponent implements OnInit {
 
 
   ngOnInit() {
-    this.dashboardOfferService.getOffersByProviderId(this.providerId).subscribe(data => {
+    this.dashboardOfferService.getOffersByProviderId(this.providerId, 'all').subscribe(data => {
       // bind to app-dashboard-offer-item template
       this.allOffers = data
       console.log(this.providerId)
@@ -33,16 +33,9 @@ export class DashboardOffersContainerComponent implements OnInit {
   //getting status and filtering
   statusChanged(status: Status) {
     console.log("status from status change", status);
-    if (status.valueOf() === 'all') {
-      this.dashboardOfferService.getOffersByProviderId(this.providerId).subscribe(data => {
-        this.allOffers = data
-      })
-    } else {
       this.dashboardOfferService.getOffersByProviderId(this.providerId, status).subscribe(data => {
         this.allOffers = data
         console.log("filtered:", data);
       })
     }
-
-  }
 }
