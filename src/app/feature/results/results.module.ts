@@ -17,6 +17,7 @@ import { ResultItemListComponent } from './result-item-list/result-item-list.com
 import { OrdersModule } from 'src/app/shared/orders/orders.module';
 import {RatingModule} from "../../shared/rating/rating.module";
 import {GalleriaModule} from "primeng/galleria";
+import {MatGridListModule} from "@angular/material/grid-list";
 
 
 @NgModule({
@@ -44,7 +45,9 @@ import {GalleriaModule} from "primeng/galleria";
     OrdersModule,
     RatingModule,
     OrdersModule,
-    GalleriaModule
+    GalleriaModule,
+    MatGridListModule
+
   ]
 })
 export class ResultsModule {

@@ -1,11 +1,15 @@
 form {
   max-width: 800px;
   margin: 0 auto;
-  padding:20px
+  padding: 20px
 }
 
 mat-form-field {
   width: 70%;
+}
+
+textarea {
+  background-color: #F8F9F9;
 }
 
 .error {
@@ -15,8 +19,9 @@ mat-form-field {
 }
 
 
-.mat-stepper-horizontal {
-  margin-top: 8px;
+mat-horizontal-stepper {
+  margin: 10px;
+  padding: 10px;
 }
 
 .mat-form-field {
@@ -25,18 +30,19 @@ mat-form-field {
 
 
 .dashboard-header {
-  padding: 20px;
-  align-items: center;
-  width: 100%;
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
+  padding: 10px 20px;
+  background-color: #F8F9F9;
+  box-shadow: rgba(67, 71, 85, 0.27) 0 0 0.25em;
 }
 
 .dashboard-header--buttons {
   display: flex;
   align-items: center;
   width: 150px;
-  justify-content: space-between;
+  justify-content:flex-end;
 }
 
 mat-form-field {

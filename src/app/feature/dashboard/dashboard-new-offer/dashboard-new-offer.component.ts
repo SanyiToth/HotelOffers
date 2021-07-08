@@ -27,7 +27,7 @@ export class DashboardNewOfferComponent {
   secondFormGroup: FormGroup;
 
   //mat-stepper
-  isLinear = false;
+  isLinear = true;
 
   //firstFormGroup Validators Magic Numbers
   static readonly DETAILS_MAX_LENGTH = 50;
