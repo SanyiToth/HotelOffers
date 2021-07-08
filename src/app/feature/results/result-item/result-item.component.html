@@ -1,27 +1,42 @@
 <div class="container-fluid">
-    <div class="row">
-        <div class="col-lg-12">
-            <img class="result-img" src="https://cdn.pixabay.com/photo/2016/01/19/17/41/friends-1149841_1280.jpg" alt="cicakutya">
-        </div>
+  <div class="row">
+    <div class="col-lg-12">
+      <img class="result-img" src="https://cdn.pixabay.com/photo/2016/01/19/17/41/friends-1149841_1280.jpg"
+           alt="cicakutya">
     </div>
-    <div class="row">
-        <div class="col-lg-7 d-flex">
-            <mat-card class="flex-grow-1">
-                <mat-card-header>
-                    <mat-card-title>Offer Heading</mat-card-title>
-                </mat-card-header>
-                <mat-card-content>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto inventore odio facere harum nam sunt sint totam corrupti vel! Repellat, numquam tempora temporibus at excepturi impedit corporis? Natus ducimus distinctio aliquid labore accusantium, placeat similique asperiores dicta velit inventore facilis eos totam ipsam laboriosam alias dolorem soluta. Voluptatem, quae! Necessitatibus.</p>
-                </mat-card-content>
-            </mat-card>
-        </div>
-        <div class="col-lg-5">
-            <mat-card class="align-items-center d-flex flex-column">
-                <h3>{{ '18000'  | currency:'HUF':'code':'4.0' }}</h3>
-                <button class="order-button" mat-button color="primary" (click)="openDialog()">Book</button>
-            </mat-card>
-            <mat-card></mat-card>
-            <mat-card></mat-card>
-        </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-7 d-flex">
+      <mat-card class="flex-grow-1">
+        <mat-card-header>
+          <mat-card-title>Offer Heading</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto inventore odio facere harum nam sunt
+            sint totam corrupti vel! Repellat, numquam tempora temporibus at excepturi impedit corporis? Natus ducimus
+            distinctio aliquid labore accusantium, placeat similique asperiores dicta velit inventore facilis eos totam
+            ipsam laboriosam alias dolorem soluta. Voluptatem, quae! Necessitatibus.</p>
+        </mat-card-content>
+      </mat-card>
     </div>
+    <div class="col-lg-5">
+      <mat-card class="align-items-center d-flex flex-column">
+        <h3>{{ '18000'  | currency:'HUF':'code':'4.0' }}</h3>
+        <button class="order-button" mat-button color="primary" (click)="openDialog()">Book</button>
+      </mat-card>
+      <mat-card class="provider-info">
+        <mat-card-title>
+          <h2>{{offer.provider.name}}</h2>
+        </mat-card-title>
+        <mat-card-content>
+          <div>
+            <p>{{offer.provider.address.postalCode}}, {{offer.provider.address.city}}</p>
+            <p>{{offer.provider.address.streetName}} {{offer.provider.address.streetNumber}}</p>
+          </div>
+          <p>{{offer.provider.phone}}</p>
+          <p>{{offer.provider.email}}</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
 </div>
