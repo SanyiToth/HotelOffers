@@ -23,7 +23,6 @@ mat-card {
 
 }
 
-
 .img-slider {
   width: 100%;
 }
@@ -32,7 +31,7 @@ mat-card {
 .img-slider-thumbNails {
   padding: 3px;
   height: 75px;
-  width: 100px;
+  max-width: 100px;
 }
 
 ::ng-deep .p-galleria-thumbnail-container {
