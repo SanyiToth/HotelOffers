@@ -16,6 +16,7 @@ import { ResultItemCardComponent } from './result-item-card/result-item-card.com
 import { ResultItemListComponent } from './result-item-list/result-item-list.component';
 import { OrdersModule } from 'src/app/shared/orders/orders.module';
 import {GalleriaModule} from "primeng/galleria";
+import {ButtonModule} from "primeng/button";
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import {GalleriaModule} from "primeng/galleria";
     MatCardModule,
     MatButtonModule,
     OrdersModule,
-    GalleriaModule
+    GalleriaModule,
+    ButtonModule
   ]
 })
 export class ResultsModule {

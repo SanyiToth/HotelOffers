@@ -1,16 +1,30 @@
 mat-card {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
+
 .result-img {
-    height: 300px;
-    width: 100%;
-    object-fit: cover;
+  height: 300px;
+  width: 100%;
+  object-fit: cover;
+  cursor: pointer;
 }
+
 .order-button {
-background: lightgreen;
-color: green;
-border-radius: 30px;
-cursor: pointer;
-border: 2px solid green;
-padding: 7px 80px;
+  background: lightgreen;
+  color: green;
+  border-radius: 30px;
+  cursor: pointer;
+  border: 2px solid green;
+  padding: 7px 80px;
+}
+
+.img-slider {
+  width: 100%;
+  display: block;
+}
+
+.img-slider-thumbNails {
+  display: block;
+  width: 75px;
+  height: 75px;
 }
