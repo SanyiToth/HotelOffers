@@ -1,11 +1,11 @@
 <p-galleria [value]="offer.images" [(visible)]="displayBasic" [responsiveOptions]="responsiveOptions"
-            [containerStyle]="{'max-width': '850px'}" [numVisible]="7"
+            [containerStyle]="{'max-width': '1000px'}" [numVisible]="7"
             [circular]="true" [fullScreen]="true" [showItemNavigators]="true" [showThumbnails]="true"
             [baseZIndex]="100000">
   <ng-template pTemplate="item" let-item>
     <img [src]="item.link" alt="offer-picture" class="img-slider"/>
   </ng-template>
-  <ng-template pTemplate="thumbnail" let-item>
+  <ng-template pTemplate="thumbnail" let-item class="tumbnail-container">
     <div class="p-grid p-nogutter p-justify-center">
       <img [src]="item.link" class="img-slider-thumbNails" alt="offer-picture"/>
     </div>
@@ -44,3 +44,4 @@
     </div>
   </div>
 
+</div>
