@@ -4,6 +4,7 @@ import {OffersService} from "../../../shared/services/offers/offers.service";
 import {Offer} from "../../../shared/services/offers/offer.interface";
 import {switchMap, tap} from "rxjs/operators";
 import {ActivatedRoute} from "@angular/router";
+import {NotificationService} from "../../../shared/services/notification/notification.service";
 
 
 @Component({
@@ -16,7 +17,10 @@ export class ResultsContainerComponent implements OnInit {
   public offers: Offer[] = [];
   city!: string;
 
-  constructor(private route: ActivatedRoute, private locationService: LocationService, private offersService: OffersService) {
+  constructor(private route: ActivatedRoute,
+              private locationService: LocationService,
+              private offersService: OffersService,
+              private notificationService:NotificationService) {
   }
 
   locations!: string[];
@@ -27,19 +31,17 @@ export class ResultsContainerComponent implements OnInit {
         this.locations = data;
       })
 
-
     this.route.queryParams
       .pipe(
-        tap(querry => {
-            this.city = querry.city;
-            console.log(this.city)
+        tap(query => {
+            this.city = query.city;
           }
         ),
         switchMap(() => this.offersService.getOffers(this.city)))
       .subscribe(response => {
         this.offers = response;
       }, error => {
-        console.log(error);
+        this.notificationService.open(error)
       });
   }
 }
