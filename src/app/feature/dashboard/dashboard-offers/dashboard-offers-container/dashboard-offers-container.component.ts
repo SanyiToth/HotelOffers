@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Offer, Status} from "../../../../shared/services/offers/offer.interface";
-import { DashboardOffersService } from "../dashboard-offers.service";
-import { CurrentProviderService } from "../../current-provider.service";
+import {DashboardOffersService} from "../dashboard-offers.service";
+import {CurrentProviderService} from "../../current-provider.service";
 
 
 @Component({
@@ -21,9 +21,10 @@ export class DashboardOffersContainerComponent implements OnInit {
 
 
   ngOnInit() {
-    this.dashboardOfferService.getOffersByProviderId(this.providerId, 'all').subscribe(data => {
+    this.dashboardOfferService.getOffersByProviderId(this.providerId, Status.All).subscribe(data => {
       // bind to app-dashboard-offer-item template
       this.allOffers = data
+      console.log('no param - All:', data)
     });
   }
   //getting status and filtering
@@ -31,6 +32,7 @@ export class DashboardOffersContainerComponent implements OnInit {
     console.log("status from status change", status);
       this.dashboardOfferService.getOffersByProviderId(this.providerId, status).subscribe(data => {
         this.allOffers = data
+        console.log('param passed:',data)
       })
     }
 }
