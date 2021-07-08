@@ -5,10 +5,11 @@
       <p class="offerTitle">{{data.heading}}</p>
     </mat-card-title>
     <mat-card-content>
-      <div class="nameOfHotel-container">
-        <p class="nameOfHotel">{{data._id}}</p>
+      <div class="detailsOfHotel-container">
+        <p class="detailsOfHotel">{{data.details}}</p>
       </div>
-      <p class="price">{{data.price}} Ft</p><br>
+      <p class="price">{{data.price}} Ft</p>
     </mat-card-content>
+  <app-rating [data]="data.ratingInfo" class="ratingOfHotel"></app-rating>
 </mat-card>
 
