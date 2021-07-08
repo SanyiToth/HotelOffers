@@ -16,7 +16,7 @@ export class ResultsContainerComponent implements OnInit {
 
   constructor(private locationService: LocationService, private offersService: OffersService ) { }
 
-  locations!: Location[];
+  locations!: string[];
 
   ngOnInit(): void {
     this.locationService.getLocations().subscribe(data => {
