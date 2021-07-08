@@ -1,3 +1,4 @@
-<app-dashboard-offer-list></app-dashboard-offer-list>
+<app-dashboard-offers-header (sendStatus)="statusChanged($event)" ></app-dashboard-offers-header>
+<app-dashboard-offer-list [offers]="allOffers"></app-dashboard-offer-list>
 
 

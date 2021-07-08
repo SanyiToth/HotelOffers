@@ -1,9 +1,17 @@
-<mat-card [id]="data._id">
+<mat-card [id]="data.provider">
   <mat-card-header>
     <mat-card-title>{{data.heading}}</mat-card-title>
-    <div class="card-date">
-      <p>start-date</p>
-      <p>end-date</p>
+    <div>
+      <div class="container">
+        <div class="row">
+          <h5 class="col">start date</h5>
+          <h5 class="col">end date</h5>
+        </div>
+        <div class="row">
+          <h4 class="col">{{data.dateInterval.startDate | date :'short'}}</h4>
+          <h4 class="col">{{data.dateInterval.endDate | date :'short'}}</h4>
+        </div>
+      </div>
     </div>
   </mat-card-header>
   <div class="card-content">
