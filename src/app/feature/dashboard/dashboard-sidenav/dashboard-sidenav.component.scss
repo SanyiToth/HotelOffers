@@ -2,7 +2,7 @@ $padding: 20px;
 $primary-color: #3f51b5;
 $background-color: #EFEFEF;
 $active-background: white;
-$nav-width: 20%;
+$nav-width: 15%;
 
 :host {
   .mat-sidenav-container {
@@ -21,20 +21,20 @@ $nav-width: 20%;
 
     h4 {
       margin: 0;
-      color: white;
+      color: $primary-color;
     }
 
     .mat-list-item {
-      box-shadow: rgba(67, 71, 85, 0.27) 0 0 0.25em, rgba(90, 125, 188, 0.05) 0 0.25em 1em;
+      box-shadow: $primary-color 0 0 0.25em;
       border-radius: 5px;
-      width: 80%;
+      width: 70%;
       margin: 20px 20px;
-      background-color: $primary-color;
+      background-color: white;
     }
 
     .mat-list-item:focus {
       overflow: hidden;
-      background-color: royalblue;
+      background-color: $background-color;
     }
 
     .mat-sidenav-content {
