@@ -23,6 +23,10 @@ export class OffersService {
     }
   }
 
+  getOffersByCity(city: string): Observable<Offer[]> {
+    return this.http.get<Offer[]>(environment.API_URL + OffersService.PATH + '?city=' + city);
+  }
+
   getOffer(id: number | undefined): Observable<Offer> {
     return this.http.get<Offer>(environment.API_URL + OffersService.PATH + '/' + id)
   }
