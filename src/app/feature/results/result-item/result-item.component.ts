@@ -3,6 +3,8 @@ import {ActivatedRoute} from "@angular/router";
 import {switchMap, tap} from "rxjs/operators";
 import {OffersService} from "../../../shared/services/offers/offers.service";
 import {Offer} from "../../../shared/services/offers/offer.interface";
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { OrderComponent } from 'src/app/shared/orders/order/order.component';
 
 
 @Component({
@@ -15,7 +17,7 @@ export class ResultItemComponent implements OnInit {
   id: number | undefined;
   errorMessage = '';
 
-  constructor(private route: ActivatedRoute, private offersService: OffersService) {
+  constructor(private route: ActivatedRoute, private offersService: OffersService, private dialog: MatDialog) {
   }
 
   ngOnInit(): void {
@@ -31,6 +33,25 @@ export class ResultItemComponent implements OnInit {
       }, error => {
         this.errorMessage = error;
       });
+  }
+
+  openDialog() {
+
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.disableClose = false;
+    dialogConfig.autoFocus = true;
+    dialogConfig.hasBackdrop = false;
+    dialogConfig.maxWidth = "60vw";
+    dialogConfig.width = '100%';
+    const dialogRef = this.dialog.open(OrderComponent, dialogConfig);
+
+    dialogRef.afterClosed().subscribe(
+      data => {
+        console.log(data);
+      }      
+    )
+
   }
 
 }

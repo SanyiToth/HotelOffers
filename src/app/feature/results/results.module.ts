@@ -14,6 +14,8 @@ import {HeaderModule} from "../../shared/header/header.module";
 import {MatIconModule} from "@angular/material/icon";
 import { ResultItemCardComponent } from './result-item-card/result-item-card.component';
 import { ResultItemListComponent } from './result-item-list/result-item-list.component';
+import { OrdersModule } from 'src/app/shared/orders/orders.module';
+import {RatingModule} from "../../shared/rating/rating.module";
 
 
 @NgModule({
@@ -37,7 +39,9 @@ import { ResultItemListComponent } from './result-item-list/result-item-list.com
     ResultsRoutingModule,
     ResultsRoutingModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    OrdersModule,
+    RatingModule
   ]
 })
 export class ResultsModule {
