@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {OffersService} from "../../../shared/services/offers/offers.service";
 
 
 @Component({
@@ -6,17 +7,29 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './heading-form.component.html',
   styleUrls: ['./heading-form.component.scss']
 })
-export class HeadingFormComponent implements OnInit {  
+export class HeadingFormComponent implements OnInit {
   selected = ""
   cities: string[] = [
     'Budapest', 'Miskolc', 'Debrecen', 'Eger'
   ]
 
-  constructor() {}
+  constructor(private offersService: OffersService) {
+  }
 
-  ngOnInit(): void {    
+
+  onSubmit(): void {
+    this.offersService.getOffersByCity('Siófok').subscribe(
+      resp => {
+        console.log('resp', resp);
+      }
+    )
+
+
+  }
+
+  ngOnInit(): void {
     this.setDefaultValues()
-  }  
+  }
 
   private setDefaultValues() {
     this.selected = this.cities[0]
