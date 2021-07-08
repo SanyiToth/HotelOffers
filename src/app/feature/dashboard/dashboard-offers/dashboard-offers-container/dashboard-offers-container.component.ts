@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Offer, Status} from "../../../../shared/services/offers/offer.interface";
 import { DashboardOffersService } from "../dashboard-offers.service";
-import {ActivatedRoute, Router} from "@angular/router";
 import { CurrentProviderService } from "../../current-provider.service";
 
 
@@ -18,16 +17,13 @@ export class DashboardOffersContainerComponent implements OnInit {
 
   constructor(private dashboardOfferService: DashboardOffersService,
               private currentProviderService: CurrentProviderService,
-              private route: ActivatedRoute,
-              private router: Router) {}
+              ) {}
 
 
   ngOnInit() {
     this.dashboardOfferService.getOffersByProviderId(this.providerId, 'all').subscribe(data => {
       // bind to app-dashboard-offer-item template
       this.allOffers = data
-      console.log(this.providerId)
-      console.log("all:", data)
     });
   }
   //getting status and filtering
@@ -35,7 +31,6 @@ export class DashboardOffersContainerComponent implements OnInit {
     console.log("status from status change", status);
       this.dashboardOfferService.getOffersByProviderId(this.providerId, status).subscribe(data => {
         this.allOffers = data
-        console.log("filtered:", data);
       })
     }
 }
