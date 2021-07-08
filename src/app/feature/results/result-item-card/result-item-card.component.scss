@@ -8,10 +8,11 @@ mat-card {
 mat-card-content {
   display: flex;
   justify-content: space-between;
+  margin-bottom:5px;
 }
-.nameOfHotel {
-  font-size: 10px;
-  margin-right: 5px;
+.detailsOfHotel {
+  font-size: 18px;
+  margin:0;
 }
 .price {
   color: dodgerblue;
@@ -22,7 +23,7 @@ mat-card-content {
   padding-bottom: 5px;
   font-size: 20px;
 }
-.nameOfHotel-container {
+.detailsOfHotel-container {
   display: flex;
   color: gray;
 }

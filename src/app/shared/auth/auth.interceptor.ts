@@ -15,7 +15,12 @@ export class AuthInterceptor implements HttpInterceptor {
   }
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    if (this.auth.currentJwtValue) {
+
+
+    if (request.url.includes('imgur')) {
+      return next.handle(request);
+
+    } else if (this.auth.currentJwtValue) {
 
       const jwtToken = this.auth.currentJwtValue;
       const cloned = request.clone({
