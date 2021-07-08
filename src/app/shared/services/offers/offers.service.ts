@@ -15,17 +15,14 @@ export class OffersService {
   constructor(private http: HttpClient) {
   }
 
-  getOffers(limit?: number): Observable<Offer[]> {
-    if (limit) {
-      return this.http.get<Offer[]>(environment.API_URL + OffersService.PATH + '?_limit=' + limit);
+  getOffers(city?: string): Observable<Offer[]> {
+    if (city) {
+      return this.http.get<Offer[]>(environment.API_URL + OffersService.PATH + '?city=' + city);
     } else {
       return this.http.get<Offer[]>(environment.API_URL + OffersService.PATH);
     }
   }
 
-  getOffersByCity(city: string): Observable<Offer[]> {
-    return this.http.get<Offer[]>(environment.API_URL + OffersService.PATH + '?city=' + city);
-  }
 
   getOffer(id: number | undefined): Observable<Offer> {
     return this.http.get<Offer>(environment.API_URL + OffersService.PATH + '/' + id)

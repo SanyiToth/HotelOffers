@@ -1,9 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {Offer} from "../../../shared/services/offers/offer.interface";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {Statistics} from "../../../shared/services/statistics/statistics.interface";
 import {LocationService} from "../../../shared/services/result/location.service";
 import {SearchRequest} from "../../../shared/services/result/search-request";
+import {OffersService} from "../../../shared/services/offers/offers.service";
 
 @Component({
   selector: 'app-landing-container',
@@ -16,9 +17,9 @@ export class LandingContainerComponent implements OnInit {
   offers: Offer[];
   ourNumbers!: Statistics;
   locations!: string[];
-  headingFormValues!: SearchRequest;
+  selectedCity!: string;
 
-  constructor(private router: ActivatedRoute, private locationService: LocationService) {
+  constructor(private router: ActivatedRoute, private locationService: LocationService, private route: Router) {
     this.locationService.getLocations()
       .subscribe(locations => {
         this.locations = locations;
@@ -27,9 +28,10 @@ export class LandingContainerComponent implements OnInit {
     this.ourNumbers = this.router.snapshot.data.stats;
   }
 
-  getHeadingFormValues(value: SearchRequest) {
-    this.headingFormValues = value;
-    console.log('this.headingFormValues', this.headingFormValues)
+  getSelectedCity(value: string) {
+    this.selectedCity = value;
+    console.log('this.headingFormValues', this.selectedCity)
+    this.route.navigate([`/results/${this.selectedCity}`])
   }
 
 

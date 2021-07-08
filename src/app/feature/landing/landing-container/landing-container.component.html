@@ -6,6 +6,6 @@
 </app-header>
 
 
-<app-heading-form [cities]="locations" (selectedValuesToParent)="getHeadingFormValues($event)" ></app-heading-form>
+<app-heading-form [cities]="locations" (selectedValueToParent)="getSelectedCity($event)"></app-heading-form>
 <app-top-offers [offers]="offers"></app-top-offers>
 <app-our-numbers [stats]="ourNumbers"></app-our-numbers>

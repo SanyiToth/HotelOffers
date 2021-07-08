@@ -9,7 +9,9 @@ const routes: Routes = [
   {path: '', component: ResultsContainerComponent},
   {
     path: '', children: [
-      {path: ':id', component: ResultItemComponent}
+      {path: ':id', component: ResultItemComponent},
+      {path: ':city', component: ResultsContainerComponent},
+
     ]
   }
 ]
