@@ -8,13 +8,12 @@ import {HotelsResolver} from "../shared/resolver/hotels/hotels.resolver";
 import {OrdersResolver} from "../shared/resolver/orders/orders.resolver";
 import {TopOffersResolver} from "../shared/resolver/top-offers/top-offers.resolver";
 import {AuthGuard} from "../shared/auth/auth.guard";
+import {StatsResolver} from "../shared/resolver/stats/stats.resolver";
 
 const routes: Routes = [
   {
     path: '', resolve: {
-      offers: OffersResolver,
-      hotels: HotelsResolver,
-      orders: OrdersResolver,
+      stats: StatsResolver,
       topOffers: TopOffersResolver,
     }, component: LandingContainerComponent
   },
