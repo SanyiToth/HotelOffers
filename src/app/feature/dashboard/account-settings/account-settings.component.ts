@@ -4,6 +4,7 @@ import {NewHotel} from "../../../shared/services/hotels/hotel.interface";
 import {AccountSettingsService} from "./account-settings.service";
 import {CurrentProviderService} from "../current-provider.service";
 import {Router} from "@angular/router";
+import { NotificationService } from "../../../shared/services/notification/notification.service";
 
 @Component({
   selector: 'app-account-settings',
@@ -48,13 +49,13 @@ export class AccountSettingsComponent implements OnInit {
 
   constructor(private accountService: AccountSettingsService,
               private currentProvider: CurrentProviderService,
-              private router: Router) {
+              private router: Router,
+              private notifications: NotificationService) {
   }
 
   public hotelId = this.currentProvider.getLoggedInProvider()._id;
 
   ngOnInit(): void {
-    console.log(this.hotelId);
     this.accountService.getProfile(this.hotelId).subscribe(resp => {
         console.log(resp);
       })
@@ -64,9 +65,12 @@ export class AccountSettingsComponent implements OnInit {
     this.accountService.patchProfile(this.hotelId, this.hotel).subscribe(
       (newhotel) => {
         setTimeout(() => {
-          console.log(newhotel);
+          this.notifications.open("Success! Your account has been edited!");
           this.router.navigate(["/dashboard/stats"]);
         },1000);
+        },
+        error => {
+          this.notifications.open(error);
       });
   }
 }
