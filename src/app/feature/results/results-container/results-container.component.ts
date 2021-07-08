@@ -28,10 +28,11 @@ export class ResultsContainerComponent implements OnInit {
       })
 
 
-    this.route.params
+    this.route.queryParams
       .pipe(
-        tap(params => {
-            this.city = params.city;
+        tap(querry => {
+            this.city = querry.city;
+            console.log(this.city)
           }
         ),
         switchMap(() => this.offersService.getOffers(this.city)))

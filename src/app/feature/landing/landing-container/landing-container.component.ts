@@ -30,8 +30,7 @@ export class LandingContainerComponent implements OnInit {
 
   getSelectedCity(value: string) {
     this.selectedCity = value;
-    console.log('this.headingFormValues', this.selectedCity)
-    this.route.navigate([`/results/${this.selectedCity}`])
+    this.route.navigate(["results"], {queryParams: {city: this.selectedCity}})
   }
 
 
