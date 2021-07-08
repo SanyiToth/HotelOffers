@@ -1,0 +1,20 @@
+
+.logo-title-subtitle {
+  display: inline-flex;
+}
+
+.not-found {
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.not-found h1 {
+  font-size: xxx-large;
+  color:red;
+}
+.not-found h2 {
+  font-size: xx-large;
+}
