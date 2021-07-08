@@ -1,8 +1,23 @@
+<p-galleria [value]="offer.images" [(visible)]="displayBasic" [responsiveOptions]="responsiveOptions"
+            [containerStyle]="{'max-width': '1000px'}" [numVisible]="7"
+            [circular]="true" [fullScreen]="true" [showItemNavigators]="true" [showThumbnails]="true"
+            [baseZIndex]="100000">
+  <ng-template pTemplate="item" let-item>
+    <img [src]="item.link" alt="offer-picture" class="img-slider"/>
+  </ng-template>
+  <ng-template pTemplate="thumbnail" let-item>
+    <div class="p-grid p-nogutter p-justify-center">
+      <img [src]="item.link" class="img-slider-thumbNails" alt="offer-picture"/>
+    </div>
+  </ng-template>
+</p-galleria>
+
+
 <div class="container-fluid">
   <div class="row">
     <div class="col-lg-12">
-      <img class="result-img" src="https://cdn.pixabay.com/photo/2016/01/19/17/41/friends-1149841_1280.jpg"
-           alt="cicakutya">
+      <img class="result-img" [src]="offer.images[0].link"
+           alt="offer-picture" (click)="displayBasic=true">
     </div>
   </div>
   <div class="row">
