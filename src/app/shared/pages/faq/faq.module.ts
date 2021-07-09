@@ -5,6 +5,7 @@ import { MatIconModule } from "@angular/material/icon";
 import {FaqComponent} from "./faq.component";
 import { HeaderModule } from "../../header/header.module";
 import { MatCardModule } from "@angular/material/card";
+import { MatListModule } from "@angular/material/list";
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { MatCardModule } from "@angular/material/card";
     FaqRoutingModule,
     MatIconModule,
     HeaderModule,
-    MatCardModule
+    MatCardModule,
+    MatListModule
   ]
 })
 export class FaqModule { }
