@@ -5,9 +5,10 @@
         <!--(submit)="onSubmit()-->
   <mat-form-field appearance="outline">
     <mat-label>Chose your destination!</mat-label>
-    <mat-select name="city" id="city"
+    <mat-select  id="city"
                 formControlName="city"
-                (change)="selectCity($event)">
+                (change)="selectCity($event)"
+                 [(ngModel)]="selectedCity">
       <mat-option disabled>Cities</mat-option>
       <mat-option *ngFor="let city of cities" [value]="city">{{city}}</mat-option>
     </mat-select>
