@@ -13,8 +13,8 @@ export class LocationService {
 
   constructor(private http: HttpClient) { }
 
-  getLocations(): Observable<Location[]> {
-    return this.http.get<Location[]>(environment.API_URL + LocationService.PATH)
+  getLocations(): Observable<string[]> {
+    return this.http.get<string[]>(environment.API_URL + LocationService.PATH)
 
   }
 }

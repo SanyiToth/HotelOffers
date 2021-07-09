@@ -14,6 +14,7 @@ import {MatIconModule} from "@angular/material/icon";
 import {RatingModule} from "../../shared/rating/rating.module";
 import {HeaderModule} from "../../shared/header/header.module";
 import {RouterModule} from "@angular/router";
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -22,19 +23,20 @@ import {RouterModule} from "@angular/router";
     TopOffersComponent,
     OurNumbersComponent
   ],
-  imports: [
-    CommonModule,
-    HeaderModule,
-    RatingModule,
-    HttpClientModule,
-    MatSelectModule,
-    MatInputModule,
-    MatButtonModule,
-    CarouselModule,
-    MatCardModule,
-    MatIconModule,
-    RouterModule,
-  ],
+    imports: [
+        CommonModule,
+        HeaderModule,
+        RatingModule,
+        HttpClientModule,
+        MatSelectModule,
+        MatInputModule,
+        MatButtonModule,
+        CarouselModule,
+        MatCardModule,
+        MatIconModule,
+        RouterModule,
+        FormsModule,
+    ],
 
   exports: [
     HeadingFormComponent,
