@@ -11,7 +11,7 @@ import { SearchRequest } from "../../../shared/services/result/search-request";
 })
 export class ResultsSidebarComponent {
 
-  @Input() cities!: Location[];
+  @Input() cities!: string[];
 
   @Output() sendData: EventEmitter<SearchRequest> = new EventEmitter<SearchRequest>();
 
