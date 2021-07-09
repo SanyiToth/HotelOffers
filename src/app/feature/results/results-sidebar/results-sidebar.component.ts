@@ -8,12 +8,12 @@ import {SearchRequest} from "../../../shared/services/result/search-request";
   templateUrl: './results-sidebar.component.html',
   styleUrls: ['./results-sidebar.component.scss']
 })
-export class ResultsSidebarComponent implements AfterViewInit {
+export class ResultsSidebarComponent  {
 
   @Input() cities!: string[];
   @Input() selectedCity!: string;
 
-  @Output() sendData: EventEmitter<SearchRequest> = new EventEmitter<SearchRequest>();
+  @Output() sendData: EventEmitter<string> = new EventEmitter<string>();
 
   isSubmitted = false;
 
@@ -37,23 +37,19 @@ export class ResultsSidebarComponent implements AfterViewInit {
   //Submit
   onSubmit() {
     this.isSubmitted = true;
-    this.sendData.emit(this.citySelectorForm.value as SearchRequest);
+    this.sendData.emit(this.cityName?.value);
 
   }
 
   // formControl access
   get cityName(): AbstractControl | null {
-    return this.citySelectorForm.get('cityName');
+    return this.citySelectorForm.get('city');
   }
 
   ngOnInit(): void {
 
   }
 
-  ngAfterViewInit(): void {
-    console.log(this.selectedCity)
-    this.cityName?.setValue(this.selectedCity)
-  }
 
 
 }
