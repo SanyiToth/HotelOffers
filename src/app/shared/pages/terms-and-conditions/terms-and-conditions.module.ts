@@ -4,7 +4,7 @@ import { TermsAndConditionsRoutingModule } from './terms-and-conditions-routing.
 import { MatIconModule } from "@angular/material/icon";
 import {TermsAndConditionsComponent} from "./terms-and-conditions.component";
 import { HeaderModule } from "../../header/header.module";
-
+import { MatCardModule } from "@angular/material/card";
 
 @NgModule({
   declarations: [
@@ -14,7 +14,8 @@ import { HeaderModule } from "../../header/header.module";
     CommonModule,
     TermsAndConditionsRoutingModule,
     MatIconModule,
-    HeaderModule
+    HeaderModule,
+    MatCardModule
   ]
 })
 export class TermsAndConditionsModule { }

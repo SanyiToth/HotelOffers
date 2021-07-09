@@ -2,3 +2,9 @@
   display: inline-flex;
   cursor: pointer;
 }
+mat-card {
+  padding: 100px 50px;
+}
+mat-card-title, strong {
+  color: #3f51b5;
+}

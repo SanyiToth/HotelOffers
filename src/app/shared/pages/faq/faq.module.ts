@@ -4,6 +4,7 @@ import { FaqRoutingModule } from './faq-routing.module';
 import { MatIconModule } from "@angular/material/icon";
 import {FaqComponent} from "./faq.component";
 import { HeaderModule } from "../../header/header.module";
+import { MatCardModule } from "@angular/material/card";
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { HeaderModule } from "../../header/header.module";
     CommonModule,
     FaqRoutingModule,
     MatIconModule,
-    HeaderModule
+    HeaderModule,
+    MatCardModule
   ]
 })
 export class FaqModule { }
