@@ -15,6 +15,10 @@ const routes: Routes = [
         path: 'offers',
         loadChildren: () => import('./dashboard-offers/dashboard-offers.module').then(m => m.DashboardOffersModule)
       },
+/*      {
+        path: 'new',
+        loadChildren: () => import('./dashboard-new-offer/dashboard-new-offer.module').then(m => m.DashboardNewOfferModule)
+      },*/
       {
         path: 'account-settings',
         loadChildren: () => import('./account-settings/account-settings.module').then(m => m.AccountSettingsModule)
