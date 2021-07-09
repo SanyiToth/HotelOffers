@@ -23,20 +23,18 @@
   <div class="row">
     <div class="col-lg-7 d-flex">
       <mat-card class="flex-grow-1">
-        <mat-card-header>
-          <mat-card-title>Offer Heading</mat-card-title>
-        </mat-card-header>
+        <mat-card-title>{{offer.heading}}</mat-card-title>
+        <mat-card-subtitle>{{offer.details}}</mat-card-subtitle>
         <mat-card-content>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto inventore odio facere harum nam sunt
-            sint totam corrupti vel! Repellat, numquam tempora temporibus at excepturi impedit corporis? Natus ducimus
-            distinctio aliquid labore accusantium, placeat similique asperiores dicta velit inventore facilis eos totam
-            ipsam laboriosam alias dolorem soluta. Voluptatem, quae! Necessitatibus.</p>
+          <p>{{offer.description}}</p>
+          <p><strong>Beváltható: </strong>{{offer.dateInterval.startDate | date}}
+            - {{offer.dateInterval.endDate | date}}</p>
         </mat-card-content>
       </mat-card>
     </div>
     <div class="col-lg-5">
       <mat-card class="align-items-center d-flex flex-column">
-        <h3>{{ '18000'  | currency:'HUF':'code':'4.0' }}</h3>
+        <h3 class="price">{{ '18000'  | currency:'HUF':'code':'4.0' }}</h3>
         <button class="order-button" mat-button color="primary" (click)="openDialog()">Book</button>
       </mat-card>
       <mat-card class="provider-info">

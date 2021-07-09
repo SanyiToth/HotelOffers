@@ -1,5 +1,23 @@
 mat-card {
-  margin-bottom: 20px;
+  margin: 20px 0;
+}
+
+mat-card-title {
+  font-size: xx-large;
+  padding: 3px 0;
+
+}
+
+mat-card-subtitle {
+  font-size: larger;
+  border-bottom: 2px solid lightgray;
+  padding: 3px 0;
+}
+
+
+.price {
+  color: dodgerblue;
+  font-size:x-large;
 }
 
 .result-img {
