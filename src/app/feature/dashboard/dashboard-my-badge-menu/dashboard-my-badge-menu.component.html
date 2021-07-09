@@ -1,10 +1,11 @@
 <div>
   <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
-    <mat-icon>account_circle</mat-icon>
+    <mat-icon [matTooltip]=providerName>account_circle
+    </mat-icon>
   </button>
   <mat-menu #menu="matMenu">
     <div class="menu-company-name">
-      <span>Company name</span>
+      <span>{{providerName}}</span>
     </div>
     <button mat-menu-item>
       <mat-icon>settings</mat-icon>

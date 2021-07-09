@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {Hotel, NewHotel} from "../../../shared/services/hotels/hotel.interface";
+import {NewHotel} from "../../../shared/services/hotels/hotel.interface";
+import {AccountSettingsService} from "./account-settings.service";
+import {CurrentProviderService} from "../current-provider.service";
+import {Router} from "@angular/router";
+import { NotificationService } from "../../../shared/services/notification/notification.service";
 
 @Component({
   selector: 'app-account-settings',
@@ -17,7 +21,7 @@ export class AccountSettingsComponent implements OnInit {
     password: new FormControl('', Validators.required),
     passwordAgain: new FormControl(),
 
-    address:  new FormGroup({
+    address: new FormGroup({
       country: new FormControl('', Validators.required),
       postalCode: new FormControl('', Validators.required),
       city: new FormControl('', Validators.required),
@@ -43,12 +47,31 @@ export class AccountSettingsComponent implements OnInit {
     classification: this.form.get('classification')?.value,
   }
 
-  constructor() { }
+  constructor(private accountService: AccountSettingsService,
+              private currentProvider: CurrentProviderService,
+              private router: Router,
+              private notifications: NotificationService) {
+  }
+
+  public hotelId = this.currentProvider.getLoggedInProvider()._id;
 
   ngOnInit(): void {
+    this.accountService.getProfile(this.hotelId).subscribe(resp => {
+        console.log(resp);
+      })
   }
 
   onSubmit(): void {
+    this.accountService.patchProfile(this.hotelId, this.hotel).subscribe(
+      (newhotel) => {
+        setTimeout(() => {
+          this.notifications.open("Success! Your account has been edited!");
+          this.router.navigate(["/dashboard/stats"]);
+        },1000);
+        },
+        error => {
+          this.notifications.open(error);
+      });
   }
-
 }
+

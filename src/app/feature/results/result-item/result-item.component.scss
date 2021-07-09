@@ -1,16 +1,46 @@
 mat-card {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
+
 .result-img {
-    height: 300px;
-    width: 100%;
-    object-fit: cover;
+  height: 300px;
+  width: 100%;
+  object-fit: cover;
+  cursor: pointer;
 }
+
 .order-button {
-background: lightgreen;
-color: green;
-border-radius: 30px;
-cursor: pointer;
-border: 2px solid green;
-padding: 7px 80px;
+  background: lightgreen;
+  color: green;
+  border-radius: 30px;
+  cursor: pointer;
+  border: 2px solid green;
+  padding: 7px 80px;
+}
+
+.provider-info {
+  text-align: center;
+
+}
+
+.img-slider {
+  width: 100%;
+}
+
+
+.img-slider-thumbNails {
+  padding: 3px;
+  height: 75px;
+  max-width: 100px;
+}
+
+::ng-deep .p-galleria-thumbnail-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.logo-title-subtitle {
+  display: inline-flex;
+  cursor: pointer;
 }

@@ -16,6 +16,23 @@ export class ResultItemComponent implements OnInit {
   offer!: Offer;
   id: number | undefined;
   errorMessage = '';
+  displayBasic!: boolean;
+
+
+  responsiveOptions:any[] = [
+    {
+      breakpoint: '1024px',
+      numVisible: 5
+    },
+    {
+      breakpoint: '768px',
+      numVisible: 3
+    },
+    {
+      breakpoint: '560px',
+      numVisible: 1
+    }
+  ];
 
   constructor(private route: ActivatedRoute, private offersService: OffersService, private dialog: MatDialog) {
   }

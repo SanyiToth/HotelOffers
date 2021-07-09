@@ -15,6 +15,9 @@ import {MatIconModule} from "@angular/material/icon";
 import { ResultItemCardComponent } from './result-item-card/result-item-card.component';
 import { ResultItemListComponent } from './result-item-list/result-item-list.component';
 import { OrdersModule } from 'src/app/shared/orders/orders.module';
+import {RatingModule} from "../../shared/rating/rating.module";
+import {GalleriaModule} from "primeng/galleria";
+import {MatGridListModule} from "@angular/material/grid-list";
 
 
 @NgModule({
@@ -39,7 +42,12 @@ import { OrdersModule } from 'src/app/shared/orders/orders.module';
     ResultsRoutingModule,
     MatCardModule,
     MatButtonModule,
-    OrdersModule
+    OrdersModule,
+    RatingModule,
+    OrdersModule,
+    GalleriaModule,
+    MatGridListModule
+
   ]
 })
 export class ResultsModule {

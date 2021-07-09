@@ -13,6 +13,7 @@ import { DashboardComponent } from './dashboard-container/dashboard.component';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardSidenavComponent } from './dashboard-sidenav/dashboard-sidenav.component';
 import {AccountSettingsModule} from "./account-settings/account-settings.module";
+import {MatTooltipModule} from "@angular/material/tooltip";
 
 @NgModule({
   declarations: [
@@ -20,19 +21,20 @@ import {AccountSettingsModule} from "./account-settings/account-settings.module"
     DashboardMyBadgeMenuComponent,
     DashboardSidenavComponent
   ],
-  imports: [
-    CommonModule,
-    MatSidenavModule,
-    MatListModule,
-    MatToolbarModule,
-    MatTabsModule,
-    HeaderModule,
-    MatIconModule,
-    MatMenuModule,
-    MatButtonModule,
-    DashboardRoutingModule,
-    AccountSettingsModule
-  ]
+    imports: [
+        CommonModule,
+        MatSidenavModule,
+        MatListModule,
+        MatToolbarModule,
+        MatTabsModule,
+        HeaderModule,
+        MatIconModule,
+        MatMenuModule,
+        MatButtonModule,
+        DashboardRoutingModule,
+        AccountSettingsModule,
+        MatTooltipModule
+    ]
 })
 export class DashboardModule {
 }

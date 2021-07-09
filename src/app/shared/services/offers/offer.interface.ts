@@ -1,6 +1,7 @@
 import {Hotel} from "../hotels/hotel.interface";
 
 export enum Status {
+  All = 'All',
   Active = 'Active',
   Inactive = 'Inactive',
   Ended = 'Ended',

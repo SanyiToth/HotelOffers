@@ -6,28 +6,28 @@
                     <div class="form-group">
                         <mat-form-field class="w-100">
                             <mat-label>City</mat-label>
-                            <mat-select [(value)]="selected">
+                            <mat-select [(value)]="city">
                                 <mat-option>None</mat-option>
                                 <mat-option *ngFor="let city of cities" [value]="city">{{city}}</mat-option>
                             </mat-select>
-                        </mat-form-field>                        
+                        </mat-form-field>
                     </div>
                 </div>
                 <div class="col-lg-5">
-                    <mat-form-field class="w-100">
+<!--                    <mat-form-field class="w-100">
                         <mat-label>Person</mat-label>
                         <input matInput type="number" step="1" min="1" max="5">
-                    </mat-form-field>
+                    </mat-form-field>-->
                 </div>
             </div>
             <div class="row">
                 <div class="col-lg-5">
-                    <button mat-stroked-button color="primary">Show results</button>
+                    <button mat-stroked-button (click)="onShowResults()" color="primary">Show results</button>
                 </div>
                 <div class="col-lg-7 d-flex">
-                    <a class="link" href="#">Browse all offers</a>
+                    <a class="link" routerLink="/results">Browse all offers</a>
                 </div>
-            </div>        
+            </div>
         </div>
         <div class="col-lg-4 offset-lg-1">
             <h1>Best Hotel Offers</h1>

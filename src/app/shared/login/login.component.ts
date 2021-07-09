@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {AbstractControl, FormControl, FormGroup, ValidationErrors, Validators} from "@angular/forms";
-import { HttpErrorResponse } from "@angular/common/http";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {AuthService} from "../auth/auth.service";
 import {Router} from "@angular/router";
+import {NotificationService} from "../services/notification/notification.service";
 
 @Component({
   selector: 'app-login',
@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
   errorMsg: string | undefined | null;
 
 
-  constructor(private auth: AuthService, private router: Router) { }
+  constructor(private auth: AuthService, private router: Router, private notifications: NotificationService) { }
 
   ngOnInit(): void {
   }
@@ -32,14 +32,14 @@ export class LoginComponent implements OnInit {
         (user) => {
           console.log("user", user);
           console.log("isLoggedIn", this.auth.isLoggedIn());
+          this.notifications.open("Successful login!");
           setTimeout(() => {
-            this.router.navigate(["/dashboard"]); },2000);
+            this.router.navigate(["/dashboard"]);
+            },2000);
         },
-        (error: HttpErrorResponse) => {
-          console.log("error", error);
-          this.errorMsg = error.error;
+        error => {
+          this.notifications.open(error);
         });
-
     this.form.reset();
   }
 }

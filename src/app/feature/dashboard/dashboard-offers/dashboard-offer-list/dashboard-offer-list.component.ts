@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Offer } from "../../../../shared/services/offers/offer.interface";
-import { OffersService } from "../../../../shared/services/offers/offers.service";
 
 @Component({
   selector: 'app-dashboard-offer-list',
@@ -10,15 +9,11 @@ import { OffersService } from "../../../../shared/services/offers/offers.service
 export class DashboardOfferListComponent implements OnInit {
 
 
-  offers: Offer[] = [];
+ @Input() offers: Offer[] = [];
 
-  constructor(private offerService: OffersService) { }
 
-  ngOnInit(): void {
-    /*this.offerService.getOffers().subscribe(data => {
-    // bind to app-dashboard-offer-item
-      this.offers = data;
-    })*/
-  }
+  constructor() { }
+
+  ngOnInit(): void {}
 
 }
