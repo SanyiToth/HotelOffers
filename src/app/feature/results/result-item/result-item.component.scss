@@ -17,7 +17,7 @@ mat-card-subtitle {
 
 .price {
   color: dodgerblue;
-  font-size:x-large;
+  font-size: x-large;
 }
 
 .result-img {
@@ -50,6 +50,20 @@ mat-card-subtitle {
   padding: 3px;
   height: 75px;
   max-width: 100px;
+}
+
+.hotel {
+  display: flex;
+  align-items: center;
+  padding: 5px 0;
+}
+
+.hotel-name {
+  margin: 0;
+}
+
+.hotel-stars {
+  color: gold;
 }
 
 ::ng-deep .p-galleria-thumbnail-container {

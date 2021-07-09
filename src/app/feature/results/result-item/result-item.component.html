@@ -26,6 +26,12 @@
         <mat-card-title>{{offer.heading}}</mat-card-title>
         <mat-card-subtitle>{{offer.details}}</mat-card-subtitle>
         <mat-card-content>
+          <div class="hotel">
+            <h2 class="hotel-name">{{offer.provider.name}}</h2>
+            <div *ngFor="let star of stars" class="hotel-stars">
+              <mat-icon>{{star}}</mat-icon>
+            </div>
+          </div>
           <p>{{offer.description}}</p>
           <p><strong>Beváltható: </strong>{{offer.dateInterval.startDate | date}}
             - {{offer.dateInterval.endDate | date}}</p>
