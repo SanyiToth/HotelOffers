@@ -65,7 +65,7 @@ export class AccountSettingsComponent implements OnInit {
     this.accountService.patchProfile(this.hotelId, this.hotel).subscribe(
       (newhotel) => {
         setTimeout(() => {
-          this.notifications.open("Success! Your account has been edited!");
+          this.notifications.open("Success! Your account has been saved!");
           this.router.navigate(["/dashboard/stats"]);
         },1000);
         },
