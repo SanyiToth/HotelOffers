@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
           console.log("isLoggedIn", this.auth.isLoggedIn());
           this.notifications.open("Successful login!");
           setTimeout(() => {
-            this.router.navigate(["/dashboard"]);
+            this.router.navigate(["/dashboard/offers"]);
             },2000);
         },
         error => {
