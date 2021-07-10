@@ -5,20 +5,21 @@
         <!--(submit)="onSubmit()-->
   <mat-form-field appearance="outline">
     <mat-label>Chose your destination!</mat-label>
-    <mat-select name="city" id="city"
+    <mat-select  id="city"
                 formControlName="city"
-                (change)="selectCity($event)">
+                (change)="selectCity($event)"
+                 [(ngModel)]="selectedCity">
       <mat-option disabled>Cities</mat-option>
       <mat-option *ngFor="let city of cities" [value]="city">{{city}}</mat-option>
     </mat-select>
   </mat-form-field>
 
-  <mat-form-field appearance="outline">
+<!--  <mat-form-field appearance="outline">
     <mat-label>Chose guest number</mat-label>
     <input matInput type="number" min="1" max="5"
                name="guestNumber" id="guestNumber"
                formControlName="guestNumber">
-  </mat-form-field>
+  </mat-form-field>-->
 
     <button mat-stroked-button color="primary">Show results</button>
 
