@@ -1,8 +1,10 @@
-import { Component, Inject, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { MatDialogRef } from '@angular/material/dialog';
-import { Order } from '../order.interface';
-import { OrdersService } from '../orders.service';
+import {Component, Inject, OnInit} from '@angular/core';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
+import {Order} from '../order.interface';
+import {OrdersService} from '../orders.service';
+import {NotificationService} from "../../services/notification/notification.service";
+
 
 interface Payment {
   value: string;
@@ -20,7 +22,7 @@ export class OrderComponent implements OnInit {
     name: new FormControl('', [Validators.required]),
     email: new FormControl('', [Validators.required, Validators.email]),
     phone: new FormControl('', [Validators.required]),
-    notes: new FormControl('', []),
+    note: new FormControl('', []),
     payment: new FormControl('', [Validators.required])
   })
 
@@ -30,7 +32,12 @@ export class OrderComponent implements OnInit {
     {value: 'szép card', viewValue: 'Szép Card'}
   ];
 
-  constructor( private dialogRef: MatDialogRef<OrderComponent>, private ordersServise: OrdersService ) { }
+  constructor(private dialogRef: MatDialogRef<OrderComponent>,
+              private ordersService: OrdersService,
+              private notificationService: NotificationService,
+              @Inject(MAT_DIALOG_DATA) public data: any
+  ) {
+  }
 
   ngOnInit(): void {
   }
@@ -45,17 +52,22 @@ export class OrderComponent implements OnInit {
 
   submit() {
     if (this.form.valid) {
-
       const order: Order = {
-        name: this.form.get('name')?.value,
-        email: this.form.get('email')?.value,
-        phone: this.form.get('phone')?.value,
+        customer: {
+          name: this.form.get('name')?.value,
+          email: this.form.get('email')?.value,
+          phone: this.form.get('phone')?.value,
+        },
         payment: this.form.get('payment')?.value,
-        notes: this.form.get('notes')?.value
+        note: this.form.get('note')?.value,
+        provider: this.data.providerId,
+        product: this.data.productId
       }
-
-      this.ordersServise.createHotel(order).subscribe(res => {
+      this.ordersService.createOrder(order).subscribe(resp => {
+        this.notificationService.open('Success! You have successfully ordered this offer!');
         this.close()
+      }, error => {
+        this.notificationService.open(error);
       })
     }
   }

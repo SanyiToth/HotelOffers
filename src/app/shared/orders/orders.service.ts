@@ -13,7 +13,7 @@ export class OrdersService {
 
   constructor(private http: HttpClient) {}
 
-  createHotel(orderData: Order): Observable<Order>{
+  createOrder(orderData: Order): Observable<Order>{
     return this.http.post<Order>(environment.API_URL + OrdersService.PATH, orderData);
   }
 }

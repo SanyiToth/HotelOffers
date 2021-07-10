@@ -48,7 +48,9 @@
     <div class="col-lg-5">
       <mat-card class="align-items-center d-flex flex-column">
         <h3 class="price">{{ offer.price  | currency:'HUF':'code':'4.0' }}</h3>
-        <button class="order-button" mat-button color="primary" (click)="openDialog()">Book</button>
+        <button class="order-button" mat-button color="primary" (click)="openDialog(offer.provider._id, offer._id)">
+          Book
+        </button>
       </mat-card>
       <mat-card class="provider-info">
         <mat-card-title>
