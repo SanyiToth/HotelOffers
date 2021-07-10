@@ -1,6 +1,8 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
+import { Order } from '../order.interface';
+import { OrdersService } from '../orders.service';
 
 interface Payment {
   value: string;
@@ -19,7 +21,7 @@ export class OrderComponent implements OnInit {
     email: new FormControl('', [Validators.required, Validators.email]),
     phone: new FormControl('', [Validators.required]),
     notes: new FormControl('', []),
-    payment: new FormControl('', [])
+    payment: new FormControl('', [Validators.required])
   })
 
   payments: Payment[] = [
@@ -28,7 +30,7 @@ export class OrderComponent implements OnInit {
     {value: 'szép card', viewValue: 'Szép Card'}
   ];
 
-  constructor( private dialogRef: MatDialogRef<OrderComponent> ) { }
+  constructor( private dialogRef: MatDialogRef<OrderComponent>, private ordersServise: OrdersService ) { }
 
   ngOnInit(): void {
   }
@@ -42,7 +44,19 @@ export class OrderComponent implements OnInit {
   }
 
   submit() {
-    // API HTTP post request to book hotel room
-    console.log(this.form);
+    if (this.form.valid) {
+
+      const order: Order = {
+        name: this.form.get('name')?.value,
+        email: this.form.get('email')?.value,
+        phone: this.form.get('phone')?.value,
+        payment: this.form.get('payment')?.value,
+        notes: this.form.get('notes')?.value
+      }
+
+      this.ordersServise.createHotel(order).subscribe(res => {
+        this.close()
+      })
+    }
   }
 }
