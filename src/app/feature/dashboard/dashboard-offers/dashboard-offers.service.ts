@@ -11,7 +11,6 @@ export class DashboardOffersService {
 
   static PATH = "/offers/findByProviderId";
 
-
   constructor(private http: HttpClient) {}
 
   getOffersByProviderId(providerId: string, status: Status = Status.All): Observable<Offer[]> {
