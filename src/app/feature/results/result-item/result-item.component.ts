@@ -1,10 +1,10 @@
-import {Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {switchMap, tap} from "rxjs/operators";
 import {OffersService} from "../../../shared/services/offers/offers.service";
 import {Offer} from "../../../shared/services/offers/offer.interface";
-import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import { OrderComponent } from 'src/app/shared/orders/order/order.component';
+import {MatDialog, MatDialogConfig} from '@angular/material/dialog';
+import {OrderComponent} from 'src/app/shared/orders/order/order.component';
 
 
 @Component({
@@ -14,12 +14,12 @@ import { OrderComponent } from 'src/app/shared/orders/order/order.component';
 })
 export class ResultItemComponent implements OnInit {
   offer!: Offer;
-  id: number | undefined;
+  id!: number;
   errorMessage = '';
   displayBasic!: boolean;
+  stars: string[] = [];
 
-
-  responsiveOptions:any[] = [
+  responsiveOptions: any[] = [
     {
       breakpoint: '1024px',
       numVisible: 5
@@ -52,6 +52,14 @@ export class ResultItemComponent implements OnInit {
       });
   }
 
+
+  getStars(): string[] {
+    for (let i = 1; i <= this.offer?.provider?.classification; i++) {
+      this.stars.push('star');
+    }
+    return this.stars;
+  }
+
   openDialog() {
 
     const dialogConfig = new MatDialogConfig();
@@ -62,13 +70,5 @@ export class ResultItemComponent implements OnInit {
     dialogConfig.maxWidth = "60vw";
     dialogConfig.width = '100%';
     const dialogRef = this.dialog.open(OrderComponent, dialogConfig);
-
-    dialogRef.afterClosed().subscribe(
-      data => {
-        console.log(data);
-      }
-    )
-
   }
-
 }
