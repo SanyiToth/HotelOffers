@@ -46,10 +46,6 @@ export class ResultsSidebarComponent  {
     return this.citySelectorForm.get('city');
   }
 
-  ngOnInit(): void {
-
-  }
-
 
 
 }
