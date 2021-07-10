@@ -14,7 +14,7 @@ import {MatIconModule} from "@angular/material/icon";
 import {RatingModule} from "../../shared/rating/rating.module";
 import {HeaderModule} from "../../shared/header/header.module";
 import {RouterModule} from "@angular/router";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -36,6 +36,7 @@ import {FormsModule} from "@angular/forms";
         MatIconModule,
         RouterModule,
         FormsModule,
+        ReactiveFormsModule
     ],
 
   exports: [

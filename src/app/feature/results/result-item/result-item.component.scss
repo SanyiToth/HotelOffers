@@ -1,5 +1,23 @@
 mat-card {
-  margin-bottom: 20px;
+  margin: 20px 0;
+}
+
+mat-card-title {
+  font-size: xx-large;
+  padding: 3px 0;
+
+}
+
+mat-card-subtitle {
+  font-size: larger;
+  border-bottom: 2px solid lightgray;
+  padding: 3px 0;
+}
+
+
+.price {
+  color: dodgerblue;
+  font-size: x-large;
 }
 
 .result-img {
@@ -32,6 +50,20 @@ mat-card {
   padding: 3px;
   height: 75px;
   max-width: 100px;
+}
+
+.hotel {
+  display: flex;
+  align-items: center;
+  padding: 5px 0;
+}
+
+.hotel-name {
+  margin: 0;
+}
+
+.hotel-stars {
+  color: gold;
 }
 
 ::ng-deep .p-galleria-thumbnail-container {

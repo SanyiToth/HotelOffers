@@ -22,6 +22,9 @@ const routes: Routes = [
   },
   {path: 'register', loadChildren: () => import('../shared/register/register.module').then(m => m.RegisterModule)},
   {path: 'login', loadChildren: () => import('../shared/login/login.module').then(m => m.LoginModule)},
+  { path: 't&c', loadChildren: () => import('../shared/pages/terms-and-conditions/terms-and-conditions.module').then(m => m.TermsAndConditionsModule)},
+  { path: 'contact', loadChildren: () => import('../shared/pages/contact-us/contact-us.module').then(m => m.ContactUsModule)},
+  { path: 'faq', loadChildren: () => import('../shared/pages/faq/faq.module').then(m => m.FaqModule)},
   {path: '404', component: NotFoundComponent},
   {path: '**', redirectTo: '404'}
 

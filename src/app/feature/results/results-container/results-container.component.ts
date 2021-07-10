@@ -3,7 +3,7 @@ import {LocationService} from "../../../shared/services/result/location.service"
 import {OffersService} from "../../../shared/services/offers/offers.service";
 import {Offer} from "../../../shared/services/offers/offer.interface";
 import {switchMap, tap} from "rxjs/operators";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {NotificationService} from "../../../shared/services/notification/notification.service";
 
 
@@ -20,7 +20,8 @@ export class ResultsContainerComponent implements OnInit {
   constructor(private route: ActivatedRoute,
               private locationService: LocationService,
               private offersService: OffersService,
-              private notificationService:NotificationService) {
+              private notificationService: NotificationService,
+              private router:Router) {
   }
 
   locations!: string[];
@@ -44,4 +45,11 @@ export class ResultsContainerComponent implements OnInit {
         this.notificationService.open(error)
       });
   }
+
+
+  getData(value: string): void {
+    this.city = value;
+    this.router.navigate(["results"], {queryParams: {city: this.city}})
+  }
+
 }
