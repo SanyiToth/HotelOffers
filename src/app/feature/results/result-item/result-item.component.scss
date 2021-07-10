@@ -71,8 +71,9 @@ mat-card-subtitle {
   justify-content: center;
   flex-direction: row;
 }
-
-.logo-title-subtitle {
-  display: inline-flex;
-  cursor: pointer;
+.offerHeading {
+  font-size: 30px;
+}
+.offerDescription {
+  margin-left: 15px;
 }
