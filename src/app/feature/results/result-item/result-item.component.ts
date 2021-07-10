@@ -70,13 +70,5 @@ export class ResultItemComponent implements OnInit {
     dialogConfig.maxWidth = "60vw";
     dialogConfig.width = '100%';
     const dialogRef = this.dialog.open(OrderComponent, dialogConfig);
-
-    dialogRef.afterClosed().subscribe(
-      data => {
-        console.log(data);
-      }
-    )
   }
-
-
 }
