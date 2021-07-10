@@ -18,6 +18,7 @@ export class ResultItemComponent implements OnInit, AfterViewInit {
   errorMessage = '';
   displayBasic!: boolean;
   stars: string[] = [];
+  images: any[] = [];
 
   responsiveOptions: any[] = [
     {
@@ -47,9 +48,12 @@ export class ResultItemComponent implements OnInit, AfterViewInit {
         switchMap(() => this.offersService.getOffer(this.id)))
       .subscribe(response => {
         this.offer = response;
+        this.images = this.offer.images
+        this.getStars();
       }, error => {
         this.errorMessage = error;
       });
+
   }
 
 
@@ -75,7 +79,7 @@ export class ResultItemComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this.getStars();
+
   }
 
 
