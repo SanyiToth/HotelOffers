@@ -12,12 +12,13 @@ import {OrderComponent} from 'src/app/shared/orders/order/order.component';
   templateUrl: './result-item.component.html',
   styleUrls: ['./result-item.component.scss']
 })
-export class ResultItemComponent implements OnInit,AfterViewInit {
+export class ResultItemComponent implements OnInit, AfterViewInit {
   offer!: Offer;
   id!: number;
   errorMessage = '';
   displayBasic!: boolean;
   stars: string[] = [];
+  images: any[] = [];
 
   responsiveOptions: any[] = [
     {
@@ -47,9 +48,12 @@ export class ResultItemComponent implements OnInit,AfterViewInit {
         switchMap(() => this.offersService.getOffer(this.id)))
       .subscribe(response => {
         this.offer = response;
+        this.images = this.offer.images
+        this.getStars();
       }, error => {
         this.errorMessage = error;
       });
+
   }
 
 
@@ -60,20 +64,22 @@ export class ResultItemComponent implements OnInit,AfterViewInit {
     return this.stars;
   }
 
-  openDialog() {
-
+  openDialog(providerId: any, productId: any) {
     const dialogConfig = new MatDialogConfig();
-
     dialogConfig.disableClose = false;
     dialogConfig.autoFocus = true;
     dialogConfig.hasBackdrop = false;
     dialogConfig.maxWidth = "60vw";
     dialogConfig.width = '100%';
-    const dialogRef = this.dialog.open(OrderComponent, dialogConfig);
+    dialogConfig.data = {
+      providerId: providerId,
+      productId: productId
+    };
+    this.dialog.open(OrderComponent, dialogConfig);
   }
 
   ngAfterViewInit(): void {
-    this.getStars();
+
   }
 
 

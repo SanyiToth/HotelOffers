@@ -5,7 +5,7 @@
   </div>
 </app-header>
 
-<p-galleria [value]="offer.images" [(visible)]="displayBasic" [responsiveOptions]="responsiveOptions"
+<p-galleria [value]="images" [(visible)]="displayBasic" [responsiveOptions]="responsiveOptions"
             [containerStyle]="{'max-width': '1000px'}" [numVisible]="7"
             [circular]="true" [fullScreen]="true" [showItemNavigators]="true" [showThumbnails]="true"
             [baseZIndex]="100000">
@@ -23,44 +23,48 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-lg-12">
-      <img class="result-img" [src]="offer.images[0].link"
-           alt="offer-picture" (click)="displayBasic=true">
+      <mat-card>
+        <img class="result-img" [src]="images[0]?.link"
+             alt="offer-picture" (click)="displayBasic=true">
+      </mat-card>
     </div>
   </div>
   <div class="row">
     <div class="col-lg-7 d-flex">
       <mat-card class="flex-grow-1">
-        <mat-card-title>{{offer.heading}}</mat-card-title>
-        <mat-card-subtitle>{{offer.details}}</mat-card-subtitle>
+        <mat-card-title>{{offer?.heading}}</mat-card-title>
+        <mat-card-subtitle>{{offer?.details}}</mat-card-subtitle>
         <mat-card-content>
           <div class="hotel">
-            <h2 class="hotel-name">{{offer.provider.name}}</h2>
+            <h2 class="hotel-name">{{offer?.provider?.name}}</h2>
             <div *ngFor="let star of stars" class="hotel-stars">
               <mat-icon>{{star}}</mat-icon>
             </div>
           </div>
-          <p>{{offer.description}}</p>
-          <p><strong>Elérhető: </strong>{{offer.dateInterval.startDate | date}}
-            - {{offer.dateInterval.endDate | date}}</p>
+          <p>{{offer?.description}}</p>
+          <p><strong>Elérhető: </strong>{{offer?.dateInterval?.startDate | date}}
+            - {{offer?.dateInterval?.endDate | date}}</p>
         </mat-card-content>
       </mat-card>
     </div>
     <div class="col-lg-5">
       <mat-card class="align-items-center d-flex flex-column">
-        <h3 class="price">{{ offer.price  | currency:'HUF':'code':'4.0' }}</h3>
-        <button class="order-button" mat-button color="primary" (click)="openDialog()">Book</button>
+        <h3 class="price">{{ offer?.price  | currency:'HUF':'code':'4.0' }}</h3>
+        <button class="order-button" mat-button color="primary" (click)="openDialog(offer.provider._id, offer._id)">
+          Book
+        </button>
       </mat-card>
       <mat-card class="provider-info">
         <mat-card-title>
-          <h2>{{offer.provider.name}}</h2>
+          <h2>{{offer?.provider?.name}}</h2>
         </mat-card-title>
         <mat-card-content>
           <div>
-            <p>{{offer.provider.address.postalCode}}, {{offer.provider.address.city}}</p>
-            <p>{{offer.provider.address.streetName}} {{offer.provider.address.streetNumber}}</p>
+            <p>{{offer?.provider?.address?.postalCode}}, {{offer?.provider?.address?.city}}</p>
+            <p>{{offer?.provider?.address?.streetName}} {{offer?.provider?.address?.streetNumber}}</p>
           </div>
-          <p>{{offer.provider.phone}}</p>
-          <p>{{offer.provider.email}}</p>
+          <p>{{offer?.provider?.phone}}</p>
+          <p>{{offer?.provider?.email}}</p>
         </mat-card-content>
       </mat-card>
     </div>
