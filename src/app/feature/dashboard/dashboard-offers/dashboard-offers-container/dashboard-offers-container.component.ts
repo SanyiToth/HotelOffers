@@ -14,6 +14,7 @@ export class DashboardOffersContainerComponent implements OnInit {
 
   allOffers!: Offer[];
   providerId = this.currentProviderService.getLoggedInProvider()._id;
+  deletedOffer!: Offer;
 
   constructor(private dashboardOfferService: DashboardOffersService,
               private currentProviderService: CurrentProviderService,
@@ -33,7 +34,12 @@ export class DashboardOffersContainerComponent implements OnInit {
   statusChanged(status: Status) {
     this.dashboardOfferService.getOffersByProviderId(this.providerId, status)
       .subscribe(data => {
-      this.allOffers = data
-    })
+        this.allOffers = data
+      })
+  }
+
+  getDeletedOffer($event: Offer) {
+    this.deletedOffer = $event;
+    console.log('deleted item in container', this.deletedOffer);
   }
 }
