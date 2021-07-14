@@ -14,7 +14,7 @@ import {OrderComponent} from 'src/app/shared/orders/order/order.component';
 })
 export class ResultItemComponent implements OnInit, AfterViewInit {
   offer!: Offer;
-  id!: number;
+  id!: string;
   errorMessage = '';
   displayBasic!: boolean;
   stars: string[] = [];

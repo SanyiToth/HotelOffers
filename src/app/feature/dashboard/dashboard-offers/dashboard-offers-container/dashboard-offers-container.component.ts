@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {Offer, Status} from "../../../../shared/services/offers/offer.interface";
 import {DashboardOffersService} from "../dashboard-offers.service";
 import {CurrentProviderService} from "../../current-provider.service";
+import {OffersService} from "../../../../shared/services/offers/offers.service";
+import {NotificationService} from "../../../../shared/services/notification/notification.service";
 
 
 @Component({
@@ -18,6 +20,8 @@ export class DashboardOffersContainerComponent implements OnInit {
 
   constructor(private dashboardOfferService: DashboardOffersService,
               private currentProviderService: CurrentProviderService,
+              private offersService: OffersService,
+              private notificationService: NotificationService
   ) {
   }
 
@@ -40,6 +44,12 @@ export class DashboardOffersContainerComponent implements OnInit {
 
   getDeletedOffer($event: Offer) {
     this.deletedOffer = $event;
-    console.log('deleted item in container', this.deletedOffer);
+    this.allOffers = this.allOffers.filter(item => item._id !== $event._id)
+    this.offersService.deleteOffer($event._id)
+      .subscribe(() => {
+        this.notificationService.open(`You deleted this offer "${$event.heading}"!`)
+      }, error => {
+        this.notificationService.open(error);
+      })
   }
 }
