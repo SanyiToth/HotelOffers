@@ -1,6 +1,5 @@
-import {Component, Input, OnInit} from '@angular/core';
-import { Offer } from "../../../../shared/services/offers/offer.interface";
-
+import {Component, Input, OnInit, Output, EventEmitter} from '@angular/core';
+import {Offer} from "../../../../shared/services/offers/offer.interface";
 
 
 @Component({
@@ -11,10 +10,18 @@ import { Offer } from "../../../../shared/services/offers/offer.interface";
 export class DashboardOfferItemComponent implements OnInit {
 
   @Input() data!: Offer;
+  @Output() deletedOffer = new EventEmitter<Offer>();
 
   constructor() {
 
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
+
+  OnDelete(data: Offer) {
+    if (confirm('Are you sure to delete this offer?')) {
+      this.deletedOffer.emit(data)
+    }
+  }
 }

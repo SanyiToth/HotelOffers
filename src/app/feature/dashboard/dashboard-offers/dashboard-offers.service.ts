@@ -15,11 +15,8 @@ export class DashboardOffersService {
 
   getOffersByProviderId(providerId: string, status: Status = Status.All): Observable<Offer[]> {
     if (status === Status.All) {
-      console.log('if all:',status)
       return this.http.get<Offer[]>(environment.API_URL + DashboardOffersService.PATH + '/' + providerId)
-
     } else {
-      console.log('params:', status)
       return this.http.get<Offer[]>(environment.API_URL + DashboardOffersService.PATH + '/' + providerId, {
         params: new HttpParams().set('status', status)
       })

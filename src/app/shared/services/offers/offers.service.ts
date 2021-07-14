@@ -24,7 +24,7 @@ export class OffersService {
   }
 
 
-  getOffer(id: number | undefined): Observable<Offer> {
+  getOffer(id: string | undefined): Observable<Offer> {
     return this.http.get<Offer>(environment.API_URL + OffersService.PATH + '/' + id)
   }
 
@@ -32,5 +32,10 @@ export class OffersService {
     return this.http.post<Offer>(environment.API_URL + OffersService.PATH, offer);
   }
 
-
+  deleteOffer(id: string | undefined): Observable<any> {
+    return this.http.delete<any>(environment.API_URL + OffersService.PATH + '/' + id);
+  }
 }
+
+
+
