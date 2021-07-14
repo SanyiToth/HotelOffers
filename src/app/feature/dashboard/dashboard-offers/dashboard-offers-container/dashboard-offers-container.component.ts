@@ -17,22 +17,23 @@ export class DashboardOffersContainerComponent implements OnInit {
 
   constructor(private dashboardOfferService: DashboardOffersService,
               private currentProviderService: CurrentProviderService,
-              ) {}
+  ) {
+  }
 
 
   ngOnInit() {
-    this.dashboardOfferService.getOffersByProviderId(this.providerId, Status.All).subscribe(data => {
-      // bind to app-dashboard-offer-item template
-      this.allOffers = data
-      console.log('no param - All:', data)
-    });
+    this.dashboardOfferService.getOffersByProviderId(this.providerId, Status.All)
+      .subscribe(data => {
+        // bind to app-dashboard-offer-item template
+        this.allOffers = data
+      });
   }
+
   //getting status and filtering
   statusChanged(status: Status) {
-    console.log("status from status change", status);
-      this.dashboardOfferService.getOffersByProviderId(this.providerId, status).subscribe(data => {
-        this.allOffers = data
-        console.log('param passed:',data)
-      })
-    }
+    this.dashboardOfferService.getOffersByProviderId(this.providerId, status)
+      .subscribe(data => {
+      this.allOffers = data
+    })
+  }
 }
