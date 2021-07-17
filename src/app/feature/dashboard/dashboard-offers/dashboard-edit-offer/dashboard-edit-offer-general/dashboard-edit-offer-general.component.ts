@@ -1,5 +1,7 @@
-import {Component, OnInit, EventEmitter, Output} from '@angular/core';
+import {Component, OnInit, EventEmitter, Output, Input} from '@angular/core';
 import {AbstractControl, FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {Offer} from "../../../../../shared/services/offers/offer.interface";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-dashboard-edit-offer-general',
@@ -8,27 +10,38 @@ import {AbstractControl, FormBuilder, FormGroup, Validators} from "@angular/form
 })
 export class DashboardEditOfferGeneralComponent implements OnInit {
 
-
-  generalFormGroup: FormGroup = this.fb.group({
-    status: ['', Validators.required],
-    heading: ['', Validators.required],
-    details: ['', [Validators.required, Validators.maxLength(DashboardEditOfferGeneralComponent.DETAILS_MAX_LENGTH)]],
-    startDate: ['', Validators.required],
-    endDate: ['', Validators.required],
-    availableOffers: [{value: '', disabled: false}, Validators.required],
-    price: ['', Validators.required]
-  });
-
-  static readonly DETAILS_MAX_LENGTH = 300;
+  offer: Offer = this.route.snapshot.data.offer;
+  readonly DETAILS_MAX_LENGTH = 300;
   status = ['Active', 'Inactive', 'Ended', 'Deleted', 'Draft'];
   @Output() generalFormDataToParent = new EventEmitter<any>()
 
+  generalFormGroup: FormGroup = this.fb.group({
+    status: [null, Validators.required],
+    heading: [null, Validators.required],
+    details: [null, [Validators.required, Validators.maxLength(this.DETAILS_MAX_LENGTH)]],
+    startDate: [null, Validators.required],
+    endDate: [null, Validators.required],
+    availableOffers: [{value: null, disabled: false}, Validators.required],
+    price: [null, Validators.required]
+  });
 
-  constructor(private fb: FormBuilder) {
+
+  constructor(private fb: FormBuilder,
+              private route: ActivatedRoute) {
   }
 
 
   ngOnInit(): void {
+    this.generalFormGroup.setValue({
+      status: this.offer.status,
+      heading: this.offer.heading,
+      details: this.offer.details,
+      startDate: this.offer.dateInterval.startDate,
+      endDate: this.offer.dateInterval.endDate,
+      availableOffers: this.offer.availableOffers,
+      price: this.offer.price
+    });
+
     this.generalFormGroup.valueChanges
       .subscribe(() => {
         if (this.generalFormGroup.valid) {

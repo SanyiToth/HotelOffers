@@ -12,7 +12,7 @@
 
   <mat-form-field>
     <mat-label>Offer headline title</mat-label>
-    <input matInput placeholder="Offer headline title" formControlName="heading" required>
+    <input matInput placeholder="Offer headline title" formControlName="heading" required [value]="offer.heading">
     <mat-error *ngIf="heading?.invalid && heading?.touched && heading?.errors?.required">
       Please fill offer headline title!
     </mat-error>
@@ -21,7 +21,7 @@
   <br>
 
   <mat-form-field>
-    <mat-label>Offer short details (max 50 characters)</mat-label>
+    <mat-label>Offer short details (max {{DETAILS_MAX_LENGTH}} characters)</mat-label>
     <input matInput placeholder="Offer short details" formControlName="details" required>
     <mat-error *ngIf="details?.invalid && details?.touched && details?.errors?.required">
       Please fill offer details!

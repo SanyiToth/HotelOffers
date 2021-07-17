@@ -1,9 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {OffersService} from "../../../../../shared/services/offers/offers.service";
 import {Offer} from "../../../../../shared/services/offers/offer.interface";
-import {switchMap, tap} from "rxjs/operators";
-import {ActivatedRoute} from "@angular/router";
-import {NotificationService} from "../../../../../shared/services/notification/notification.service";
+
 
 @Component({
   selector: 'app-dashboard-edit-offer-container',
@@ -12,29 +10,13 @@ import {NotificationService} from "../../../../../shared/services/notification/n
 })
 export class DashboardEditOfferContainerComponent implements OnInit {
 
-  offer!: Offer;
-  id!: string;
   generalFormData: any;
 
-  constructor(private offersService: OffersService,
-              private route: ActivatedRoute,
-              private notificationService: NotificationService
+  constructor(private offersService: OffersService
   ) {
   }
 
   ngOnInit(): void {
-    this.route.params
-      .pipe(
-        tap(params => {
-            this.id = params.id;
-          }
-        ),
-        switchMap(() => this.offersService.getOffer(this.id)))
-      .subscribe(response => {
-        this.offer = response;
-      }, error => {
-        this.notificationService.open(error);
-      });
   }
 
   getGeneralFormData(generalFormData: any) {
