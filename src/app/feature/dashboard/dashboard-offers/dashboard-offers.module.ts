@@ -24,6 +24,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {DashboardNewOfferFormComponent} from "./dashboard-new-offer/dashboard-new-offer-form/dashboard-new-offer-form.component";
 import { DashboardEditOfferContainerComponent } from './dashboard-edit-offer/dashboard-edit-offer-container/dashboard-edit-offer-container.component';
 import {MatTabsModule} from "@angular/material/tabs";
+import { DashboardEditOfferGeneralComponent } from './dashboard-edit-offer/dashboard-edit-offer-general/dashboard-edit-offer-general.component';
 
 
 @NgModule({
@@ -36,6 +37,7 @@ import {MatTabsModule} from "@angular/material/tabs";
     DashboardNewOfferContainerComponent,
     DashboardNewOfferFormComponent,
     DashboardEditOfferContainerComponent,
+    DashboardEditOfferGeneralComponent,
   ],
     imports: [
         CommonModule,
