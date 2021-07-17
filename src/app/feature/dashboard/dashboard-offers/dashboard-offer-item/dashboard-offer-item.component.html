@@ -37,7 +37,7 @@
     </mat-card-content>
     <mat-card-actions>
       <button mat-mini-fab color="primary">
-        <mat-icon class="edit">edit_outline</mat-icon>
+        <mat-icon class="edit" routerLink="/dashboard/offers/edit/{{data._id}}">edit_outline</mat-icon>
       </button>
       <button mat-mini-fab color="warn">
         <mat-icon class="delete" (click)="OnDelete(data)">delete_outline</mat-icon>
