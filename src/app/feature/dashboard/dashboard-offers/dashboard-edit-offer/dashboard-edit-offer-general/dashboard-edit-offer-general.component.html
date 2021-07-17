@@ -1,9 +1,10 @@
 <form [formGroup]="generalFormGroup" class="basic-details">
+
   <mat-form-field appearance="outline">
     <mat-label>Chose your destination!</mat-label>
-    <mat-select>
+    <mat-select formControlName="status" >
       <mat-option disabled>Status</mat-option>
-      <mat-option *ngFor="let status of status" [value]="status">{{status}}</mat-option>
+      <mat-option *ngFor="let status of status " [value]="status">{{status}}</mat-option>
     </mat-select>
   </mat-form-field>
 

@@ -7,7 +7,8 @@
 
 <mat-tab-group>
   <mat-tab label="General">
-    <app-dashboard-edit-offer-general></app-dashboard-edit-offer-general>
+    <app-dashboard-edit-offer-general
+      (generalFormDataToParent)="getGeneralFormData($event)"></app-dashboard-edit-offer-general>
   </mat-tab>
   <mat-tab label="Offer details"> Content 2</mat-tab>
   <mat-tab label="Images"> Content 3</mat-tab>

@@ -14,6 +14,7 @@ export class DashboardEditOfferContainerComponent implements OnInit {
 
   offer!: Offer;
   id!: string;
+  generalFormData: any;
 
   constructor(private offersService: OffersService,
               private route: ActivatedRoute,
@@ -36,4 +37,9 @@ export class DashboardEditOfferContainerComponent implements OnInit {
       });
   }
 
+  getGeneralFormData(generalFormData: any) {
+    this.generalFormData = generalFormData;
+    console.log('generalFormData', this.generalFormData);
+
+  }
 }
