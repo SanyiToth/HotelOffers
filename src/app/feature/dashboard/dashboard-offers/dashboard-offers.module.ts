@@ -21,6 +21,7 @@ import {DashboardOfferListComponent} from "./dashboard-offer-list/dashboard-offe
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import { DashboardOffersHeaderComponent } from './dashboard-offers-header/dashboard-offers-header.component';
 import {MatSelectModule} from '@angular/material/select';
+import {DashboardNewOfferFormComponent} from "./dashboard-new-offer/dashboard-new-offer-form/dashboard-new-offer-form.component";
 
 @NgModule({
   declarations: [
@@ -29,7 +30,9 @@ import {MatSelectModule} from '@angular/material/select';
     DashboardOfferItemComponent,
     DashboardOffersHeaderComponent,
     DashboardOfferListComponent,
-    DashboardNewOfferContainerComponent],
+    DashboardNewOfferContainerComponent,
+    DashboardNewOfferFormComponent
+  ],
   imports: [
     CommonModule,
     ImgUploaderModule,
