@@ -6,10 +6,7 @@ import {environment} from "../../../../../../environments/environment";
 import {Image, NewOffer, Status} from "../../../../../shared/services/offers/offer.interface";
 import {ErrorMessage} from "@angular/compiler-cli/ngcc/src/execution/cluster/api";
 import {MatAutocomplete, MatAutocompleteSelectedEvent} from "@angular/material/autocomplete";
-import {OffersService} from "../../../../../shared/services/offers/offers.service";
-import {NotificationService} from "../../../../../shared/services/notification/notification.service";
 import {CurrentProviderService} from "../../../current-provider.service";
-import {Router} from "@angular/router";
 import {map, startWith} from "rxjs/operators";
 import {MatChipInputEvent} from "@angular/material/chips";
 
@@ -44,7 +41,6 @@ export class DashboardNewOfferFormComponent implements OnInit {
   offer!: NewOffer;
   imagesData: Image[] = [];
   providerId!: string;
-  errorMessage!: ErrorMessage;
 
 
   // @ts-ignore
@@ -54,10 +50,8 @@ export class DashboardNewOfferFormComponent implements OnInit {
 
 
   constructor(private fb: FormBuilder,
-              private offerService: OffersService,
-              private notificationService: NotificationService,
-              private currentProvider: CurrentProviderService,
-              private router: Router) {
+              private currentProvider: CurrentProviderService) {
+
     this.providerId = this.currentProvider.getLoggedInProvider()._id;
 
     this.firstFormGroup = this.fb.group({
