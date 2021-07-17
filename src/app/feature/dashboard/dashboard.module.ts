@@ -14,14 +14,13 @@ import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardSidenavComponent } from './dashboard-sidenav/dashboard-sidenav.component';
 import {AccountSettingsModule} from "./account-settings/account-settings.module";
 import {MatTooltipModule} from "@angular/material/tooltip";
-import { DashboardNewOfferFormComponent } from './dashboard-new-offer/dashboard-new-offer-form/dashboard-new-offer-form.component';
+
 
 @NgModule({
   declarations: [
     DashboardComponent,
     DashboardMyBadgeMenuComponent,
     DashboardSidenavComponent,
-    DashboardNewOfferFormComponent
   ],
     imports: [
         CommonModule,
