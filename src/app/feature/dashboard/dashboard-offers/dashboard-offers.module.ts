@@ -2,7 +2,7 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {DashboardOffersContainerComponent} from "./dashboard-offers-container/dashboard-offers-container.component";
 import {DashboardOffersRoutingModule} from "./dashboard-offers-routing.module";
-import {DashboardNewOfferComponent} from "../dashboard-new-offer/dashboard-new-offer.component";
+import {DashboardNewOfferContainerComponent} from "./dashboard-new-offer/dashboard-new offer-container/dashboard-new-offer-container.component";
 import {MatButtonModule} from "@angular/material/button";
 import {MatStepperModule} from "@angular/material/stepper";
 import {MatFormFieldModule} from "@angular/material/form-field";
@@ -21,6 +21,7 @@ import {DashboardOfferListComponent} from "./dashboard-offer-list/dashboard-offe
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import { DashboardOffersHeaderComponent } from './dashboard-offers-header/dashboard-offers-header.component';
 import {MatSelectModule} from '@angular/material/select';
+import {DashboardNewOfferFormComponent} from "./dashboard-new-offer/dashboard-new-offer-form/dashboard-new-offer-form.component";
 
 @NgModule({
   declarations: [
@@ -29,7 +30,9 @@ import {MatSelectModule} from '@angular/material/select';
     DashboardOfferItemComponent,
     DashboardOffersHeaderComponent,
     DashboardOfferListComponent,
-    DashboardNewOfferComponent],
+    DashboardNewOfferContainerComponent,
+    DashboardNewOfferFormComponent
+  ],
   imports: [
     CommonModule,
     ImgUploaderModule,

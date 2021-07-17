@@ -15,11 +15,12 @@ import { DashboardSidenavComponent } from './dashboard-sidenav/dashboard-sidenav
 import {AccountSettingsModule} from "./account-settings/account-settings.module";
 import {MatTooltipModule} from "@angular/material/tooltip";
 
+
 @NgModule({
   declarations: [
     DashboardComponent,
     DashboardMyBadgeMenuComponent,
-    DashboardSidenavComponent
+    DashboardSidenavComponent,
   ],
     imports: [
         CommonModule,

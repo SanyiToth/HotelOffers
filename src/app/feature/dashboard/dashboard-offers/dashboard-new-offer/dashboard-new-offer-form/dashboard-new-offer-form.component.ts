@@ -1,37 +1,31 @@
-import {Component, ElementRef, ViewChild} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild, EventEmitter, Output, Input} from '@angular/core';
 import {AbstractControl, FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
-import {Observable} from "rxjs";
 import {COMMA, ENTER} from "@angular/cdk/keycodes";
+import {Observable} from "rxjs";
+import {environment} from "../../../../../../environments/environment";
+import {Image, NewOffer, Status} from "../../../../../shared/services/offers/offer.interface";
+import {ErrorMessage} from "@angular/compiler-cli/ngcc/src/execution/cluster/api";
 import {MatAutocomplete, MatAutocompleteSelectedEvent} from "@angular/material/autocomplete";
+import {CurrentProviderService} from "../../../current-provider.service";
 import {map, startWith} from "rxjs/operators";
 import {MatChipInputEvent} from "@angular/material/chips";
-import {environment} from "../../../../environments/environment";
-import {OffersService} from "../../../shared/services/offers/offers.service";
-import {Image, NewOffer, Offer, Status} from "../../../shared/services/offers/offer.interface";
-import {ErrorMessage} from "@angular/compiler-cli/ngcc/src/execution/cluster/api";
-import {Router} from "@angular/router";
-import {NotificationService} from "../../../shared/services/notification/notification.service";
-import {CurrentProviderService} from "../current-provider.service";
 
 @Component({
-  selector: 'app-dashboard-new-offer',
-  templateUrl: './dashboard-new-offer.component.html',
-  styleUrls: ['./dashboard-new-offer.component.scss']
+  selector: 'app-dashboard-new-offer-form',
+  templateUrl: './dashboard-new-offer-form.component.html',
+  styleUrls: ['./dashboard-new-offer-form.component.css']
 })
+export class DashboardNewOfferFormComponent implements OnInit {
 
-
-export class DashboardNewOfferComponent {
-
-  //forms
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
 
   //mat-stepper
-  isLinear = true;
+  isLinear = false;
 
   //firstFormGroup Validators Magic Numbers
-  static readonly DETAILS_MAX_LENGTH = 50;
-  static readonly DESCRIPTION_MAX_LENGTH = 300;
+  static readonly DETAILS_MAX_LENGTH = 300;
+  static readonly DESCRIPTION_MAX_LENGTH = 2000;
 
   //mat-chip
   selectable = true;
@@ -43,10 +37,10 @@ export class DashboardNewOfferComponent {
   allTags: string[] = environment.OFFER_EXTRAS
 
   //new Offer data
+  @Output() offerToParent = new EventEmitter<NewOffer>();
   offer!: NewOffer;
   imagesData: Image[] = [];
-  providerId!: string;
-  errorMessage!: ErrorMessage;
+  @Input() providerId!: string;
 
 
   // @ts-ignore
@@ -55,16 +49,12 @@ export class DashboardNewOfferComponent {
   @ViewChild('autocompleteInput') matAutocomplete: MatAutocomplete;
 
 
-  constructor(private fb: FormBuilder,
-              private offerService: OffersService,
-              private notificationService: NotificationService,
-              private currentProvider:CurrentProviderService,
-              private router: Router) {
-    this.providerId = this.currentProvider.getLoggedInProvider()._id;
+  constructor(private fb: FormBuilder) {
+
 
     this.firstFormGroup = this.fb.group({
       heading: ['', Validators.required],
-      details: ['', [Validators.required, Validators.maxLength(DashboardNewOfferComponent.DETAILS_MAX_LENGTH)]],
+      details: ['', [Validators.required, Validators.maxLength(DashboardNewOfferFormComponent.DETAILS_MAX_LENGTH)]],
       startDate: ['', Validators.required],
       endDate: ['', Validators.required],
       availableOffers: [{value: '', disabled: false}, Validators.required],
@@ -73,7 +63,7 @@ export class DashboardNewOfferComponent {
     });
 
     this.secondFormGroup = this.fb.group({
-      description: ['', [Validators.required, Validators.maxLength(DashboardNewOfferComponent.DESCRIPTION_MAX_LENGTH)]],
+      description: ['', [Validators.required, Validators.maxLength(DashboardNewOfferFormComponent.DESCRIPTION_MAX_LENGTH)]],
       tags: [['Wifi']]
     });
 
@@ -109,20 +99,11 @@ export class DashboardNewOfferComponent {
       tags: this.tags?.value,
       provider: this.providerId
     }
-    this.offerService.createOffer(this.offer)
-      .subscribe(response => {
-        this.firstFormGroup.reset();
-        this.secondFormGroup.reset();
-        this.imagesData = [];
-        this.notificationService
-          .open('Success! Your offer has been uploaded! We will redirect you to the offers page.');
-        setTimeout(() => {
-          this.router.navigate(['/dashboard/offers']);
-        }, 1000)
-      }, error => {
-        this.errorMessage = error;
-        this.notificationService.open(error);
-      })
+    this.offerToParent.emit(this.offer);
+    this.firstFormGroup.reset();
+    this.secondFormGroup.reset();
+    this.imagesData = [];
+
   }
 
   //Limitless available offers
@@ -199,6 +180,9 @@ export class DashboardNewOfferComponent {
 
   get tags(): AbstractControl | null {
     return this.secondFormGroup.get('tags');
+  }
+
+  ngOnInit(): void {
   }
 }
 
