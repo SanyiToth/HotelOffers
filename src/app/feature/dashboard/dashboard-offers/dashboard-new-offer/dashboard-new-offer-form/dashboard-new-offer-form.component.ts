@@ -1,4 +1,4 @@
-import {Component, ElementRef, OnInit, ViewChild, EventEmitter, Output} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild, EventEmitter, Output, Input} from '@angular/core';
 import {AbstractControl, FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {COMMA, ENTER} from "@angular/cdk/keycodes";
 import {Observable} from "rxjs";
@@ -24,8 +24,8 @@ export class DashboardNewOfferFormComponent implements OnInit {
   isLinear = false;
 
   //firstFormGroup Validators Magic Numbers
-  static readonly DETAILS_MAX_LENGTH = 50;
-  static readonly DESCRIPTION_MAX_LENGTH = 300;
+  static readonly DETAILS_MAX_LENGTH = 300;
+  static readonly DESCRIPTION_MAX_LENGTH = 2000;
 
   //mat-chip
   selectable = true;
@@ -40,7 +40,7 @@ export class DashboardNewOfferFormComponent implements OnInit {
   @Output() offerToParent = new EventEmitter<NewOffer>();
   offer!: NewOffer;
   imagesData: Image[] = [];
-  providerId!: string;
+  @Input() providerId!: string;
 
 
   // @ts-ignore
@@ -49,10 +49,8 @@ export class DashboardNewOfferFormComponent implements OnInit {
   @ViewChild('autocompleteInput') matAutocomplete: MatAutocomplete;
 
 
-  constructor(private fb: FormBuilder,
-              private currentProvider: CurrentProviderService) {
+  constructor(private fb: FormBuilder) {
 
-    this.providerId = this.currentProvider.getLoggedInProvider()._id;
 
     this.firstFormGroup = this.fb.group({
       heading: ['', Validators.required],
