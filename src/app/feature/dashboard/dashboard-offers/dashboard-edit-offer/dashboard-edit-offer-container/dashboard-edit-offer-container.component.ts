@@ -11,6 +11,9 @@ import {Offer} from "../../../../../shared/services/offers/offer.interface";
 export class DashboardEditOfferContainerComponent implements OnInit {
 
   generalFormData: any;
+  detailedFormData: any;
+  Images: any;
+
 
   constructor(private offersService: OffersService
   ) {

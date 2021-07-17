@@ -25,6 +25,7 @@ import {DashboardNewOfferFormComponent} from "./dashboard-new-offer/dashboard-ne
 import { DashboardEditOfferContainerComponent } from './dashboard-edit-offer/dashboard-edit-offer-container/dashboard-edit-offer-container.component';
 import {MatTabsModule} from "@angular/material/tabs";
 import { DashboardEditOfferGeneralComponent } from './dashboard-edit-offer/dashboard-edit-offer-general/dashboard-edit-offer-general.component';
+import { DashboardEditOfferDetailedComponent } from './dashboard-edit-offer/dashboard-edit-offer-detailed/dashboard-edit-offer-detailed.component';
 
 
 @NgModule({
@@ -38,6 +39,7 @@ import { DashboardEditOfferGeneralComponent } from './dashboard-edit-offer/dashb
     DashboardNewOfferFormComponent,
     DashboardEditOfferContainerComponent,
     DashboardEditOfferGeneralComponent,
+    DashboardEditOfferDetailedComponent,
   ],
     imports: [
         CommonModule,
