@@ -1,4 +1,4 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild, EventEmitter, Output} from '@angular/core';
 import {AbstractControl, FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {COMMA, ENTER} from "@angular/cdk/keycodes";
 import {Observable} from "rxjs";
@@ -24,7 +24,7 @@ export class DashboardNewOfferFormComponent implements OnInit {
   secondFormGroup: FormGroup;
 
   //mat-stepper
-  isLinear = true;
+  isLinear = false;
 
   //firstFormGroup Validators Magic Numbers
   static readonly DETAILS_MAX_LENGTH = 50;
@@ -40,6 +40,7 @@ export class DashboardNewOfferFormComponent implements OnInit {
   allTags: string[] = environment.OFFER_EXTRAS
 
   //new Offer data
+  @Output() offerToParent = new EventEmitter<NewOffer>();
   offer!: NewOffer;
   imagesData: Image[] = [];
   providerId!: string;
@@ -55,7 +56,7 @@ export class DashboardNewOfferFormComponent implements OnInit {
   constructor(private fb: FormBuilder,
               private offerService: OffersService,
               private notificationService: NotificationService,
-              private currentProvider:CurrentProviderService,
+              private currentProvider: CurrentProviderService,
               private router: Router) {
     this.providerId = this.currentProvider.getLoggedInProvider()._id;
 
@@ -106,20 +107,11 @@ export class DashboardNewOfferFormComponent implements OnInit {
       tags: this.tags?.value,
       provider: this.providerId
     }
-    this.offerService.createOffer(this.offer)
-      .subscribe(response => {
-        this.firstFormGroup.reset();
-        this.secondFormGroup.reset();
-        this.imagesData = [];
-        this.notificationService
-          .open('Success! Your offer has been uploaded! We will redirect you to the offers page.');
-        setTimeout(() => {
-          this.router.navigate(['/dashboard/offers']);
-        }, 1000)
-      }, error => {
-        this.errorMessage = error;
-        this.notificationService.open(error);
-      })
+    this.offerToParent.emit(this.offer);
+    this.firstFormGroup.reset();
+    this.secondFormGroup.reset();
+    this.imagesData = [];
+
   }
 
   //Limitless available offers
