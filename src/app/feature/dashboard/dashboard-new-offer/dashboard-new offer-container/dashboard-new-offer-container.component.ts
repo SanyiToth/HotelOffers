@@ -15,12 +15,12 @@ import {CurrentProviderService} from "../../current-provider.service";
 
 @Component({
   selector: 'app-dashboard-new-offer',
-  templateUrl: './dashboard-new-offer.component.html',
-  styleUrls: ['./dashboard-new-offer.component.scss']
+  templateUrl: './dashboard-new-offer-container.component.html',
+  styleUrls: ['./dashboard-new-offer-container.component.scss']
 })
 
 
-export class DashboardNewOfferComponent {
+export class DashboardNewOfferContainerComponent {
 
   //forms
   firstFormGroup: FormGroup;
@@ -64,7 +64,7 @@ export class DashboardNewOfferComponent {
 
     this.firstFormGroup = this.fb.group({
       heading: ['', Validators.required],
-      details: ['', [Validators.required, Validators.maxLength(DashboardNewOfferComponent.DETAILS_MAX_LENGTH)]],
+      details: ['', [Validators.required, Validators.maxLength(DashboardNewOfferContainerComponent.DETAILS_MAX_LENGTH)]],
       startDate: ['', Validators.required],
       endDate: ['', Validators.required],
       availableOffers: [{value: '', disabled: false}, Validators.required],
@@ -73,7 +73,7 @@ export class DashboardNewOfferComponent {
     });
 
     this.secondFormGroup = this.fb.group({
-      description: ['', [Validators.required, Validators.maxLength(DashboardNewOfferComponent.DESCRIPTION_MAX_LENGTH)]],
+      description: ['', [Validators.required, Validators.maxLength(DashboardNewOfferContainerComponent.DESCRIPTION_MAX_LENGTH)]],
       tags: [['Wifi']]
     });
 

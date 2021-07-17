@@ -2,7 +2,7 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {DashboardOffersContainerComponent} from "./dashboard-offers-container/dashboard-offers-container.component";
 import {DashboardOffersRoutingModule} from "./dashboard-offers-routing.module";
-import {DashboardNewOfferComponent} from "../dashboard-new-offer/dashboard-new offer-container/dashboard-new-offer.component";
+import {DashboardNewOfferContainerComponent} from "../dashboard-new-offer/dashboard-new offer-container/dashboard-new-offer-container.component";
 import {MatButtonModule} from "@angular/material/button";
 import {MatStepperModule} from "@angular/material/stepper";
 import {MatFormFieldModule} from "@angular/material/form-field";
@@ -29,7 +29,7 @@ import {MatSelectModule} from '@angular/material/select';
     DashboardOfferItemComponent,
     DashboardOffersHeaderComponent,
     DashboardOfferListComponent,
-    DashboardNewOfferComponent],
+    DashboardNewOfferContainerComponent],
   imports: [
     CommonModule,
     ImgUploaderModule,
