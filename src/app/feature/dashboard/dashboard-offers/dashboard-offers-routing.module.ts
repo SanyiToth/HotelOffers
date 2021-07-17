@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from "@angular/router";
 import {DashboardOffersContainerComponent} from "./dashboard-offers-container/dashboard-offers-container.component";
-import {DashboardNewOfferContainerComponent} from "../dashboard-new-offer/dashboard-new offer-container/dashboard-new-offer-container.component";
+import {DashboardNewOfferContainerComponent} from "./dashboard-new-offer/dashboard-new offer-container/dashboard-new-offer-container.component";
 
 
 const routes: Routes = [

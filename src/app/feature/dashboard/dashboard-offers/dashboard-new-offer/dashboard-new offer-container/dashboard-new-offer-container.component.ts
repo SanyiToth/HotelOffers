@@ -5,13 +5,13 @@ import {COMMA, ENTER} from "@angular/cdk/keycodes";
 import {MatAutocomplete, MatAutocompleteSelectedEvent} from "@angular/material/autocomplete";
 import {map, startWith} from "rxjs/operators";
 import {MatChipInputEvent} from "@angular/material/chips";
-import {environment} from "../../../../../environments/environment";
-import {OffersService} from "../../../../shared/services/offers/offers.service";
-import {Image, NewOffer, Offer, Status} from "../../../../shared/services/offers/offer.interface";
+import {environment} from "../../../../../../environments/environment";
+import {OffersService} from "../../../../../shared/services/offers/offers.service";
+import {Image, NewOffer, Offer, Status} from "../../../../../shared/services/offers/offer.interface";
 import {ErrorMessage} from "@angular/compiler-cli/ngcc/src/execution/cluster/api";
 import {Router} from "@angular/router";
-import {NotificationService} from "../../../../shared/services/notification/notification.service";
-import {CurrentProviderService} from "../../current-provider.service";
+import {NotificationService} from "../../../../../shared/services/notification/notification.service";
+import {CurrentProviderService} from "../../../current-provider.service";
 
 @Component({
   selector: 'app-dashboard-new-offer',
