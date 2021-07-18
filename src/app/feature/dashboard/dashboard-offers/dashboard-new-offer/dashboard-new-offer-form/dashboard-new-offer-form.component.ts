@@ -13,7 +13,7 @@ import {MatChipInputEvent} from "@angular/material/chips";
 @Component({
   selector: 'app-dashboard-new-offer-form',
   templateUrl: './dashboard-new-offer-form.component.html',
-  styleUrls: ['./dashboard-new-offer-form.component.css']
+  styleUrls: ['./dashboard-new-offer-form.component.scss']
 })
 export class DashboardNewOfferFormComponent implements OnInit {
 
@@ -43,10 +43,8 @@ export class DashboardNewOfferFormComponent implements OnInit {
   @Input() providerId!: string;
 
 
-  // @ts-ignore
-  @ViewChild('tagsInput') tagInput: ElementRef<HTMLInputElement>;
-  // @ts-ignore
-  @ViewChild('autocompleteInput') matAutocomplete: MatAutocomplete;
+  @ViewChild('tagsInput') tagInput!: ElementRef<HTMLInputElement>;
+  @ViewChild('autocompleteInput') matAutocomplete!: MatAutocomplete;
 
 
   constructor(private fb: FormBuilder) {

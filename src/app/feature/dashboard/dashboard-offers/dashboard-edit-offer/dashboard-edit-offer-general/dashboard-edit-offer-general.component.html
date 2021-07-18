@@ -1,0 +1,79 @@
+<form [formGroup]="generalFormGroup" class="basic-details">
+
+  <mat-form-field appearance="outline">
+    <mat-label>Chose your destination!</mat-label>
+    <mat-select formControlName="status" >
+      <mat-option disabled>Status</mat-option>
+      <mat-option *ngFor="let status of status " [value]="status">{{status}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <br>
+
+  <mat-form-field>
+    <mat-label>Offer headline title</mat-label>
+    <input matInput placeholder="Offer headline title" formControlName="heading" required [value]="offer.heading">
+    <mat-error *ngIf="heading?.invalid && heading?.touched && heading?.errors?.required">
+      Please fill offer headline title!
+    </mat-error>
+  </mat-form-field>
+
+  <br>
+
+  <mat-form-field>
+    <mat-label>Offer short details (max {{DETAILS_MAX_LENGTH}} characters)</mat-label>
+    <input matInput placeholder="Offer short details" formControlName="details" required>
+    <mat-error *ngIf="details?.invalid && details?.touched && details?.errors?.required">
+      Please fill offer details!
+    </mat-error>
+    <mat-error *ngIf="details?.invalid && details?.touched && details?.errors?.maxlength">
+      Details should be max 50 characters!
+    </mat-error>
+  </mat-form-field>
+
+  <div class="date-interval">
+    <mat-form-field appearance="fill">
+      <mat-label>Choose a start date</mat-label>
+      <input matInput [matDatepicker]="startDatepicker" formControlName="startDate" required>
+      <mat-datepicker-toggle matSuffix [for]="startDatepicker"></mat-datepicker-toggle>
+      <mat-datepicker #startDatepicker></mat-datepicker>
+      <mat-error class="error" *ngIf="startDate?.invalid && startDate?.touched && startDate?.errors?.required">
+        Please choose offer start date!
+      </mat-error>
+    </mat-form-field>
+
+    <br>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Choose a end date</mat-label>
+      <input matInput [matDatepicker]="endDatepicker" formControlName="endDate" required>
+      <mat-datepicker-toggle matSuffix [for]="endDatepicker"></mat-datepicker-toggle>
+      <mat-datepicker #endDatepicker></mat-datepicker>
+      <mat-error class="error" *ngIf="endDate?.invalid && endDate?.touched && endDate?.errors?.required">
+        Please choose offer end date!
+      </mat-error>
+    </mat-form-field>
+  </div>
+
+  <div class="available-offers">
+    <mat-form-field>
+      <mat-label>Available offers (quantity the offer can be sold)</mat-label>
+      <input matInput type="number" step="1" min="1" formControlName="availableOffers" required>
+      <mat-error class="error"
+                 *ngIf="availableOffers?.invalid && availableOffers?.touched && availableOffers?.errors?.required">
+        Please set how many offers are available!
+      </mat-error>
+    </mat-form-field>
+    <br>
+    <mat-checkbox (change)="onChange()" class="example-margin">limitless offer</mat-checkbox>
+  </div>
+
+  <mat-form-field>
+    <mat-label>Price (HUF)</mat-label>
+    <input matInput type="number" step="500" required formControlName="price">
+    <mat-error class="error" *ngIf="price?.invalid && price?.touched && price?.errors?.required">
+      Please set offers price!
+    </mat-error>
+  </mat-form-field>
+
+</form>

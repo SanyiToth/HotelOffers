@@ -22,6 +22,11 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
 import { DashboardOffersHeaderComponent } from './dashboard-offers-header/dashboard-offers-header.component';
 import {MatSelectModule} from '@angular/material/select';
 import {DashboardNewOfferFormComponent} from "./dashboard-new-offer/dashboard-new-offer-form/dashboard-new-offer-form.component";
+import { DashboardEditOfferContainerComponent } from './dashboard-edit-offer/dashboard-edit-offer-container/dashboard-edit-offer-container.component';
+import {MatTabsModule} from "@angular/material/tabs";
+import { DashboardEditOfferGeneralComponent } from './dashboard-edit-offer/dashboard-edit-offer-general/dashboard-edit-offer-general.component';
+import { DashboardEditOfferDetailedComponent } from './dashboard-edit-offer/dashboard-edit-offer-detailed/dashboard-edit-offer-detailed.component';
+
 
 @NgModule({
   declarations: [
@@ -31,35 +36,39 @@ import {DashboardNewOfferFormComponent} from "./dashboard-new-offer/dashboard-ne
     DashboardOffersHeaderComponent,
     DashboardOfferListComponent,
     DashboardNewOfferContainerComponent,
-    DashboardNewOfferFormComponent
+    DashboardNewOfferFormComponent,
+    DashboardEditOfferContainerComponent,
+    DashboardEditOfferGeneralComponent,
+    DashboardEditOfferDetailedComponent,
   ],
-  imports: [
-    CommonModule,
-    ImgUploaderModule,
-    DashboardOffersRoutingModule,
-    MatButtonModule,
-    MatStepperModule,
-    MatFormFieldModule,
-    ReactiveFormsModule,
-    MatInputModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    MatCheckboxModule,
-    FormsModule,
-    MatChipsModule,
-    MatAutocompleteModule,
-    MatOptionModule,
-    MatButtonModule,
-    MatCardModule,
-    MatIconModule,
-    MatSelectModule,
-    MatFormFieldModule,
-    ReactiveFormsModule,
-    FormsModule,
-    MatCardModule,
-    ImgUploaderModule,
-    MatSnackBarModule
-  ]
+    imports: [
+        CommonModule,
+        ImgUploaderModule,
+        DashboardOffersRoutingModule,
+        MatButtonModule,
+        MatStepperModule,
+        MatFormFieldModule,
+        ReactiveFormsModule,
+        MatInputModule,
+        MatDatepickerModule,
+        MatNativeDateModule,
+        MatCheckboxModule,
+        FormsModule,
+        MatChipsModule,
+        MatAutocompleteModule,
+        MatOptionModule,
+        MatButtonModule,
+        MatCardModule,
+        MatIconModule,
+        MatSelectModule,
+        MatFormFieldModule,
+        ReactiveFormsModule,
+        FormsModule,
+        MatCardModule,
+        ImgUploaderModule,
+        MatSnackBarModule,
+        MatTabsModule
+    ]
 })
 export class DashboardOffersModule {
 }

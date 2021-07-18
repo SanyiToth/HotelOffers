@@ -1,8 +1,9 @@
-import {Component, OnInit, Output, EventEmitter} from '@angular/core';
+import {Component, OnInit, Output, EventEmitter, Input} from '@angular/core';
 import {ImagesService} from "./images.service";
 import {ErrorMessage} from "@angular/compiler-cli/ngcc/src/execution/cluster/api";
 import {Image} from "../services/offers/offer.interface";
 import {NotificationService} from "../services/notification/notification.service";
+import {ActivatedRoute} from "@angular/router";
 
 
 @Component({
@@ -13,13 +14,14 @@ import {NotificationService} from "../services/notification/notification.service
 export class ImgUploaderComponent implements OnInit {
 
   @Output() imagesDataToParent = new EventEmitter<Image[]>();
-
   errorMessage!: ErrorMessage;
   newImageData!: Image;
   uploadedImages: Image[];
 
-  constructor(private imgService: ImagesService, private notificationService: NotificationService) {
-    this.uploadedImages = [];
+  constructor(private imgService: ImagesService,
+              private notificationService: NotificationService,
+              private route: ActivatedRoute) {
+    this.uploadedImages = this.route.snapshot.data.offer.images;
   }
 
   ngOnInit(): void {

@@ -1,0 +1,23 @@
+<div class="dashboard-header">
+  <h1>Edit offer</h1>
+  <div class="dashboard-header--buttons">
+    <button mat-raised-button color="primary" [disabled]="isUpdated" (click)="OnPublish()">Publish</button>
+    <button mat-raised-button color="warn" routerLink="/dashboard/offers">Cancel</button>
+
+  </div>
+</div>
+
+<mat-tab-group headerPosition="above" mat-align-tabs="center">
+  <mat-tab label="General">
+    <app-dashboard-edit-offer-general
+      (generalFormDataToParent)="getGeneralFormData($event)"></app-dashboard-edit-offer-general>
+  </mat-tab>
+  <mat-tab label="Offer details">
+    <app-dashboard-edit-offer-detailed
+      (detailedFormDataToParent)="getDetailedFormData($event)"></app-dashboard-edit-offer-detailed>
+  </mat-tab>
+  <mat-tab label="Images">
+    <app-img-uploader (imagesDataToParent)="getImagesData($event)"></app-img-uploader>
+  </mat-tab>
+  <mat-tab label="Orders"> Content 3</mat-tab>
+</mat-tab-group>
