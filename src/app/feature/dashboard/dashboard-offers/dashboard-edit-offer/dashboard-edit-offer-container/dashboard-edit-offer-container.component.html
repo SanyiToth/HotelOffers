@@ -1,7 +1,7 @@
 <div class="dashboard-header">
   <h1>Edit offer</h1>
   <div class="dashboard-header--buttons">
-    <button mat-raised-button color="primary" (click)="OnPublish()">Publish</button>
+    <button mat-raised-button color="primary" [disabled]="isUpdated" (click)="OnPublish()">Publish</button>
     <button mat-raised-button color="warn" routerLink="/dashboard/offers">Cancel</button>
 
   </div>

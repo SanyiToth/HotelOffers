@@ -11,7 +11,7 @@ import {NotificationService} from "../../../../../shared/services/notification/n
   styleUrls: ['./dashboard-edit-offer-container.component.css']
 })
 export class DashboardEditOfferContainerComponent implements OnInit {
-
+  isUpdated = true;
   offerId = this.route.snapshot.data.offer._id;
   providerId = this.route.snapshot.data.offer.provider._id
   updatedOffer!: NewOffer;
@@ -35,16 +35,17 @@ export class DashboardEditOfferContainerComponent implements OnInit {
 
   getGeneralFormData(generalFormData: any) {
     this.generalFormData = generalFormData;
-
+    this.isUpdated = false;
   }
 
   getDetailedFormData(detailedFormData: any) {
     this.detailedFormData = detailedFormData;
+    this.isUpdated = false;
   }
 
   getImagesData(imagesData: any) {
     this.imagesData = imagesData;
-
+    this.isUpdated = false;
   }
 
   OnPublish() {
