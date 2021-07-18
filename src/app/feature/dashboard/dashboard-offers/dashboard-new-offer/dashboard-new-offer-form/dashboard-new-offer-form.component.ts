@@ -43,10 +43,8 @@ export class DashboardNewOfferFormComponent implements OnInit {
   @Input() providerId!: string;
 
 
-  // @ts-ignore
-  @ViewChild('tagsInput') tagInput: ElementRef<HTMLInputElement>;
-  // @ts-ignore
-  @ViewChild('autocompleteInput') matAutocomplete: MatAutocomplete;
+  @ViewChild('tagsInput') tagInput!: ElementRef<HTMLInputElement>;
+  @ViewChild('autocompleteInput') matAutocomplete!: MatAutocomplete;
 
 
   constructor(private fb: FormBuilder) {

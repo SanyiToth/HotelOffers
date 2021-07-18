@@ -6,6 +6,8 @@ import {environment} from "../../../../../../environments/environment";
 import {map, startWith} from "rxjs/operators";
 import {MatChipInputEvent} from "@angular/material/chips";
 import {MatAutocomplete, MatAutocompleteSelectedEvent} from "@angular/material/autocomplete";
+import {Offer} from "../../../../../shared/services/offers/offer.interface";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-dashboard-edit-offer-detailed',
@@ -24,29 +26,34 @@ export class DashboardEditOfferDetailedComponent implements OnInit {
   tagCtrl = new FormControl();
   separatorKeysCodes: number[] = [ENTER, COMMA];
   filteredTags!: Observable<string[]>;
-  tagsArray: string[];
+  tagsArray!: string[];
   allTags: string[] = environment.OFFER_EXTRAS
+  offer: Offer = this.route.snapshot.data.offer;
 
 
-  // @ts-ignore
-  @ViewChild('tagsInput') tagInput: ElementRef<HTMLInputElement>;
-  // @ts-ignore
-  @ViewChild('autocompleteInput') matAutocomplete: MatAutocomplete;
+  @ViewChild('tagsInput') tagInput!: ElementRef<HTMLInputElement>;
+  @ViewChild('autocompleteInput') matAutocomplete!: MatAutocomplete;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private route: ActivatedRoute) {
     this.detailedFormGroup = this.fb.group({
       description: ['', [Validators.required, Validators.maxLength(this.DESCRIPTION_MAX_LENGTH)]],
       tags: [['Wifi']]
     });
-    this.tagsArray = this.tags?.value
+
     this.filteredTags = this.tagCtrl.valueChanges.pipe(
       startWith(null),
       map((tag: string | null) => tag ? this._filter(tag) : this.allTags.slice()));
   }
 
+  ngOnInit(): void {
+    this.detailedFormGroup.setValue({
+      description: this.offer.description,
+      tags: this.offer.tags
+    });
+    this.tagsArray = this.tags?.value;
+  }
 
   //Material Chip methods
-
   addTag(event: MatChipInputEvent): void {
     const value = (event.value || '').trim();
     if (value) {
@@ -75,11 +82,6 @@ export class DashboardEditOfferDetailedComponent implements OnInit {
   }
 
 
-  ngOnInit(): void {
-  }
-
-
-
   get description(): AbstractControl | null {
     return this.detailedFormGroup.get('description');
   }
@@ -87,7 +89,6 @@ export class DashboardEditOfferDetailedComponent implements OnInit {
   get tags(): AbstractControl | null {
     return this.detailedFormGroup.get('tags');
   }
-
 
 
 }
