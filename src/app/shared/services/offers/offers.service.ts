@@ -35,6 +35,11 @@ export class OffersService {
   deleteOffer(id: string | undefined): Observable<any> {
     return this.http.delete<any>(environment.API_URL + OffersService.PATH + '/' + id);
   }
+
+
+  patchOffer(id: string | undefined, offer: NewOffer): Observable<Offer> {
+    return this.http.patch<Offer>(environment.API_URL + OffersService.PATH + '/' + id, offer);
+  }
 }
 
 
