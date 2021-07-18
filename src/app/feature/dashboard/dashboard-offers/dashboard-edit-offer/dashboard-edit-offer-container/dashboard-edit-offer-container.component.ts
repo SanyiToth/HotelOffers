@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {OffersService} from "../../../../../shared/services/offers/offers.service";
 import {NewOffer} from "../../../../../shared/services/offers/offer.interface";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {NotificationService} from "../../../../../shared/services/notification/notification.service";
 
 
@@ -25,7 +25,8 @@ export class DashboardEditOfferContainerComponent implements OnInit {
 
   constructor(private offersService: OffersService,
               private route: ActivatedRoute,
-              private notificationService: NotificationService
+              private notificationService: NotificationService,
+              private router: Router
   ) {
   }
 
@@ -58,14 +59,17 @@ export class DashboardEditOfferContainerComponent implements OnInit {
       availableOffers: this.generalFormData.availableOffers,
       price: this.generalFormData.price,
       images: this.imagesData,
-      description: this.detailedFormData?.description,
-      tags: this.detailedFormData?.tags,
+      description: this.detailedFormData.description,
+      tags: this.detailedFormData.tags,
       provider: this.providerId
     }
     if (confirm('Are you sure to publish this data?')) {
       this.offersService.patchOffer(this.offerId, this.updatedOffer)
         .subscribe((resp) => {
           this.notificationService.open(`You have successfully updated this offer '${resp.heading}'!`)
+          setTimeout(() => {
+            this.router.navigate(['/dashboard/offers'])
+          }, 1000)
         }, error => {
           this.notificationService.open(error)
         });
