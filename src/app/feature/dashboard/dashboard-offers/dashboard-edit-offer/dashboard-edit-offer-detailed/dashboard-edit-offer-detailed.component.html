@@ -1,10 +1,9 @@
-
 <form [formGroup]="detailedFormGroup" class="extra-details">
   <mat-form-field>
     <mat-label>Offer detailed description</mat-label>
     <textarea matInput placeholder="Offer detailed description (max 300 characters)" formControlName="description"
               rows="8" cols="50" required></textarea>
-    <mat-error  *ngIf=" description?.invalid && description?.touched && description?.errors?.required">
+    <mat-error *ngIf=" description?.invalid && description?.touched && description?.errors?.required">
       Please fill offer detailed description!
     </mat-error>
     <mat-error *ngIf="description?.invalid && description?.touched &&  description?.errors?.maxlength">
@@ -28,14 +27,14 @@
       <input
         placeholder="New tag..."
         #tagsInput
-        [formControl]="tagCtrl"
+        formControlName="tags"
         [matAutocomplete]="autocompleteInput"
         [matChipInputFor]="chipList"
         [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
         (matChipInputTokenEnd)="addTag($event)">
     </mat-chip-list>
     <mat-autocomplete #autocompleteInput="matAutocomplete" (optionSelected)="selectedTag($event)">
-      <mat-option *ngFor="let tag of filteredTags | async" [value]="tag">
+      <mat-option *ngFor="let tag of allTags" [value]="tag">
         {{tag}}
       </mat-option>
     </mat-autocomplete>

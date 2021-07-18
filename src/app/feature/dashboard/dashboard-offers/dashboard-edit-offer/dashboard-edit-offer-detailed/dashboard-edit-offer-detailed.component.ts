@@ -23,10 +23,8 @@ export class DashboardEditOfferDetailedComponent implements OnInit {
   //mat-chip
   selectable = true;
   removable = true;
-  tagCtrl = new FormControl();
   separatorKeysCodes: number[] = [ENTER, COMMA];
-  filteredTags!: Observable<string[]>;
-  tagsArray!: string[];
+  tagsArray: string[] = [];
   allTags: string[] = environment.OFFER_EXTRAS
   offer: Offer = this.route.snapshot.data.offer;
   @Output() detailedFormDataToParent = new EventEmitter<any>();
@@ -38,12 +36,8 @@ export class DashboardEditOfferDetailedComponent implements OnInit {
   constructor(private fb: FormBuilder, private route: ActivatedRoute) {
     this.detailedFormGroup = this.fb.group({
       description: ['', [Validators.required, Validators.maxLength(this.DESCRIPTION_MAX_LENGTH)]],
-      tags: [['Wifi']]
+      tags: [null]
     });
-
-    this.filteredTags = this.tagCtrl.valueChanges.pipe(
-      startWith(null),
-      map((tag: string | null) => tag ? this._filter(tag) : this.allTags.slice()));
   }
 
   ngOnInit(): void {
@@ -52,10 +46,10 @@ export class DashboardEditOfferDetailedComponent implements OnInit {
       tags: this.offer.tags
     });
     this.tagsArray = this.tags?.value;
-
     this.detailedFormGroup.valueChanges
       .subscribe(() => {
-        this.detailedFormDataToParent.emit(this.detailedFormGroup.value)
+        if (this.tags?.value instanceof Array)
+          this.detailedFormDataToParent.emit(this.detailedFormGroup.value)
       })
   }
 
@@ -66,7 +60,7 @@ export class DashboardEditOfferDetailedComponent implements OnInit {
       this.tagsArray.push(value);
     }
     event.chipInput!.clear();
-    this.tagCtrl.setValue(null);
+    this.tags?.setValue(this.tagsArray);
   }
 
   removeTag(tag: string): void {
@@ -74,19 +68,14 @@ export class DashboardEditOfferDetailedComponent implements OnInit {
     if (index >= 0) {
       this.tagsArray.splice(index, 1);
     }
+    this.tags?.setValue(this.tagsArray);
   }
 
   selectedTag(event: MatAutocompleteSelectedEvent): void {
     this.tagsArray.push(event.option.viewValue);
     this.tagInput.nativeElement.value = '';
-    this.tagCtrl.setValue(null);
+    this.tags?.setValue(this.tagsArray);
   }
-
-  private _filter(value: string): string[] {
-    const filterValue = value.toLowerCase();
-    return this.allTags.filter(tag => tag.toLowerCase().indexOf(filterValue) === 0);
-  }
-
 
   get description(): AbstractControl | null {
     return this.detailedFormGroup.get('description');
