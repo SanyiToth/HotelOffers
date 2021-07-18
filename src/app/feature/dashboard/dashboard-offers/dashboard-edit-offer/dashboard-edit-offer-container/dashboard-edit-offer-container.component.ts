@@ -27,4 +27,9 @@ export class DashboardEditOfferContainerComponent implements OnInit {
     console.log('generalFormData', this.generalFormData);
 
   }
+
+  getDetailedFormData(detailedFormData: any) {
+    this.detailedFormData = detailedFormData;
+    console.log('detailedFormData', this.detailedFormData);
+  }
 }

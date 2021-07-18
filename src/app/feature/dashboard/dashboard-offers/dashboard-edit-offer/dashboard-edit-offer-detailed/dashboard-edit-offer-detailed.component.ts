@@ -1,4 +1,4 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild, EventEmitter, Output} from '@angular/core';
 import {AbstractControl, FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {COMMA, ENTER} from "@angular/cdk/keycodes";
 import {Observable} from "rxjs";
@@ -29,10 +29,11 @@ export class DashboardEditOfferDetailedComponent implements OnInit {
   tagsArray!: string[];
   allTags: string[] = environment.OFFER_EXTRAS
   offer: Offer = this.route.snapshot.data.offer;
-
+  @Output() detailedFormDataToParent = new EventEmitter<any>();
 
   @ViewChild('tagsInput') tagInput!: ElementRef<HTMLInputElement>;
   @ViewChild('autocompleteInput') matAutocomplete!: MatAutocomplete;
+
 
   constructor(private fb: FormBuilder, private route: ActivatedRoute) {
     this.detailedFormGroup = this.fb.group({
@@ -51,6 +52,11 @@ export class DashboardEditOfferDetailedComponent implements OnInit {
       tags: this.offer.tags
     });
     this.tagsArray = this.tags?.value;
+
+    this.detailedFormGroup.valueChanges
+      .subscribe(() => {
+        this.detailedFormDataToParent.emit(this.detailedFormGroup.value)
+      })
   }
 
   //Material Chip methods

@@ -11,7 +11,8 @@
       (generalFormDataToParent)="getGeneralFormData($event)"></app-dashboard-edit-offer-general>
   </mat-tab>
   <mat-tab label="Offer details">
-    <app-dashboard-edit-offer-detailed></app-dashboard-edit-offer-detailed>
+    <app-dashboard-edit-offer-detailed
+      (detailedFormDataToParent)="getDetailedFormData($event)"></app-dashboard-edit-offer-detailed>
   </mat-tab>
   <mat-tab label="Images"> Content 3</mat-tab>
   <mat-tab label="Orders"> Content 3</mat-tab>
