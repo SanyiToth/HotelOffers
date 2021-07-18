@@ -10,7 +10,7 @@ import {ActivatedRoute} from "@angular/router";
 @Component({
   selector: 'app-dashboard-edit-offer-detailed',
   templateUrl: './dashboard-edit-offer-detailed.component.html',
-  styleUrls: ['./dashboard-edit-offer-detailed.component.css']
+  styleUrls: ['./dashboard-edit-offer-detailed.component.scss']
 })
 export class DashboardEditOfferDetailedComponent implements OnInit {
 
