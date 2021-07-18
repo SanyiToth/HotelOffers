@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {OffersService} from "../../../../../shared/services/offers/offers.service";
 import {NewOffer} from "../../../../../shared/services/offers/offer.interface";
 import {ActivatedRoute} from "@angular/router";
+import {NotificationService} from "../../../../../shared/services/notification/notification.service";
 
 
 @Component({
@@ -23,7 +24,8 @@ export class DashboardEditOfferContainerComponent implements OnInit {
 
 
   constructor(private offersService: OffersService,
-              private route: ActivatedRoute
+              private route: ActivatedRoute,
+              private notificationService: NotificationService
   ) {
   }
 
@@ -62,7 +64,11 @@ export class DashboardEditOfferContainerComponent implements OnInit {
     }
     if (confirm('Are you sure to publish this data?')) {
       this.offersService.patchOffer(this.offerId, this.updatedOffer)
-        .subscribe(resp => console.log(resp));
+        .subscribe((resp) => {
+          this.notificationService.open(`You have successfully updated this offer '${resp.heading}'!`)
+        }, error => {
+          this.notificationService.open(error)
+        });
 
     }
   }
