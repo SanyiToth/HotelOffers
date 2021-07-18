@@ -1,1 +1,44 @@
-<p>dashboard-edit-offer-detailed works!</p>
+
+<form [formGroup]="detailedFormGroup" class="extra-details">
+  <mat-form-field>
+    <mat-label>Offer detailed description</mat-label>
+    <textarea matInput placeholder="Offer detailed description (max 300 characters)" formControlName="description"
+              rows="8" cols="50" required></textarea>
+    <mat-error  *ngIf=" description?.invalid && description?.touched && description?.errors?.required">
+      Please fill offer detailed description!
+    </mat-error>
+    <mat-error *ngIf="description?.invalid && description?.touched &&  description?.errors?.maxlength">
+      Detailed description should be max 300 characters!
+    </mat-error>
+  </mat-form-field>
+
+  <br>
+
+  <mat-form-field class="example-chip-list">
+    <mat-label>You can add a new tag to your offer (optional)</mat-label>
+    <mat-chip-list #chipList aria-label="Tag selection">
+      <mat-chip
+        *ngFor="let tag of tagsArray"
+        [selectable]="selectable"
+        [removable]="removable"
+        (removed)="removeTag(tag)">
+        {{tag}}
+        <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+      </mat-chip>
+      <input
+        placeholder="New tag..."
+        #tagsInput
+        [formControl]="tagCtrl"
+        [matAutocomplete]="autocompleteInput"
+        [matChipInputFor]="chipList"
+        [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+        (matChipInputTokenEnd)="addTag($event)">
+    </mat-chip-list>
+    <mat-autocomplete #autocompleteInput="matAutocomplete" (optionSelected)="selectedTag($event)">
+      <mat-option *ngFor="let tag of filteredTags | async" [value]="tag">
+        {{tag}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+
+</form>
