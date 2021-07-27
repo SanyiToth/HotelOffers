@@ -19,7 +19,7 @@ export class DashboardNewOfferFormComponent implements OnInit {
   secondFormGroup: FormGroup;
 
   //mat-stepper
-  isLinear = false;
+  isLinear = true;
 
   //firstFormGroup Validators Magic Numbers
   static readonly DETAILS_MAX_LENGTH = 300;
