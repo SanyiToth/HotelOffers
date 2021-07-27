@@ -4,9 +4,7 @@ import {COMMA, ENTER} from "@angular/cdk/keycodes";
 import {Observable} from "rxjs";
 import {environment} from "../../../../../../environments/environment";
 import {Image, NewOffer, Status} from "../../../../../shared/services/offers/offer.interface";
-import {ErrorMessage} from "@angular/compiler-cli/ngcc/src/execution/cluster/api";
 import {MatAutocomplete, MatAutocompleteSelectedEvent} from "@angular/material/autocomplete";
-import {CurrentProviderService} from "../../../current-provider.service";
 import {map, startWith} from "rxjs/operators";
 import {MatChipInputEvent} from "@angular/material/chips";
 
