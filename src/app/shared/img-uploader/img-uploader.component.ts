@@ -16,15 +16,15 @@ export class ImgUploaderComponent implements OnInit {
   @Output() imagesDataToParent = new EventEmitter<Image[]>();
   errorMessage!: ErrorMessage;
   newImageData!: Image;
-  uploadedImages: Image[];
+  uploadedImages: Image[] = [];
 
   constructor(private imgService: ImagesService,
               private notificationService: NotificationService,
               private route: ActivatedRoute) {
-    this.uploadedImages = this.route.snapshot.data.offer.images;
   }
 
   ngOnInit(): void {
+    this.uploadedImages = this.route.snapshot.data.offer?.images;
   }
 
   onUpload(event: any) {
